@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5d737e">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginEnd="230dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="215dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginEnd="213dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="106dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/but_four"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/four"
+        app:layout_constraintEnd_toEndOf="@+id/but_seven"
+        app:layout_constraintStart_toStartOf="@+id/but_seven"
+        app:layout_constraintTop_toBottomOf="@+id/but_seven" />
+
+    <Button
+        android:id="@+id/but_one"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/one"
+        app:layout_constraintEnd_toEndOf="@+id/but_seven"
+        app:layout_constraintStart_toStartOf="@+id/but_seven"
+        app:layout_constraintTop_toBottomOf="@+id/but_four" />
+
+    <Button
+        android:id="@+id/button_zero"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/zero"
+        app:layout_constraintEnd_toEndOf="@+id/but_seven"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/but_seven"
+        app:layout_constraintTop_toBottomOf="@+id/but_one" />
+
+    <Button
+        android:id="@+id/but_seven"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/seven"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    <Button
+        android:id="@+id/button_eight"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/eight"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintTop_toTopOf="@+id/but_seven" />
+
+    <Button
+        android:id="@+id/but_five"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/five"
+        app:layout_constraintEnd_toEndOf="@+id/button_eight"
+        app:layout_constraintStart_toStartOf="@+id/button_eight"
+        app:layout_constraintTop_toBottomOf="@+id/button_eight" />
+
+    <Button
+        android:id="@+id/but_two"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/two"
+        app:layout_constraintEnd_toEndOf="@+id/button_eight"
+        app:layout_constraintStart_toStartOf="@+id/button_eight"
+        app:layout_constraintTop_toBottomOf="@+id/but_five" />
+
+    <Button
+        android:id="@+id/button_dzero"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/dzero"
+        app:layout_constraintBottom_toBottomOf="@+id/button_zero"
+        app:layout_constraintEnd_toEndOf="@+id/button_eight"
+        app:layout_constraintStart_toStartOf="@+id/button_eight"
+        app:layout_constraintTop_toBottomOf="@+id/but_two" />
+
+    <Button
+        android:id="@+id/but_nine"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/nine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/but_seven" />
+
+    <Button
+        android:id="@+id/but_six"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/six"
+        app:layout_constraintEnd_toEndOf="@+id/but_nine"
+        app:layout_constraintStart_toStartOf="@+id/but_nine"
+        app:layout_constraintTop_toBottomOf="@+id/but_nine" />
+
+    <Button
+        android:id="@+id/but_three"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/three"
+        app:layout_constraintEnd_toEndOf="@+id/but_six"
+        app:layout_constraintStart_toStartOf="@+id/but_nine"
+        app:layout_constraintTop_toBottomOf="@+id/but_six" />
+
+    <Button
+        android:id="@+id/button_decimal"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#253031"
+        android:text="@string/decimal"
+        app:layout_constraintBottom_toBottomOf="@+id/button_zero"
+        app:layout_constraintEnd_toEndOf="@+id/but_three"
+        app:layout_constraintStart_toStartOf="@+id/but_nine"
+        app:layout_constraintTop_toBottomOf="@+id/but_three" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="0dp"
+        android:layout_height="243dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/valueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
+            android:padding="0dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#e4dfda"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="WEIGHT" />
+
+        <TextView
+            android:id="@+id/valueEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="#e4dfda"
+            android:ems="10"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal|end"
+            android:inputType="none"
+            android:lines="1"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:selectAllOnFocus="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#253031"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_value"
+            tools:text="sometext" />
+
+        <Spinner
+            android:id="@+id/spinner_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:dropDownWidth="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valueName" />
+
+        <Spinner
+            android:id="@+id/spinner_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:dropDownWidth="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valueEdit" />
+
+        <TextView
+            android:id="@+id/resultView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="#e4dfda"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="clip_vertical|end"
+            android:lines="1"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#253031"
+            app:layout_constraintEnd_toStartOf="@+id/clearButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_result"
+            tools:text="sometext" />
+
+        <Button
+            android:id="@+id/getResult"
+            style="@android:style/Widget.Holo.Button.Inset"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="#e4dfda"
+            android:drawablePadding="0dp"
+            android:text="@string/convert_button"
+            android:textColor="#253031"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+        <Button
+            android:id="@+id/clearButton"
+            style="@android:style/Widget.Holo.Button.Inset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#e4dfda"
+            android:text="@string/clear_button"
+            android:textColor="#253031"
+            app:layout_constraintBottom_toBottomOf="@+id/resultView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/resultView" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="202dp"
+            android:layout_marginEnd="209dp"
+            android:layout_marginBottom="346dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.50121653"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

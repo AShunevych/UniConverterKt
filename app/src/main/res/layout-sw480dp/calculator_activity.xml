@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5d737e">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcValue">
+
+        <Button
+            android:id="@+id/sqrRoot"
+            style="@android:style/Widget.Holo.Button.Small"
+            android:layout_width="100dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/square_root"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="√" />
+
+        <Button
+            android:id="@+id/sqr"
+            style="@android:style/Widget.Holo.Button.Small"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/Square"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sqrRoot"
+            app:layout_constraintStart_toEndOf="@+id/sqrRoot"
+            app:layout_constraintTop_toTopOf="@+id/sqrRoot"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="n² " />
+
+        <Button
+            android:id="@+id/cube"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="97dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/Exponent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sqr"
+            app:layout_constraintStart_toEndOf="@+id/sqr"
+            app:layout_constraintTop_toTopOf="@+id/sqr"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <Button
+            android:id="@+id/logButton"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/logStr"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cube"
+            app:layout_constraintStart_toEndOf="@+id/cube"
+            app:layout_constraintTop_toTopOf="@+id/cube" />
+
+        <Button
+            android:id="@+id/percentButton"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/percent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/logButton"
+            app:layout_constraintStart_toEndOf="@+id/logButton"
+            app:layout_constraintTop_toTopOf="@+id/logButton" />
+
+        <Button
+            android:id="@+id/clearCalcValue"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/clear"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/percentButton"
+            app:layout_constraintStart_toEndOf="@+id/percentButton"
+            app:layout_constraintTop_toTopOf="@+id/percentButton" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            style="@android:style/Widget.Holo.Button.Small"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/multiply"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/sqrRoot"
+            app:layout_constraintStart_toStartOf="@+id/sqrRoot"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:text="*" />
+
+        <Button
+            android:id="@+id/divideButton"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/divide"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/multiplyButton"
+            app:layout_constraintEnd_toEndOf="@+id/sqr"
+            app:layout_constraintStart_toStartOf="@+id/sqr"
+            app:layout_constraintTop_toTopOf="@+id/multiplyButton"
+            tools:text="÷" />
+
+        <Button
+            android:id="@+id/plusButton"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/plus"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/divideButton"
+            app:layout_constraintEnd_toEndOf="@+id/cube"
+            app:layout_constraintStart_toStartOf="@+id/cube"
+            app:layout_constraintTop_toTopOf="@+id/divideButton"
+            tools:text="+" />
+
+        <Button
+            android:id="@+id/minusButton"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/minus"
+            app:layout_constraintBottom_toBottomOf="@+id/plusButton"
+            app:layout_constraintEnd_toEndOf="@+id/logButton"
+            app:layout_constraintStart_toStartOf="@+id/logButton"
+            app:layout_constraintTop_toTopOf="@+id/plusButton"
+            tools:text="-" />
+
+        <Button
+            android:id="@+id/calculateResult"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/equal"
+            app:layout_constraintBottom_toBottomOf="@+id/minusButton"
+            app:layout_constraintEnd_toEndOf="@+id/percentButton"
+            app:layout_constraintStart_toStartOf="@+id/percentButton"
+            app:layout_constraintTop_toTopOf="@+id/minusButton" />
+
+        <Button
+            android:id="@+id/rightBracket"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="@string/rightBracket"
+            app:layout_constraintEnd_toEndOf="@+id/clearCalcValue"
+            app:layout_constraintStart_toStartOf="@+id/clearCalcValue"
+            app:layout_constraintTop_toTopOf="@+id/calculateResult" />
+
+        <Button
+            android:id="@+id/leftBracket"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/leftBracket"
+            app:layout_constraintBottom_toBottomOf="@+id/calculateResult"
+            app:layout_constraintEnd_toEndOf="@+id/rightBracket"
+            app:layout_constraintStart_toStartOf="@+id/rightBracket"
+            app:layout_constraintTop_toBottomOf="@+id/rightBracket" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/calcValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/result_text"
+        android:inputType="none"
+        android:lines="1"
+        android:padding="8dp"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#253031"
+        android:textDirection="ltr"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcResult" />
+
+    <TextView
+        android:id="@+id/calcResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/value_string"
+        android:inputType="none"
+        android:lines="1"
+        android:padding="8dp"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#253031"
+        android:textDirection="ltr"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/zero"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/zero"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/one"
+        app:layout_constraintStart_toStartOf="@+id/one"
+        app:layout_constraintTop_toBottomOf="@+id/one" />
+
+    <Button
+        android:id="@+id/one"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/one"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/four"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/four"
+        app:layout_constraintTop_toBottomOf="@+id/four" />
+
+    <Button
+        android:id="@+id/four"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/four"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/seven"
+        app:layout_constraintStart_toStartOf="@+id/seven"
+        app:layout_constraintTop_toBottomOf="@+id/seven" />
+
+    <Button
+        android:id="@+id/two"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#253031"
+        android:text="@string/two"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/one"
+        app:layout_constraintEnd_toEndOf="@+id/five"
+        app:layout_constraintStart_toStartOf="@+id/five"
+        app:layout_constraintTop_toTopOf="@+id/one" />
+
+    <Button
+        android:id="@+id/three"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#253031"
+        android:text="@string/three"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/six"
+        app:layout_constraintStart_toStartOf="@+id/six"
+        app:layout_constraintTop_toBottomOf="@+id/six" />
+
+    <Button
+        android:id="@+id/dzero"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#253031"
+        android:text="@string/dzero"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/zero"
+        app:layout_constraintEnd_toEndOf="@+id/two"
+        app:layout_constraintStart_toStartOf="@+id/two"
+        app:layout_constraintTop_toTopOf="@+id/zero" />
+
+    <Button
+        android:id="@+id/five"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#253031"
+        android:text="@string/five"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/four"
+        app:layout_constraintEnd_toEndOf="@+id/eight"
+        app:layout_constraintStart_toStartOf="@+id/eight"
+        app:layout_constraintTop_toTopOf="@+id/four" />
+
+    <Button
+        android:id="@+id/six"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#253031"
+        android:text="@string/six"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/five"
+        app:layout_constraintEnd_toEndOf="@+id/nine"
+        app:layout_constraintStart_toStartOf="@+id/nine"
+        app:layout_constraintTop_toTopOf="@+id/five" />
+
+    <Button
+        android:id="@+id/decimal"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#253031"
+        android:text="@string/decimal"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dzero"
+        app:layout_constraintEnd_toEndOf="@+id/three"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/three"
+        app:layout_constraintTop_toTopOf="@+id/dzero"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/seven"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#253031"
+        android:text="@string/seven"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+    <Button
+        android:id="@+id/eight"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#253031"
+        android:text="@string/eight"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seven"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/seven"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/nine"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#253031"
+        android:text="@string/nine"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/eight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline17"
+        app:layout_constraintTop_toTopOf="@+id/eight" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginEnd="230dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="264dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="545dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

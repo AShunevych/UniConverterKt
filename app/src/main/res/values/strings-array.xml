@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="weight">
+        <item>Milligram/mg</item>
+        <item>Gram/g</item>
+        <item>Kilogram/kg</item>
+        <item>Tonne/t</item>
+        <item>Grain/gr</item>\
+        <item>Ounce/oz</item>
+        <item>Pound/lb </item>
+        <item>Hundreweight/hw </item>
+        <item>Ton(long)/tl </item>
+    </string-array>
+
+    <string-array name="length">
+        <item>Millimetre/mm</item>
+        <item>Centimetre/sm</item>
+        <item>Metre/m</item>
+        <item>Kilometre/km</item>
+        <item>Inch/in</item>
+        <item>Foot/ft</item>
+        <item>Yard/yd</item>
+        <item>Mile/mi</item>
+    </string-array>
+
+    <string-array name="temperature_array">
+        <item>Celsius/°C</item>
+        <item>Kelvin/°K</item>
+        <item>Rankine/°R</item>
+        <item>Fahrenheit/°F</item>
+        <item>Reaumur/°R</item>
+    </string-array>
+
+    <string-array name="area">
+        <item>Square millimeter/mm²</item>
+        <item>Square centimeter/cm²</item>
+        <item>Square meter/м²</item>
+        <item>Square kilometer/km²</item>
+        <item>Hectare/ha</item>
+        <item>Square mile/mi²</item>
+        <item>Square yard/yd²</item>
+        <item>Square feet/ft²</item>
+        <item>Square inch/in²</item>
+        <item>Acre/ac</item>
+    </string-array>
+
+    <string-array name="time_array">
+        <item>Seconds</item>
+        <item>Minutes</item>
+        <item>Hour</item>
+        <item>Day</item>
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <string-array name="volume">
+        <item>Cubic millimetre/mm³</item>
+        <item>Cubic centimetre/cm³</item>
+        <item>Cubic metre/m³</item>
+        <item>Milliliter/ml</item>
+        <item>Liter/L</item>
+        <item>Fluid ounce/fl oz</item>
+        <item>Barrel(UK)/bbl(UK)</item>
+        <item>Gill/gi</item>
+        <item>Pint/pt</item>
+        <item>Quart/qt</item>
+        <item>Gallon/gal</item>
+    </string-array>
+
+    <string-array name="force">
+        <item>Mlilinewton/mN</item>
+        <item>Newton/N</item>
+        <item>Kilonewton/kN</item>
+        <item>Ton-force(metric)/tf</item>
+        <item>Gram-force/gf</item>
+        <item>Kilogram-force/kgf</item>
+        <item>Pond/p</item>
+        <item>Pound-force/lbf</item>
+        <item>Ounce-force/ozf</item>
+        <item>Ton-force (long)/tonf</item>
+        <item>Poundal/pdl</item>
+    </string-array>
+
+    <string-array name="speed">
+        <item>Meter/second[m/s]</item>
+        <item>Meter/hour[m/h]</item>
+        <item>Kilometer/second[km/s]</item>
+        <item>Kilometer/hour[km/h]</item>
+        <item>Foot/second[m/s]</item>
+        <item>Foot/hour[m/h]</item>
+        <item>Mile/hour[mi/h]</item>
+        <item>Knot/kt</item>
+    </string-array>
+
+
+    <string-array name="currency">
+        <item>United States Dollar/USD</item>
+        <item>Great Britain Pound/GBP</item>
+        <item>Indonesian rupiah/IPR</item>
+        <item>Polish złoty/PLN</item>
+        <item>New Zealand dollar/NZD</item>
+        <item>Russian Ruble/RUB</item>
+    </string-array>
+
+</resources>
