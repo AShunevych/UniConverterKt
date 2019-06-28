@@ -47,7 +47,7 @@ public class CalculatorActivity extends AppCompatActivity {
             R.id.zero,R.id.rightBracket,R.id.leftBracket,
             R.id.calculateResult,R.id.logButton,R.id.percentButton,
             R.id.minusButton,R.id.plusButton,R.id.divideButton,R.id.multiplyButton,
-            R.id.sqrRoot,R.id.sqr,R.id.cube})
+            R.id.sqrRoot,R.id.sqr,R.id.pov})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             //numbers buttons
@@ -81,7 +81,7 @@ public class CalculatorActivity extends AppCompatActivity {
             case R.id.minusButton:
                 readAndSetText(getResources().getString(R.string.minus));break;
             case R.id.divideButton:
-                readAndSetText(getResources().getString(R.string.divide));break;
+                readAndSetText(getResources().getString(R.string.divide_symbol));break;
             case R.id.multiplyButton:
                 readAndSetText(getResources().getString(R.string.multiply));break;
             case R.id.calculateResult:
@@ -90,7 +90,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 clearText();break;
             case R.id.logButton:
                 readAndSetText(getResources().getString(R.string.logStr));break;
-            case R.id.cube:
+            case R.id.pov:
                 readAndSetText(getResources().getString(R.string.Exponent));break;
             case R.id.sqr:
                 readAndSetText(getResources().getString(R.string.Square));break;
@@ -102,7 +102,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 readAndSetText((getResources().getString(R.string.leftBracket)));break;
             case R.id.rightBracket:
             readAndSetText((getResources().getString(R.string.rightBracket)));break;
-
         }
     }
 

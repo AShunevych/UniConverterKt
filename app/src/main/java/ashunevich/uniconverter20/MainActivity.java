@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.temp_button, R.id.area_button, R.id.length_button, R.id.speed_button,
             R.id.time_button, R.id.volume_button, R.id.currency_button, R.id.mass_button,
-            R.id.calculator_button, R.id.force_button,R.id.info_button})
+            R.id.calculator_button, R.id.force_button,R.id.info_button,R.id.sphere_button})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.temp_button:
@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.info_button:
                 Intent infoIntent = new Intent(MainActivity.this,info.class);
                 startActivity(infoIntent);
+                break;
+            case R.id.sphere_button:
+                Intent sphereIntent = new Intent(MainActivity.this,SphereActivity.class);
+                sphereIntent.putExtra("getName",getResources().getString(R.string.circleSphere_button));
+                startActivity(sphereIntent);
                 break;
         }
     }

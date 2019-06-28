@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">UniConverter 2.0</string>
-
+    <string name="app_name">UniConverter</string>
 
     <!-- Navigate strings -->
     <string name="mass_button">Weight</string>
@@ -13,17 +12,14 @@
     <string name="calculator_button">Calculator</string>
     <string name="currency_button">Currency</string>
     <string name="speed_button">Speed</string>
-    <!-- /Navigate strings -->
+    <string name="info_button">Info</string>
+    <string name="circleSphere_button">Circle/Sphere </string>
+    <!-- Navigate strings -->
 
-    <string name="search">Search</string>
-    <string name="from_convert">Convert from</string>
-    <string name="to_convert">Convert to</string>
-    <string name="convert_button">Convert</string>
+    <string name="switchKeyboard">Keyboard</string>
     <string name="clear_button">Clear</string>
-    <string name="result_text">Result</string>
-    <string name="value_string">Value</string>
 
-
+    <!-- Numbers buttons strings -->
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
@@ -36,16 +32,16 @@
     <string name="zero">0</string>
     <string name="dzero">00</string>
     <string name="decimal">.</string>
-
+    <!-- Numbers buttons strings -->
 
     <string name="multiply">*</string>
     <string name="divide">÷</string>
+    <string name="divide_symbol">/</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="equal">=</string>
     <string name="square_root">√</string>
     <string name="Square">n²</string>
-
     <string name="Exponent">^</string>
     <string name="logStr">log</string>
     <string name="percent">%</string>
@@ -53,11 +49,23 @@
     <string name="rightBracket">)</string>
     <string name="leftBracket">(</string>
 
+    <string name="cir">CIRCLE</string>
+    <string name="sph">SPHERE</string>
+    <string name="hemi">HEMI-SPHERE</string>
+
 
     <string name="info2">Currency API provided by </string>
     <string name="calc_info">Calculator parser provided by </string>
 
+    <string name="param">Parameter</string>
+    <string name="radius">Radius</string>
+    <string name="diam">Diameter</string>
+    <string name="circ">Circumference</string>
+    <string name="sq">Area</string>
+    <string name="volumesph">Volume</string>
 
+    <string name="top2">²</string>
+    <string name="top3">³</string>
 
 </resources>
 

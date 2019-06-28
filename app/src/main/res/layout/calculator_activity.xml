@@ -42,7 +42,7 @@
             tools:text="n² " />
 
         <Button
-            android:id="@+id/cube"
+            android:id="@+id/pov"
             style="@android:style/Widget.Holo.Button"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -67,7 +67,7 @@
             android:layout_marginStart="3dp"
             android:text="@string/logStr"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintStart_toEndOf="@+id/cube"
+            app:layout_constraintStart_toEndOf="@+id/pov"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -124,8 +124,8 @@
             android:layout_height="0dp"
             android:text="@string/plus"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cube"
-            app:layout_constraintStart_toStartOf="@+id/cube"
+            app:layout_constraintEnd_toEndOf="@+id/pov"
+            app:layout_constraintStart_toStartOf="@+id/pov"
             app:layout_constraintTop_toTopOf="@+id/divideButton"
             tools:text="+" />
 

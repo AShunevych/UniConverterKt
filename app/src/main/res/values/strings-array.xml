@@ -68,6 +68,15 @@
         <item>Gallon/gal</item>
     </string-array>
 
+    <string-array name="valuess">
+        <item>mm</item>
+        <item>cm</item>
+        <item>m</item>
+        <item>yd</item>
+        <item>ft</item>
+        <item>inch</item>
+    </string-array>
+
     <string-array name="force">
         <item>Mlilinewton/mN</item>
         <item>Newton/N</item>
@@ -92,6 +101,16 @@
         <item>Mile/hour[mi/h]</item>
         <item>Knot/kt</item>
     </string-array>
+
+     <string-array name="circlesAndSpheres">
+         <item>Radius</item>
+        <item>Diameter</item>
+        <item>Circumference</item>
+         <item>Area</item>
+         <item>Spherical area</item>
+         <item>Spherical Volume</item>
+     </string-array>
+
 
 
     <string-array name="currency">

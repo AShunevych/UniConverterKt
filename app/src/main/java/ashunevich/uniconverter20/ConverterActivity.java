@@ -1,14 +1,23 @@
 package ashunevich.uniconverter20;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,11 +44,14 @@ public class ConverterActivity  extends AppCompatActivity {
     @BindView(R.id.spinner_result)
     Spinner spinnerResult;
     @BindView(R.id.valueEdit)
-    TextView valueEdit;
+    EditText valueEdit;
     @BindView(R.id.resultView)
     TextView resultView;
     @BindView(R.id.valueName)
     TextView valueName;
+    //TODO (1) Cделать свитч
+  @BindView(R.id.keybordswtich)
+    Switch keySwitch;
 
 
     protected double getEnteredValue;
@@ -50,6 +62,7 @@ public class ConverterActivity  extends AppCompatActivity {
     private String SAVED_INTENT_NAME = "intentName";
     private final String SAVED_VALUE = "savedValue";
     private final String SAVED_RESULT = "saveResult";
+    Toast keyboardToast;
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
@@ -58,7 +71,6 @@ public class ConverterActivity  extends AppCompatActivity {
         savedInstanceState.putString(SAVED_RESULT,resultView.getText().toString());
         super.onSaveInstanceState(savedInstanceState);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +110,9 @@ public class ConverterActivity  extends AppCompatActivity {
                 android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.force));
         setSpinnersAdapters(spinnerValue, spinnerResult);
+        setSpinnerListener();
+        initializeSwitch();
+        addTextWatcher();
 
     }
 
@@ -109,52 +124,59 @@ public class ConverterActivity  extends AppCompatActivity {
         setSpinnersAdapters(spinnerValue,spinnerResult);
         super.onRestoreInstanceState(savedInstanceState);
     }
+//Bakemonogatari
 
     @OnClick({R.id.button_decimal, R.id.but_one, R.id.but_two, R.id.but_three,
             R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
-            R.id.button_eight, R.id.button_zero,R.id.but_nine, R.id.button_dzero, R.id.clearButton,
-            R.id.getResult})
+            R.id.button_eight, R.id.button_zero,R.id.but_nine, R.id.button_dzero, R.id.clearButton})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.but_one:
-                readAndSetText("1");break;
+                setDoubleForConvert("1");break;
             case R.id.but_two:
-                readAndSetText("2");break;
+                setDoubleForConvert("2");break;
             case R.id.but_three:
-                readAndSetText("3");break;
+                setDoubleForConvert("3");break;
             case R.id.but_four:
-                readAndSetText("4");break;
+                setDoubleForConvert("4");break;
             case R.id.but_five:
-                readAndSetText("5");break;
+                setDoubleForConvert("5");break;
             case R.id.but_six:
-                readAndSetText("6");break;
+                setDoubleForConvert("6");break;
             case R.id.but_seven:
-                readAndSetText("7");break;
+                setDoubleForConvert("7");break;
             case R.id.button_eight:
-                readAndSetText("8");break;
+                setDoubleForConvert("8");break;
             case R.id.but_nine:
-                readAndSetText("9");break;
+                setDoubleForConvert("9");break;
             case R.id.button_zero:
-                readAndSetText("0");break;
+                setDoubleForConvert("0");break;
             case R.id.button_dzero:
-                readAndSetText("00");break;
+                setDoubleForConvert("00");break;
             case R.id.button_decimal:
-                readAndSetText(".");break;
+                setDoubleForConvert(".");break;
             case R.id.clearButton:
-                resultView.setText("");valueEdit.setText("");break;
-            case R.id.getResult:
-                getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-                getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-                getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
-
-                if (valueName.getText().toString().equals(getResources().getString(R.string.currency_button))){
-                    convertCurrecyData(getValueSpinnerFrom,getValueSpinnerTo,getEnteredValue,resultView);
-            }
-            else {
-                    ConverterAdapter.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
-                }break;
+                clear();break;
         }
+    }
 
+    private void initializeSwitch(){
+
+        keySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                 if(isChecked){
+                     valueEdit.setEnabled(false);
+                        showToast("ON");
+                 }
+                 else{
+                     valueEdit.setEnabled(true);
+                     showToast("OFF");
+                 }
+                }
+
+        });
     }
 
     private void setSpinnersAdapters(Spinner spinnerValue, Spinner spinnerResult) {
@@ -202,10 +224,62 @@ public class ConverterActivity  extends AppCompatActivity {
 
     }
 
-    private void readAndSetText(String toSet) {
-        String readText = valueEdit.getText().toString();
-        String stringToSet = readText + toSet;
-        valueEdit.setText(stringToSet);
+
+    private void setDoubleForConvert(String toSet) {
+        valueEdit.append(String.valueOf(toSet));
+    }
+
+    private void setSpinnerListener(){
+        spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                convertValues();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+
+        });
+
+        spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                    convertValues();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }});
+
+    }
+
+    private void addTextWatcher() {
+
+        valueEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                convertValues();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+            }
+        });
+    }
+
+
+
+    private void clear(){
+        valueEdit.setText("");
+        resultView.setText("");
     }
 
 
@@ -254,6 +328,20 @@ public class ConverterActivity  extends AppCompatActivity {
         queue.add(jsonObjReq);
     }
 
+    private void convertValues() {
+       if (TextUtils.isEmpty(valueEdit.getText().toString())) {
+       } else {
+           getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
+           getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
+           getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
+            if (valueName.getText().toString().equals("Currency")) {
+                convertCurrecyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+            } else {
+                ConverterAdapter.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+            }
+        }
+    }
+
     private void convertCurrecyData(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView){
             txtFromSpinner1 = spinnerValue.getSelectedItem().toString();
             txtFromSpinner2 = spinnerResult.getSelectedItem().toString();
@@ -261,11 +349,26 @@ public class ConverterActivity  extends AppCompatActivity {
             try{
                 double initRate = Double.valueOf(hm.get(txtFromSpinner1));
                 double targetRate = Double.valueOf(hm.get(txtFromSpinner2));
-                String resultFinal = String.valueOf(String.format("%.2f", ((targetRate * enteredValue) / initRate)));
+                String resultFinal = String.valueOf((targetRate * enteredValue) / initRate);
                 resultView.setText(resultFinal);
             }
             catch (Exception e){
                 Log.d(" Exception","exeption catched") ;
             }
+    }
+
+    private void showToast(String status){
+
+        switch (status){
+            case "ON":
+                keyboardToast = Toast.makeText(this,"Keyboard only",Toast.LENGTH_SHORT);
+                keyboardToast.show();
+                break;
+            case "OFF":
+                keyboardToast = Toast.makeText(this,"Keyboard+Manual",Toast.LENGTH_SHORT);
+                keyboardToast.show();
+                break;
+        }
+
     }
 }
