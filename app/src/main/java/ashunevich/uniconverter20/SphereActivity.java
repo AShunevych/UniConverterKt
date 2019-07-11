@@ -6,13 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,15 +45,21 @@ public class SphereActivity extends AppCompatActivity {
     @BindView(R.id.volumeSID) TextView volumeSID;
     @BindView(R.id.volumehsID) TextView volumehsID;
 
-    //TODO (2)добавить единицы измерения
-    //TODO (3)переделать layout
-
-
     protected ArrayAdapter<String> dataParam, valParam;
-    protected String SPINNER_STRING,VAL_SPINNER_STRING;
+    protected String SPINNER_STRING,VAL_SPINNER_STRING ,
+            SAVED_VALUE,SAVED_VALUE_SPINNER,SAVED_VALUE_PARAM,
+            SAVED_LOCALE_PARAM, sDefSystemLanguage;
     protected double getEnteredValue;
 
 
+    @Override
+    protected void onSaveInstanceState (Bundle savedInstanceState){
+        savedInstanceState.putDouble(SAVED_VALUE,Double.valueOf(value.getText().toString()));
+        savedInstanceState.putInt(SAVED_VALUE_SPINNER,sphereSpinner.getSelectedItemPosition());
+        savedInstanceState.putInt(SAVED_VALUE_PARAM,valSpinner.getSelectedItemPosition());
+        savedInstanceState.putString(SAVED_LOCALE_PARAM,sDefSystemLanguage);
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +68,7 @@ public class SphereActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Intent intent = getIntent();
         String GET_NAME = intent.getStringExtra("getName");
+        sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
         valueName.setText(GET_NAME);
         dataParam = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item,
@@ -80,11 +91,20 @@ public class SphereActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+            value.setText(String.valueOf(savedInstanceState.getDouble(SAVED_VALUE)));
+            sphereSpinner.setSelection(savedInstanceState.getInt(SAVED_VALUE_SPINNER));
+            valSpinner.setSelection(savedInstanceState.getInt(SAVED_VALUE_PARAM));
+            sDefSystemLanguage = savedInstanceState.getString(SAVED_LOCALE_PARAM);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+
     private void valSpinnerListener(){
         valSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-
                 VAL_SPINNER_STRING = valSpinner.getSelectedItem().toString();
                 if(VAL_SPINNER_STRING.equals(areaID.getText().toString())){
                     setValuesAccViews(VAL_SPINNER_STRING);
@@ -111,10 +131,7 @@ public class SphereActivity extends AppCompatActivity {
                     clear();
                 }
                 else {
-                    getEnteredValue = Double.parseDouble(value.getText().toString());
-                    SPINNER_STRING = sphereSpinner.getSelectedItem().toString();
-                    SphereAdapter.findParam(getEnteredValue,SPINNER_STRING, circleArea, circleDiameter,  circleCirc,  circleRad, sphereArea, sphereVolume,
-                            hemiArea,  hemiVolume);
+                    convertValues();
                 }
             }
             @Override
@@ -135,10 +152,7 @@ public class SphereActivity extends AppCompatActivity {
                     clear();
                 }
                 else {
-                    getEnteredValue = Double.parseDouble(value.getText().toString());
-                    SPINNER_STRING = sphereSpinner.getSelectedItem().toString();
-                    SphereAdapter.findParam(getEnteredValue,SPINNER_STRING, circleArea, circleDiameter,  circleCirc,  circleRad, sphereArea, sphereVolume,
-                            hemiArea,  hemiVolume);
+                    convertValues();
                 }
             }
 
@@ -157,9 +171,6 @@ public class SphereActivity extends AppCompatActivity {
         });
     }
 
-    public void auxSpinnerWatcher(){
-
-    }
 
     private void clear (){
         circleRad.setText("");
@@ -187,6 +198,37 @@ public class SphereActivity extends AppCompatActivity {
             volumehsID.setText(String.valueOf(string+three));
     }
 
+    private void convertValues() {
+        switch (sDefSystemLanguage) {
+           //"русский"
+            //"українська"
+            case "русский":
+                if (TextUtils.isEmpty(value.getText().toString())) {
+                    Log.d("Value:","Empty");
+                    clear();
+                }
+                else {
+                    getEnteredValue = Double.parseDouble(value.getText().toString());
+                    SPINNER_STRING = sphereSpinner.getSelectedItem().toString();
+                    SphereAdapter_ukr.findParam(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
+                            hemiArea, hemiVolume);
+                }
+                break;
+            case "English":
+                if (TextUtils.isEmpty(value.getText().toString())) {
+                    Log.d("Value:","Empty");
+                }
+                else {
+                    getEnteredValue = Double.parseDouble(value.getText().toString());
+                    SPINNER_STRING = sphereSpinner.getSelectedItem().toString();
+                    SphereAdapter.findParam(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
+                            hemiArea, hemiVolume);
+                    break;
+                }
+        }
+    }
+    }
 
 
-}
+
+

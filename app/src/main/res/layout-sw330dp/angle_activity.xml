@@ -470,7 +470,7 @@
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#253031"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circleArea"
         app:layout_constraintEnd_toEndOf="@+id/valueEdit"
         app:layout_constraintStart_toEndOf="@+id/circleArea"

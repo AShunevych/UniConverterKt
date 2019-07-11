@@ -17,7 +17,7 @@
     <string name="circleSphere_button">Круг/Сфера </string>
     <!-- Navigate strings -->
 
-    <string name="switchKeyboard">Клавіатура </string>
+    <string name="switchKeyboard">Клавіатура</string>
     <string name="clear_button">Очистити</string>
 
     <!-- Numbers buttons strings -->
@@ -72,9 +72,8 @@
     <string name="keyboardOn">Режим вводу:Клавіатура та кнопки</string>
     <string name="keyboardOff">Режим вводу:Клавіатура</string>
 
-
     <string name="SdiencelDec">MEp→Десятковий </string>
-    <string name="DecScience">Десятковий →MEp</string>
+    <string name="DecScience">Десятковий→MEp</string>
     <string name="eplus">e+</string>
     <string name="eminus">e-</string>
     <string name="about">Інформація</string>

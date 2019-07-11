@@ -12,7 +12,7 @@
     <string name="calculator_button">Calculator</string>
     <string name="currency_button">Currency</string>
     <string name="speed_button">Speed</string>
-    <string name="info_button">Info</string>
+    <string name="decScienceButton">E-notation/Decimal</string>
     <string name="circleSphere_button">Circle/Sphere </string>
     <!-- Navigate strings -->
 
@@ -54,7 +54,8 @@
     <string name="hemi">HEMI-SPHERE</string>
 
 
-    <string name="info2">Currency API provided by </string>
+
+    <string name="api_info">Currency API provided by </string>
     <string name="calc_info">Calculator parser provided by </string>
 
     <string name="param">Parameter</string>
@@ -66,6 +67,22 @@
 
     <string name="top2">²</string>
     <string name="top3">³</string>
+
+    <string name="toastMessage">Enter value</string>
+    <string name="keyboardOn">Keyboard + buttons</string>
+    <string name="keyboardOff">Keyboard only</string>
+
+    <string name="SdiencelDec">E-notation→Decimal</string>
+    <string name="DecScience">Decimal→E-notation </string>
+    <string name="eplus">e+</string>
+    <string name="eminus">e-</string>
+    <string name="about">About</string>
+
+    <string name="theme">Theme</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="Version">Version:</string>
 
 </resources>
 

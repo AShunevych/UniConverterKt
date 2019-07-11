@@ -28,7 +28,6 @@
         <item>Kelvin/°K</item>
         <item>Rankine/°R</item>
         <item>Fahrenheit/°F</item>
-        <item>Reaumur/°R</item>
     </string-array>
 
     <string-array name="area">
@@ -121,5 +120,11 @@
         <item>New Zealand dollar/NZD</item>
         <item>Russian Ruble/RUB</item>
     </string-array>
+
+    <string-array name="theme">
+        <item>Default</item>
+        <item>Alternative</item>
+    </string-array>
+
 
 </resources>

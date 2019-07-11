@@ -55,13 +55,13 @@
         android:drawableTop="@drawable/circle_55"
         android:text="@string/circleSphere_button"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/info_button"
+        app:layout_constraintBottom_toBottomOf="@+id/decScience_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/info_button" />
+        app:layout_constraintTop_toTopOf="@+id/decScience_button" />
 
     <Button
-        android:id="@+id/info_button"
+        android:id="@+id/decScience_button"
         style="@android:style/Widget.Button.Small"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -70,8 +70,8 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#ffffff"
-        android:drawableTop="@drawable/info_55"
-        android:text="@string/info_button"
+        android:drawableTop="@drawable/dec_science_55_alt"
+        android:text="@string/decScienceButton"
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/temp_55"

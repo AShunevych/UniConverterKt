@@ -114,7 +114,7 @@
 
     <string-array name="currency">
         <item>Доллар США/USD</item>
-        <item>Великобританський фунт/GBP</item>
+        <item>Фунт (ВБ)/GBP</item>
         <item>Індозенійська Рупія/IPR</item>
         <item>Польский Злотий/PLN</item>
         <item>Доллар НЗ/NZD</item>

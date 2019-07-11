@@ -1,12 +1,10 @@
 package ashunevich.uniconverter20;
 
 
-import android.util.Log;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.HashMap;
+
 
 public abstract class ConverterAdapter extends ConverterActivity {
     public ConverterAdapter(TextView resultView){
@@ -14,7 +12,10 @@ public abstract class ConverterAdapter extends ConverterActivity {
     }
 
     public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
-        NumberFormat formatter = new DecimalFormat("###.##############");
+        final double NineDivFive = 9.0/5.0;
+        final double FiveDivNine = 5.0/9.0;
+
+        NumberFormat formatter = new DecimalFormat("#.########################");
                                                             //0.0000000000003861021585
         switch (txtFromSpinner1) {
             //area
@@ -154,7 +155,7 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
                     case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
                     case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 //force
             case "Mlilinewton/mN":
@@ -577,6 +578,19 @@ public abstract class ConverterAdapter extends ConverterActivity {
 
                 }
                 break;
+            case "Kilometer/hour[km/h]":
+                switch (txtFromSpinner2) {
+                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
+                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Kilometer/second[km/s]":      //check here
+                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
+                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
+                }
+                break;
             case "Foot/second[m/s]":
                 switch (txtFromSpinner2) {
                     case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
@@ -588,7 +602,6 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
-
                 }
                 break;
             case "Foot/hour[m/h]":
@@ -597,7 +610,6 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
-
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
                     case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
                     case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
@@ -630,10 +642,8 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-
                     case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
                     case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
-
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
@@ -641,47 +651,33 @@ public abstract class ConverterAdapter extends ConverterActivity {
             case "Celsius/°C":
                 switch (txtFromSpinner2) {
                     case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue * 33.8)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue * 274.15)));break;
-                    case "Reaumur/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 493.47)));break;
+                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +32)));break;
+                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
+                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +491.76)));break;
                 }
                 break;
             case "Kelvin/°K":
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue*-17.22)));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue * 255.9277)));break;
+                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
+                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
                     case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Reaumur/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * -13.77)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 460.67)));break;
-                }
-                break;
-            case "Reaumur/°R" :
-                switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue*1.25)));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue*34.25)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue * 274.4)));break;
-                    case "Reaumur/°R":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 493.92)));break;
-
+                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
                 }
                 break;
             case "Rankine/°R"  :
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue*-272.59)));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue*-458.67)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue*0.55)));break;
-                    case "Reaumur/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * -218.07)));break;
+                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
+                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;//here
+                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
                     case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
             case "Fahrenheit/°F" :
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue*-17.22)));break;
+                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
                     case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue * 255.92)));break;
-                    case "Reaumur/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * -13.77)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 460.67)));break;
+                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
+                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Seconds":
                 switch (txtFromSpinner2) {
