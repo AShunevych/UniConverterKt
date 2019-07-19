@@ -15,7 +15,7 @@ public abstract class ConverterAdapter extends ConverterActivity {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
 
-        NumberFormat formatter = new DecimalFormat("#.########################");
+        NumberFormat formatter = new DecimalFormat("###.########################");
                                                             //0.0000000000003861021585
         switch (txtFromSpinner1) {
             //area
@@ -896,7 +896,7 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
                     case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
                     case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*4.54609)));break;
+                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
                     case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
                     case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
                     case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
@@ -904,6 +904,7 @@ public abstract class ConverterAdapter extends ConverterActivity {
                     case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
                 }
+                break;
             case "Barrel(UK)/bbl(UK)":
                 switch (txtFromSpinner2) {
                     case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;

@@ -13,7 +13,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
     }
 
     public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
-        NumberFormat formatter = new DecimalFormat("#.########################");
+        NumberFormat formatter = new DecimalFormat("###.########################");
                                                             //0.0000000000003861021585
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
@@ -892,7 +892,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
                     case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
                     case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*4.54609)));break;
+                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
                     case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
                     case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
@@ -900,6 +900,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
                 }
+                break;
             case "БаррельUK)/б(UK)":
                 switch (txtFromSpinner2) {
                     case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
