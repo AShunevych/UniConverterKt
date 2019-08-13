@@ -2,7 +2,11 @@ package ashunevich.uniconverter20;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.mariuszgromada.math.mxparser.*;
@@ -27,6 +31,8 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
 
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,11 @@ public class CalculatorActivity extends AppCompatActivity {
         resultSet.setText(savedInstanceState.getString(RESULT_STRING));
         super.onRestoreInstanceState(savedInstanceState);
     }
+
+
+
+
+
     @OnClick({R.id.decimal, R.id.one, R.id.two, R.id.three,
             R.id.four, R.id.five, R.id.six, R.id.seven,
             R.id.eight, R.id.nine, R.id.dzero,R.id.clearCalcValue,

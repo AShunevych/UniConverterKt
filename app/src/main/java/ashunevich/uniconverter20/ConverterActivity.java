@@ -7,6 +7,8 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,8 +50,7 @@ public class ConverterActivity  extends AppCompatActivity {
     TextView resultView;
     @BindView(R.id.valueName)
     TextView valueName;
-  @BindView(R.id.keybordswtich)
-    Switch keySwitch;
+    Switch switcher;
 
 
     protected double getEnteredValue;
@@ -112,7 +113,6 @@ public class ConverterActivity  extends AppCompatActivity {
                 getResources().getStringArray(R.array.force));
         setSpinnersAdapters(spinnerValue, spinnerResult);
         setSpinnerListener();
-        initializeSwitch();
         addTextWatcher();
 
     }
@@ -126,6 +126,26 @@ public class ConverterActivity  extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 //Bakemonogatari
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.switch_bar, menu);
+        switcher = menu.findItem(R.id.key_switch)
+                .getActionView().findViewById(R.id.switch_Keyboard);
+        switcher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    valueEdit.setEnabled(false);
+                    showToast("ON");
+                } else {
+                    valueEdit.setEnabled(true);
+                    showToast("OFF");
+                }
+            }
+        });
+        return true;
+    }
 
     @OnClick({R.id.button_decimal, R.id.but_one, R.id.but_two, R.id.but_three,
             R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
@@ -159,25 +179,6 @@ public class ConverterActivity  extends AppCompatActivity {
             case R.id.clearButton:
                 clear();break;
         }
-    }
-
-    private void initializeSwitch(){
-
-        keySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-
-                 if(isChecked){
-                     valueEdit.setEnabled(false);
-                        showToast("ON");
-                 }
-                 else{
-                     valueEdit.setEnabled(true);
-                     showToast("OFF");
-                 }
-                }
-
-        });
     }
 
     private void setSpinnersAdapters(Spinner spinnerValue, Spinner spinnerResult) {
@@ -295,7 +296,7 @@ public class ConverterActivity  extends AppCompatActivity {
                     switch (sDefSystemLanguage) {
                         //"русский"
                         //"українська"
-                        case "українська":
+                        case "русский":
                             String USD_UKR = phone.getString("USD");
                             String GBP_UKR = phone.getString("GBP");
                             String IDR_UKR = phone.getString("IDR");
@@ -348,7 +349,7 @@ public class ConverterActivity  extends AppCompatActivity {
            switch (sDefSystemLanguage){
                //"русский"
                //"українська"
-               case "українська":
+               case "русский":
                    if (TextUtils.isEmpty(valueEdit.getText().toString())) {
                        resultView.setText("");
                    }

@@ -136,41 +136,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void themeDialog(){
-      /*
-        AlertDialog.Builder builderSingle = new AlertDialog.Builder(this);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.select_dialog_singlechoice,getResources().getStringArray(R.array.theme));
-
-        builderSingle.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builderSingle.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String strName = arrayAdapter.getItem(which);
-                AlertDialog.Builder builderInner = new AlertDialog.Builder(getApplicationContext());
-                builderInner.setMessage(strName);
-                builderInner.setTitle(getResources().getString(R.string.theme));
-                builderInner.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog,int which) {
-                        switch (which){
-                            case 0:
-
-                                break;
-                            case 1:
-                            break;
-                        }
-                        dialog.dismiss();
-                    }
-                });
-                builderInner.show();
-            }
-        });
-        builderSingle.show();
-        */
-    }
 }

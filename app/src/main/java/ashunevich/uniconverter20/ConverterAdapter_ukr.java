@@ -763,7 +763,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
                 }
                 break;
             case "Сантіметр кубічний/cм³":
@@ -778,7 +778,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
                 }
                 break;
             case "Метр кубічний/м³":
@@ -793,7 +793,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
                 }
                 break;
             case "Міллілітр/мл":
@@ -808,7 +808,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
                 }
                 break;
             case "Літр/Л":
@@ -823,7 +823,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
                 }
                 break;
             case "Джил/дж":
@@ -838,7 +838,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
                 }
                 break;
             case "Унція рідка/унц(р)":
@@ -853,7 +853,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
                 }
                 break;
             case "Пінта/пт":
@@ -868,7 +868,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
                 }
                 break;
             case "Кварт/кт":
@@ -883,7 +883,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
                 }
                 break;
             case "Галлон/гал":
@@ -898,10 +898,10 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
                 }
                 break;
-            case "БаррельUK)/б(UK)":
+            case "Баррель(UK)/б(UK)":
                 switch (txtFromSpinner2) {
                     case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
                     case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
@@ -913,7 +913,7 @@ public abstract class ConverterAdapter_ukr extends ConverterActivity {
                     case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
                     case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
                     case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "БаррельUK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
         }

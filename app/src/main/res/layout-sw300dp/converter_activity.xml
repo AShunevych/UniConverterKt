@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     android:background="#5d737e">
 
-    <Switch
-        android:id="@+id/keybordswtich"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="#e4dfda"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/clearButton"
         style="@android:style/Widget.Holo.Button.Inset"
@@ -202,12 +191,12 @@
 
     <TextView
         android:id="@+id/resultView"
+        style="@style/EditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#e4dfda"
         android:fontFamily="sans-serif-medium"
         android:gravity="clip_vertical|end"
         android:lines="1"
@@ -238,12 +227,12 @@
 
     <EditText
         android:id="@+id/valueEdit"
+        style="@style/EditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#e4dfda"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|end"

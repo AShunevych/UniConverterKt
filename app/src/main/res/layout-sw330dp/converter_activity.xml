@@ -7,19 +7,6 @@
     android:layout_height="match_parent"
     android:background="#5d737e">
 
-    <Switch
-        android:id="@+id/keybordswtich"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center_horizontal|center_vertical"
-        android:textColor="#e4dfda"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_value"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/clearButton"
         style="@android:style/Widget.Holo.Button.Inset"
