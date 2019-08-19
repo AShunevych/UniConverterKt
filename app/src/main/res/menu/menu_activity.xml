@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/about_id"
         android:title="@string/about"
       />
     <item
-        android:id="@+id/theme_id"
-        android:title="@string/theme"/>
+        android:id="@+id/themeSelector"
+        android:icon="@drawable/ic_flare_white24dp"
+        android:title="@string/theme"
+        app:showAsAction="always" />
     <item
         android:id="@+id/exit_but"
         android:title="@string/exit">

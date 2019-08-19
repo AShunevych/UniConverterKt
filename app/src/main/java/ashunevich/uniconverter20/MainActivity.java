@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
            case R.id.about_id:
                infoDialog();
                return true;
-           case R.id.theme_id:
-              // themeDialog();
+           case R.id.themeSelector:
+              // infoDialog();
                return true;
            case R.id.exit_but:
                 finish();
