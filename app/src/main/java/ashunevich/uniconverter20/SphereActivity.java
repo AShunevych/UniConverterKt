@@ -36,6 +36,7 @@ public class SphereActivity extends AppCompatActivity {
     @BindView(R.id.valueEdit) EditText value;
     @BindView(R.id.valueName) TextView valueName;
     @BindView(R.id.clearButton) Button clear;
+    @BindView(R.id.exitButton) Button exit;
     @BindView(R.id.areaID) TextView areaID;
     @BindView(R.id.diamID) TextView diamID;
     @BindView(R.id.circID) TextView circID;
@@ -87,6 +88,12 @@ public class SphereActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clear();
+            }
+        });
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

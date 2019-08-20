@@ -1,28 +1,35 @@
 package ashunevich.uniconverter20;
 
-import android.app.Dialog;
+
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
+import android.support.v7.app.AppCompatDelegate;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
+
+import android.widget.Switch;
 
 
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.mainActivity) ConstraintLayout mainActivity;
 
+ //7c8483
+    Switch aSwitch;
+    public static boolean mIsNightMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void toConvertor(String getNameForSend){
+    protected void toConvertor(String setIntentName){
         Intent intent = new Intent(MainActivity.this,ConverterActivity.class);
-        intent.putExtra("getName",getNameForSend);
+        intent.putExtra("getName",setIntentName);
         startActivity(intent);
     }
 
@@ -94,22 +101,38 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       switch (item.getItemId()){
+
+
+        switch (item.getItemId()){
            case R.id.about_id:
                infoDialog();
-               return true;
-           case R.id.themeSelector:
-              // infoDialog();
                return true;
            case R.id.exit_but:
                 finish();
                return true;
+            case R.id.themeSet:
+                lightOfOnn();
            default:
                return super.onOptionsItemSelected(item);
 
        }
+    }
+
+
+    private void lightOfOnn(){
+        if(!mIsNightMode){
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            mIsNightMode = true;
+        }
+        else{
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            mIsNightMode= false;
+        }
     }
 
     private void infoDialog(){

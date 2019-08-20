@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class DecimalScientificConverter extends AppCompatActivity {
     @BindView(R.id.ePlusText)
     TextView ePlusText;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,9 @@ public class DecimalScientificConverter extends AppCompatActivity {
         eplusTextWatcher();
         eminusWatcher();
         decimalConvWatcher();
-
     }
 
-    @OnClick({R.id.clearEPlus, R.id.clearEMinus, R.id.clearDecimal})
+    @OnClick({R.id.clearEPlus, R.id.clearEMinus, R.id.clearDecimal,R.id.exitButton})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.clearEPlus:
@@ -62,9 +63,13 @@ public class DecimalScientificConverter extends AppCompatActivity {
                 break;
             case R.id.clearEMinus:
                 setClear(eMinusResult,eminusExponent,eminusDecValue);
+                break;
             case R.id.clearDecimal:
                 scientificDecResult.setText("");
                 decimalValue.setText("");
+                break;
+            case R.id.exitButton:
+                finish();break;
         }
 
     }

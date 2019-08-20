@@ -2,10 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alwaysDrawnWithCache="true"
-    android:background="#5d737e"
     tools:context=".MainActivity">
 
     <Button
@@ -17,7 +17,6 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_currency_ico"
         android:padding="4dp"
         android:text="@string/currency_button"
@@ -37,7 +36,6 @@
         android:layout_marginEnd="4dp"
 
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_calc_ico"
         android:padding="4dp"
         android:text="@string/calculator_button"
@@ -56,7 +54,6 @@
 
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_angle_ico"
         android:padding="4dp"
         android:text="@string/circleSphere_button"
@@ -71,12 +68,10 @@
         style="@android:style/Widget.Button.Small"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_scidec_ico"
         android:padding="4dp"
         android:text="@string/decScienceButton"
@@ -89,13 +84,11 @@
         android:id="@+id/speed_button"
         style="@android:style/Widget.Button.Small"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="4dp"
 
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_speed_ico"
         android:padding="4dp"
         android:text="@string/speed_button"
@@ -103,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/length_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/area_button" />
+        app:layout_constraintTop_toTopOf="@+id/length_button" />
 
     <Button
         android:id="@+id/area_button"
@@ -113,7 +106,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_area_ico"
         android:padding="4dp"
         android:text="@string/area_button"
@@ -132,7 +124,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_temp_ico"
         android:padding="4dp"
         android:text="@string/temperature_button"
@@ -151,7 +142,6 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:backgroundTintMode="src_atop"
         android:drawableTop="@drawable/ic_distance_ico"
         android:padding="4dp"
@@ -170,7 +160,6 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_time_ico"
         android:padding="4dp"
         android:text="@string/time_button"
@@ -188,7 +177,6 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_volume_ico"
         android:padding="4dp"
         android:text="@string/volume_button"
@@ -207,7 +195,6 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_weight_ico"
         android:padding="4dp"
         android:text="@string/mass_button"
@@ -227,7 +214,6 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rect_white"
-        android:backgroundTint="#ffffff"
         android:drawableTop="@drawable/ic_force_ico"
         android:padding="4dp"
         android:text="@string/force_button"

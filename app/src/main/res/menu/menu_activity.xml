@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/themeSet"
+        android:icon="@drawable/ic_flare_white24dp"
+        android:title="Item"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/about_id"
         android:title="@string/about"
       />
-    <item
-        android:id="@+id/themeSelector"
-        android:icon="@drawable/ic_flare_white24dp"
-        android:title="@string/theme"
-        app:showAsAction="always" />
     <item
         android:id="@+id/exit_but"
         android:title="@string/exit">

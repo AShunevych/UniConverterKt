@@ -4,20 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#5d737e">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/clearButton"
-        style="@android:style/Widget.Holo.Button.Inset"
+    <Switch
+        android:id="@+id/keySwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#253031"
-        android:gravity="center_horizontal|center_vertical"
+        android:layout_marginEnd="8dp"
+        android:switchPadding="4dp"
+        android:text="@string/switchKeyboard"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/clearButton"
+        style="@style/buttonSW300"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
         android:text="@string/clear"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/resultView"
         app:layout_constraintEnd_toEndOf="@+id/spinner_result"
         app:layout_constraintTop_toTopOf="@+id/resultView" />
@@ -31,7 +38,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_end="128dp"
+        app:layout_constraintGuide_end="105dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,45 +51,41 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_end="272dp"
+        app:layout_constraintGuide_end="215dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/but_four"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/four"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintStart_toStartOf="@+id/but_seven"
         app:layout_constraintTop_toBottomOf="@+id/but_seven" />
 
     <Button
         android:id="@+id/but_one"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/one"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintStart_toStartOf="@+id/but_seven"
         app:layout_constraintTop_toBottomOf="@+id/but_four" />
 
     <Button
         android:id="@+id/button_decimal"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
         android:text="@string/decimal"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/but_seven"
@@ -90,67 +93,64 @@
 
     <Button
         android:id="@+id/but_seven"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/seven"
-        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultView" />
 
     <Button
         android:id="@+id/button_eight"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/eight"
-        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="@+id/but_seven" />
 
     <Button
         android:id="@+id/but_five"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/five"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
         app:layout_constraintStart_toStartOf="@+id/button_eight"
         app:layout_constraintTop_toBottomOf="@+id/button_eight" />
 
     <Button
         android:id="@+id/but_two"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/two"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
         app:layout_constraintStart_toStartOf="@+id/button_eight"
         app:layout_constraintTop_toBottomOf="@+id/but_five" />
 
     <Button
         android:id="@+id/button_zero"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/zero"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
         app:layout_constraintStart_toStartOf="@+id/button_eight"
@@ -158,53 +158,49 @@
 
     <Button
         android:id="@+id/but_nine"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/nine"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/but_seven" />
 
     <Button
         android:id="@+id/but_six"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/six"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/but_nine"
         app:layout_constraintStart_toStartOf="@+id/but_nine"
         app:layout_constraintTop_toBottomOf="@+id/but_nine" />
 
     <Button
         android:id="@+id/but_three"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/three"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/but_six"
         app:layout_constraintStart_toStartOf="@+id/but_nine"
         app:layout_constraintTop_toBottomOf="@+id/but_six" />
 
     <Button
         android:id="@+id/button_dzero"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/dzero"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
         app:layout_constraintEnd_toEndOf="@+id/but_three"
         app:layout_constraintStart_toStartOf="@+id/but_nine"
@@ -212,13 +208,12 @@
 
     <TextView
         android:id="@+id/resultView"
+        style="@style/EditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#e4dfda"
-        android:fontFamily="sans-serif-medium"
         android:gravity="clip_vertical|end"
         android:lines="1"
         android:paddingStart="8dp"
@@ -227,9 +222,6 @@
         android:paddingEnd="8dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
-        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/clearButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_result"
@@ -240,7 +232,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -249,16 +241,16 @@
 
     <EditText
         android:id="@+id/valueEdit"
+        style="@style/EditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#e4dfda"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|end"
-        android:inputType="numberSigned|number|numberDecimal"
+        android:inputType="number|numberDecimal"
         android:lines="1"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -268,11 +260,22 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_value" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_value"
+        tools:text="sdsds" />
+
+    <Button
+        android:id="@+id/exitButton"
+        style="@style/buttonSW330"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/some"
+        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/valueName" />
 
     <TextView
         android:id="@+id/valueName"
@@ -280,29 +283,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
-        android:padding="0dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="WEIGHT" />
+        tools:text="sometext" />
 
     <Spinner
         android:id="@+id/spinner_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valueName" />
+        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
 
 </android.support.constraint.ConstraintLayout>

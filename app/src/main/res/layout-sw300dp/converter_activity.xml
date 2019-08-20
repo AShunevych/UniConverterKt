@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#5d737e">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/clearButton"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW300"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#253031"
+        android:layout_height="0dp"
+
         android:text="@string/clear"
         app:layout_constraintBottom_toBottomOf="@+id/resultView"
         app:layout_constraintEnd_toEndOf="@+id/spinner_result"
@@ -48,10 +45,11 @@
 
     <Button
         android:id="@+id/but_four"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/four"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintStart_toStartOf="@+id/but_seven"
@@ -59,10 +57,11 @@
 
     <Button
         android:id="@+id/but_one"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/one"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintStart_toStartOf="@+id/but_seven"
@@ -70,10 +69,10 @@
 
     <Button
         android:id="@+id/button_decimal"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
         android:text="@string/decimal"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintHorizontal_bias="0.0"
@@ -82,13 +81,13 @@
 
     <Button
         android:id="@+id/but_seven"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/seven"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintHorizontal_bias="0.0"
@@ -97,12 +96,12 @@
 
     <Button
         android:id="@+id/button_eight"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/eight"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
@@ -110,10 +109,11 @@
 
     <Button
         android:id="@+id/but_five"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/five"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
         app:layout_constraintStart_toStartOf="@+id/button_eight"
@@ -121,10 +121,11 @@
 
     <Button
         android:id="@+id/but_two"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/two"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
         app:layout_constraintStart_toStartOf="@+id/button_eight"
@@ -132,10 +133,11 @@
 
     <Button
         android:id="@+id/button_zero"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/zero"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
@@ -144,12 +146,12 @@
 
     <Button
         android:id="@+id/but_nine"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#253031"
+
         android:text="@string/nine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -157,10 +159,11 @@
 
     <Button
         android:id="@+id/but_six"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/six"
         app:layout_constraintEnd_toEndOf="@+id/but_nine"
         app:layout_constraintStart_toStartOf="@+id/but_nine"
@@ -168,10 +171,11 @@
 
     <Button
         android:id="@+id/but_three"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/three"
         app:layout_constraintEnd_toEndOf="@+id/but_six"
         app:layout_constraintStart_toStartOf="@+id/but_nine"
@@ -179,10 +183,11 @@
 
     <Button
         android:id="@+id/button_dzero"
-        style="@android:style/Widget.Holo.Button.Inset"
+        style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#253031"
+        android:layout_marginTop="8dp"
+
         android:text="@string/dzero"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
         app:layout_constraintEnd_toEndOf="@+id/but_three"
@@ -197,7 +202,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-medium"
         android:gravity="clip_vertical|end"
         android:lines="1"
         android:paddingStart="8dp"
@@ -206,8 +210,6 @@
         android:paddingEnd="8dp"
         android:paddingRight="8dp"
         android:paddingBottom="2dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         app:layout_constraintEnd_toStartOf="@+id/clearButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_result"
@@ -246,25 +248,37 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/cursorColor"
+        android:textCursorDrawable="@color/colorBorders"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_value" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_value"
+        tools:text="sdsds" />
+
+    <Button
+        android:id="@+id/exitButton"
+        style="@style/buttonSW330"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/some"
+        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/valueName" />
 
     <TextView
         android:id="@+id/valueName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="end"
-        android:padding="0dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="WEIGHT" />
+        tools:text="sometext" />
 
     <Spinner
         android:id="@+id/spinner_value"
@@ -275,7 +289,20 @@
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valueName" />
+        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
+
+    <Switch
+        android:id="@+id/keybordChanger"
+        style="@style/controlThemme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:switchPadding="8dp"
+        android:text="@string/switchKeyboard"
+        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/valueName" />
 
 </android.support.constraint.ConstraintLayout>

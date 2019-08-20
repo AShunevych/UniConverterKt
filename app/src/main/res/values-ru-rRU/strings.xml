@@ -67,7 +67,7 @@
 
     <string name="top2">²</string>
     <string name="top3">³</string>
-
+    <string name="some">◄</string>
     <string name="toastMessage">Введіть значення</string>
     <string name="keyboardOn">Режим вводу:Клавіатура та кнопки</string>
     <string name="keyboardOff">Режим вводу:Клавіатура</string>
@@ -77,7 +77,7 @@
     <string name="eplus">e+</string>
     <string name="eminus">e-</string>
     <string name="about">Інформація</string>
-    <string name="theme">Тема</string>
+    <string name="theme">День/ніч</string>
     <string name="exit">Вихід</string>
     <string name="cancel">Відмінити</string>
     <string name="Version">Версія:</string>

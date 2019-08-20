@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#5d737e">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/clearButton"
-        style="@android:style/Widget.Material.Button.Small"
+        style="@style/buttonSW330"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#253031"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal|center_vertical"
         android:text="@string/clear"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
         app:layout_constraintBottom_toBottomOf="@+id/valueEdit"
         app:layout_constraintEnd_toEndOf="@+id/value_spinner"
         app:layout_constraintTop_toTopOf="@+id/valueEdit" />
@@ -152,12 +147,12 @@
 
     <EditText
         android:id="@+id/valueEdit"
+        style="@style/EditTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-            style="@style/EditTextStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|end"
@@ -171,7 +166,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/clearButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +190,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/cir"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/valueEdit"
         app:layout_constraintTop_toBottomOf="@+id/valueEdit" />
@@ -219,7 +212,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/sph"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/valueEdit3"
         app:layout_constraintStart_toStartOf="parent"
@@ -243,18 +235,17 @@
         android:selectAllOnFocus="false"
         android:text="@string/hemi"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sphereVolume" />
 
     <TextView
         android:id="@+id/circleArea"
+        style="@style/abgleRightStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -267,7 +258,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/sq"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/circleRadius"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,11 +265,11 @@
 
     <TextView
         android:id="@+id/circleRadius"
+        style="@style/abgleRightStyle"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -292,18 +282,17 @@
         android:selectAllOnFocus="false"
         android:text="@string/radius"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleArea" />
 
     <TextView
         android:id="@+id/circeDiameter"
+        style="@style/abgleRightStyle"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -316,18 +305,17 @@
         android:selectAllOnFocus="false"
         android:text="@string/diam"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleRadius" />
 
     <TextView
         android:id="@+id/circleCircum"
+        style="@style/abgleRightStyle"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -340,18 +328,17 @@
         android:selectAllOnFocus="false"
         android:text="@string/circ"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circeDiameter" />
 
     <TextView
         android:id="@+id/sphereArea"
+        style="@style/abgleRightStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -364,7 +351,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/sq"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/circleArea"
         app:layout_constraintStart_toStartOf="parent"
@@ -372,11 +358,11 @@
 
     <TextView
         android:id="@+id/hemisphArea"
+        style="@style/abgleRightStyle"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -389,7 +375,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/sq"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/circleCircum"
         app:layout_constraintStart_toStartOf="parent"
@@ -397,11 +382,11 @@
 
     <TextView
         android:id="@+id/sphereVolume"
+        style="@style/abgleRightStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -414,7 +399,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/volumesph"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/sphereArea"
         app:layout_constraintStart_toStartOf="parent"
@@ -422,11 +406,11 @@
 
     <TextView
         android:id="@+id/hemisphVolume"
+        style="@style/abgleRightStyle"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/abgleRightStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="start|center_horizontal"
@@ -439,7 +423,6 @@
         android:selectAllOnFocus="false"
         android:text="@string/volumesph"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/circleCircum"
         app:layout_constraintStart_toStartOf="parent"
@@ -464,7 +447,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circleArea"
         app:layout_constraintEnd_toEndOf="@+id/valueEdit"
@@ -474,10 +456,10 @@
 
     <TextView
         android:id="@+id/radValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        style="@style/angleLeftStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -491,7 +473,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circleRadius"
         app:layout_constraintEnd_toEndOf="@+id/circleAreaValue"
@@ -500,9 +481,9 @@
 
     <TextView
         android:id="@+id/diamValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#e4dfda"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -516,7 +497,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circeDiameter"
         app:layout_constraintEnd_toEndOf="@+id/radValue"
@@ -525,9 +505,9 @@
 
     <TextView
         android:id="@+id/circValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        style="@style/angleLeftStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -541,7 +521,7 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
+
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circleCircum"
         app:layout_constraintEnd_toEndOf="@+id/diamValue"
@@ -550,9 +530,9 @@
 
     <TextView
         android:id="@+id/sphereAreaValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        style="@style/angleLeftStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -566,7 +546,7 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
+
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/sphereArea"
         app:layout_constraintEnd_toEndOf="@+id/circValue"
@@ -575,9 +555,9 @@
 
     <TextView
         android:id="@+id/hemiAreaValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        style="@style/angleLeftStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -591,7 +571,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/hemisphArea"
         app:layout_constraintEnd_toEndOf="@+id/sphereVolumeValue"
@@ -600,9 +579,9 @@
 
     <TextView
         android:id="@+id/hemiVolumeValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        style="@style/angleLeftStyle"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -616,7 +595,6 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/hemisphVolume"
         app:layout_constraintEnd_toEndOf="@+id/hemiAreaValue"
@@ -625,9 +603,9 @@
 
     <TextView
         android:id="@+id/sphereVolumeValue"
+        style="@style/angleLeftStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#e4dfda"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal|start"
@@ -641,7 +619,7 @@
         android:paddingBottom="2dp"
         android:selectAllOnFocus="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#253031"
+
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/sphereVolume"
         app:layout_constraintEnd_toEndOf="@+id/sphereAreaValue"
@@ -653,19 +631,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center_horizontal|center_vertical"
-        android:padding="0dp"
+        android:padding="4dp"
+        android:text="@string/circleSphere_button"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#e4dfda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/circleSphere_button" />
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/exitButton"
+        style="@style/buttonSW330"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/some"
+        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/valueName" />
 
 </android.support.constraint.ConstraintLayout>

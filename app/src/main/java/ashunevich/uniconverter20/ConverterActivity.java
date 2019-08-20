@@ -7,8 +7,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +48,8 @@ public class ConverterActivity  extends AppCompatActivity {
     TextView resultView;
     @BindView(R.id.valueName)
     TextView valueName;
-    Switch switcher;
+     @BindView(R.id.keybordChanger)
+     Switch aSwitch;
 
 
     protected double getEnteredValue;
@@ -79,7 +78,6 @@ public class ConverterActivity  extends AppCompatActivity {
         Intent intent = getIntent();
         String GET_NAME = intent.getStringExtra("getName");
         sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
-
         hm = new HashMap<String, String>();
         valueName.setText(GET_NAME);
 
@@ -114,6 +112,7 @@ public class ConverterActivity  extends AppCompatActivity {
         setSpinnersAdapters(spinnerValue, spinnerResult);
         setSpinnerListener();
         addTextWatcher();
+        setSwitchListener();
 
     }
 
@@ -127,29 +126,10 @@ public class ConverterActivity  extends AppCompatActivity {
     }
 //Bakemonogatari
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.switch_bar, menu);
-        switcher = menu.findItem(R.id.key_switch)
-                .getActionView().findViewById(R.id.switch_Keyboard);
-        switcher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked) {
-                    valueEdit.setEnabled(false);
-                    showToast("ON");
-                } else {
-                    valueEdit.setEnabled(true);
-                    showToast("OFF");
-                }
-            }
-        });
-        return true;
-    }
 
     @OnClick({R.id.button_decimal, R.id.but_one, R.id.but_two, R.id.but_three,
             R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
-            R.id.button_eight, R.id.button_zero,R.id.but_nine, R.id.button_dzero, R.id.clearButton})
+            R.id.button_eight, R.id.button_zero,R.id.but_nine, R.id.button_dzero, R.id.clearButton,R.id.exitButton})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.but_one:
@@ -178,6 +158,10 @@ public class ConverterActivity  extends AppCompatActivity {
                 setDoubleForConvert(".");break;
             case R.id.clearButton:
                 clear();break;
+            case R.id.exitButton:
+                finish();break;
+
+
         }
     }
 
@@ -278,6 +262,22 @@ public class ConverterActivity  extends AppCompatActivity {
     private void clear(){
         valueEdit.setText("");
         resultView.setText("");
+    }
+
+    private void setSwitchListener(){
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    showToast("ON");
+                    valueEdit.setEnabled(false);
+                }
+                else{
+                    showToast("OFF");
+                    valueEdit.setEnabled(true);
+                }
+            }
+        });
     }
 
 
