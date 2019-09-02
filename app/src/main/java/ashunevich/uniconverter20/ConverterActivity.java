@@ -1,5 +1,6 @@
 package ashunevich.uniconverter20;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +36,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 public class ConverterActivity  extends AppCompatActivity {
 
     @BindView(R.id.spinner_value)
@@ -51,7 +51,6 @@ public class ConverterActivity  extends AppCompatActivity {
      @BindView(R.id.keybordChanger)
      Switch aSwitch;
 
-
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
     protected ArrayAdapter<String> tempAdapter, areaAdapter, lengthAdapter, speedAdapter, timeAdapter,
@@ -60,7 +59,9 @@ public class ConverterActivity  extends AppCompatActivity {
     private String SAVED_INTENT_NAME = "intentName";
     private final String SAVED_VALUE = "savedValue";
     private final String SAVED_RESULT = "saveResult";
+    protected String stringOff, stringOn;
     private String  sDefSystemLanguage ;
+    Context mContext = this;
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
@@ -81,7 +82,15 @@ public class ConverterActivity  extends AppCompatActivity {
         hm = new HashMap<String, String>();
         valueName.setText(GET_NAME);
 
-        Log.d("Locale:", sDefSystemLanguage);
+       // Log.d("Locale:", sDefSystemLanguage);
+        setAdapters();
+        setSpinnersAdapters(spinnerValue, spinnerResult);
+        setSpinnersListeners();
+        addTextWatcher();
+        setSwitchListener();
+    }
+
+    private void setAdapters(){
         tempAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.temperature_array));
@@ -109,11 +118,6 @@ public class ConverterActivity  extends AppCompatActivity {
         forceAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.force));
-        setSpinnersAdapters(spinnerValue, spinnerResult);
-        setSpinnerListener();
-        addTextWatcher();
-        setSwitchListener();
-
     }
 
     @Override
@@ -157,11 +161,9 @@ public class ConverterActivity  extends AppCompatActivity {
             case R.id.button_decimal:
                 setDoubleForConvert(".");break;
             case R.id.clearButton:
-                clear();break;
+                UtilsConverter.clearView(resultView,valueEdit);break;
             case R.id.exitButton:
                 finish();break;
-
-
         }
     }
 
@@ -212,11 +214,11 @@ public class ConverterActivity  extends AppCompatActivity {
         valueEdit.append(String.valueOf(toSet));
     }
 
-    private void setSpinnerListener(){
+    private void setSpinnersListeners(){
         spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                convertValues();
+                convertAndShowValues(sDefSystemLanguage);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -228,7 +230,7 @@ public class ConverterActivity  extends AppCompatActivity {
         spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                    convertValues();
+                convertAndShowValues(sDefSystemLanguage);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -241,7 +243,7 @@ public class ConverterActivity  extends AppCompatActivity {
         valueEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                convertValues();
+                convertAndShowValues(sDefSystemLanguage);
             }
 
             @Override
@@ -257,29 +259,10 @@ public class ConverterActivity  extends AppCompatActivity {
         });
     }
 
-
-
-    private void clear(){
-        valueEdit.setText("");
-        resultView.setText("");
-    }
-
     private void setSwitchListener(){
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    showToast("ON");
-                    valueEdit.setEnabled(false);
-                }
-                else{
-                    showToast("OFF");
-                    valueEdit.setEnabled(true);
-                }
-            }
-        });
+      UtilsConverter.changeSwitch(aSwitch,valueEdit,getResources().getString(R.string.keyboardOff),
+              getResources().getString(R.string.keyboardOn),mContext);
     }
-
 
     private void getJsonOnlineData() {
         String url = "https://api.exchangeratesapi.io/latest";
@@ -290,42 +273,30 @@ public class ConverterActivity  extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 Log.d("Tag", response.toString());
                 //USD,GBP,IDR,PLN,NZD,RUB
-
                 try {
                     JSONObject phone = response.getJSONObject("rates");
-                    switch (sDefSystemLanguage) {
-                        //"русский"
-                        //"українська"
-                        case "русский":
-                            String USD_UKR = phone.getString("USD");
-                            String GBP_UKR = phone.getString("GBP");
-                            String IDR_UKR = phone.getString("IDR");
-                            String PLN_UKR = phone.getString("PLN");
-                            String NZD_UKR = phone.getString("NZD");
-                            String RUB_UKR = phone.getString("RUB");
-                            hm.put("Доллар США/USD", USD_UKR);
-                            hm.put("Великобританський фунт/GBP", GBP_UKR);
-                            hm.put("Індозенійська Рупія/IPR", IDR_UKR);
-                            hm.put("Польский Злотий/PLN", PLN_UKR);
-                            hm.put("Доллар НЗ/NZD", NZD_UKR);
-                            hm.put("Рубль/RUB", RUB_UKR);
-                            break;
-                        case "English":
-                            String USD = phone.getString("USD");
-                            String GBP = phone.getString("GBP");
-                            String IDR = phone.getString("IDR");
-                            String PLN = phone.getString("PLN");
-                            String NZD = phone.getString("NZD");
-                            String RUB = phone.getString("RUB");
-                            hm.put("United States Dollar/USD", USD );
-                            hm.put("Great Britain Pound/GBP",GBP);
-                            hm.put("Indonesian rupiah/IPR", IDR );
-                            hm.put("Polish złoty/PLN",PLN);
-                            hm.put("New Zealand dollar/NZD", NZD );
-                            hm.put("Russian Ruble/RUB",RUB);
-                            break;
-                    }
-
+                    String USD = phone.getString("USD");
+                    String GBP = phone.getString("GBP");
+                    String IDR = phone.getString("IDR");
+                    String PLN = phone.getString("PLN");
+                    String NZD = phone.getString("NZD");
+                    String RUB = phone.getString("RUB");
+                   if(sDefSystemLanguage.equals("русский")){
+                       hm.put("Доллар США/USD", USD);
+                       hm.put("Великобританський фунт/GBP", GBP);
+                       hm.put("Індозенійська Рупія/IPR", IDR);
+                       hm.put("Польский Злотий/PLN", PLN);
+                       hm.put("Доллар НЗ/NZD", NZD);
+                       hm.put("Рубль/RUB", RUB);
+                   }
+                   else{
+                       hm.put("United States Dollar/USD", USD );
+                       hm.put("Great Britain Pound/GBP",GBP);
+                       hm.put("Indonesian rupiah/IPR", IDR );
+                       hm.put("Polish złoty/PLN",PLN);
+                       hm.put("New Zealand dollar/NZD", NZD );
+                       hm.put("Russian Ruble/RUB",RUB);
+                   }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -339,48 +310,31 @@ public class ConverterActivity  extends AppCompatActivity {
             }
 
         });
-
         RequestQueue queue = Volley.newRequestQueue(this);
         // Adding request to request queue
         queue.add(jsonObjReq);
     }
 
-    private void convertValues() {
-           switch (sDefSystemLanguage){
-               //"русский"
-               //"українська"
-               case "русский":
-                   if (TextUtils.isEmpty(valueEdit.getText().toString())) {
-                       resultView.setText("");
-                   }
-                   else {
-                       getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
-                       getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-                       getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-                       if (valueName.getText().toString().equals(getResources().getString(R.string.currency_button))) {
-                           convertCurrecyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
-                       } else {
-                           ConverterAdapter_ukr.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
-                       }
-                   }
-                   break;
-               case "English":
-                   if (TextUtils.isEmpty(valueEdit.getText().toString())) {
-                       resultView.setText("");
-                       }
-                   else {
-                       getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
-                       getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-                       getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-                       if (valueName.getText().toString().equals(getResources().getString(R.string.currency_button))) {
-                           convertCurrecyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
-                       } else {
-                           ConverterAdapter.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
-                       }
-                   }
-                   break;
-           }
-
+    private void convertAndShowValues(String activeLocale){
+        if (TextUtils.isEmpty(valueEdit.getText().toString())) {
+            resultView.setText("");
+        }
+        else {
+            getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
+            getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
+            getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
+            if (valueName.getText().toString().equals(getResources().getString(R.string.currency_button))) {
+                convertCurrecyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+            } else {
+                //"русский" //"українська"
+                 if (activeLocale.equals("русский")){
+                     ConverterAdapter.ConvertValues_Ukr(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+                }
+                else{
+                     ConverterAdapter.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+                 }
+            }
+        }
     }
 
     private void convertCurrecyData(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView){
@@ -396,19 +350,5 @@ public class ConverterActivity  extends AppCompatActivity {
             catch (Exception e){
                 Log.d(" Exception","exeption catched") ;
             }
-    }
-    private void showToast(String status){
-        Toast univesalToast;
-        switch (status){
-            case "ON":
-                univesalToast = Toast.makeText(this,getResources().getString(R.string.keyboardOff),Toast.LENGTH_SHORT);
-                univesalToast.show();
-                break;
-            case "OFF":
-                univesalToast = Toast.makeText(this,getResources().getString(R.string.keyboardOn),Toast.LENGTH_SHORT);
-                univesalToast.show();
-                break;
-        }
-
     }
 }

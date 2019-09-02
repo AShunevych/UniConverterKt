@@ -4,6 +4,7 @@ package ashunevich.uniconverter20;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,9 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.Switch;
-
-
+import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,18 +25,15 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.mainActivity) ConstraintLayout mainActivity;
-
  //7c8483
-    Switch aSwitch;
     public static boolean mIsNightMode = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-      //  SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-    //    SharedPreferences.Editor editor = pref.edit();
     }
 
     @OnClick({R.id.temp_button, R.id.area_button, R.id.length_button, R.id.speed_button,
@@ -106,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         switch (item.getItemId()){
            case R.id.about_id:
                infoDialog();
@@ -116,15 +110,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                return true;
             case R.id.themeSet:
-                lightOfOnn();
+                lightOffOn();
+                return  true;
            default:
                return super.onOptionsItemSelected(item);
-
        }
     }
 
 
-    private void lightOfOnn(){
+    private void lightOffOn(){
         if(!mIsNightMode){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             mIsNightMode = true;
@@ -157,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
-
 }
+
+
+
+

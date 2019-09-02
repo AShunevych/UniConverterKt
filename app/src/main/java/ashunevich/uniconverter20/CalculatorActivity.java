@@ -32,7 +32,6 @@ public class CalculatorActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +46,6 @@ public class CalculatorActivity extends AppCompatActivity {
         resultSet.setText(savedInstanceState.getString(RESULT_STRING));
         super.onRestoreInstanceState(savedInstanceState);
     }
-
-
-
 
 
     @OnClick({R.id.decimal, R.id.one, R.id.two, R.id.three,

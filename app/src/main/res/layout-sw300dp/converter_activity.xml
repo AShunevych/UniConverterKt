@@ -85,7 +85,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
 
         android:text="@string/seven"
@@ -254,30 +254,29 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_value"
         tools:text="sdsds" />
 
-    <Button
+    <ImageButton
         android:id="@+id/exitButton"
         style="@style/buttonSW330"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="@string/some"
-        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/keybordChanger"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/valueName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/valueName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toEndOf="@+id/exitButton"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/exitButton"
+        app:layout_constraintTop_toBottomOf="@+id/exitButton"
         tools:text="sometext" />
 
     <Spinner
@@ -291,18 +290,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
+        app:layout_constraintTop_toBottomOf="@+id/valueName" />
 
     <Switch
         android:id="@+id/keybordChanger"
         style="@style/controlThemme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:switchPadding="8dp"
         android:text="@string/switchKeyboard"
-        app:layout_constraintBottom_toBottomOf="@+id/valueName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/valueName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -100,6 +100,7 @@ public class DecimalScientificConverter extends AppCompatActivity {
             }
         });
 }
+
     private void eminusWatcher() {
         eminusExponent.addTextChangedListener(new TextWatcher() {
             @Override
@@ -125,7 +126,7 @@ public class DecimalScientificConverter extends AppCompatActivity {
         decimalValue.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                formatDecimalScienc(decimalValue,scientificDecResult);
+                formatDecimalScience(decimalValue,scientificDecResult);
             }
 
             @Override
@@ -174,7 +175,8 @@ public class DecimalScientificConverter extends AppCompatActivity {
             Log.e("Exception caught", "ePlue exception");
         }
     }
-    private void formatDecimalScienc ( EditText decimalText,TextView resultText){
+
+    private void formatDecimalScience ( EditText decimalText,TextView resultText){
         NumberFormat decimalToScienceFormatter = new DecimalFormat("0.######E0");
 
         try {
