@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4b5358</color>153243
+    <color name="colorPrimaryDark">#393d3f</color>
+    <color name= "colorBorders">#000</color>
+    <color name="vectorColor">#96939b</color>
+    <color name="colorAccent">#fc814a</color>
+    <color name="colorDrawableLight">#00000000 </color>
+</resources>

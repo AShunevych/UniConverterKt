@@ -116,11 +116,11 @@ public class SphereActivity extends AppCompatActivity {
 
     private  void setParameters(){
         dataParam = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
+               R.layout.custom_spinner_item,
                 getResources().getStringArray(R.array.circlesAndSpheres));
         sphereSpinner.setAdapter(dataParam);
         valParam = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
+               R.layout.custom_spinner_item,
                 getResources().getStringArray(R.array.valuess));
         valSpinner.setAdapter(valParam);
     }

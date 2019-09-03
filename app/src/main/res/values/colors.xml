@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#153243</color>153243
-    <color name="colorPrimaryDark">#1d1e2c</color>
+    <color name="colorPrimary">#4b5358</color>153243
+    <color name="colorPrimaryDark">#393d3f</color>
     <color name= "colorBorders">#637081</color>
     <color name="colorAccent">#000000</color>
-    <color name="colorDrawableLight">#00000000 </color>
-
+    <color name="vectorColor">#000000</color>
+    <color name="colorDrawableLight">#00000000</color>
     <color name="thumb">#f0a202</color>
 </resources>

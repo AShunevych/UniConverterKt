@@ -13,6 +13,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="spinnerTheme" parent="Platform.Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <style name="controlThemme">
         <item name="colorControlActivated">@color/thumb</item>
         <item name="thumbTint">@color/thumb</item>

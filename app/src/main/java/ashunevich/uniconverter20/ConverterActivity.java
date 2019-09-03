@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -53,8 +54,6 @@ public class ConverterActivity  extends AppCompatActivity {
 
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
-    protected ArrayAdapter<String> tempAdapter, areaAdapter, lengthAdapter, speedAdapter, timeAdapter,
-            volumeAdapter, currencyAdapter, weightAdapter, forceAdapter;
     protected HashMap<String, String> hm;
     private String SAVED_INTENT_NAME = "intentName";
     private final String SAVED_VALUE = "savedValue";
@@ -82,42 +81,19 @@ public class ConverterActivity  extends AppCompatActivity {
         hm = new HashMap<String, String>();
         valueName.setText(GET_NAME);
 
-       // Log.d("Locale:", sDefSystemLanguage);
-        setAdapters();
-        setSpinnersAdapters(spinnerValue, spinnerResult);
+        setSpinnersAdapters();
         setSpinnersListeners();
         addTextWatcher();
         setSwitchListener();
+
+
     }
 
-    private void setAdapters(){
-        tempAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.temperature_array));
-        areaAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.area));
-        lengthAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.length));
-        speedAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.speed));
-        timeAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.time_array));
-        volumeAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.volume));
-        weightAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.weight));
-        currencyAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.currency));
-        forceAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item,
-                getResources().getStringArray(R.array.force));
+    private void setAdapter( String [] array ){
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                R.layout.custom_spinner_item,array);
+        spinnerValue.setAdapter(adapter);
+        spinnerResult.setAdapter(adapter);
     }
 
     @Override
@@ -125,7 +101,7 @@ public class ConverterActivity  extends AppCompatActivity {
         valueName.setText(savedInstanceState.getString(SAVED_INTENT_NAME));
         valueEdit.setText(savedInstanceState.getString(SAVED_VALUE));
         resultView.setText(savedInstanceState.getString(SAVED_RESULT));
-        setSpinnersAdapters(spinnerValue,spinnerResult);
+        setSpinnersAdapters();
         super.onRestoreInstanceState(savedInstanceState);
     }
 //Bakemonogatari
@@ -167,45 +143,36 @@ public class ConverterActivity  extends AppCompatActivity {
         }
     }
 
-    private void setSpinnersAdapters(Spinner spinnerValue, Spinner spinnerResult) {
+    private void setSpinnersAdapters() {
         String activeValue = valueName.getText().toString();
 
         if (activeValue.equals(getResources().getString(R.string.mass_button))){
-            spinnerValue.setAdapter(weightAdapter);
-            spinnerResult.setAdapter(weightAdapter);
+            setAdapter(getResources().getStringArray(R.array.weight));
         }
         else if (activeValue.equals(getResources().getString(R.string.area_button))){
-            spinnerValue.setAdapter(areaAdapter);
-            spinnerResult.setAdapter(areaAdapter);
+            setAdapter(getResources().getStringArray(R.array.area));
         }
         else if (activeValue.equals(getResources().getString(R.string.time_button))){
-            spinnerValue.setAdapter(timeAdapter);
-            spinnerResult.setAdapter(timeAdapter);
+            setAdapter(getResources().getStringArray(R.array.time_array));
         }
         else if (activeValue.equals(getResources().getString(R.string.distance_button))){
-            spinnerValue.setAdapter(lengthAdapter);
-            spinnerResult.setAdapter(lengthAdapter);
+            setAdapter(getResources().getStringArray(R.array.length));
         }
         else if (activeValue.equals(getResources().getString(R.string.volume_button))){
-            spinnerValue.setAdapter(volumeAdapter);
-            spinnerResult.setAdapter(volumeAdapter);
+            setAdapter(getResources().getStringArray(R.array.volume));
         }
         else if (activeValue.equals(getResources().getString(R.string.temperature_button))){
-            spinnerValue.setAdapter(tempAdapter);
-            spinnerResult.setAdapter(tempAdapter);
+            setAdapter(getResources().getStringArray(R.array.temperature_array));
         }
         else if (activeValue.equals(getResources().getString(R.string.force_button))){
-            spinnerValue.setAdapter(forceAdapter);
-            spinnerResult.setAdapter(forceAdapter);
+            setAdapter(getResources().getStringArray(R.array.force));
         }
         else if (activeValue.equals(getResources().getString(R.string.currency_button))){
             getJsonOnlineData();
-            spinnerValue.setAdapter(currencyAdapter);
-            spinnerResult.setAdapter(currencyAdapter);
+            setAdapter(getResources().getStringArray(R.array.currency));
         }
         else if (activeValue.equals(getResources().getString(R.string.speed_button))){
-            spinnerValue.setAdapter(speedAdapter);
-            spinnerResult.setAdapter(speedAdapter);
+            setAdapter(getResources().getStringArray(R.array.speed));
         }
     }
 
