@@ -85,8 +85,6 @@ public class ConverterActivity  extends AppCompatActivity {
         setSpinnersListeners();
         addTextWatcher();
         setSwitchListener();
-
-
     }
 
     private void setAdapter( String [] array ){
@@ -104,7 +102,6 @@ public class ConverterActivity  extends AppCompatActivity {
         setSpinnersAdapters();
         super.onRestoreInstanceState(savedInstanceState);
     }
-//Bakemonogatari
 
 
     @OnClick({R.id.button_decimal, R.id.but_one, R.id.but_two, R.id.but_three,
@@ -216,7 +213,6 @@ public class ConverterActivity  extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
-
             }
 
             @Override
