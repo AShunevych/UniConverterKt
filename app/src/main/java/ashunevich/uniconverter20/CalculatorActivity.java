@@ -2,13 +2,11 @@ package ashunevich.uniconverter20;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.mariuszgromada.math.mxparser.*;
 
 import butterknife.BindView;
@@ -23,6 +21,12 @@ public class CalculatorActivity extends AppCompatActivity {
   //  private static final String TAG = "myLogs"
     private final String VALUE_STRING = "valueString";
     private final String RESULT_STRING = "resultString";
+
+    @Override
+    protected void onStart() {
+        EventBus.getDefault().register(this);
+        super.onStart();
+    }
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
@@ -46,43 +50,23 @@ public class CalculatorActivity extends AppCompatActivity {
         resultSet.setText(savedInstanceState.getString(RESULT_STRING));
         super.onRestoreInstanceState(savedInstanceState);
     }
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
 
+    @Subscribe()
+    public void getText (KeyboardPOJO event) {
+        calcValue.append(event.getNumber());
+    }
 
-    @OnClick({R.id.decimal, R.id.one, R.id.two, R.id.three,
-            R.id.four, R.id.five, R.id.six, R.id.seven,
-            R.id.eight, R.id.nine, R.id.dzero,R.id.clearCalcValue,
-            R.id.zero,R.id.rightBracket,R.id.leftBracket,
+    @OnClick({R.id.rightBracket,R.id.leftBracket,
             R.id.calculateResult,R.id.logButton,R.id.percentButton,
             R.id.minusButton,R.id.plusButton,R.id.divideButton,R.id.multiplyButton,
-            R.id.sqrRoot,R.id.pov,R.id.exitButton})
+            R.id.sqrRoot,R.id.pov,R.id.exitButton,R.id.clearCalcValue})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
-            //numbers buttons
-            case R.id.one:
-                readAndSetText(getResources().getString(R.string.one));break;
-            case R.id.two:
-                readAndSetText(getResources().getString(R.string.two));break;
-            case R.id.three:
-                readAndSetText(getResources().getString(R.string.three));break;
-            case R.id.four:
-                readAndSetText(getResources().getString(R.string.four));break;
-            case R.id.five:
-                readAndSetText(getResources().getString(R.string.five));break;
-            case R.id.six:
-                readAndSetText(getResources().getString(R.string.six));break;
-            case R.id.seven:
-                readAndSetText(getResources().getString(R.string.seven));break;
-            case R.id.eight:
-                readAndSetText(getResources().getString(R.string.eight));break;
-            case R.id.nine:
-                readAndSetText(getResources().getString(R.string.nine));break;
-            case R.id.zero:
-                readAndSetText(getResources().getString(R.string.zero));break;
-            case R.id.dzero:
-                readAndSetText(getResources().getString(R.string.dzero));break;
-                //math operation buttons
-            case R.id.decimal:
-                readAndSetText(getResources().getString(R.string.decimal));break;
             case R.id.plusButton:
                 readAndSetText(getResources().getString(R.string.plus));break;
             case R.id.minusButton:

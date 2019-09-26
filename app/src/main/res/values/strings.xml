@@ -14,6 +14,10 @@
     <string name="speed_button">Speed</string>
     <string name="decScienceButton">E-notation/Decimal</string>
     <string name="circleSphere_button">Circle/Sphere </string>
+    <string name="theme">Day/Night</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+    <string name="about">About</string>
     <!-- Navigate strings -->
 
     <string name="switchKeyboard">Keyboard</string>
@@ -53,7 +57,8 @@
     <string name="sph">SPHERE</string>
     <string name="hemi">HEMI-SPHERE</string>
 
-
+    <string name="Sett">Settings</string>
+    <string name="pipe">NPS to Diameter </string>
 
     <string name="api_info">Currency API provided by </string>
     <string name="calc_info">Calculator parser provided by </string>
@@ -76,13 +81,15 @@
     <string name="DecScience">Decimal→E-notation </string>
     <string name="eplus">e+</string>
     <string name="eminus">e-</string>
-    <string name="about">About</string>
     <string name="some">◄</string>
-    <string name="theme">Day/Night</string>
-    <string name="exit">Exit</string>
-    <string name="cancel">Cancel</string>
+
 
     <string name="Version">Version:</string>
+
+    <string name="NPStoDN">Pipe NPS sizes</string>
+    <string name="nps">Nominal\nPipe Size\n(inch)</string>
+    <string name="DN">Nominal\nDiameter\n(mm)</string>
+    <string name="OD">Outer\ndiameter\n(inch/mm)</string>
 
 </resources>
 

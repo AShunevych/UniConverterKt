@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="0dp"
+    android:layout_marginEnd="0dp">
+
+    <TextView
+        android:id="@+id/inches"
+        style="@style/tablePoint"
+        android:layout_width="95dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:text="1/8''" />
+
+    <TextView
+        android:id="@+id/metric"
+        style="@style/tablePoint"
+        android:layout_width="95dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:text="3.2 mm" />
+
+    <TextView
+        android:id="@+id/outsideDim"
+        style="@style/tablePoint"
+        android:layout_width="95dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:text="23 mm / 0.405 in" />
+
+</LinearLayout>

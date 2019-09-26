@@ -9,15 +9,14 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +26,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,7 +36,6 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ConverterActivity  extends AppCompatActivity {
 
@@ -51,6 +51,10 @@ public class ConverterActivity  extends AppCompatActivity {
     TextView valueName;
      @BindView(R.id.keybordChanger)
      Switch aSwitch;
+     @BindView(R.id.clearButton)
+    Button clearButton;
+     @BindView(R.id.exitButton)
+     ImageButton finishThisActivity;
 
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
@@ -61,6 +65,12 @@ public class ConverterActivity  extends AppCompatActivity {
     protected String stringOff, stringOn;
     private String  sDefSystemLanguage ;
     Context mContext = this;
+
+    @Override
+    public void onStart(){
+        EventBus.getDefault().register(this);
+        super.onStart();
+    }
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
@@ -81,10 +91,14 @@ public class ConverterActivity  extends AppCompatActivity {
         hm = new HashMap<String, String>();
         valueName.setText(GET_NAME);
 
+        setClicksListener();
         setSpinnersAdapters();
         setSpinnersListeners();
         addTextWatcher();
-        setSwitchListener();
+
+        //switch listener
+        ConverterUtils.changeSwitch(aSwitch,valueEdit,getResources().getString(R.string.keyboardOff),
+                getResources().getString(R.string.keyboardOn),mContext);
     }
 
     private void setAdapter( String [] array ){
@@ -92,6 +106,24 @@ public class ConverterActivity  extends AppCompatActivity {
                 R.layout.custom_spinner_item,array);
         spinnerValue.setAdapter(adapter);
         spinnerResult.setAdapter(adapter);
+    }
+
+    private void setClicksListener(){
+        //Listeners for finish activity and clear buttons
+        finishThisActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               finish();
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConverterUtils.clearView(valueEdit,resultView);
+            }
+        });
+
     }
 
     @Override
@@ -103,42 +135,17 @@ public class ConverterActivity  extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-
-    @OnClick({R.id.button_decimal, R.id.but_one, R.id.but_two, R.id.but_three,
-            R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
-            R.id.button_eight, R.id.button_zero,R.id.but_nine, R.id.button_dzero, R.id.clearButton,R.id.exitButton})
-    public void setViewOnClickEvent(View view) {
-        switch (view.getId()) {
-            case R.id.but_one:
-                setDoubleForConvert("1");break;
-            case R.id.but_two:
-                setDoubleForConvert("2");break;
-            case R.id.but_three:
-                setDoubleForConvert("3");break;
-            case R.id.but_four:
-                setDoubleForConvert("4");break;
-            case R.id.but_five:
-                setDoubleForConvert("5");break;
-            case R.id.but_six:
-                setDoubleForConvert("6");break;
-            case R.id.but_seven:
-                setDoubleForConvert("7");break;
-            case R.id.button_eight:
-                setDoubleForConvert("8");break;
-            case R.id.but_nine:
-                setDoubleForConvert("9");break;
-            case R.id.button_zero:
-                setDoubleForConvert("0");break;
-            case R.id.button_dzero:
-                setDoubleForConvert("00");break;
-            case R.id.button_decimal:
-                setDoubleForConvert(".");break;
-            case R.id.clearButton:
-                UtilsConverter.clearView(resultView,valueEdit);break;
-            case R.id.exitButton:
-                finish();break;
-        }
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
+
+    @Subscribe()
+    public void getText (KeyboardPOJO event) {
+        valueEdit.append(event.getNumber());
+    }
+
 
     private void setSpinnersAdapters() {
         String activeValue = valueName.getText().toString();
@@ -171,11 +178,6 @@ public class ConverterActivity  extends AppCompatActivity {
         else if (activeValue.equals(getResources().getString(R.string.speed_button))){
             setAdapter(getResources().getStringArray(R.array.speed));
         }
-    }
-
-
-    private void setDoubleForConvert(String toSet) {
-        valueEdit.append(String.valueOf(toSet));
     }
 
     private void setSpinnersListeners(){
@@ -220,11 +222,6 @@ public class ConverterActivity  extends AppCompatActivity {
                                       int before, int count) {
             }
         });
-    }
-
-    private void setSwitchListener(){
-      UtilsConverter.changeSwitch(aSwitch,valueEdit,getResources().getString(R.string.keyboardOff),
-              getResources().getString(R.string.keyboardOn),mContext);
     }
 
     private void getJsonOnlineData() {
@@ -287,31 +284,18 @@ public class ConverterActivity  extends AppCompatActivity {
             getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
             getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
             if (valueName.getText().toString().equals(getResources().getString(R.string.currency_button))) {
-                convertCurrecyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+                ConverterLogic.convertCurrencyData(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView, hm);
             } else {
                 //"русский" //"українська"
                  if (activeLocale.equals("русский")){
-                     ConverterAdapter.ConvertValues_Ukr(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+                     ConverterLogic.ConvertValues_Ukr(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
                 }
                 else{
-                     ConverterAdapter.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
+                     ConverterLogic.ConvertValues(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
                  }
             }
         }
     }
 
-    private void convertCurrecyData(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView){
-            txtFromSpinner1 = spinnerValue.getSelectedItem().toString();
-            txtFromSpinner2 = spinnerResult.getSelectedItem().toString();
 
-            try{
-                double initRate = Double.valueOf(hm.get(txtFromSpinner1));
-                double targetRate = Double.valueOf(hm.get(txtFromSpinner2));
-                String resultFinal = String.valueOf((targetRate * enteredValue) / initRate);
-                resultView.setText(resultFinal);
-            }
-            catch (Exception e){
-                Log.d(" Exception","exeption catched") ;
-            }
-    }
 }

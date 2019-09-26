@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -22,7 +20,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SphereActivity extends AppCompatActivity {
+public class CalculatorSphereActivity extends AppCompatActivity {
 
     @BindView(R.id.circleAreaValue)
     TextView circleArea;
@@ -75,7 +73,6 @@ public class SphereActivity extends AppCompatActivity {
             SAVED_LOCALE_PARAM, sDefSystemLanguage;
     protected double getEnteredValue;
 
-
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putDouble(SAVED_VALUE, Double.valueOf(value.getText().toString()));
@@ -98,7 +95,6 @@ public class SphereActivity extends AppCompatActivity {
         spinnerListener();
         valSpinnerListener();
         addTextWatcher();
-
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,10 +162,8 @@ public class SphereActivity extends AppCompatActivity {
                     findSetParameter(sDefSystemLanguage);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-
             }
 
         });
@@ -198,15 +192,13 @@ public class SphereActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-
-
             }
         });
     }
 
 
     private void clear() {
-        SphereAdapter.setClear(circleArea,circleDiameter,circleCirc,circleRad,
+        CalculatorSphereLogic.setClear(circleArea,circleDiameter,circleCirc,circleRad,
                 sphereArea,sphereVolume,hemiArea,hemiVolume);
     }
 
@@ -233,10 +225,10 @@ public class SphereActivity extends AppCompatActivity {
             getEnteredValue = Double.parseDouble(value.getText().toString());
             SPINNER_STRING = sphereSpinner.getSelectedItem().toString();
             if (activeLocale.equals("русский")) {
-                SphereAdapter.findParam_Ukr(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
+                CalculatorSphereLogic.findParam_Ukr(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
                         hemiArea, hemiVolume);
             } else {
-                SphereAdapter.findParam(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
+                CalculatorSphereLogic.CalculateParam(getEnteredValue, SPINNER_STRING, circleArea, circleDiameter, circleCirc, circleRad, sphereArea, sphereVolume,
                         hemiArea, hemiVolume);
             }
 

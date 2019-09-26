@@ -5,7 +5,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@color/vectorColor</item>
+
     </style>
+
+
+
+
+
 
     <style name="spinnerTheme" parent="Platform.Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/colorPrimary</item>
@@ -15,6 +23,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 </resources>

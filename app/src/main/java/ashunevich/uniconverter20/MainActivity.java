@@ -1,12 +1,12 @@
 package ashunevich.uniconverter20;
 
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 
-import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.DialogFragment;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
@@ -16,8 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.Button;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,20 +23,21 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.mainActivity) ConstraintLayout mainActivity;
- //7c8483
+ //7c8483 //color 274156
     public static boolean mIsNightMode = false;
-
+    DialogFragment dialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dialogFragment = new DialogActivity();
         ButterKnife.bind(this);
     }
 
     @OnClick({R.id.temp_button, R.id.area_button, R.id.length_button, R.id.speed_button,
             R.id.time_button, R.id.volume_button, R.id.currency_button, R.id.mass_button,
-            R.id.calculator_button, R.id.force_button,R.id.decScience_button,R.id.sphere_button})
+            R.id.calculator_button, R.id.force_button,R.id.sphere_button,R.id.pipe_button})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.temp_button:
@@ -72,14 +71,20 @@ public class MainActivity extends AppCompatActivity {
             case R.id.force_button:
                 toConvertor(getResources().getString(R.string.force_button));
                 break;
+                /*
             case R.id.decScience_button:
                 Intent infoIntent = new Intent(MainActivity.this, DecimalScientificConverter.class);
                 startActivity(infoIntent);
                 break;
+                */
             case R.id.sphere_button:
-                Intent sphereIntent = new Intent(MainActivity.this,SphereActivity.class);
+                Intent sphereIntent = new Intent(MainActivity.this, CalculatorSphereActivity.class);
                 sphereIntent.putExtra("getName",getResources().getString(R.string.circleSphere_button));
                 startActivity(sphereIntent);
+                break;
+            case R.id.pipe_button:
+                Intent intent = new Intent(MainActivity.this, PipeRecyclerViewActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -90,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -97,14 +103,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
            case R.id.about_id:
-               infoDialog();
+              dialogFragment.show(getSupportFragmentManager(),"Dialog");
                return true;
            case R.id.exit_but:
                 finish();
@@ -117,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
        }
     }
 
-
     private void lightOffOn(){
         if(!mIsNightMode){
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -127,29 +129,6 @@ public class MainActivity extends AppCompatActivity {
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             mIsNightMode= false;
         }
-    }
-
-    private void infoDialog(){
-      AlertDialog.Builder builder = new AlertDialog.Builder(this);
-       String API_Provided =getResources().getString(R.string.api_info);
-   String Calc_Provided = getResources().getString(R.string.calc_info);
-         String API_URL = "OpenRates.io";
-         String CALC_URL = "mathparser.org";
-
-        builder.setTitle(getResources().getString(R.string.about)).
-                setMessage(API_Provided+":"+"\n" +
-                        API_URL+"\n"
-                        + Calc_Provided+
-                        ":"+ "\n"+CALC_URL )
-                .setCancelable(false)
-                .setNegativeButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
     }
 }
 

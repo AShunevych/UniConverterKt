@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4b5358</color>153243
-    <color name="colorPrimaryDark">#393d3f</color>
-    <color name= "colorBorders">#637081</color>
+    <color name="colorPrimary">#0d1f2d</color>153243
+    <color name="colorPrimaryDark">#12355b</color>
+    <color name= "colorBorders">#000000</color>
+    <color name="backgroundColor">#93a3b1</color>
     <color name="colorAccent">#000000</color>
+    <color name="flareColor">#efefef</color>
     <color name="vectorColor">#000000</color>
     <color name="colorDrawableLight">#00000000</color>
     <color name="thumb">#f0a202</color>
+    <color name="tableHeaderColor">#AFAFAF</color>
+    <color name="rectangleSolid">#efefef</color>
+
 </resources>

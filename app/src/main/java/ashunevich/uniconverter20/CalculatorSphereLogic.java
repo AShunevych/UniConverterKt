@@ -3,11 +3,11 @@ package ashunevich.uniconverter20;
 
 import android.widget.TextView;
 
-public abstract class SphereAdapter extends SphereActivity {
+public abstract class CalculatorSphereLogic extends CalculatorSphereActivity {
     private static final Double PI = Math.PI;
 
-    public SphereAdapter(TextView circleArea,TextView circleDiameter, TextView circleCirc, TextView circleRad,TextView sphereArea,TextView sphereVolume,
-                         TextView hemiArea, TextView hemiVolume){
+    public CalculatorSphereLogic(TextView circleArea, TextView circleDiameter, TextView circleCirc, TextView circleRad, TextView sphereArea, TextView sphereVolume,
+                                 TextView hemiArea, TextView hemiVolume){
         this.circleArea = circleArea;
         this.circleDiameter = circleDiameter;
         this.circleCirc = circleCirc;
@@ -18,7 +18,7 @@ public abstract class SphereAdapter extends SphereActivity {
         this.hemiVolume = hemiVolume;
 }
 
-    public static void setClear (TextView circleArea,
+    protected static void setClear (TextView circleArea,
                         TextView circleDiameter, TextView circleCirc,
                         TextView circleRad,TextView sphereArea,TextView sphereVolume,
                         TextView hemiArea, TextView hemiVolume ){
@@ -33,10 +33,10 @@ public abstract class SphereAdapter extends SphereActivity {
     }
 
 
-    public static void findParam (Double enteredvalue, String spinnerValue,TextView circleArea,
-                            TextView circleDiameter, TextView circleCirc,
-                            TextView circleRad,TextView sphereArea,TextView sphereVolume,
-                            TextView hemiArea, TextView hemiVolume ) {
+    protected static void CalculateParam(Double enteredvalue, String spinnerValue, TextView circleArea,
+                                      TextView circleDiameter, TextView circleCirc,
+                                      TextView circleRad, TextView sphereArea, TextView sphereVolume,
+                                      TextView hemiArea, TextView hemiVolume ) {
 
         double radDiam = enteredvalue/2;
         double radCirc = enteredvalue/(2*PI);

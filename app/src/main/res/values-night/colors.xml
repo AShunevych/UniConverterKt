@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4b5358</color>153243
-    <color name="colorPrimaryDark">#393d3f</color>
-    <color name= "colorBorders">#000</color>
-    <color name="vectorColor">#96939b</color>
-    <color name="colorAccent">#fc814a</color>
+    <color name="colorPrimary">#1b1b1b</color>153243
+    <color name="colorPrimaryDark">#121212</color>
+    <color name= "colorBorders">#a7c0cd</color>
+    <color name="backgroundColor">#121212</color>
+    <color name="vectorColor">#a7c0cd</color>
+    <color name="flareColor">#efefef</color>
+    <color name="colorAccent">#a7c0cd</color>
     <color name="colorDrawableLight">#00000000 </color>
+    <color name="thumb">#f0a202</color>
+    <color name="tableHeaderColor">#121212</color>
+    <color name="rectangleSolid">#1b1b1b</color>
 </resources>

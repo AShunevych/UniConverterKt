@@ -10,7 +10,8 @@
         style="@style/buttonSW300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/plus"
         app:layout_constraintStart_toStartOf="@+id/calcResult"
         app:layout_constraintTop_toBottomOf="@+id/calcResult" />
@@ -20,8 +21,9 @@
         style="@style/buttonSW300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
+        android:layout_marginEnd="8dp"
         android:text="@string/Exponent"
         app:layout_constraintEnd_toEndOf="@+id/calcResult"
         app:layout_constraintStart_toEndOf="@+id/calculateResult"
@@ -80,7 +82,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
         android:text="@string/rightBracket"
         app:layout_constraintBottom_toBottomOf="@+id/leftBracket"
@@ -104,7 +106,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
         android:text="@string/minus"
         app:layout_constraintBottom_toBottomOf="@+id/plusButton"
@@ -116,7 +118,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
         android:text="@string/divide"
         app:layout_constraintBottom_toBottomOf="@+id/plusButton"
@@ -128,7 +130,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/multiply"
@@ -141,7 +143,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
 
         android:text="@string/equal"
         app:layout_constraintBottom_toBottomOf="@+id/plusButton"
@@ -195,9 +197,9 @@
         android:id="@+id/exitButton"
         style="@style/buttonSW330"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -207,39 +209,33 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="@+id/exitButton"
         app:layout_constraintStart_toEndOf="@+id/exitButton"
-        app:layout_constraintTop_toTopOf="@+id/exitButton"
-        tools:text="sdsd" />
-
-    <fragment
-        android:id="@+id/fragment3"
-        android:name="ashunevich.uniconverter20.KeyboardFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3"
-        tools:layout="@layout/keyboard_fragment" />
+        app:layout_constraintTop_toTopOf="@+id/exitButton" />
 
     <View
-        android:id="@+id/divider3"
-        android:layout_width="304dp"
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="@+id/clearCalcValue"
         app:layout_constraintStart_toStartOf="@+id/leftBracket"
         app:layout_constraintTop_toBottomOf="@+id/percentButton" />
+
+    <fragment
+        android:id="@+id/fragment4"
+        android:name="ashunevich.uniconverter20.KeyboardFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/divider4"
+        app:layout_constraintStart_toStartOf="@+id/divider4"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"
+        tools:layout="@layout/keyboard_fragment" />
 
 </android.support.constraint.ConstraintLayout>

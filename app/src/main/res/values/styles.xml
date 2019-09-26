@@ -5,12 +5,17 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@color/vectorColor</item>
     </style>
+
 
     <style name="AppThemeDefaultNoBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="spinnerTheme" parent="Platform.Widget.AppCompat.Spinner">
@@ -37,7 +42,7 @@
 
     <style name="angleLeftStyle">
         style="@style/EditTextStyle"
-        <item name="android:background">@drawable/rect_while_left</item>
+        <item name="android:background">@drawable/rect_white_left</item>
     </style>
 
     <style name="abgleRightStyle">
@@ -52,6 +57,15 @@
         <item name="android:padding">4dp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="tablePoint" parent="buttonSW300" >
+        <item name="android:background">@drawable/rect_table_header</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textIsSelectable">true</item>
     </style>
 
     <style name="buttonSW330" parent="buttonSW300" >

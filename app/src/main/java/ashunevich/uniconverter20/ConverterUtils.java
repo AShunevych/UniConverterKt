@@ -7,10 +7,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public abstract class UtilsConverter extends ConverterActivity {
+public abstract class ConverterUtils extends ConverterActivity {
 
-    public UtilsConverter(TextView resultView, EditText valueEdit, Switch aSwitch, Context mContext,
-    String stringOff, String stringOn ){
+    public ConverterUtils(TextView resultView, EditText valueEdit, Switch aSwitch, Context mContext,
+                          String stringOff, String stringOn ){
 
         this.resultView = resultView;
         this.valueEdit = valueEdit;
@@ -18,11 +18,6 @@ public abstract class UtilsConverter extends ConverterActivity {
         this.mContext= mContext;
         this.stringOff = stringOff;
         this.stringOn = stringOn;
-    }
-
-    protected static void clearView (TextView resultView,EditText valueEdit){
-        resultView.setText("");
-        valueEdit.setText("");
     }
 
     protected static void changeSwitch (Switch aSwitch, final EditText valueEdit, final String stringOff, final String stringOn,
@@ -44,6 +39,11 @@ public abstract class UtilsConverter extends ConverterActivity {
             }
         });
     }
+    protected static void clearView (EditText valueEdit,TextView resultView){
+        resultView.setText("");
+        valueEdit.setText("");
+    }
+
 
 
 }

@@ -1,13 +1,16 @@
 package ashunevich.uniconverter20;
 
 
+import android.util.Log;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.HashMap;
 
 
-public abstract class ConverterAdapter extends ConverterActivity {
-    public ConverterAdapter(TextView resultView){
+public abstract class ConverterLogic extends ConverterActivity {
+    public ConverterLogic(TextView resultView, HashMap<String, String> hm){
+        this.hm = hm;
         this.resultView = resultView;
     }
 
@@ -1830,5 +1833,19 @@ public abstract class ConverterAdapter extends ConverterActivity {
         }
     }
 
+    public static void convertCurrencyData(String txtFromSpinner1,
+                                          String txtFromSpinner2 , Double enteredValue, TextView resultView
+   , HashMap<String, String> hm ){
+
+        try{
+            double initRate = Double.valueOf(hm.get(txtFromSpinner1));
+            double targetRate = Double.valueOf(hm.get(txtFromSpinner2));
+            String resultFinal = String.valueOf((targetRate * enteredValue) / initRate);
+            resultView.setText(resultFinal);
+        }
+        catch (Exception e){
+            Log.d(" Exception","exeption catched") ;
+        }
+    }
 }
 
