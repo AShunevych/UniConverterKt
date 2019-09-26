@@ -1,9 +1,11 @@
 # UniConverter
 Simple calculation and conversion app.
 Aveliable converssion: 
-- Area  - Currency  - Circe/Sphere units - Force  -E-notattion to Decimal and vice versa
+- Area  - Currency  - Circe/Sphere units - Force 
 - Time - Length - Temperature - Speed - Volume  - Weight 
+-Pipe sized tables
 
-Also aveliable simple calculator,parser provided by MathParser
+Also aveliable simple calculator,
 
+Parser provided by MathParser
 Currency conversion provided by Openrates.Io
