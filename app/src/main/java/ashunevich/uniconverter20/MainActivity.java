@@ -1,7 +1,6 @@
 package ashunevich.uniconverter20;
 
 
-
 import android.content.Intent;
 
 import android.support.constraint.ConstraintLayout;
