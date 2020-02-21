@@ -1,6 +1,380 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/clearButton"
+        style="@style/buttonSW300"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/clear"
+        app:layout_constraintBottom_toBottomOf="@+id/valueEdit"
+        app:layout_constraintEnd_toEndOf="@+id/value_spinner"
+        app:layout_constraintTop_toTopOf="@+id/valueEdit" />
+
+    <Spinner
+        android:id="@+id/value_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:dropDownWidth="wrap_content"
+        android:prompt="@string/param"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueName" />
+
+    <EditText
+        android:id="@+id/valueEdit"
+        style="@style/converterValuesStyle_sw300_360"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal|end"
+        android:inputType="none"
+        android:lines="1"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="2dp"
+        android:selectAllOnFocus="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/clearButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value_spinner" />
+
+    <TextView
+        android:id="@+id/valueEdit3"
+        style="@style/converterAuxTextStyleValues_Head_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cir"
+        app:layout_constraintEnd_toEndOf="@+id/circleArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit" />
+
+    <TextView
+        android:id="@+id/valueEdit5"
+        style="@style/converterAuxTextStyleValues_Head_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sph"
+        app:layout_constraintEnd_toEndOf="@+id/valueEdit3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleCircum" />
+
+    <TextView
+        android:id="@+id/valueEdit6"
+        style="@style/converterAuxTextStyleValues_Head_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hemi"
+        app:layout_constraintEnd_toEndOf="@+id/valueEdit5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sphereVolume" />
+
+    <TextView
+        android:id="@+id/circleArea"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sq"
+        app:layout_constraintEnd_toEndOf="@+id/circleCircum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit3" />
+
+    <TextView
+        android:id="@+id/circleRadius"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/radius"
+        app:layout_constraintEnd_toEndOf="@+id/circleArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleArea" />
+
+    <TextView
+        android:id="@+id/circeDiameter"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/diam"
+        app:layout_constraintEnd_toEndOf="@+id/circleRadius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleRadius" />
+
+    <TextView
+        android:id="@+id/circleCircum"
+        style="@style/angleRight"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:text="@string/circ"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circeDiameter" />
+
+    <TextView
+        android:id="@+id/sphereArea"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sq"
+        app:layout_constraintEnd_toEndOf="@+id/circleCircum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit5" />
+
+    <TextView
+        android:id="@+id/hemisphArea"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sq"
+        app:layout_constraintEnd_toEndOf="@+id/circleCircum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit6" />
+
+    <TextView
+        android:id="@+id/sphereVolume"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/volumesph"
+        app:layout_constraintEnd_toEndOf="@+id/circleCircum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sphereArea" />
+
+    <TextView
+        android:id="@+id/hemisphVolume"
+        style="@style/angleRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/volumesph"
+        app:layout_constraintEnd_toEndOf="@+id/circleCircum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hemisphArea" />
+
+    <TextView
+        android:id="@+id/circleAreaValue"
+        style="@style/angleLeft"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/circleArea"
+        app:layout_constraintStart_toEndOf="@+id/circleArea"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit3"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/radValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circleAreaValue"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/circleRadius"
+        app:layout_constraintTop_toBottomOf="@+id/circleAreaValue"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/diamValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circleAreaValue"
+        app:layout_constraintStart_toEndOf="@+id/circeDiameter"
+        app:layout_constraintTop_toBottomOf="@+id/radValue"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/circValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circleAreaValue"
+        app:layout_constraintStart_toEndOf="@+id/circleCircum"
+        app:layout_constraintTop_toBottomOf="@+id/diamValue"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/sphereAreaValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circValue"
+        app:layout_constraintStart_toEndOf="@+id/sphereArea"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit5"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/hemiAreaValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circValue"
+        app:layout_constraintStart_toEndOf="@+id/hemisphArea"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit6"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/hemiVolumeValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/hemiAreaValue"
+        app:layout_constraintStart_toEndOf="@+id/hemisphVolume"
+        app:layout_constraintTop_toBottomOf="@+id/hemiAreaValue"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/sphereVolumeValue"
+        style="@style/angleLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/circValue"
+        app:layout_constraintStart_toEndOf="@+id/sphereVolume"
+        app:layout_constraintTop_toBottomOf="@+id/sphereAreaValue"
+        tools:text="125.24" />
+
+    <TextView
+        android:id="@+id/valueName"
+        style="@style/converterAuxTextStyleValues_Head"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/circleSphere_button"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/areaID"
+        style="@style/angle_aux_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/circleAreaValue"
+        app:layout_constraintStart_toEndOf="@+id/circleAreaValue"
+        app:layout_constraintTop_toTopOf="@+id/circleAreaValue"
+        tools:text="inch2" />
+
+    <TextView
+        android:id="@+id/radiusID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/radValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/radValue"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="mm" />
+
+    <TextView
+        android:id="@+id/diamID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/diamValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/diamValue"
+        tools:text="mm" />
+
+    <TextView
+        android:id="@+id/circID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/circValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/circValue"
+        tools:text="mm" />
+
+
+    <TextView
+        android:id="@+id/hmareaID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/hemiAreaValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/hemiAreaValue"
+        tools:text="mm" />
+
+    <TextView
+        android:id="@+id/volumehsID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/hemiVolumeValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/hemiVolumeValue"
+        tools:text="mm" />
+
+    <TextView
+        android:id="@+id/sphAreaID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/sphereAreaValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/sphereAreaValue"
+        tools:text="mm" />
+
+    <TextView
+        android:id="@+id/volumeSID"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/angle_aux_text"
+        app:layout_constraintBottom_toBottomOf="@+id/sphereVolumeValue"
+        app:layout_constraintEnd_toEndOf="@+id/areaID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/areaID"
+        app:layout_constraintTop_toTopOf="@+id/sphereVolumeValue"
+        tools:text="mm" />
+
+    <Spinner
+        android:id="@+id/valSpinner"
+        style="@style/Widget.AppCompat.Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/valueEdit3"
+        app:layout_constraintStart_toStartOf="@+id/circleAreaValue"
+        app:layout_constraintTop_toTopOf="@+id/valueEdit3" />
+
+    <ImageButton
+        android:id="@+id/exitButton"
+        style="@style/buttonSW330"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toBottomOf="@+id/valueName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

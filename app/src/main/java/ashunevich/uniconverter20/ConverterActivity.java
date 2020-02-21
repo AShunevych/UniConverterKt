@@ -55,6 +55,10 @@ public class ConverterActivity  extends AppCompatActivity {
     Button clearButton;
      @BindView(R.id.exitButton)
      ImageButton finishThisActivity;
+     @BindView(R.id.valueUnit)
+     TextView valueUnit;
+     @BindView(R.id.resultUnit)
+     TextView resultUnit;
 
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
@@ -83,7 +87,7 @@ public class ConverterActivity  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.converter_activity);
+        setContentView(R.layout.converter_activity_alt);
         ButterKnife.bind(this);
         Intent intent = getIntent();
         String GET_NAME = intent.getStringExtra("getName");
@@ -93,9 +97,9 @@ public class ConverterActivity  extends AppCompatActivity {
 
         setClicksListener();
         setSpinnersAdapters();
-        setSpinnersListeners();
         addTextWatcher();
-
+        setSpinnersListeners();
+        setUnitMeasurments();
         //switch listener
         ConverterUtils.changeSwitch(aSwitch,valueEdit,getResources().getString(R.string.keyboardOff),
                 getResources().getString(R.string.keyboardOn),mContext);
@@ -185,6 +189,7 @@ public class ConverterActivity  extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 convertAndShowValues(sDefSystemLanguage);
+                setUnitMeasurments();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -196,6 +201,7 @@ public class ConverterActivity  extends AppCompatActivity {
         spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                setUnitMeasurments();
                 convertAndShowValues(sDefSystemLanguage);
             }
             @Override
@@ -273,6 +279,14 @@ public class ConverterActivity  extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         // Adding request to request queue
         queue.add(jsonObjReq);
+    }
+
+    private void setUnitMeasurments(){
+        getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
+        getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
+
+        ConverterLogic.setUnitsView(getValueSpinnerFrom,valueUnit);
+        ConverterLogic.setUnitsView(getValueSpinnerTo,resultUnit );
     }
 
     private void convertAndShowValues(String activeLocale){

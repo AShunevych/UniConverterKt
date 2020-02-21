@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/textView"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/textView3"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,7 +65,7 @@
 
     <EditText
         android:id="@+id/eplusDecValue"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -81,7 +81,7 @@
 
     <EditText
         android:id="@+id/decimalValue"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -97,7 +97,7 @@
 
     <EditText
         android:id="@+id/epminusDecValue"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -149,7 +149,7 @@
 
     <EditText
         android:id="@+id/eplusExponent"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -165,7 +165,7 @@
 
     <EditText
         android:id="@+id/eminusExponent"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -180,7 +180,7 @@
 
     <TextView
         android:id="@+id/eplusResult"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -195,7 +195,7 @@
 
     <TextView
         android:id="@+id/eMinusResult"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -210,7 +210,7 @@
 
     <TextView
         android:id="@+id/scientificDecResult"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

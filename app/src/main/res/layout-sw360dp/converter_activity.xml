@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/resultView"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:textIsSelectable="true"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
 
     <EditText
         android:id="@+id/valueEdit"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -91,7 +91,7 @@
 
     <TextView
         android:id="@+id/valueName"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

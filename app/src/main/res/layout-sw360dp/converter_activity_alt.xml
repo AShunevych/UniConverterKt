@@ -10,72 +10,67 @@
         android:id="@+id/clearButton"
         style="@style/buttonSW300"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="31dp"
 
         android:text="@string/clear"
-        app:layout_constraintBottom_toBottomOf="@+id/resultView"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_result"
-        app:layout_constraintTop_toTopOf="@+id/resultView" />
+        app:layout_constraintStart_toStartOf="@+id/resultView"
+        app:layout_constraintTop_toTopOf="@+id/resultUnit" />
 
     <TextView
         android:id="@+id/resultView"
         style="@style/converterValuesStyle_sw300_360"
-        android:textIsSelectable="true"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="clip_vertical|end"
-        android:lines="1"
-        android:paddingStart="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/clearButton"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textIsSelectable="true"
+        android:inputType="none"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="@+id/valueName"
         app:layout_constraintTop_toBottomOf="@+id/spinner_result"
         tools:text="sometext" />
 
     <Spinner
         android:id="@+id/spinner_result"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valueEdit" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/valueUnit" />
 
     <EditText
         android:id="@+id/valueEdit"
         style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:gravity="center_horizontal|end"
-        android:inputType="number|numberDecimal"
-        android:lines="1"
-        android:paddingStart="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
-        android:selectAllOnFocus="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/valueName"
         app:layout_constraintTop_toBottomOf="@+id/spinner_value"
         tools:text="sdsds" />
+
+    <TextView
+        android:id="@+id/valueUnit"
+        style="@style/converterAuxTextStyleValues_SubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:selectAllOnFocus="false"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintTop_toBottomOf="@+id/valueEdit"
+        tools:text="bbl(UK)" />
+
+    <TextView
+        android:id="@+id/resultUnit"
+        style="@style/converterAuxTextStyleValues_SubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintTop_toBottomOf="@+id/resultView"
+        tools:text="bbl(UK)" />
 
     <ImageButton
         android:id="@+id/exitButton"
@@ -91,15 +86,9 @@
 
     <TextView
         android:id="@+id/valueName"
-        style="@style/converterValuesStyle_sw300_360"
+        style="@style/converterAuxTextStyleValues_Head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exitButton"
         tools:text="sometext" />
@@ -119,15 +108,14 @@
 
     <Spinner
         android:id="@+id/spinner_value"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/valueName" />
 
     <Switch
@@ -146,12 +134,18 @@
         android:name="ashunevich.uniconverter20.KeyboardFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/clearButton"
+        app:layout_constraintEnd_toEndOf="@+id/resultView"
         app:layout_constraintStart_toStartOf="@+id/resultView"
-        app:layout_constraintTop_toBottomOf="@+id/resultView"
+        app:layout_constraintTop_toBottomOf="@+id/resultUnit"
         tools:layout="@layout/keyboard_fragment" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </android.support.constraint.ConstraintLayout>

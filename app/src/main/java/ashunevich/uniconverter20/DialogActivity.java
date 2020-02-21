@@ -3,6 +3,7 @@ package ashunevich.uniconverter20;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -33,7 +34,7 @@ public class DialogActivity extends DialogFragment {
         super.onCreate(savedInstanceState);
 
     }
-
+    @NonNull
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getDialog().setTitle(getResources().getString(R.string.about));

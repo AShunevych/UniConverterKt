@@ -9,7 +9,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/four"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
@@ -21,7 +21,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/one"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
@@ -33,7 +33,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/decimal"
         app:layout_constraintEnd_toEndOf="@+id/but_seven"
         app:layout_constraintHorizontal_bias="0.0"
@@ -43,10 +43,10 @@
     <Button
         android:id="@+id/but_seven"
         style="@style/buttonSW330"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/seven"
         app:layout_constraintEnd_toStartOf="@+id/button_eight"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
     <Button
         android:id="@+id/button_eight"
         style="@style/buttonSW330"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
 
         android:text="@string/eight"
@@ -67,7 +67,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/five"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
@@ -79,7 +79,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/two"
         app:layout_constraintEnd_toEndOf="@+id/button_eight"
@@ -91,7 +91,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/zero"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
@@ -102,9 +102,9 @@
     <Button
         android:id="@+id/but_nine"
         style="@style/buttonSW330"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
 
         android:text="@string/nine"
         app:layout_constraintStart_toEndOf="@+id/button_eight"
@@ -115,7 +115,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/six"
         app:layout_constraintEnd_toEndOf="@+id/but_nine"
@@ -127,7 +127,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/three"
         app:layout_constraintEnd_toEndOf="@+id/but_six"
@@ -139,7 +139,7 @@
         style="@style/buttonSW330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
 
         android:text="@string/dzero"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"

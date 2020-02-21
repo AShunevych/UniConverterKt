@@ -1,6 +1,7 @@
 package ashunevich.uniconverter20;
 
 
+import android.content.res.Resources;
 import android.util.Log;
 import android.widget.TextView;
 import java.text.DecimalFormat;
@@ -549,8 +550,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
                     case "Mach(SI)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0033)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.943)));break;
                 }
@@ -561,8 +562,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Kilometer/second[km/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00053)));break;
                 }
@@ -574,8 +575,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
 
@@ -588,8 +589,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
                 }
@@ -601,8 +602,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
                 }
@@ -614,8 +615,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00016)));break;
 
@@ -627,12 +628,9 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
-
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
-
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
-
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8689)));break;
 
@@ -645,8 +643,8 @@ public abstract class ConverterLogic extends ConverterActivity {
                     case "Kilometer/second[km/s]":      //check here
                         resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
                     case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-                    case "Foot/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
-                    case "Foot/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
+                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
+                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
                     case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
@@ -1845,6 +1843,162 @@ public abstract class ConverterLogic extends ConverterActivity {
         }
         catch (Exception e){
             Log.d(" Exception","exeption catched") ;
+        }
+    }
+
+    public static void setUnitsView(String spinnerTextValue,
+                                    TextView measurementUnit){
+        Resources resources = measurementUnit.getResources();
+        switch (spinnerTextValue) {
+            case "Milligram/mg":   measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Gram/g":   measurementUnit.setText(resources.getString(R.string.unit_G));break;
+            case "Kilogram/kg":   measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
+            case "Tonne/t":   measurementUnit.setText(resources.getString(R.string.unit_T));break;
+            case "Grain/gr":   measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
+            case "Ounce/oz":   measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
+            case "Pound/lb </":   measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
+            case "Hundreweight/hw":   measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
+            case "Ton(long)/tl":   measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
+            case "Millimetre/mm":   measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
+            case "Centimetre/sm":   measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
+            case "Metre/m":   measurementUnit.setText(resources.getString(R.string.unit_M));break;
+            case "Kilometre/km":   measurementUnit.setText(resources.getString(R.string.unit_Km));break;
+            case "Inch/in":   measurementUnit.setText(resources.getString(R.string.unit_In));break;
+            case "Foot/ft":   measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
+            case "Yard/yd":   measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
+            case "Mile/mi":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Celsius/°C":   measurementUnit.setText(resources.getString(R.string.unit_c));break;
+            case "Kelvin/°K":   measurementUnit.setText(resources.getString(R.string.unit_k));break;
+            case "Rankine/°R":   measurementUnit.setText(resources.getString(R.string.unit_r));break;
+            case "Fahrenheit/°F":   measurementUnit.setText(resources.getString(R.string.unit_f));break;
+            case "Square millimeter/mm²":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
+            case "Square centimeter/cm²":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
+            case "Square meter/м²":   measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
+            case "Square kilometer/km²":   measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
+            case "Hectare/ha":   measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
+            case "Square mile/mi²":   measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
+            case "Square yard/yd²":   measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
+            case "Square feet/ft²":   measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
+            case "Square inch/in²":   measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
+            case "Acre/ac":   measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
+            case "Seconds":   measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
+            case "Minutes":   measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
+            case "Hour":   measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
+            case "Day²":   measurementUnit.setText(resources.getString(R.string.unit_Day));break;
+            case "Week":   measurementUnit.setText(resources.getString(R.string.unit_Week));break;
+            case "Month":   measurementUnit.setText(resources.getString(R.string.unit_Month));break;
+            case "Year":   measurementUnit.setText(resources.getString(R.string.unit_Year));break;
+            case "Cubic millimetre/mm³":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
+            case "Cubic centimetre/cm³":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
+            case "Cubic metre/m³":   measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
+            case "Milliliter/ml":   measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
+            case "Liter/L":   measurementUnit.setText(resources.getString(R.string.unit_L));break;
+            case "Fluid ounce/fl oz":   measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
+            case "Barrel(UK)/bbl(UK)":   measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
+            case "Gill/gi":   measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
+            case "Pint/pt":   measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
+            case "Quart/qt²":   measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
+            case "Gallon/gal":   measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
+            case "Mlilinewton/mN":   measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
+            case "Newton/N":   measurementUnit.setText(resources.getString(R.string.unit_N));break;
+            case "Kilonewton/kN":   measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
+            case "Ton-force(metric)/tf":   measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
+            case "Gram-force/gf":   measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
+            case "Kilogram-force/kgf":   measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
+            case "Pond/p":   measurementUnit.setText(resources.getString(R.string.unit_P));break;
+            case "Pound-force/lbf":   measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
+            case "Ounce-force/ozf":   measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
+            case "Ton-force (long)/tonf":   measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
+            case "Poundal/pdl":   measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
+            case "Meter/second[m/s]":   measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
+            case "Meter/hour[m/h]":   measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
+            case "Kilometer/second[km/s]":   measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
+            case "Kilometer/hour[km/h]":   measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
+            case "Foot/second[f/s]":   measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
+            case "Foot/hour[f/h]":   measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
+            case "Mile/hour[mi/h]":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Knot/kt":   measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
+            case "United States Dollar/USD":   measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
+            case "Great Britain Pound/GBP":   measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
+            case "Indonesian rupiah/IPR":   measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
+            case "Polish złoty/PLN":   measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
+            case "New Zealand dollar/NZD":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
+            case "Russian Ruble/RUB":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
+            //Ukrainian locale
+            case "Мілліграм/мг" :    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Грам/г" :    measurementUnit.setText(resources.getString(R.string.unit_G));break;
+            case "Кілограм/кг" :    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
+            case "Тонна/т" :    measurementUnit.setText(resources.getString(R.string.unit_T));break;
+            case "Гран/гр" :    measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
+            case "Унція/унц" :    measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
+            case "Фунт/фт" :    measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
+            case "Хандредвейт/хвт" :    measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
+            case "Тонна(довга)/тд" :    measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
+            case "Мілліметр/мм" :    measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
+            case "Сантіметр/см" :    measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
+            case "Метр/м" :    measurementUnit.setText(resources.getString(R.string.unit_M));break;
+            case "Кілометр/км" :    measurementUnit.setText(resources.getString(R.string.unit_Km));break;
+            case "Дюйм/д" :    measurementUnit.setText(resources.getString(R.string.unit_In));break;
+            case "Фут/ф" :    measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
+            case "Ярд/я" :    measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
+            case "Міля/мі" :    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Цельсій/°C" :    measurementUnit.setText(resources.getString(R.string.unit_c));break;
+            case "Кельвін/°K" :    measurementUnit.setText(resources.getString(R.string.unit_k));break;
+            case "Ранкін/°R" :    measurementUnit.setText(resources.getString(R.string.unit_r));break;
+            case "Фаренгейт/°F" :    measurementUnit.setText(resources.getString(R.string.unit_f));break;
+            case "Мілліметр квадратний/мм²" :    measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
+            case "Сантіметр квадратний/см²" :    measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
+            case "Метр квадратний/м²" :    measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
+            case "Кілометр квадратний/км²" :    measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
+            case "Гектар/г" :    measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
+            case "Міля квадратна/мі²" :    measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
+            case "Ярд квадратний/ярд²" :    measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
+            case "Фут квадратний/ф²" :    measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
+            case "Дюйм квадратний/д²" :    measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
+            case "Акр/а" :    measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
+            case "Секунди" :    measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
+            case "Хвилини" :    measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
+            case "Година" :    measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
+            case "День" :    measurementUnit.setText(resources.getString(R.string.unit_Day));break;
+            case "Тиждень" :    measurementUnit.setText(resources.getString(R.string.unit_Week));break;
+            case "Місяц" :    measurementUnit.setText(resources.getString(R.string.unit_Month));break;
+            case "Рік" :    measurementUnit.setText(resources.getString(R.string.unit_Year));break;
+            case "Мілліметр кубічний/мм³" :    measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
+            case "Сантіметр кубічний/cм³" :    measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
+            case "Метр кубічний/м³" :    measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
+            case "Міллілітр/мл" :    measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
+            case "Літр/Л" :    measurementUnit.setText(resources.getString(R.string.unit_L));break;
+            case "Унція рідка/унц(р)" :    measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
+            case "Баррель(UK)/б(UK)" :    measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
+            case "Джил/дж" :    measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
+            case "Пінта/пт" :    measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
+            case "Кварт/кт" :    measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
+            case "Галлон/гал" :    measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
+            case "Мілліньютон/мН" :    measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
+            case "Ньютон/Н" :    measurementUnit.setText(resources.getString(R.string.unit_N));break;
+            case "Кілоньютон/кН" :    measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
+            case "Тонна-сила(метрична)/тс(м)" :    measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
+            case "Грам-сила/гс" :    measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
+            case "Кілограм-сила/кгс" :    measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
+            case "Понд/п" :    measurementUnit.setText(resources.getString(R.string.unit_P));break;
+            case "Фунт-сила/фтс" :    measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
+            case "Унція-сила/уцс" :    measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
+            case "Тонна-сила(довга)/тс(д)" :    measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
+            case "Паундаль/пдл" :    measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
+            case "Метрів/секунда[м/с]" :    measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
+            case "Метрів/година[м/г]" :    measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
+            case "Кілометр/секунда[км/с]" :    measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
+            case "Кілометр/година[км/г]" :    measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
+            case "Фут/секунда[ф/с]" :    measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
+            case "Фут/година[ф/г]" :    measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
+            case "Міль/година[міль/г]" :    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Вузол/В" :    measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
+            case "Доллар США/USD" :    measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
+            case "Великобританський фунт/GBP" :    measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
+            case "Індозенійська Рупія/IPR" :    measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
+            case "Польский Злотий/PLN" :    measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
+            case "Доллар НЗ/NZD" :    measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
+            case "Рубль/RUB" :    measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
         }
     }
 }

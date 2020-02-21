@@ -14,8 +14,8 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/clearButton"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/resultView"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
         tools:layout="@layout/keyboard_fragment" />
 
     <Button
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/resultView"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:textIsSelectable="true"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/valueEdit"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -101,7 +101,7 @@
 
     <TextView
         android:id="@+id/valueName"
-        style="@style/EditTextStyle"
+        style="@style/converterValuesStyle_sw300_360"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

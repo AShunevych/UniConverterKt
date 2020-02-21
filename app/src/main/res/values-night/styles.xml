@@ -11,10 +11,6 @@
     </style>
 
 
-
-
-
-
     <style name="spinnerTheme" parent="Platform.Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>

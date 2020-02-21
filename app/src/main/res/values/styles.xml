@@ -1,4 +1,5 @@
 <resources>
+    <!-- THEME CONTROLS-->
     <!-- Base application theme. -->
     <style name="AppThemeDefault" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -27,27 +28,131 @@
         <item name="thumbTint">@color/thumb</item>
         <item name="trackTint">@color/thumb</item>
     </style>
+    <!-- THEME CONTROLS-->
 
-    <style name="EditTextStyle">
-        <item name="android:fontFamily">sans-serif-condensed-medium</item>
-        <item name="android:gravity">clip_vertical|start</item>
+    <!-- VALUES CONTROLS-->
+    <style name="basic_Values">
         <item name="android:lines">1</item>
-       <item name="android:paddingStart">8dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:selectAllOnFocus">false</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+    <!--  values for  "converter activity" fields  -->
+   <style name="converter_basic_values" parent="basic_Values">
+       <item name="android:fontFamily">sans-serif-medium</item>
+       <item name="android:gravity">center_vertical|center</item>
+       <item name="android:inputType">number|numberDecimal</item>
+       <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+       <item name="android:textSize">18sp</item>
+       <item name="android:background">@drawable/rect_white</item>
+   </style>
+    <style name="converterValuesStyle_sw300_360" parent="converter_basic_values">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingRight">8dp</item>
         <item name="android:paddingBottom">2dp</item>
+    </style>
+    <style name="converterValuesStyle_sw480dp" parent="converter_basic_values">
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <!--  /END values for  "converter activity" fields  -->
+
+    <style name="converterAuxTextStyleBasicValues" parent="basic_Values">
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+    <style name="converterAuxTextStyleValues_Head" parent="converterAuxTextStyleBasicValues">
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+        <item name="android:gravity">center_horizontal|start</item>>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
-        <item name="android:background">@drawable/rect_white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+    <style name="converterAuxTextStyleValues_SubText" parent="converterAuxTextStyleBasicValues">
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="android:gravity">center_horizontal|end</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+    <style name="converterAuxTextStyleValues_Head_2" parent="converterAuxTextStyleBasicValues">
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:gravity">start|center_horizontal</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="angleLeftStyle">
-        style="@style/EditTextStyle"
+    <style name="calculatorValuesStyle" parent="basic_Values">
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/rect_white</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textDirection">ltr</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Basic values for all "angle activity" fields except "Value" -->
+    <style name="angle_style_basic_values" parent="basic_Values">
+        <item name="android:gravity">start|center_horizontal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+    <!-- Values for  "angle activity" fields except "Value" sw300dp -->
+    <style name="angleStyle" parent="angle_style_basic_values">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="angleLeft" parent="angleStyle">
         <item name="android:background">@drawable/rect_white_left</item>
     </style>
-
-    <style name="abgleRightStyle">
-        style="@style/EditTextStyle"
+    <style name="angleRight" parent="angleStyle">
         <item name="android:background">@drawable/rect_white_right</item>
+    </style>
+    <!-- Values for  "angle activity" fields except "Value" sw330dp -->
+    <style name="angleStyle_sw330" parent="angle_style_basic_values">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="angleLeft_sw330" parent="angleStyle_sw330">
+        <item name="android:background">@drawable/rect_white_left</item>
+    </style>
+    <style name="angleRight_sw330" parent="angleStyle_sw330">
+        <item name="android:background">@drawable/rect_white_right</item>
+    </style>
+    <style name="angle_aux_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
     </style>
 
 
@@ -71,7 +176,7 @@
     <style name="buttonSW330" parent="buttonSW300" >
         <item name="android:textSize">18sp</item>
     </style>
-
+    <!-- VALUES CONTROLS-->
 
 
 </resources>
