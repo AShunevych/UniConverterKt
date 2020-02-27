@@ -150,7 +150,7 @@ public class ConverterActivity  extends AppCompatActivity {
         valueEdit.append(event.getNumber());
     }
 
-
+    //Filling spinners with values
     private void setSpinnersAdapters() {
         String activeValue = valueName.getText().toString();
 
@@ -184,6 +184,7 @@ public class ConverterActivity  extends AppCompatActivity {
         }
     }
 
+    //if user changes unit - it will change mesaurments and will automatically recalculate result
     private void setSpinnersListeners(){
         spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -209,7 +210,7 @@ public class ConverterActivity  extends AppCompatActivity {
             }});
 
     }
-
+    //Auto convertion mecahnism when user add number to value for convert
     private void addTextWatcher() {
 
         valueEdit.addTextChangedListener(new TextWatcher() {
@@ -230,6 +231,7 @@ public class ConverterActivity  extends AppCompatActivity {
         });
     }
 
+    //retrieve online API data for currency convertion
     private void getJsonOnlineData() {
         String url = "https://api.exchangeratesapi.io/latest";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -281,6 +283,7 @@ public class ConverterActivity  extends AppCompatActivity {
         queue.add(jsonObjReq);
     }
 
+    //set units of mesaurments for value
     private void setUnitMeasurments(){
         getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
         getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
@@ -289,6 +292,7 @@ public class ConverterActivity  extends AppCompatActivity {
         ConverterLogic.setUnitsView(getValueSpinnerTo,resultUnit );
     }
 
+    //convertion mechanism
     private void convertAndShowValues(String activeLocale){
         if (TextUtils.isEmpty(valueEdit.getText().toString())) {
             resultView.setText("");

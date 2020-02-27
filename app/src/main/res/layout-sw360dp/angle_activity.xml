@@ -139,7 +139,7 @@
 
     <EditText
         android:id="@+id/valueEdit"
-        style="@style/converterValuesStyle_sw300_360"
+        style="@style/converterValuesStyle_sw300_360_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/clearButton"

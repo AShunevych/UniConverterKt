@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/clearButton2"
+        android:id="@+id/clearButton"
         style="@style/buttonSW300"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -20,20 +20,12 @@
     <TextView
         android:id="@+id/resultView"
         style="@style/converterValuesStyle_sw300_360"
+        android:inputType="none"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="clip_vertical|end"
-        android:lines="1"
-        android:paddingStart="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toEndOf="@+id/valueEdit"
-        app:layout_constraintStart_toStartOf="@+id/valueEdit"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintStart_toStartOf="@+id/valueName"
         app:layout_constraintTop_toBottomOf="@+id/spinner_result"
         tools:text="sometext" />
 
@@ -52,55 +44,29 @@
 
     <EditText
         android:id="@+id/valueEdit"
-        style="@style/converterValuesStyle_sw300_360"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="center|center_vertical"
-        android:inputType="number|numberDecimal"
-        android:lines="1"
-        android:paddingStart="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="2dp"
-        android:selectAllOnFocus="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        style="@style/converterValuesStyle_sw300_360_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/valueName"
         app:layout_constraintTop_toBottomOf="@+id/spinner_value"
         tools:text="sdsds" />
 
     <TextView
         android:id="@+id/valueUnit"
-        style="@style/converterAuxTextStyleBasicValues"
+        style="@style/converterAuxTextStyleValues_SubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:fontFamily="serif-monospace"
-        android:gravity="center_horizontal|end"
-        android:inputType="number|numberDecimal"
-        android:lines="1"
-        android:selectAllOnFocus="false"
         app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
         app:layout_constraintTop_toBottomOf="@+id/valueEdit"
         tools:text="bbl(UK)" />
 
     <TextView
         android:id="@+id/resultUnit"
-        style="@style/converterAuxTextStyleBasicValues"
+        style="@style/converterAuxTextStyleValues_SubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:gravity="center_horizontal|end"
-        android:inputType="number|numberDecimal"
-        android:lines="1"
-        android:selectAllOnFocus="false"
         app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
         app:layout_constraintTop_toBottomOf="@+id/resultView"
         tools:text="bbl(UK)" />
@@ -119,16 +85,9 @@
 
     <TextView
         android:id="@+id/valueName"
-        style="@style/converterAuxTextStyleBasicValues"
+        style="@style/converterAuxTextStyleValues_Head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exitButton"
         tools:text="sometext" />
@@ -151,6 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -173,11 +133,9 @@
         android:name="ashunevich.uniconverter20.KeyboardFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/resultView"
+        app:layout_constraintStart_toStartOf="@+id/resultView"
         app:layout_constraintTop_toBottomOf="@+id/resultUnit"
         tools:layout="@layout/keyboard_fragment" />
 

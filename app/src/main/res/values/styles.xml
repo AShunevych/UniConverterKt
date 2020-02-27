@@ -34,39 +34,33 @@
     <style name="basic_Values">
         <item name="android:lines">1</item>
         <item name="android:ems">10</item>
-        <item name="android:selectAllOnFocus">false</item>
         <item name="android:inputType">none</item>
     </style>
-
     <!--  values for  "converter activity" fields  -->
    <style name="converter_basic_values" parent="basic_Values">
        <item name="android:fontFamily">sans-serif-medium</item>
        <item name="android:gravity">center_vertical|center</item>
-       <item name="android:inputType">number|numberDecimal</item>
        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
-       <item name="android:textSize">18sp</item>
-       <item name="android:background">@drawable/rect_white</item>
-   </style>
-    <style name="converterValuesStyle_sw300_360" parent="converter_basic_values">
-        <item name="android:layout_marginStart">8dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginEnd">16dp</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:paddingTop">2dp</item>
-        <item name="android:paddingEnd">8dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">2dp</item>
+     <item name="android:textSize">18sp</item>
+     <item name="android:background">@drawable/rect_white</item>
+ </style>
+
+  <style name="converterValuesStyle_sw300_360" parent="converter_basic_values">
+      <item name="android:layout_marginStart">8dp</item>
+      <item name="android:layout_marginTop">8dp</item>
+      <item name="android:layout_marginEnd">16dp</item>
+      <item name="android:paddingStart">8dp</item>
+      <item name="android:paddingLeft">8dp</item>
+      <item name="android:paddingTop">2dp</item>
+      <item name="android:paddingEnd">8dp</item>
+      <item name="android:paddingRight">8dp</item>
+      <item name="android:paddingBottom">2dp</item>
+  </style>
+    <style name="converterValuesStyle_sw300_360_input" parent="converterValuesStyle_sw300_360">
+        <item name="android:inputType">number|numberDecimal</item>
     </style>
-    <style name="converterValuesStyle_sw480dp" parent="converter_basic_values">
-        <item name="android:textSize">24sp</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-    </style>
-    <!--  /END values for  "converter activity" fields  -->
+  <!--  /END values for  "converter activity" fields  -->
+
 
     <style name="converterAuxTextStyleBasicValues" parent="basic_Values">
         <item name="android:layout_marginTop">8dp</item>
@@ -78,11 +72,15 @@
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginStart">8dp</item>
     </style>
+    <style name="converterAuxTextStyleValues_Head_480dp" parent="converterAuxTextStyleValues_Head">
+        <item name="android:textSize">32sp</item>
+    </style>
     <style name="converterAuxTextStyleValues_SubText" parent="converterAuxTextStyleBasicValues">
         <item name="android:fontFamily">serif-monospace</item>
         <item name="android:gravity">center_horizontal|end</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
+
     <style name="converterAuxTextStyleValues_Head_2" parent="converterAuxTextStyleBasicValues">
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
         <item name="android:gravity">start|center_horizontal</item>
@@ -96,6 +94,11 @@
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="converterAuxTextStyleValues_Head_2_sw480" parent="converterAuxTextStyleValues_Head_2">
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="calculatorValuesStyle" parent="basic_Values">
@@ -155,13 +158,15 @@
         <item name="android:gravity">center_horizontal|center_vertical</item>
     </style>
 
-
-    <style name="buttonSW300" parent="Widget.AppCompat.Button.Small" >
-       <item name="android:textSize">12sp</item>
+    <style name="button_basic" parent="Widget.AppCompat.Button.Small">
         <item name="android:background">@drawable/rect_white</item>
-        <item name="android:padding">4dp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="buttonSW300" parent="button_basic" >
+       <item name="android:textSize">12sp</item>
+        <item name="android:padding">4dp</item>
     </style>
 
     <style name="tablePoint" parent="buttonSW300" >
@@ -173,7 +178,8 @@
         <item name="android:textIsSelectable">true</item>
     </style>
 
-    <style name="buttonSW330" parent="buttonSW300" >
+    <style name="buttonSW330" parent="button_basic" >
+        <item name="android:padding">4dp</item>
         <item name="android:textSize">18sp</item>
     </style>
     <!-- VALUES CONTROLS-->

@@ -22,663 +22,647 @@ public abstract class ConverterLogic extends ConverterActivity {
         NumberFormat formatter = new DecimalFormat("###.########################");
                                                             //0.0000000000003861021585
         switch (txtFromSpinner1) {
-            //area
-            case "Square millimeter/mm²":
+            // area
+            case "Square millimeter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
                 }
                 break;
-            case "Square centimeter/cm²":
+            case "Square centimeter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
                 }
                 break;
-            case "Square meter/м²":
+            case "Square meter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
                 }
                 break;
-            case "Square kilometer/km²":
+            case "Square kilometer":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
                 }
                 break;
-            case "Hectare/ha":
+            case "Hectare":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
                 }
                 break;
-            case "Square mile/mi²":
+            case "Square mile":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
                 }
                 break;
-            case "Acre/ac":
+            case "Acre":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
                 }
                 break;
-            case "Square yard/yd²":
+            case "Square yard":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
                 }
                 break;
-            case "Square feet/ft²":
+            case "Square feet":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square inch/in²": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
                 }
-            case "Square inch/in²":
+            case "Square inch":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter/mm²": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
-                    case "Square centimeter/cm²": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
-                    case "Square meter/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
-                    case "Square kilometer/km²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
-                    case "Hectare/ha": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
-                    case "Square mile/mi²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
-                    case "Acre/ac": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
-                    case "Square yard/yd²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
-                    case "Square feet/ft²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
+                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
+                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
+                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
+                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
+                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
+                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
+                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
+                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
-                //force
-            case "Mlilinewton/mN":
+            case "Mlilinewton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001019716212)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001003611353)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
-                }
-                break;
-            case "Newton/N":
-                switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001019716212)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001003611353)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
                 }
                 break;
-            case "Kilonewton/kN":
+            case "Newton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101971)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1003)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
                 }
                 break;
-            case "Ton-force(metric)/tf":
+            case "Kilonewton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101971)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1003)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
                 }
                 break;
-            case "Gram-force/gf":
+            case "Ton-force(metric)":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000007039)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
                 }
                 break;
-            case "Kilogram-force/kgf":
+            case "Gram-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000007039)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
                 }
                 break;
-            case "Pond/p":
+            case "Kilogram-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
                 }
                 break;
-            case "Pound-force/lbf":
+            case "Pond":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
                 }
                 break;
-            case "Ounce-force/ozf":
+            case "Pound-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
                 }
                 break;
-            case "Ton-force (long)/tonf":
+            case "Ounce-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
                 }
                 break;
-            case "Poundal/pdl":
+            case "Ton-force (long)":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton/mN":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
-                    case "Newton/N":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
-                    case "Kilonewton/kN":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
-                    case "Ton-force(metric)/tf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
-                    case "Gram-force/gf":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Kilogram-force/kgf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
-                    case "Pond/p":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Pound-force/lbf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
-                    case "Ounce-force/ozf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
-                    case "Ton-force (long)/tonf":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
-                    case "Poundal/pdl":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
                 }
-            case "Millimetre/mm":
+                break;
+            case "Poundal":
+                switch (txtFromSpinner2) {
+                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
+                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
+                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
+                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
+                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
+                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
+                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
+                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
+                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
+                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
+                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                }
+            case "Millimetre":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
                 }
                 break;
-            case "Centimetre/sm":
+            case "Centimetre":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
                 }
                 break;
-            case "Metre/m":
+            case "Metre":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
                 }
                 break;
-            case "Kilometre/km":
+            case "Kilometre":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
                 }
                 break;
-            case "Inch/in":
+            case "Inch":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
                 }
                 break;
-            case "Foot/ft":
+            case "Foot":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
                 }
                 break;
-            case "Yard/yd":
+            case "Yard":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
                 }
                 break;
-            case "Mile/mi":
+            case "Mile":
                 switch (txtFromSpinner2){
-                    case "Millimetre/mm":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
-                    case "Centimetre/sm":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
-                    case "Metre/m":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
-                    case "Kilometre/km":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
-                    case "Inch/in":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
-                    case "Foot/ft":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
-                    case "Yard/yd":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
-                    case "Mile/mi":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
+                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
+                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
+                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
+                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
+                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
+                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
+                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
-            case "Milligram/mg":
+            case "Milligram":
                 switch (txtFromSpinner2){
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Kilogram/kg":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
-                    case "Tonne/t":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue)));
-                }
-                break;
-            case "Gram/g":
-                switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Kilogram/kg":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Tonne/t": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
+                    case "Tonne": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue)));
                 }
                 break;
-            case "Kilogram/kg":
+            case "Gram":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Tonne/t": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
-                    case "Kilogram/kg":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Tonne": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue)));
                 }
                 break;
-            case "Tonne/t":
+            case "Kilogram":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Kilogram/kg": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Grain/gr":
+            case "Tonne":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
-                    case "Kilogram/kg":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
+                    case "Kilogram":                    resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Ounce/oz ":
+            case "Grain":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
-                    case "Kilogram/kg": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Pound/lb ":
+            case "Ounce":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
-                    case "Kilogram/kg":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Hundreweight/hw ":
+            case "Pound":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
-                    case "Kilogram/kg": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
+                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Ton(long)/tl ":
+            case "Hundreweight":
                 switch (txtFromSpinner2){
-                    case "Milligram/mg":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
-                    case "Gram/g":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
-                    case "Kilogram/kg": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
-                    case "Tonne/t":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
-                    case "Grain/gr":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
-                    case "Ounce/oz":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
-                    case "Pound/lb":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
-                    case "Hundreweight/hw":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
+                    case "Kilogram": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
-            case "Meter/second[m/s]":
+                break;
+            case "Ton(long)":
+                switch (txtFromSpinner2){
+                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
+                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
+                    case "Kilogram":                    resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
+                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
+                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
+                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
+                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
+                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                }
+            case "Meter/second":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
                     case "Mach(SI)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0033)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.943)));break;
                 }
                 break;
-            case "Meter/hour[m/h]":
+            case "Meter/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilometer/second[km/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00053)));break;
                 }
                 break;
-            case "Kilometer/second[km/s]":
+            case "Kilometer/second":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.277)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
-
-                }
-                break;
-            case "Kilometer/hour[km/h]":
-                switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.277)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
                 }
                 break;
-            case "Foot/second[m/s]":
+            case "Kilometer/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
+                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
+                }
+                break;
+            case "Foot/second":
+                switch (txtFromSpinner2) {
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
                 }
                 break;
-            case "Foot/hour[m/h]":
+            case "Foot/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00016)));break;
-
                 }
                 break;
-            case "Mile/hour[mi/h]":
+            case "Mile/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8689)));break;
-
                 }
                 break;
             case "Knot/kt":
                 switch (txtFromSpinner2) {
-                    case "Meter/second[m/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
-                    case "Meter/hour[m/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
-                    case "Kilometer/second[km/s]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
-                    case "Kilometer/hour[km/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-                    case "Foot/second[f/s]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
-                    case "Foot/hour[f/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
-                    case "Mile/hour[mi/h]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
+                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
+                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
+                    case "Kilometer/second":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
+                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
+                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
+                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
+                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
                     case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
-            case "Celsius/°C":
+            case "Celsius":
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +32)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +491.76)));break;
+                    case "Celsius":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +32)));break;
+                    case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
+                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +491.76)));break;
                 }
                 break;
-            case "Kelvin/°K":
+            case "Kelvin":
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
+                    case "Celsius":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
+                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
+                    case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
                 }
                 break;
             case "Rankine/°R"  :
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;//here
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
+                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;//here
+                    case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
+                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
             case "Fahrenheit/°F" :
                 switch (txtFromSpinner2) {
-                    case "Celsius/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
-                    case "Fahrenheit/°F":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kelvin/°K":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
-                    case "Rankine/°R":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
+                    case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
+                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Kelvin":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
+                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Seconds":
                 switch (txtFromSpinner2) {
@@ -758,171 +742,172 @@ public abstract class ConverterLogic extends ConverterActivity {
                 }
             case "Cubic millimetre/mm³":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
                 }
                 break;
-            case "Cubic centimetre/cm³":
+            case "Cubic centimetre":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
                 }
                 break;
-            case "Cubic metre/m³":
+            case "Cubic metre":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
                 }
                 break;
-            case "Milliliter/ml":
+            case "Milliliter":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
                 }
                 break;
-            case "Liter/L":
+            case "Liter":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
                 }
                 break;
-            case "Gill/gi":
+            case "Gill":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
                 }
                 break;
-            case "Fluid ounce/fl oz":
+            case "Fluid ounce":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
                 }
                 break;
-            case "Pint/pt":
+            case "Pint":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
                 }
                 break;
-            case "Quart/qt":
+            case "Quart":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
                 }
                 break;
-            case "Gallon/gal":
+            case "Gallon":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
                 }
                 break;
-            case "Barrel(UK)/bbl(UK)":
+            case "Barrel(UK)":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre/mm³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
-                    case "Cubic centimetre/cm³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
-                    case "Cubic metre/m³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
-                    case "Milliliter/ml":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Liter/L":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
-                    case "Fluid ounce/fl oz":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
-                    case "Gill/gi":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
-                    case "Pint/pt":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
-                    case "Quart/qt":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
-                    case "Gallon/gal":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Barrel(UK)/bbl(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
+                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
+                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
+                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
+                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
+                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
+                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
+                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
+                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
+                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
         }
     }
+
 
     public static void ConvertValues_Ukr(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
         NumberFormat formatter = new DecimalFormat("###.########################");
@@ -932,900 +917,885 @@ public abstract class ConverterLogic extends ConverterActivity {
 
         switch (txtFromSpinner1) {
             //area
-            case "Мілліметр квадратний/мм²":
+            case "Мілліметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
                 }
                 break;
-            case "Сантіметр квадратний/см²":
+            case "Сантіметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
                 }
                 break;
-            case "Метр квадратний/м²":
+            case "Метр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
                 }
                 break;
-            case "Кілометр квадратний/км²":
+            case "Кілометр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
                 }
                 break;
-            case "Гектар/г":
+            case "Гектар":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
                 }
                 break;
-            case "Міля квадратна/мі²":
+            case "Міля квадратна":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
                 }
                 break;
-            case "Акр/а":
+            case "Акр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
                 }
                 break;
-            case "Ярд квадратний/ярд²":
+            case "Ярд квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
                 }
                 break;
-            case "Фут квадратний/ф²":
+            case "Фут квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
                 }
-            case "Дюйм квадратний/д²":
+            case "Дюйм квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний/мм²": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
-                    case "Сантіметр квадратний/см²": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
-                    case "Метр квадратний/м²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
-                    case "Кілометр квадратний/км²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
-                    case "Гектар/г": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
-                    case "Міля квадратна/мі²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
-                    case "Акр/а": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
-                    case "Ярд квадратний/ярд²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
-                    case "Фут квадратний/ф²": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
-                    case "Дюйм квадратний/д²": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
+                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
+                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
+                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
+                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
+                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
+                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
+                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
+                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
+                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
-                //force
-            case "Мілліньютон/мН":
+            case "Мілліньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001019716212)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001003611353)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
-                }
-                break;
-            case "Ньютон/Н":
-                switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001019716212)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001003611353)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
                 }
                 break;
-            case "Кілоньютон/кН":
+            case "Ньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101971)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1003)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
                 }
                 break;
-            case "Тонна-сила(метрична)/тс(м)":
+            case "Кілоньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101971)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1003)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
                 }
                 break;
-            case "Грам-сила/гс":
+            case "Тонна-сила(метрична)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000007039)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
                 }
                 break;
-            case "Кілограм-сила/кгс":
+            case "Грам-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000007039)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
                 }
                 break;
-            case "Понд/п":
+            case "Кілограм-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
                 }
                 break;
-            case "Фунт-сила/фтс":
+            case "Понд":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
                 }
                 break;
-            case "Унція-сила/уцс":
+            case "Фунт-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
                 }
                 break;
-            case "Тонна-сила(довга)/тс(д)":
+            case "Унція-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
                 }
                 break;
-            case "Паундаль/пдл":
+            case "Тонна-сила(довга)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон/мН":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
-                    case "Ньютон/Н":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
-                    case "Кілоньютон/кН":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
-                    case "Тонна-сила(метрична)/тс(м)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
-                    case "Грам-сила/гс":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Кілограм-сила/кгс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
-                    case "Понд/п":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Фунт-сила/фтс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
-                    case "Унція-сила/уцс":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
-                    case "Тонна-сила(довга)/тс(д)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
-                    case "Паундаль/пдл":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
                 }
-            case "Мілліметр/мм":
+                break;
+            case "Паундаль":
+                switch (txtFromSpinner2) {
+                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
+                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
+                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
+                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
+                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
+                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
+                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
+                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
+                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
+                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
+                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                }
+            case "Мілліметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
                 }
                 break;
-            case "Сантіметр/см":
+            case "Сантіметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
                 }
                 break;
-            case "Метр/м":
+            case "Метр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
                 }
                 break;
-            case "Кілометр/км":
+            case "Кілометр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
                 }
                 break;
-            case "Дюйм/д":
+            case "Дюйм":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
                 }
                 break;
-            case "Фут/ф":
+            case "Фут":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
                 }
                 break;
-            case "Ярд/яd":
+            case "Ярд":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
                 }
                 break;
-            case "Міля/мі":
+            case "Міля":
                 switch (txtFromSpinner2){
-                    case "Мілліметр/мм":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
-                    case "Сантіметр/см":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
-                    case "Метр/м":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
-                    case "Кілометр/км":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
-                    case "Дюйм/д":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
-                    case "Фут/ф":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
-                    case "Ярд/яd":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
-                    case "Міля/мі":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
+                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
+                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
+                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
+                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
+                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
+                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
+                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
-            case "Мілліграм/мг":
+            case "Мілліграм":
                 switch (txtFromSpinner2){
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Кілограм/кг":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
-                    case "Тонна/т":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue)));
-                }
-                break;
-            case "Грам/г":
-                switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Кілограм/кг":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Тонна/т": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
+                    case "Тонна":                    resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
+                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue)));
                 }
                 break;
-            case "Кілограм/кг":
+            case "Грам":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Тонна/т": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
-                    case "Кілограм/кг":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Тонна": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue)));
                 }
                 break;
-            case "Тонна/т":
+            case "Кілограм":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Кілограм/кг": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Тонна":                    resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
+                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Гран/гр":
+            case "Тонна":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
-                    case "Кілограм/кг":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
+                    case "Кілограм":                    resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Унція/унц ":
+            case "Гран":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
-                    case "Кілограм/кг": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
+                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Фунт/фт ":
+            case "Унція":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
-                    case "Кілограм/кг":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
+                    case "Кілограм":                    resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Хандредвейт/хвт ":
+            case "Фунт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
-                    case "Кілограм/кг": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
+                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
                 break;
-            case "Ton(long)/tl ":
+            case "Хандредвейт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм/мг":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
-                    case "Грам/г":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
-                    case "Кілограм/кг": //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
-                    case "Тонна/т":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
-                    case "Гран/гр":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
-                    case "Унція/унц":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
-                    case "Фунт/фт":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
-                    case "Хандредвейт/хвт":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
-                    case "Ton(long)/tl":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
+                    case "Кілограм": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
                 }
-            case "Метрів/секунда[м/с]":
+                break;
+            case  "Тонна(довга)":
+                switch (txtFromSpinner2){
+                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
+                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
+                    case "Кілограм":                    resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
+                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
+                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
+                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
+                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
+                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
+                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                }
+            case "Метрів/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.943)));break;
                 }
                 break;
-            case "Метрів/година[м/г]":
+            case "Метрів/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр/секунда[км/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00053)));break;
                 }
                 break;
-            case "Кілометр/секунда[км/с]":
+            case "Кілометр/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600000)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.83)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811023.6)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 2236.9)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600000)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.83)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811023.6)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 2236.9)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 1943.8)));break;
                 }
                 break;
-            case "Кілометр/година[км/г]":
+            case "Кілометр/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
                 }
                 break;
-            case "Фут/секунда[ф/с]":
+            case "Фут/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
-
                 }
                 break;
-            case "Фут/година[ф/г]":
+            case "Фут/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00016)));break;
-
                 }
                 break;
-            case "Міль/година[міль/г]":
+            case "Міль/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8689)));break;
                 }
                 break;
             case "Вузол/В":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда[м/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
-                    case "Метрів/година[м/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
-                    case "Кілометр/секунда[км/с]":      //check here
-                        resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
-                    case "Кілометр/година[км/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-                    case "Фут/секунда[ф/с]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
-                    case "Фут/година[ф/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
-                    case "Міль/година[міль/г]":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
+                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
+                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
+                    case "Кілометр/секунда":                    resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
+                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
+                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
+                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
+                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
                     case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
-            case "Цельсій/°C":
+            case "Цельсій":
                 switch (txtFromSpinner2) {
-                    case "Цельсій/°C":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фаренгейт/°F":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+32)));break;
-                    case "Кельвін/°K":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Ранкін/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+491.76)));break;
+                    case "Цельсій":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+32)));break;
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
+                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+491.76)));break;
                 }
                 break;
-            case "Кельвін/°K":
+            case "Кельвін":
                 switch (txtFromSpinner2) {
-                    case "Цельсій/°C":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
-                    case "Фаренгейт/°F":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
-                    case "Кельвін/°K":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ранкін/°R":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
+                    case "Цельсій":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
+                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
                 }
                 break;
-            case "Ранкін/°R"  :
+            case "Ранкін":
                 switch (txtFromSpinner2) {
-                    case "Цельсій/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
-                    case "Фаренгейт/°F":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;
-                    case "Кельвін/°K":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
-                    case "Ранкін/°R":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
+                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
+                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
-            case "Фаренгейт/°F" :
+            case "Фаренгейт":
                 switch (txtFromSpinner2) {
-                    case "Цельсій/°C":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
-                    case "Фаренгейт/°F":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кельвін/°K":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
-                    case "Ранкін/°R":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
+                    case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
+                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
+                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Секунди":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002777778)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000115741)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000016534)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000003805175038)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000003170979198)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002777778)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000115741)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000016534)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000003805175038)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000003170979198)));break;
                 }
                 break;
             case "Хвилини":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0006944444)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000992063)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000228311)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000019026)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0006944444)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000992063)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000228311)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000019026)));break;
                 }
                 break;
             case "Година":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0416666667)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue*0.005952381)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001369863)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001141553)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0416666667)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.005952381)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.001369863)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001141553)));break;
                 }
                 break;
             case "День":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.23)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.19)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.23)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.19)));break;
                 }
                 break;
             case "Тиждень":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2301369863)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0191780822)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.2301369863)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0191780822)));break;
                 }
                 break;
             case "Місяц":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*2628000)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*43800)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*730)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*30.416666667)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue*4.3452380952)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0833333333)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*2628000)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*43800)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*730)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*30.416666667)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*4.3452380952)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0833333333)));break;
                 }
                 break;
             case "Рік":
                 switch (txtFromSpinner2) {
-                    case "Секунди":resultView.setText(String.valueOf(formatter.format(enteredValue*31536000)));break;
-                    case "Хвилини":resultView.setText(String.valueOf(formatter.format(enteredValue*525600)));break;
-                    case "Година":resultView.setText(String.valueOf(formatter.format(enteredValue*8760)));break;
-                    case "День":resultView.setText(String.valueOf(formatter.format(enteredValue*365)));break;
-                    case "Тиждень":resultView.setText(String.valueOf(formatter.format(enteredValue*52.142857143)));break;
-                    case "Місяц":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Рік":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*31536000)));break;
+                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*525600)));break;
+                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*8760)));break;
+                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*365)));break;
+                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*52.142857143)));break;
+                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
+                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
-            case "Мілліметр кубічний/мм³":
+            case "Мілліметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
-                }
-                break;
-            case "Сантіметр кубічний/cм³":
-                switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
                 }
                 break;
-            case "Метр кубічний/м³":
+            case "Сантіметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
                 }
                 break;
-            case "Міллілітр/мл":
+            case "Метр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
                 }
                 break;
-            case "Літр/Л":
+            case "Міллілітр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
                 }
                 break;
-            case "Джил/дж":
+            case "Літр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
                 }
                 break;
-            case "Унція рідка/унц(р)":
+            case "Джил":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
                 }
                 break;
-            case "Пінта/пт":
+            case "Унція рідка":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
                 }
                 break;
-            case "Кварт/кт":
+            case "Пінта":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
                 }
                 break;
-            case "Галлон/гал":
+            case "Кварт":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
                 }
                 break;
-            case "Баррель(UK)/б(UK)":
+            case "Галлон":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний/мм³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
-                    case "Сантіметр кубічний/cм³":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
-                    case "Метр кубічний/м³":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
-                    case "Міллілітр/мл":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Літр/Л":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
-                    case "Унція рідка/унц(р)":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
-                    case "Джил/дж":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
-                    case "Пінта/пт":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
-                    case "Кварт/кт":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
-                    case "Галлон/гал":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Баррель(UK)/б(UK)" :resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                }
+                break;
+            case "Баррель(UK)":
+                switch (txtFromSpinner2) {
+                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
+                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
+                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
+                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
+                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
+                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
+                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
+                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
+                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
+                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
+                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
         }
@@ -1846,159 +1816,161 @@ public abstract class ConverterLogic extends ConverterActivity {
         }
     }
 
+
     public static void setUnitsView(String spinnerTextValue,
                                     TextView measurementUnit){
         Resources resources = measurementUnit.getResources();
         switch (spinnerTextValue) {
-            case "Milligram/mg":   measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
-            case "Gram/g":   measurementUnit.setText(resources.getString(R.string.unit_G));break;
-            case "Kilogram/kg":   measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
-            case "Tonne/t":   measurementUnit.setText(resources.getString(R.string.unit_T));break;
-            case "Grain/gr":   measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
-            case "Ounce/oz":   measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
-            case "Pound/lb </":   measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
-            case "Hundreweight/hw":   measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
-            case "Ton(long)/tl":   measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
-            case "Millimetre/mm":   measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
-            case "Centimetre/sm":   measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
-            case "Metre/m":   measurementUnit.setText(resources.getString(R.string.unit_M));break;
-            case "Kilometre/km":   measurementUnit.setText(resources.getString(R.string.unit_Km));break;
-            case "Inch/in":   measurementUnit.setText(resources.getString(R.string.unit_In));break;
-            case "Foot/ft":   measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
-            case "Yard/yd":   measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
-            case "Mile/mi":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
-            case "Celsius/°C":   measurementUnit.setText(resources.getString(R.string.unit_c));break;
-            case "Kelvin/°K":   measurementUnit.setText(resources.getString(R.string.unit_k));break;
-            case "Rankine/°R":   measurementUnit.setText(resources.getString(R.string.unit_r));break;
-            case "Fahrenheit/°F":   measurementUnit.setText(resources.getString(R.string.unit_f));break;
-            case "Square millimeter/mm²":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
-            case "Square centimeter/cm²":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
-            case "Square meter/м²":   measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
-            case "Square kilometer/km²":   measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
-            case "Hectare/ha":   measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
-            case "Square mile/mi²":   measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
-            case "Square yard/yd²":   measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
-            case "Square feet/ft²":   measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
-            case "Square inch/in²":   measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
-            case "Acre/ac":   measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
-            case "Seconds":   measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
-            case "Minutes":   measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
-            case "Hour":   measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
-            case "Day²":   measurementUnit.setText(resources.getString(R.string.unit_Day));break;
-            case "Week":   measurementUnit.setText(resources.getString(R.string.unit_Week));break;
-            case "Month":   measurementUnit.setText(resources.getString(R.string.unit_Month));break;
-            case "Year":   measurementUnit.setText(resources.getString(R.string.unit_Year));break;
-            case "Cubic millimetre/mm³":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
-            case "Cubic centimetre/cm³":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
-            case "Cubic metre/m³":   measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
-            case "Milliliter/ml":   measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
-            case "Liter/L":   measurementUnit.setText(resources.getString(R.string.unit_L));break;
-            case "Fluid ounce/fl oz":   measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
-            case "Barrel(UK)/bbl(UK)":   measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
-            case "Gill/gi":   measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
-            case "Pint/pt":   measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
-            case "Quart/qt²":   measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
-            case "Gallon/gal":   measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
-            case "Mlilinewton/mN":   measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
-            case "Newton/N":   measurementUnit.setText(resources.getString(R.string.unit_N));break;
-            case "Kilonewton/kN":   measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
-            case "Ton-force(metric)/tf":   measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
-            case "Gram-force/gf":   measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
-            case "Kilogram-force/kgf":   measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
-            case "Pond/p":   measurementUnit.setText(resources.getString(R.string.unit_P));break;
-            case "Pound-force/lbf":   measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
-            case "Ounce-force/ozf":   measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
-            case "Ton-force (long)/tonf":   measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
-            case "Poundal/pdl":   measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
-            case "Meter/second[m/s]":   measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
-            case "Meter/hour[m/h]":   measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
-            case "Kilometer/second[km/s]":   measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
-            case "Kilometer/hour[km/h]":   measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
-            case "Foot/second[f/s]":   measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
-            case "Foot/hour[f/h]":   measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
-            case "Mile/hour[mi/h]":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
-            case "Knot/kt":   measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
-            case "United States Dollar/USD":   measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
-            case "Great Britain Pound/GBP":   measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
-            case "Indonesian rupiah/IPR":   measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
-            case "Polish złoty/PLN":   measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
-            case "New Zealand dollar/NZD":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
-            case "Russian Ruble/RUB":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
-            //Ukrainian locale
-            case "Мілліграм/мг" :    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
-            case "Грам/г" :    measurementUnit.setText(resources.getString(R.string.unit_G));break;
-            case "Кілограм/кг" :    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
-            case "Тонна/т" :    measurementUnit.setText(resources.getString(R.string.unit_T));break;
-            case "Гран/гр" :    measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
-            case "Унція/унц" :    measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
-            case "Фунт/фт" :    measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
-            case "Хандредвейт/хвт" :    measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
-            case "Тонна(довга)/тд" :    measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
-            case "Мілліметр/мм" :    measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
-            case "Сантіметр/см" :    measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
-            case "Метр/м" :    measurementUnit.setText(resources.getString(R.string.unit_M));break;
-            case "Кілометр/км" :    measurementUnit.setText(resources.getString(R.string.unit_Km));break;
-            case "Дюйм/д" :    measurementUnit.setText(resources.getString(R.string.unit_In));break;
-            case "Фут/ф" :    measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
-            case "Ярд/я" :    measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
-            case "Міля/мі" :    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
-            case "Цельсій/°C" :    measurementUnit.setText(resources.getString(R.string.unit_c));break;
-            case "Кельвін/°K" :    measurementUnit.setText(resources.getString(R.string.unit_k));break;
-            case "Ранкін/°R" :    measurementUnit.setText(resources.getString(R.string.unit_r));break;
-            case "Фаренгейт/°F" :    measurementUnit.setText(resources.getString(R.string.unit_f));break;
-            case "Мілліметр квадратний/мм²" :    measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
-            case "Сантіметр квадратний/см²" :    measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
-            case "Метр квадратний/м²" :    measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
-            case "Кілометр квадратний/км²" :    measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
-            case "Гектар/г" :    measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
-            case "Міля квадратна/мі²" :    measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
-            case "Ярд квадратний/ярд²" :    measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
-            case "Фут квадратний/ф²" :    measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
-            case "Дюйм квадратний/д²" :    measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
-            case "Акр/а" :    measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
-            case "Секунди" :    measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
-            case "Хвилини" :    measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
-            case "Година" :    measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
-            case "День" :    measurementUnit.setText(resources.getString(R.string.unit_Day));break;
-            case "Тиждень" :    measurementUnit.setText(resources.getString(R.string.unit_Week));break;
-            case "Місяц" :    measurementUnit.setText(resources.getString(R.string.unit_Month));break;
-            case "Рік" :    measurementUnit.setText(resources.getString(R.string.unit_Year));break;
-            case "Мілліметр кубічний/мм³" :    measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
-            case "Сантіметр кубічний/cм³" :    measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
-            case "Метр кубічний/м³" :    measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
-            case "Міллілітр/мл" :    measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
-            case "Літр/Л" :    measurementUnit.setText(resources.getString(R.string.unit_L));break;
-            case "Унція рідка/унц(р)" :    measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
-            case "Баррель(UK)/б(UK)" :    measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
-            case "Джил/дж" :    measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
-            case "Пінта/пт" :    measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
-            case "Кварт/кт" :    measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
-            case "Галлон/гал" :    measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
-            case "Мілліньютон/мН" :    measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
-            case "Ньютон/Н" :    measurementUnit.setText(resources.getString(R.string.unit_N));break;
-            case "Кілоньютон/кН" :    measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
-            case "Тонна-сила(метрична)/тс(м)" :    measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
-            case "Грам-сила/гс" :    measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
-            case "Кілограм-сила/кгс" :    measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
-            case "Понд/п" :    measurementUnit.setText(resources.getString(R.string.unit_P));break;
-            case "Фунт-сила/фтс" :    measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
-            case "Унція-сила/уцс" :    measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
-            case "Тонна-сила(довга)/тс(д)" :    measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
-            case "Паундаль/пдл" :    measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
-            case "Метрів/секунда[м/с]" :    measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
-            case "Метрів/година[м/г]" :    measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
-            case "Кілометр/секунда[км/с]" :    measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
-            case "Кілометр/година[км/г]" :    measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
-            case "Фут/секунда[ф/с]" :    measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
-            case "Фут/година[ф/г]" :    measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
-            case "Міль/година[міль/г]" :    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
-            case "Вузол/В" :    measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
-            case "Доллар США/USD" :    measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
-            case "Великобританський фунт/GBP" :    measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
-            case "Індозенійська Рупія/IPR" :    measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
-            case "Польский Злотий/PLN" :    measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
-            case "Доллар НЗ/NZD" :    measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
-            case "Рубль/RUB" :    measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
+            case "Milligram":   measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Gram":   measurementUnit.setText(resources.getString(R.string.unit_G));break;
+            case "Kilogram":   measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
+            case "Tonne":   measurementUnit.setText(resources.getString(R.string.unit_T));break;
+            case "Grain":   measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
+            case "Ounce":   measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
+            case "Pound":   measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
+            case "Hundreweight":   measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
+            case "Ton(long)":   measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
+            case "Millimetre":   measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
+            case "Centimetre":   measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
+            case "Metre":   measurementUnit.setText(resources.getString(R.string.unit_M));break;
+            case "Kilometre":   measurementUnit.setText(resources.getString(R.string.unit_Km));break;
+            case "Inch":   measurementUnit.setText(resources.getString(R.string.unit_In));break;
+            case "Foot":   measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
+            case "Yard":   measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
+            case "Mile":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Celsius":   measurementUnit.setText(resources.getString(R.string.unit_c));break;
+            case "Kelvin":   measurementUnit.setText(resources.getString(R.string.unit_k));break;
+            case "Rankine":   measurementUnit.setText(resources.getString(R.string.unit_r));break;
+            case "Fahrenheit":   measurementUnit.setText(resources.getString(R.string.unit_f));break;
+            case "Square millimeter":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
+            case "Square centimeter":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
+            case "Square meter":   measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
+            case "Square kilometer":   measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
+            case "Hectare":   measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
+            case "Square mile":   measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
+            case "Square yard":   measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
+            case "Square feet":   measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
+            case "Square inch":   measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
+            case "Acre":   measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
+            case "Seconds":measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
+            case "Minutes":measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
+            case "Hour":measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
+            case "Day":measurementUnit.setText(resources.getString(R.string.unit_Day));break;
+            case "Week":measurementUnit.setText(resources.getString(R.string.unit_Week));break;
+            case "Month":measurementUnit.setText(resources.getString(R.string.unit_Month));break;
+            case "Year":measurementUnit.setText(resources.getString(R.string.unit_Year));break;
+            case "Cubic millimetre":   measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
+            case "Cubic centimetre":   measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
+            case "Cubic metre":   measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
+            case "Milliliter":   measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
+            case "Liter":   measurementUnit.setText(resources.getString(R.string.unit_L));break;
+            case "Fluid ounce":   measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
+            case "Barrel(UK)":   measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
+            case "Gill":   measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
+            case "Pint":   measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
+            case "Quart":   measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
+            case "Gallon":   measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
+            case "Mlilinewton":   measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
+            case "Newton":   measurementUnit.setText(resources.getString(R.string.unit_N));break;
+            case "Kilonewton":   measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
+            case "Ton-force(metric)":   measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
+            case "Gram-force":   measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
+            case "Kilogram-force":   measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
+            case "Pond":   measurementUnit.setText(resources.getString(R.string.unit_P));break;
+            case "Pound-force":   measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
+            case "Ounce-force":   measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
+            case "Ton-force (long)":   measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
+            case "Poundal":   measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
+            case "Meter/second":   measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
+            case "Meter/hour":   measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
+            case "Kilometer/second":   measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
+            case "Kilometer/hour":   measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
+            case "Foot/second":   measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
+            case "Foot/hour":   measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
+            case "Mile/hour":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Knot":   measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
+            case "United States Dollar":   measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
+            case "Great Britain Pound":   measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
+            case "Indonesian rupiah":   measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
+            case "Polish złoty":   measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
+            case "New Zealand dollar":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
+            case "Russian Ruble":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
+//Ukrainian locale
+            case "Мілліграм":    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Грам":    measurementUnit.setText(resources.getString(R.string.unit_G));break;
+            case "Кілограм":    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
+            case "Тонна":    measurementUnit.setText(resources.getString(R.string.unit_T));break;
+            case "Гран":    measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
+            case "Унція":    measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
+            case "Фунт":    measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
+            case "Хандредвейт":    measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
+            case "Тонна(довга)":    measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
+            case "Мілліметр":    measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
+            case "Сантіметр":    measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
+            case "Метр":    measurementUnit.setText(resources.getString(R.string.unit_M));break;
+            case "Кілометр":    measurementUnit.setText(resources.getString(R.string.unit_Km));break;
+            case "Дюйм":    measurementUnit.setText(resources.getString(R.string.unit_In));break;
+            case "Фут":    measurementUnit.setText(resources.getString(R.string.unit_Ft));break;
+            case "Ярд":    measurementUnit.setText(resources.getString(R.string.unit_Yd));break;
+            case "Міля":    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Цельсій":    measurementUnit.setText(resources.getString(R.string.unit_c));break;
+            case "Кельвін":    measurementUnit.setText(resources.getString(R.string.unit_k));break;
+            case "Ранкін":    measurementUnit.setText(resources.getString(R.string.unit_r));break;
+            case "Фаренгейт":    measurementUnit.setText(resources.getString(R.string.unit_f));break;
+            case "Мілліметр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
+            case "Сантіметр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
+            case "Метр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
+            case "Кілометр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
+            case "Гектар":    measurementUnit.setText(resources.getString(R.string.unit_Ha));break;
+            case "Міля квадратна":    measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));break;
+            case "Ярд квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));break;
+            case "Фут квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));break;
+            case "Дюйм квадратний":    measurementUnit.setText(resources.getString(R.string.unit_In_Square));break;
+            case "Акр":    measurementUnit.setText(resources.getString(R.string.unit_Ac));break;
+            case "Секунди"  :measurementUnit.setText(resources.getString(R.string.unit_Seconds));break;
+            case "Хвилини"  :measurementUnit.setText(resources.getString(R.string.unit_Minutes));break;
+            case "Година"  :measurementUnit.setText(resources.getString(R.string.unit_Hour));break;
+            case "День"  :measurementUnit.setText(resources.getString(R.string.unit_Day));break;
+            case "Тиждень"  :measurementUnit.setText(resources.getString(R.string.unit_Week));break;
+            case "Місяц"  :measurementUnit.setText(resources.getString(R.string.unit_Month));break;
+            case "Рік"  :measurementUnit.setText(resources.getString(R.string.unit_Year));break;
+            case "Мілліметр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
+            case "Сантіметр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
+            case "Метр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
+            case "Міллілітр":    measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
+            case "Літр":    measurementUnit.setText(resources.getString(R.string.unit_L));break;
+            case "Унція рідка":    measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
+            case "Баррель(UK)":    measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
+            case "Джил":    measurementUnit.setText(resources.getString(R.string.unit_Gi));break;
+            case "Пінта":    measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
+            case "Кварт":    measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
+            case "Галлон":    measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
+            case "Мілліньютон":    measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
+            case "Ньютон":    measurementUnit.setText(resources.getString(R.string.unit_N));break;
+            case "Кілоньютон":    measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
+            case "Тонна-сила(метрична)":    measurementUnit.setText(resources.getString(R.string.unit_Tf));break;
+            case "Грам-сила":    measurementUnit.setText(resources.getString(R.string.unit_Gf));break;
+            case "Кілограм-сила":    measurementUnit.setText(resources.getString(R.string.unit_Kgf));break;
+            case "Понд":    measurementUnit.setText(resources.getString(R.string.unit_P));break;
+            case "Фунт-сила":    measurementUnit.setText(resources.getString(R.string.unit_Lbf));break;
+            case "Унція-сила":    measurementUnit.setText(resources.getString(R.string.unit_Ozf));break;
+            case "Тонна-сила(довга)":    measurementUnit.setText(resources.getString(R.string.unit_Tonf));break;
+            case "Паундаль":    measurementUnit.setText(resources.getString(R.string.unit_Pdl));break;
+            case "Метрів/секунда":    measurementUnit.setText(resources.getString(R.string.unit_M_s));break;
+            case "Метрів/година":    measurementUnit.setText(resources.getString(R.string.unit_M_h));break;
+            case "Кілометр/секунда":    measurementUnit.setText(resources.getString(R.string.unit_Km_s));break;
+            case "Кілометр/година":    measurementUnit.setText(resources.getString(R.string.unit_Km_h));break;
+            case "Фут/секунда":    measurementUnit.setText(resources.getString(R.string.unit_F_s));break;
+            case "Фут/година":    measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
+            case "Міль/година":    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
+            case "Вузол":    measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
+            case "Доллар США":    measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
+            case "Великобританський фунт":    measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
+            case "Індозенійська Рупія":    measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
+            case "Польский Злотий":    measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
+            case "Доллар НЗ":    measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
+            case "Рубль":    measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
+
         }
     }
 }
