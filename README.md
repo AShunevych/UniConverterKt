@@ -14,7 +14,7 @@ Aveliable for converssion:
 - Weight      
 Screen:  
 |<img src="https://github.com/AShunevich/UniConverter/blob/master/Screenshot_20200825-195637_UniConverter%5B1%5D.jpg" width="25%" height="30%" >  | <img src="https://github.com/AShunevich/UniConverter/blob/master/Screenshot_20200825-195702_UniConverter%5B1%5D.jpg" width="25%" height="30%" >  |     
-________________________________  
+
 # Thanks to 
 ![MathParser]("http://mathparser.org/")     
 ![OpenRates.io]("https://openrates.io/")  
