@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0d1f2d</color>153243
-    <color name="colorPrimaryDark">#12355b</color>
+    <color name="colorPrimary">#cfd8dc</color>
+    <color name="colorPrimaryDark">#909ea7aa</color>
+    <color name="navigationBarColor">#cfd8dc</color>
     <color name= "colorBorders">#000000</color>
-    <color name="backgroundColor">#93a3b1</color>
+    <color name="backgroundColor">#ffffff</color>
     <color name="colorAccent">#000000</color>
     <color name="flareColor">#efefef</color>
+    <color name="transparentOne">#0000</color>
     <color name="vectorColor">#000000</color>
     <color name="colorDrawableLight">#00000000</color>
-    <color name="thumb">#f0a202</color>
+    <color name="colorTabSwitch">#870000</color>
     <color name="tableHeaderColor">#AFAFAF</color>
-    <color name="rectangleSolid">#efefef</color>
-
+    <color name="rectangleSolid">#AFAFAF</color>
+    <color name="supportColor">#66bb6a</color>
+    <color name="rectDayNightColor">#50eeeeee</color>
 </resources>

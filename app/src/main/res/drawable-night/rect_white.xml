@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/background_shape_main">
-    <stroke android:width="2dp" android:color="@color/colorBorders" />
+    <stroke android:width="0.01dp" android:color="@color/transparentOne" />
     <padding
         android:left="1dp"
         android:top="2dp"
         android:right="1dp"
         android:bottom="1dp" />
-    <corners android:radius="5.0dp" />
-    <solid android:color="@color/rectangleSolid" />
+    <corners android:radius="30.0dp" />
+    <solid android:color="@color/navigationBarColor" />
 </shape>

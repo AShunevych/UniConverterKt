@@ -43,8 +43,6 @@
         <item>Фаренгейт</item>
     </string-array>
 
-
-
     <string-array name="time_array">
         <item>Секунди</item>
         <item>Хвилини</item>

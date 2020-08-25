@@ -84,9 +84,12 @@
     <string name="cancel">Відмінити</string>
     <string name="Version">Версія:</string>
 
+
     <string name="nps">Номінальний\nрозмір труби\n(дюйм)</string>
     <string name="DN">Номінальний\nдіаметр(мм)</string>
     <string name="OD">Зовнішній\nдіаметр(дюйм/мм)</string>
     <string name="NPStoDN">Таблиця розмірів труб</string>
+
+    <string name= "maxNumberReached">Досягнуто максимальна кількість (15) символів</string>
 
 </resources>

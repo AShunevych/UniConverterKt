@@ -5,218 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/plusButton"
-        style="@style/buttonSW300"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/plus"
-        app:layout_constraintStart_toStartOf="@+id/calcResult"
-        app:layout_constraintTop_toBottomOf="@+id/calcResult" />
-
-    <Button
-        android:id="@+id/pov"
-        style="@style/buttonSW300"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:text="@string/Exponent"
-        app:layout_constraintEnd_toEndOf="@+id/calcResult"
-        app:layout_constraintStart_toEndOf="@+id/calculateResult"
-        app:layout_constraintTop_toTopOf="@+id/calculateResult" />
-
-    <Button
-        android:id="@+id/percentButton"
-        style="@style/buttonSW300"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/percent"
-        app:layout_constraintStart_toStartOf="@+id/divideButton"
-        app:layout_constraintTop_toBottomOf="@+id/divideButton" />
-
-    <Button
-        android:id="@+id/clearCalcValue"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/clear"
-        app:layout_constraintEnd_toEndOf="@+id/pov"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="@+id/pov"
-        app:layout_constraintTop_toBottomOf="@+id/pov" />
-
-    <Button
-        android:id="@+id/sqrRoot"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/square_root"
-        app:layout_constraintStart_toEndOf="@+id/percentButton"
-        app:layout_constraintStart_toStartOf="@+id/multiplyButton"
-        app:layout_constraintTop_toBottomOf="@+id/minusButton" />
-
-    <Button
-        android:id="@+id/leftBracket"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/leftBracket"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        app:layout_constraintStart_toStartOf="@+id/plusButton"
-        app:layout_constraintTop_toBottomOf="@+id/plusButton" />
-
-    <Button
-        android:id="@+id/rightBracket"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:text="@string/rightBracket"
-        app:layout_constraintBottom_toBottomOf="@+id/leftBracket"
-        app:layout_constraintStart_toEndOf="@+id/leftBracket"
-        app:layout_constraintTop_toTopOf="@+id/leftBracket" />
-
-    <Button
-        android:id="@+id/logButton"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/logStr"
-        app:layout_constraintEnd_toEndOf="@+id/calculateResult"
-        app:layout_constraintStart_toStartOf="@+id/calculateResult"
-        app:layout_constraintTop_toBottomOf="@+id/calculateResult" />
-
-    <Button
-        android:id="@+id/minusButton"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:text="@string/minus"
-        app:layout_constraintBottom_toBottomOf="@+id/plusButton"
-        app:layout_constraintStart_toEndOf="@+id/plusButton"
-        app:layout_constraintTop_toTopOf="@+id/plusButton" />
-
-    <Button
-        android:id="@+id/divideButton"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:text="@string/divide"
-        app:layout_constraintBottom_toBottomOf="@+id/plusButton"
-        app:layout_constraintStart_toEndOf="@+id/minusButton"
-        app:layout_constraintTop_toTopOf="@+id/plusButton" />
-
-    <Button
-        android:id="@+id/multiplyButton"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:gravity="center_horizontal|center_vertical"
-        android:text="@string/multiply"
-        app:layout_constraintBottom_toBottomOf="@+id/plusButton"
-        app:layout_constraintStart_toEndOf="@+id/divideButton"
-        app:layout_constraintTop_toTopOf="@+id/plusButton" />
-
-    <Button
-        android:id="@+id/calculateResult"
-        style="@style/buttonSW330"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-
-        android:text="@string/equal"
-        app:layout_constraintBottom_toBottomOf="@+id/plusButton"
-        app:layout_constraintStart_toEndOf="@+id/multiplyButton"
-        app:layout_constraintTop_toTopOf="@+id/plusButton" />
-
     <TextView
         android:id="@+id/calcValue"
+        style="@style/value_style_sw330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/calculatorValuesStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
-
-    <TextView
-        android:id="@+id/calcResult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:lines="1"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/calcResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calcValue"
-        style="@style/calculatorValuesStyle"/>
-
-    <ImageButton
-        android:id="@+id/exitButton"
-        style="@style/buttonSW330"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:text="344+18" />
 
     <TextView
-        android:id="@+id/valueName"
-        style="@style/buttonSW330"
+        android:id="@+id/calcResult"
+        style="@style/value_style_sw330"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="@+id/exitButton"
-        app:layout_constraintStart_toEndOf="@+id/exitButton"
-        app:layout_constraintTop_toTopOf="@+id/exitButton"
-        tools:text="sdsd" />
-
-    <fragment
-        android:id="@+id/fragment3"
-        android:name="ashunevich.uniconverter20.KeyboardFragment"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:lines="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3"
-        tools:layout="@layout/keyboard_fragment" />
+        tools:text="76" />
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="@+id/clearCalcValue"
-        app:layout_constraintStart_toStartOf="@+id/leftBracket"
-        app:layout_constraintTop_toBottomOf="@+id/percentButton" />
+        app:layout_constraintBottom_toTopOf="@+id/fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_begin="158dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/history"
+        style="@style/buttonSW330"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_ico_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="ashunevich.uniconverter20.Activity_calculator_Keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/calculator_keyboard" />
 
 </android.support.constraint.ConstraintLayout>

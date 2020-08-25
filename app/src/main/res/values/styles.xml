@@ -1,45 +1,43 @@
 <resources>
     <!-- THEME CONTROLS-->
     <!-- Base application theme. -->
-    <style name="AppThemeDefault" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="AppThemeDefault" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/vectorColor</item>
+        <item name="android:textColorPrimary">@color/backgroundColor</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
     </style>
-
 
     <style name="AppThemeDefaultNoBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/colorAccent</item>
+
     </style>
 
     <style name="spinnerTheme" parent="Platform.Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
-    <style name="controlThemme">
-        <item name="colorControlActivated">@color/thumb</item>
-        <item name="thumbTint">@color/thumb</item>
-        <item name="trackTint">@color/thumb</item>
-    </style>
     <!-- THEME CONTROLS-->
 
     <!-- VALUES CONTROLS-->
     <style name="basic_Values">
         <item name="android:lines">1</item>
         <item name="android:ems">10</item>
-        <item name="android:inputType">none</item>
+
     </style>
     <!--  values for  "converter activity" fields  -->
    <style name="converter_basic_values" parent="basic_Values">
        <item name="android:fontFamily">sans-serif-medium</item>
-       <item name="android:gravity">center_vertical|center</item>
+       <item name="android:gravity">center_vertical|end</item>
        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
      <item name="android:textSize">18sp</item>
      <item name="android:background">@drawable/rect_white</item>
@@ -56,10 +54,44 @@
       <item name="android:paddingRight">8dp</item>
       <item name="android:paddingBottom">2dp</item>
   </style>
+
+    <style name="value_Result_Basic" parent="basic_Values">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:ems">10</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textCursorDrawable">@null</item>
+         <item name="android:selectAllOnFocus">true</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:cursorVisible">true</item>
+    </style>
+
+    <style name="calcValueResult_sw300" parent="value_Result_Basic">
+        <item name="android:textSize">32sp</item>
+
+    </style>
+
+
+    <style name="value_style_sw330" parent="value_Result_Basic">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+
+    <style name="result_style_sw330" parent="value_Result_Basic">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
     <style name="converterValuesStyle_sw300_360_input" parent="converterValuesStyle_sw300_360">
         <item name="android:inputType">number|numberDecimal</item>
     </style>
+
+
   <!--  /END values for  "converter activity" fields  -->
+
 
 
     <style name="converterAuxTextStyleBasicValues" parent="basic_Values">
@@ -67,7 +99,7 @@
     </style>
     <style name="converterAuxTextStyleValues_Head" parent="converterAuxTextStyleBasicValues">
         <item name="android:fontFamily">sans-serif-smallcaps</item>
-        <item name="android:gravity">center_horizontal|start</item>>
+        <item name="android:gravity">start</item>>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginStart">8dp</item>
@@ -137,6 +169,7 @@
     <style name="angleRight" parent="angleStyle">
         <item name="android:background">@drawable/rect_white_right</item>
     </style>
+
     <!-- Values for  "angle activity" fields except "Value" sw330dp -->
     <style name="angleStyle_sw330" parent="angle_style_basic_values">
         <item name="android:layout_marginStart">8dp</item>
@@ -159,10 +192,11 @@
     </style>
 
     <style name="button_basic" parent="Widget.AppCompat.Button.Small">
-        <item name="android:background">@drawable/rect_white</item>
+        <item name="android:background">@drawable/ripple</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
+
 
     <style name="buttonSW300" parent="button_basic" >
        <item name="android:textSize">12sp</item>
@@ -171,10 +205,10 @@
 
     <style name="tablePoint" parent="buttonSW300" >
         <item name="android:background">@drawable/rect_table_header</item>
-        <item name="android:paddingStart">0dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingEnd">0dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
         <item name="android:textIsSelectable">true</item>
     </style>
 
@@ -182,6 +216,46 @@
         <item name="android:padding">4dp</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="newSW300" parent="button_basic" >
+        <item name="android:layout_width">60dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+
+    <style name="newSW480" parent="button_basic" >
+        <item name="android:padding">12dp</item>
+        <item name="paddingEnd">16dp</item>
+        <item name="paddingStart">16dp</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+    <style name="newSW330" parent="button_basic" >
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+
+    <style name="supportSW300" parent="newSW300">
+        <item name="android:textColor">@color/supportColor</item>
+    </style>
+
+    <style name="supportSW330" parent="newSW330">
+        <item name="android:textColor">@color/supportColor</item>
+    </style>
+
+    <style name="supportSW480" parent="newSW480">
+        <item name="android:textColor">@color/supportColor</item>
+    </style>
+
+    <style name="equal_button" parent="button_basic">
+        <item name="android:background">@drawable/ripple_equal</item>
+    </style>
+
     <!-- VALUES CONTROLS-->
 
 

@@ -4,140 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/clearButton"
-        style="@style/buttonSW300"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-
-        android:text="@string/clear"
-        app:layout_constraintBottom_toBottomOf="@+id/resultUnit"
-        app:layout_constraintStart_toStartOf="@+id/resultView"
-        app:layout_constraintTop_toTopOf="@+id/resultUnit" />
-
-    <TextView
-        android:id="@+id/resultView"
-        style="@style/converterValuesStyle_sw300_360"
-        android:inputType="none"
+    <EditText
+        android:id="@+id/valueEdit"
+        style="@style/value_style_sw330"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textIsSelectable="true"
-        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
-        app:layout_constraintStart_toStartOf="@+id/valueName"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_result"
-        tools:text="sometext" />
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_value"
+        tools:text="sdsds" />
 
     <Spinner
         android:id="@+id/spinner_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:dropDownWidth="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valueUnit" />
 
-    <EditText
-        android:id="@+id/valueEdit"
-        style="@style/converterValuesStyle_sw300_360_input"
-        android:layout_width="0dp"
+    <Spinner
+        android:id="@+id/spinner_value"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/valueName"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_value"
-        tools:text="sdsds" />
+        android:layout_marginTop="8dp"
+        android:dropDownWidth="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/valueUnit"
         style="@style/converterAuxTextStyleValues_SubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/valueEdit"
         app:layout_constraintTop_toBottomOf="@+id/valueEdit"
         tools:text="bbl(UK)" />
 
     <TextView
         android:id="@+id/resultUnit"
         style="@style/converterAuxTextStyleValues_SubText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/keybordChanger"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/valueUnit"
+        app:layout_constraintStart_toStartOf="@+id/valueUnit"
         app:layout_constraintTop_toBottomOf="@+id/resultView"
         tools:text="bbl(UK)" />
 
-    <ImageButton
-        android:id="@+id/exitButton"
-        style="@style/buttonSW330"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+    <EditText
+        android:id="@+id/resultView"
+        style="@style/result_style_sw330"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toBottomOf="@+id/valueName2"
+        android:layout_marginEnd="8dp"
+        android:inputType="none"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/valueName"
-        style="@style/converterAuxTextStyleValues_Head"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exitButton"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_result"
         tools:text="sometext" />
 
-    <TextView
-        android:id="@+id/valueName2"
+    <View
+        android:id="@+id/divider"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:dropDownWidth="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/valueName" />
-
-    <Switch
-        android:id="@+id/keybordChanger"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:switchPadding="8dp"
-        android:text="@string/switchKeyboard"
-        app:layout_constraintBottom_toBottomOf="@+id/exitButton"
+        android:layout_marginEnd="32dp"
+        android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/exitButton" />
-
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="ashunevich.uniconverter20.KeyboardFragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/resultView"
-        app:layout_constraintStart_toStartOf="@+id/resultView"
-        app:layout_constraintTop_toBottomOf="@+id/resultUnit"
-        tools:layout="@layout/keyboard_fragment" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultUnit" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline4"

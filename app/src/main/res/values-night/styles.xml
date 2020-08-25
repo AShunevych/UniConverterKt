@@ -2,12 +2,13 @@
 <resources>
     <style name="AppThemeDefault" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/backgroundColor</item>
+        <item name="colorPrimaryDark">@color/backgroundColor</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/vectorColor</item>
-
+        <item name="android:textColorPrimary">@color/vectorColor</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:navigationBarColor">@color/backgroundColor</item>
     </style>
 
 
@@ -21,6 +22,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/backgroundColor</item>
     </style>
+
+
 
 </resources>

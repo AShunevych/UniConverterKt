@@ -91,5 +91,6 @@
     <string name="DN">Nominal\nDiameter\n(mm)</string>
     <string name="OD">Outer\ndiameter\n(inch/mm)</string>
 
+    <string name= "maxNumberReached">Maximum length (15) reached</string>
 </resources>
 
