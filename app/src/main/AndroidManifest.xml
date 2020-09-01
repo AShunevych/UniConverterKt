@@ -32,7 +32,7 @@
             android:name=".Activity_converter_Currency"
             android:parentActivityName=".Activity_Main"
             android:screenOrientation="portrait"
-            android:label="@string/calculator_button"
+            android:label="@string/currency_button"
             android:theme="@style/AppThemeDefault">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
