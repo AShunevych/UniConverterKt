@@ -90,7 +90,10 @@
     <string name="nps">Nominal\nPipe Size\n(inch)</string>
     <string name="DN">Nominal\nDiameter\n(mm)</string>
     <string name="OD">Outer\ndiameter\n(inch/mm)</string>
-
+    
+    <string name="NoInternetConnection">No connection </string>
+    <string name="SameDate">Data is up to date.Request declined</string>
+    <string name="UpdateSuccessful">Data update successful</string>
     <string name= "maxNumberReached">Maximum length (15) reached</string>
 </resources>
 

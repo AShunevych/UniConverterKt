@@ -7,15 +7,15 @@
                     android:shape="rectangle">
                     <stroke android:width="0.01dp" android:color="@color/transparentOne" />
                     <padding
-                android:left="0.5dp"
-                android:top="0.5dp"
-                android:right="6dp"
-                android:bottom="0.5dp" />
+                        android:left="3dp"
+                        android:top="5dp"
+                        android:right="3dp"
+                        android:bottom="5dp" />
                     <corners android:radius="45.0dp" />
                     <solid android:color="@color/backgroundColor" />
                 </shape>
             </item>
-            <item android:drawable="@drawable/ic_backspace_ico" />
+            <item android:drawable="@drawable/ic_refresh_ico" />
         </layer-list>
     </item>
 

@@ -40,10 +40,6 @@ public class Activity_Main extends AppCompatActivity {
     @BindView(R.id.currency_calculator)
     Button currency;
 
-    int pos;
-    private String  sDefSystemLanguage ;
-    protected HashMap<String, String> hm;;
-
     @Override
 
     protected void onStart() {
@@ -53,28 +49,25 @@ public class Activity_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activty_new);
-        sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
         ButterKnife.bind(this);
-        hm = new HashMap<String, String>();
         String [] tabNames = new String[] {getResources().getString(R.string.mass_button),
                 getResources().getString(R.string.distance_button), getResources().getString(R.string.volume_button),
                 getResources().getString(R.string.sq),getResources().getString(R.string.force_button),
                 getResources().getString(R.string.temperature_button),getResources().getString(R.string.time_button),
-                getResources().getString(R.string.speed_button),};
+                getResources().getString(R.string.speed_button)}; //getResources().getString(R.string.circleSphere_button
         bus = EventBus.getDefault();
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        for (int i = 0; i < tabNames.length;i++){
-            adapter.addFragment(new Activity_converter(),tabNames[i]);
+        for (String tabName : tabNames) {
+            adapter.addFragment(new Activity_converter(), tabName);
         }
         plusMinus.setEnabled(false);
         plusMinus.setAlpha(0.5f);
-        currency.setVisibility(View.GONE); //Temporary till convertor will be ready
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         getTabPostion(viewPager);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    static class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -142,58 +135,63 @@ public class Activity_Main extends AppCompatActivity {
     @OnClick({R.id.button_plus_minus, R.id.but_one, R.id.but_two, R.id.but_three,
             R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
             R.id.button_eight, R.id.but_nine,R.id.button_decimal,
-            R.id.button_zero,R.id.but_clear,R.id.but_correct,R.id.currency_calculator,R.id.calculator_button})
+            R.id.button_zero,R.id.but_clear,R.id.but_correct,R.id.calculator_button})
     public void setViewOnClickEvent(View view) {
-                    switch (view.getId()) {
-                        case R.id.but_one:
-                            setValue(getResources().getString(R.string.one));
-                            break;
-                        case R.id.but_two:
-                            setValue(getResources().getString(R.string.two));
-                            break;
-                        case R.id.but_three:
-                            setValue(getResources().getString(R.string.three));
-                            break;
-                        case R.id.but_four:
-                            setValue(getResources().getString(R.string.four));
-                            break;
-                        case R.id.but_five:
-                            setValue(getResources().getString(R.string.five));
-                            break;
-                        case R.id.but_six:
-                            setValue(getResources().getString(R.string.six));
-                            break;
-                        case R.id.but_seven:
-                            setValue(getResources().getString(R.string.seven));
-                            break;
-                        case R.id.button_eight:
-                            setValue(getResources().getString(R.string.eight));
-                            break;
-                        case R.id.but_nine:
-                            setValue(getResources().getString(R.string.nine));
-                            break;
-                        case R.id.button_zero:
-                            setValue(getResources().getString(R.string.zero));
-                            break;
-                        case R.id.button_plus_minus:
-                            setValue("check");
-                            break;
-                        case R.id.but_clear:
-                            setValue("correct");
-                            break;
-                        case R.id.but_correct:
-                            setValue("clear");
-                            break;
-                        case R.id.button_decimal:
-                            setValue(getResources().getString(R.string.decimal));
-                            break;
-                        case R.id.currency_calculator:
-               // Toast.makeText(this, "currency", Toast.LENGTH_SHORT).show();break;
+        switch (view.getId()) {
+            case R.id.but_one:
+                setValue(getResources().getString(R.string.one));
+                break;
+            case R.id.but_two:
+                setValue(getResources().getString(R.string.two));
+                break;
+            case R.id.but_three:
+                setValue(getResources().getString(R.string.three));
+                break;
+            case R.id.but_four:
+                setValue(getResources().getString(R.string.four));
+                break;
+            case R.id.but_five:
+                setValue(getResources().getString(R.string.five));
+                break;
+            case R.id.but_six:
+                setValue(getResources().getString(R.string.six));
+                break;
+            case R.id.but_seven:
+                setValue(getResources().getString(R.string.seven));
+                break;
+            case R.id.button_eight:
+                setValue(getResources().getString(R.string.eight));
+                break;
+            case R.id.but_nine:
+                setValue(getResources().getString(R.string.nine));
+                break;
+            case R.id.button_zero:
+                setValue(getResources().getString(R.string.zero));
+                break;
+            case R.id.button_plus_minus:
+                setValue("check");
+                break;
+            case R.id.but_clear:
+                setValue("correct");
+                break;
+            case R.id.but_correct:
+                setValue("clear");
+                break;
+            case R.id.button_decimal:
+                setValue(getResources().getString(R.string.decimal));
+                break;
             case R.id.calculator_button:
-                Intent intent = new Intent(Activity_Main.this, Activity_calculator.class);
-                startActivity(intent);
-
+                Intent intentCalc = new Intent(Activity_Main.this, Activity_calculator.class);
+                startActivity(intentCalc);
         }
+    }
+
+        @OnClick({R.id.currency_calculator})
+        public void setViewvClick(View view) {
+            if (view.getId() == R.id.currency_calculator) {
+                Intent intentCurrency = new Intent(Activity_Main.this, Activity_converter_Currency.class);
+                startActivity(intentCurrency);
+            }
     }
 
     public void setValue(String number) {

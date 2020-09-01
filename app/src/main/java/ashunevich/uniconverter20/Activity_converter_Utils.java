@@ -2,12 +2,15 @@ package ashunevich.uniconverter20;
 
 import android.content.Context;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.mariuszgromada.math.mxparser.Expression;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,10 +23,36 @@ public abstract class Activity_converter_Utils extends Activity_converter {
         this.valueEdit = valueEdit;
     }
 
+
+
     protected static void clearView (EditText valueEdit,TextView resultView){
         resultView.setText("");
         valueEdit.setText("");
     }
+
+    protected static void readAndSolve (EditText valueEdit, TextView resultView){
+        if (TextUtils.isEmpty(valueEdit.getText().toString())) {
+            resultView.setText("");
+        }
+         else {
+            String getValue = valueEdit.getText().toString();
+            Expression value = new Expression(getValue);
+            String getResult = Double.toString(value.calculate());
+            resultView.setText(getResult);
+        }
+    }
+
+
+
+    protected static void checkBrackets (EditText valueEdit){
+        if (valueEdit.getText().toString().contains("(")){
+            valueEdit.append(")");
+        }
+        else{
+            valueEdit.append("(");
+        }
+    }
+
 
     protected static void appendMinusPlus(EditText valueEdit){
       int x = valueEdit.getText().length();

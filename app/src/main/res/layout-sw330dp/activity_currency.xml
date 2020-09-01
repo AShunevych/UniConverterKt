@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/correction"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ripple_backspace_ico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultCurrency" />
+
+    <Button
+        android:id="@+id/refreshJSONData"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/refresh_ico_layer"
+        app:layout_constraintBottom_toBottomOf="@+id/dateView"
+        app:layout_constraintStart_toEndOf="@+id/dateView"
+        app:layout_constraintTop_toTopOf="@+id/dateView" />
+
+    <EditText
+        android:id="@+id/valueCurrency"
+        style="@style/calcValueResult_sw300"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/currency_FROM_short"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFromCurrency" />
+
+    <Spinner
+        android:id="@+id/spinnerFromCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerToCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueCurrency" />
+
+    <TextView
+        android:id="@+id/currency_FROM_short"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintBottom_toBottomOf="@+id/valueCurrency"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="USD" />
+
+    <TextView
+        android:id="@+id/currency_to_short"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintBottom_toBottomOf="@+id/resultCurrency"
+        app:layout_constraintEnd_toEndOf="@+id/currency_FROM_short"
+        app:layout_constraintStart_toStartOf="@+id/currency_FROM_short"
+        tools:text="EUR" />
+
+    <TextView
+        android:id="@+id/resultCurrency"
+        style="@style/calcValueResult_sw300"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/valueCurrency"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/valueCurrency"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerToCurrency" />
+
+    <TextView
+        android:id="@+id/currencyValueFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintEnd_toStartOf="@+id/currencyValueTu"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1 USD = " />
+
+    <TextView
+        android:id="@+id/currencyResultFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerToCurrency"
+        app:layout_constraintEnd_toEndOf="@+id/currencyValueFrom"
+        app:layout_constraintStart_toStartOf="@+id/currencyValueFrom"
+        app:layout_constraintTop_toTopOf="@+id/spinnerToCurrency"
+        tools:text="1 EUR =" />
+
+    <TextView
+        android:id="@+id/currencyValueTu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/currencyValueFrom"
+        tools:text="0.88 EUR" />
+
+    <TextView
+        android:id="@+id/currencyResulTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintEnd_toEndOf="@+id/currencyValueTu"
+        app:layout_constraintStart_toStartOf="@+id/currencyValueTu"
+        app:layout_constraintTop_toTopOf="@+id/currencyResultFrom"
+        tools:text="1.1 USD" />
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/currency_style_sw300"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultCurrency"
+        tools:text="somedate" />
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="ashunevich.uniconverter20.Activity_calculator_Keyboard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/calculator_keyboard" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/fragment3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correction" />
 
 </android.support.constraint.ConstraintLayout>

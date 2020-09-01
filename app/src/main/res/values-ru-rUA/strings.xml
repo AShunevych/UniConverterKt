@@ -90,6 +90,10 @@
     <string name="OD">Зовнішній\nдіаметр(дюйм/мм)</string>
     <string name="NPStoDN">Таблиця розмірів труб</string>
 
+    <string name="NoInternetConnection">Немає з\'єднання</string>
+    <string name="SameDate">Дані актуальні. Запит відхилено</string>
+    <string name="UpdateSuccessful">Дані успішно оновлені</string>
+
     <string name= "maxNumberReached">Досягнуто максимальна кількість (15) символів</string>
 
 </resources>

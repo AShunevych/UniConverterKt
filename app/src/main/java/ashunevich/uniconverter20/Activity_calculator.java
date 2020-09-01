@@ -20,7 +20,6 @@ public class Activity_calculator extends AppCompatActivity {
 
     @BindView(R.id.calcValue) EditText calcValue;
     @BindView(R.id.calcResult) TextView resultSet;
-    @BindView(R.id.history) Button history;
 
   //  private static final String TAG = "myLogs"
     private final String VALUE_STRING = "valueString";
@@ -45,7 +44,6 @@ public class Activity_calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator_activity);
         ButterKnife.bind(this);
-        history.setVisibility(View.GONE);
         calcValue.setCursorVisible(true);
 
     }
@@ -67,9 +65,9 @@ public class Activity_calculator extends AppCompatActivity {
         if (event.getNumber().contains("brackets") |
                 event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": checkBrackets(calcValue); break;
-                case "solve": readAndSolve();break;
-                case "clear": clearText();break;
+                case "brackets": Activity_converter_Utils.checkBrackets(calcValue); break;
+                case "solve": Activity_converter_Utils.readAndSolve(calcValue,resultSet);break;
+                case "clear": Activity_converter_Utils.clearView(calcValue,resultSet);break;
             }
         }
         else{
@@ -86,22 +84,15 @@ public class Activity_calculator extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.history, R.id.correction})
+    @OnClick({R.id.correction})
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
-            case R.id.history:
-                Toast.makeText(this, "currency", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.correction:
                 Activity_converter_Utils.correctValue(calcValue,resultSet);break;
         }
     }
 
 
-    private void clearText(){
-        resultSet.setText("");
-        calcValue.setText("");
-    }
 
     private void readAndSolve(){
       String getValue = calcValue.getText().toString();

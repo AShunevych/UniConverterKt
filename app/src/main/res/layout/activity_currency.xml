@@ -6,21 +6,21 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        style="@style/value_style_sw330"
+        android:id="@+id/valueCurrency"
+        style="@style/currency_style_sw300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/currency_FROM_short"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFromCurrency" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerFromCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -29,116 +29,102 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinnerToCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currency_FROM_short" />
+        app:layout_constraintTop_toBottomOf="@+id/valueCurrency" />
 
     <TextView
         android:id="@+id/currency_FROM_short"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="USD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/valueCurrency" />
 
     <TextView
-        android:id="@+id/currency_FROM_short2"
+        android:id="@+id/currency_to_short"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/resultCurrency"
+        tools:text="EUR" />
 
     <TextView
-        android:id="@+id/textView5"
-        style="@style/value_style_sw330"
+        android:id="@+id/resultCurrency"
+        style="@style/currency_style_sw300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintStart_toStartOf="@+id/valueCurrency"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerToCurrency" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/currencyValueFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/spinner2" />
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerFromCurrency"
+        app:layout_constraintEnd_toStartOf="@+id/currencyValueTu"
+        app:layout_constraintTop_toTopOf="@+id/spinnerFromCurrency"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="1 USD = " />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/currencyResultFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/spinner3" />
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerToCurrency"
+        app:layout_constraintEnd_toStartOf="@+id/currencyResulTo"
+        app:layout_constraintTop_toTopOf="@+id/spinnerToCurrency"
+        tools:text="1 EUR =" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/currencyValueTu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView11"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/currencyValueFrom"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="0.88 EUR" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/currencyResulTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        app:layout_constraintTop_toTopOf="@+id/currencyResultFrom"
+        tools:text="1.1 USD" />
 
     <TextView
         android:id="@+id/dateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/divider2"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment3"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="somedate" />
 
-    <View
-        android:id="@+id/divider2"
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="ashunevich.uniconverter20.Activity_calculator_Keyboard"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="?android:attr/listDivider"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currency_FROM_short2" />
-
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateView" />
+        tools:layout="@layout/calculator_keyboard" />
 
 </android.support.constraint.ConstraintLayout>

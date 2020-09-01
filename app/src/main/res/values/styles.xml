@@ -69,15 +69,25 @@
         <item name="android:cursorVisible">true</item>
     </style>
 
-    <style name="calcValueResult_sw300" parent="value_Result_Basic">
-        <item name="android:textSize">32sp</item>
-
+    <style name="calcValueResult_sw480" parent="value_Result_Basic">
+        <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="calcValueResult_sw300" parent="value_Result_Basic">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="currency_style_sw300" parent="value_Result_Basic">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
 
     <style name="value_style_sw330" parent="value_Result_Basic">
         <item name="android:textSize">24sp</item>
     </style>
+
 
 
     <style name="result_style_sw330" parent="value_Result_Basic">
@@ -163,12 +173,6 @@
         <item name="android:paddingBottom">2dp</item>
         <item name="android:textSize">12sp</item>
     </style>
-    <style name="angleLeft" parent="angleStyle">
-        <item name="android:background">@drawable/rect_white_left</item>
-    </style>
-    <style name="angleRight" parent="angleStyle">
-        <item name="android:background">@drawable/rect_white_right</item>
-    </style>
 
     <!-- Values for  "angle activity" fields except "Value" sw330dp -->
     <style name="angleStyle_sw330" parent="angle_style_basic_values">
@@ -179,12 +183,6 @@
         <item name="android:paddingEnd">2dp</item>
         <item name="android:paddingBottom">4dp</item>
         <item name="android:textSize">14sp</item>
-    </style>
-    <style name="angleLeft_sw330" parent="angleStyle_sw330">
-        <item name="android:background">@drawable/rect_white_left</item>
-    </style>
-    <style name="angleRight_sw330" parent="angleStyle_sw330">
-        <item name="android:background">@drawable/rect_white_right</item>
     </style>
     <style name="angle_aux_text">
         <item name="android:textSize">12sp</item>
@@ -204,7 +202,6 @@
     </style>
 
     <style name="tablePoint" parent="buttonSW300" >
-        <item name="android:background">@drawable/rect_table_header</item>
         <item name="android:paddingStart">4dp</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingEnd">4dp</item>

@@ -102,12 +102,14 @@
     </string-array>
 
      <string-array name="circlesAndSpheres">
-         <item>Radius</item>
-        <item>Diameter</item>
-        <item>Circumference</item>
-         <item>Area</item>
-         <item>Spherical area</item>
-         <item>Spherical Volume</item>
+         <item>Radius (circle)</item>
+        <item>Diameter (circle)</item>
+        <item>Circumference (circle)</item>
+         <item>Area (circle)</item>
+         <item>Area (sphere)</item>
+         <item>Volume (sphere)</item>
+         <item>Area (Hemisphere)</item>
+         <item>Volume (Hemisphere)</item>
      </string-array>
 
 

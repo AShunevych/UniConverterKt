@@ -2,12 +2,13 @@ package ashunevich.uniconverter20;
 
 
 import android.content.res.Resources;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
+
+import static java.lang.Math.PI;
 
 
 public abstract class Activity_converter_Logic extends Activity_converter {
@@ -15,10 +16,17 @@ public abstract class Activity_converter_Logic extends Activity_converter {
         this.hm = hm;
         this.resultView = resultView;
     }
+
     public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
-
+      /*
+        double radDiam = enteredValue/2;
+        double radCirc = enteredValue/(2*PI);
+        double radArea = Math.sqrt(enteredValue/PI);
+        double radSphArea = Math.sqrt(enteredValue/4*PI);
+        double radSphVolume = Math.pow(((enteredValue/PI)*(3.0/4.0)),1.0/3.0);
+*/
         NumberFormat formatter = new DecimalFormat("###.#######################");
                                                             //0.000000000000386102158
         switch (txtFromSpinner1) {
@@ -906,8 +914,105 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
                 break;
+                /*
+            case "Radius (circle)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(2*PI*enteredValue)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(enteredValue,2))));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(enteredValue,2))));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( enteredValue, 3))));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(enteredValue,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( enteredValue, 3 ))));break;
+                }
+                break;
+            case "Diameter (circle)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radDiam)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(2*PI*radDiam)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radDiam,2))));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radDiam,2))));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radDiam, 3 ))));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radDiam,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radDiam, 3 ))));break;
+                }
+                break;
+            case "Circumference (circle)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radCirc)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radCirc*2)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radCirc,2))));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radCirc,2))));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radCirc, 3 ))));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radCirc,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radCirc, 3 ))));break;
+                }
+                break;
+            case "Area (circle)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radArea)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radArea*2)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(2*PI*radArea)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radArea,2))));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radArea, 3 ))));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radArea,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radArea, 3 ))));break;
+                }
+                break;
+            case "Area (sphere)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radSphArea)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radSphArea*2)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(2*PI*radSphArea)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radSphArea,2))));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radSphArea, 3 ))));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radSphArea,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radSphArea, 3 ))));break;
+                }
+                break;
+            case "Volume (sphere)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radSphVolume)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radSphVolume*2)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format(2*PI*radSphVolume)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radSphVolume,2))));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radSphVolume,2))));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radSphVolume,2))));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radSphVolume, 3 ))));break;
+                }
+                break;
+            case "Area (Hemisphere)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radSphArea/2)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radSphArea)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format((2*PI*radSphArea)/2)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format((PI*Math.pow(radSphArea,2))/2)));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format(((4.0/3.0) * PI * Math.pow( radSphArea, 3 ))/2)));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format(((2.0/3.0) * PI * Math.pow( radSphArea, 3 )/2))));break;
+                }
+                break;
+            case "Volume (Hemisphere)":
+                switch (txtFromSpinner2) {
+                    case "Radius (circle)":resultView.setText(String.valueOf(formatter.format(radSphVolume/2)));break;
+                    case "Diameter (circle)":resultView.setText(String.valueOf(formatter.format(radSphVolume)));break;
+                    case "Circumference (circle)":resultView.setText(String.valueOf(formatter.format((2*PI*radSphVolume)/2)));break;
+                    case "Area (circle)":resultView.setText(String.valueOf(formatter.format((PI*Math.pow(radSphVolume,2))/2)));break;  //ok
+                    case "Area (sphere)":resultView.setText(String.valueOf(formatter.format((4*PI*Math.pow(radSphVolume,2))/2)));break;
+                    case "Volume (sphere)":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Area (Hemisphere)":resultView.setText(String.valueOf(formatter.format((2.0*PI* Math.pow(radSphVolume,2))/2)));break;
+                    case "Volume (Hemisphere)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                }
+                 */
         }
-    }
+}
 
 
     public static void ConvertValues_Ukr(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
@@ -915,6 +1020,13 @@ public abstract class Activity_converter_Logic extends Activity_converter {
         //0.0000000000003861021585
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
+        /*
+        double radDiam = enteredValue/2;
+        double radCirc = enteredValue/(2*PI);
+        double radArea = Math.sqrt(enteredValue/PI);
+        double radSphArea = Math.sqrt(enteredValue/4*PI);
+        double radSphVolume = Math.pow(((enteredValue/PI)*(3.0/4.0)),1.0/3.0);
+*/
 
         switch (txtFromSpinner1) {
             //area
@@ -1798,26 +1910,106 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
                     case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
                 }
+                /*
+            case "Радіус кругу":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(2*PI*enteredValue)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(enteredValue,2))));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(enteredValue,2))));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( enteredValue, 3))));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(enteredValue,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( enteredValue, 3 ))));break;
+                }
+                break;
+            case "Діаметер кругу":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radDiam)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(2*PI*radDiam)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radDiam,2))));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radDiam,2))));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radDiam, 3 ))));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radDiam,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radDiam, 3 ))));break;
+                }
+                break;
+            case "Окружність кругу":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radCirc)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radCirc*2)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radCirc,2))));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radCirc,2))));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radCirc, 3 ))));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radCirc,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radCirc, 3 ))));break;
+                }
+                break;
+            case "Площа кругу":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radArea)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radArea*2)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(2*PI*radArea)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radArea,2))));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radArea, 3 ))));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radArea,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radArea, 3 ))));break;
+                }
+                break;
+            case "Площа сфери":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radSphArea)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radSphArea*2)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(2*PI*radSphArea)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radSphArea,2))));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format((4.0/3.0) * PI * Math.pow( radSphArea, 3 ))));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radSphArea,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radSphArea, 3 ))));break;
+                }
+                break;
+            case "Об’єм сфери":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radSphVolume)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radSphVolume*2)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format(2*PI*radSphVolume)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format(PI*Math.pow(radSphVolume,2))));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(4*PI*Math.pow(radSphVolume,2))));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(2.0*PI* Math.pow(radSphVolume,2))));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format((2.0/3.0) * PI * Math.pow( radSphVolume, 3 ))));break;
+                }
+                break;
+            case "Площа напівсфери":
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radSphArea/2)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radSphArea)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format((2*PI*radSphArea)/2)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format((PI*Math.pow(radSphArea,2))/2)));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format(((4.0/3.0) * PI * Math.pow( radSphArea, 3 ))/2)));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format(((2.0/3.0) * PI * Math.pow( radSphArea, 3 )/2))));break;
+                }
+                break;
+            case "Об’єм напівсфери" :
+                switch (txtFromSpinner2) {
+                    case "Радіус кругу":resultView.setText(String.valueOf(formatter.format(radSphVolume/2)));break;
+                    case "Діаметер кругу":resultView.setText(String.valueOf(formatter.format(radSphVolume)));break;
+                    case "Окружність кругу":resultView.setText(String.valueOf(formatter.format((2*PI*radSphVolume)/2)));break;
+                    case "Площа кругу":resultView.setText(String.valueOf(formatter.format((PI*Math.pow(radSphVolume,2))/2)));break;  //ok
+                    case "Площа сфери":resultView.setText(String.valueOf(formatter.format((4*PI*Math.pow(radSphVolume,2))/2)));break;
+                    case "Об’єм сфери":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
+                    case "Площа напівсфери":resultView.setText(String.valueOf(formatter.format((2.0*PI* Math.pow(radSphVolume,2))/2)));break;
+                    case "Об’єм напівсфери" :resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                }
+                */
                 break;
         }
     }
-  /* Конвертер Валют
-
-    public static void convertCurrencyData(String txtFromSpinner1,
-                                          String txtFromSpinner2 , Double enteredValue, TextView resultView
-   , HashMap<String, String> hm ){
-
-        try{
-            double initRate = Double.valueOf(hm.get(txtFromSpinner1));
-            double targetRate = Double.valueOf(hm.get(txtFromSpinner2));
-            String resultFinal = String.valueOf((targetRate * enteredValue) / initRate);
-            resultView.setText(resultFinal);
-        }
-        catch (Exception e){
-            Log.d(" Exception","exeption catched") ;
-        }
-    }
- */
 
     public static void setUnitsView(String spinnerTextValue,
                                     TextView measurementUnit){

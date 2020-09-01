@@ -102,12 +102,14 @@
     </string-array>
 
     <string-array name="circlesAndSpheres">
-        <item>Радіус</item>
-        <item>Діаметер</item>
-        <item>Окружність</item>
-        <item>Площа</item>
+        <item>Радіус кругу</item>
+        <item>Діаметер кругу</item>
+        <item>Окружність кругу</item>
+        <item>Площа кругу </item>
         <item>Площа сфери</item>
         <item>Об\'єм сфери</item>
+        <item>Площа напівсфери</item>
+        <item>Об\'єм напівсфери</item>
     </string-array>
 
     <string-array name="currency">

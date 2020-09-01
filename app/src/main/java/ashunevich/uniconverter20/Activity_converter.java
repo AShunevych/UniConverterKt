@@ -139,21 +139,10 @@ public class Activity_converter extends Fragment {
                 case 5: tabPos=5;setAdapter(getResources().getStringArray(R.array.temperature_array)); break;
                 case 6: tabPos=6;setAdapter(getResources().getStringArray(R.array.time_array)); break;
                 case 7: tabPos=7;setAdapter(getResources().getStringArray(R.array.speed)); break;
+                case 8: tabPos=7;setAdapter(getResources().getStringArray(R.array.circlesAndSpheres)); break;
         }
 
         }
-        //For further updates
-        //Moves focus beetween EditText views
-    /*
-    private void setFocus(EditText value, EditText result, String commandString) {
-             switch (commandString) {
-                 case "focusUp":
-                     value.requestFocus();break;
-                 case "focusDown":
-                     result.requestFocus();break;
-             }
-    }
-        */
 
     //if user changes unit - it will change mesaurments and will automatically recalculate result
     private void setSpinnersListeners(){
@@ -228,9 +217,6 @@ public class Activity_converter extends Fragment {
         first.setInputType(InputType.TYPE_NULL);
         second.setInputType(InputType.TYPE_NULL);
     }
-
-
-
 
     private void convertAndShowValues(String activeLocale){
 
