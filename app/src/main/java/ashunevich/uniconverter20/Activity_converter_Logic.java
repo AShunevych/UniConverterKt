@@ -1,6 +1,5 @@
 package ashunevich.uniconverter20;
 
-
 import android.content.res.Resources;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -8,14 +7,24 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 
-import static java.lang.Math.PI;
-
 
 public abstract class Activity_converter_Logic extends Activity_converter {
     public Activity_converter_Logic(EditText resultView, HashMap<String, String> hm){
         this.hm = hm;
         this.resultView = resultView;
     }
+
+
+    private static void conversionMultiplier(TextView resultView, double value, double multiplier){
+        NumberFormat formatter = new DecimalFormat("###.#######################");
+        resultView.setText(String.valueOf(formatter.format(value * multiplier)));
+    }
+
+    private static void setSameValue(TextView resultView,double value){
+        NumberFormat formatter = new DecimalFormat("###.#######################");
+        resultView.setText(String.valueOf(formatter.format(value)));
+    }
+
 
     public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
         final double NineDivFive = 9.0/5.0;
@@ -33,885 +42,885 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             // area
             case "Square millimeter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
+                    case "Square millimeter": setSameValue(resultView,enteredValue);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue,0.01);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue,0.000000000001);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.0000000001);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue,0.0000000000003861021585);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.0000000002471053814);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 0.000001196);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue,0.0000107639);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 0.0015500031);break;
                 }
                 break;
             case "Square centimeter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 100);break;
+                    case "Square centimeter": setSameValue(resultView,enteredValue);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 0.0001);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.0000000001);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.00000001);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.00000000003861021585);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.00000002471053814);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 0.000119599);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 0.001076391);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 0.15500031);break;
                 }
                 break;
             case "Square meter":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 10000.0);break;
+                    case "Square meter": setSameValue(resultView,enteredValue);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.0001);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.0000003861021585);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.0002471054);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 1.1959900463);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 10.763910417);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 1550.0031);break;
                 }
                 break;
             case "Square kilometer":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 1000000000000.0);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 10000000000.0);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Square kilometer": setSameValue(resultView,enteredValue);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 100.0);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.3861021585);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 247.10538147);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 1195990.0463);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 10763910.417);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 1550003100);break;
                 }
                 break;
             case "Hectare":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 10000000000.0);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 100000000);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 10000);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.01);break;
+                    case "Hectare": setSameValue(resultView,enteredValue);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.0038610216);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 2.4710538147);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 11959.900463);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 107639.10417);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 15500031);break;
                 }
                 break;
             case "Square mile":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 2589988110336.0);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 25899881103.0);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 2589988.1103);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 2.5899881103);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 258.99881103);break;
+                    case "Square mile": setSameValue(resultView,enteredValue);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 640);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 3097600);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 27878400);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 4014489600.0);break;
                 }
                 break;
             case "Acre":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 4046856422.4);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 40468564.224);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 4046.8564224);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.0040468564);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.4046856422);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.0015625);break;
+                    case "Acre": setSameValue(resultView,enteredValue);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 4840);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 43560);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 6272640);break;
                 }
                 break;
             case "Square yard":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 836127.36);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 8361.2736);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 0.83612736);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.0000008361273599);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.0000836127);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.0000003228305785);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.0002066116);break;
+                    case "Square yard": setSameValue(resultView,enteredValue);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 9);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 1296);break;
                 }
                 break;
             case "Square feet":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Square inch": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 92903.04);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 929.0304);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 0.09290304);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.00000009290303999);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.0000092903);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.000000387006427);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.0000229568);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 0.1111111111);break;
+                    case "Square feet": setSameValue(resultView,enteredValue);break;
+                    case "Square inch": conversionMultiplier(resultView,enteredValue, 144);break;
                 }
             case "Square inch":
                 switch (txtFromSpinner2) {
-                    case "Square millimeter": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
-                    case "Square centimeter": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
-                    case "Square meter": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
-                    case "Square kilometer": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
-                    case "Hectare": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
-                    case "Square mile": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
-                    case "Acre": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
-                    case "Square yard": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
-                    case "Square feet": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Square millimeter": conversionMultiplier(resultView,enteredValue, 645.16);break;
+                    case "Square centimeter": conversionMultiplier(resultView,enteredValue, 6.4516);break;
+                    case "Square meter": conversionMultiplier(resultView,enteredValue, 0.00064516);break;
+                    case "Square kilometer": conversionMultiplier(resultView,enteredValue, 0.00000000064516);break;
+                    case "Hectare": conversionMultiplier(resultView,enteredValue, 0.000000064516);break;
+                    case "Square mile": conversionMultiplier(resultView,enteredValue, 0.000000000290976686);break;
+                    case "Acre": conversionMultiplier(resultView,enteredValue, 0.0000001594225079);break;
+                    case "Square yard": conversionMultiplier(resultView,enteredValue, 0.0007716049);break;
+                    case "Square feet": conversionMultiplier(resultView,enteredValue, 0.0069444444);break;
+                    case "Дюйм квадратний": setSameValue(resultView,enteredValue);break;
                 }
             case "Mlilinewton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000101)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break; //equals to gram-force
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000100)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
+                    case "Mlilinewton":setSameValue(resultView,enteredValue);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.000000101);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 0.1019);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.000101);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 0.1019);break; //equals to gram-force
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.00022);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 0.00359);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.000000100);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 0.00723);break;
                 }
                 break;
             case "Newton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break; //equals to gram-force
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000100)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Newton":setSameValue(resultView,enteredValue);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.000101);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 101.971);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.10197);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 101.971);break; //equals to gram-force
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.22480);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 3.5969);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.000100);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 7.233);break;
                 }
                 break;
             case "Kilonewton":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break; //equals to gram-force
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.100)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Kilonewton":setSameValue(resultView,enteredValue);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.101);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 101971.6);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 101.971);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 101971.6);break; //equals to gram-force
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 224.81);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 3596.94);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.100);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 7233.01);break;
                 }
                 break;
             case "Ton-force(metric)":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;//equals to gram-force
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 9806650);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 9806.65);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 9.80665);break;
+                    case "Ton-force(metric)":setSameValue(resultView,enteredValue);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 1000000.0);break;//equals to gram-force
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 2204.62);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 35273.96);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.9842);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 70931.63);break;
                 }
                 break;
             case "Gram-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 9.8066);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 0.009806);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.0000098067);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Gram-force":setSameValue(resultView,enteredValue);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Pond":setSameValue(resultView,enteredValue);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.002204);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 0.03527);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0000009842065276);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 0.07093);break;
                 }
                 break;
             case "Kilogram-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 9806.65);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 9.80665);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.0098066);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Kilogram-force":setSameValue(resultView,enteredValue);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 2.20);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 35.273);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0009842);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 70.931);break;
                 }
                 break;
             case "Pond":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842065276)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 9.80665);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 0.00980);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.0000098);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Gram-force":setSameValue(resultView,enteredValue);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue,1.0);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.002204);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 0.03527);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0000009842065276);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 0.07093);break;
                 }
                 break;
             case "Pound-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 4448.221);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 4.448);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.00444);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.00045);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 453.59);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.45359);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 453.59);break;
+                    case "Pound-force":setSameValue(resultView,enteredValue);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 16);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0004464);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 32.174);break;
                 }
                 break;
             case "Ounce-force":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 278.013);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 0.27801);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.0002780);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.0000283);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 28.349);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.02834);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 28.349);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.0625);break;
+                    case "Ounce-force":setSameValue(resultView,enteredValue);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0000279);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 2.010);break;
                 }
                 break;
             case "Ton-force (long)":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 9964016.41);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 9964.01);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 9.9640);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 1.016);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 1016046.90);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 1016.046);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 1016046.90);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 2240.0);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 35840.0);break;
+                    case "Ton-force (long)":setSameValue(resultView,enteredValue);break;
+                    case "Poundal":conversionMultiplier(resultView,enteredValue, 72069.86);break;
                 }
                 break;
             case "Poundal":
                 switch (txtFromSpinner2) {
-                    case "Mlilinewton":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
-                    case "Newton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
-                    case "Kilonewton":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
-                    case "Ton-force(metric)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
-                    case "Gram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Kilogram-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
-                    case "Pond":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Pound-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
-                    case "Ounce-force":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
-                    case "Ton-force (long)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
-                    case "Poundal":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Mlilinewton":conversionMultiplier(resultView,enteredValue, 138.25);break;
+                    case "Newton":conversionMultiplier(resultView,enteredValue, 0.13825);break;
+                    case "Kilonewton":conversionMultiplier(resultView,enteredValue, 0.000138);break;
+                    case "Ton-force(metric)":conversionMultiplier(resultView,enteredValue, 0.0000140);break;
+                    case "Gram-force":conversionMultiplier(resultView,enteredValue, 14.09);break;
+                    case "Kilogram-force":conversionMultiplier(resultView,enteredValue, 0.01409);break;
+                    case "Pond":conversionMultiplier(resultView,enteredValue, 14.09);break;
+                    case "Pound-force":conversionMultiplier(resultView,enteredValue, 0.03108);break;
+                    case "Ounce-force":conversionMultiplier(resultView,enteredValue, 0.4972);break;
+                    case "Ton-force (long)":conversionMultiplier(resultView,enteredValue, 0.0000138);break;
+                    case "Poundal":setSameValue(resultView,enteredValue);break;
                 }
             case "Millimetre":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
+                    case "Millimetre":setSameValue(resultView,enteredValue);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 0.1);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 0.03937);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 0.003280);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 0.001093);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.0000062137);break;
                 }
                 break;
             case "Centimetre":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 10);break;
+                    case "Centimetre":setSameValue(resultView,enteredValue);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 0.01);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.00001);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 0.3937);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 0.03280);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 0.01093);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.000006213);break;
                 }
                 break;
             case "Metre":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 100);break;
+                    case "Metre":setSameValue(resultView,enteredValue);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 39.37007);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 3.2808);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 1.09361);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.00062137);break;
                 }
                 break;
             case "Kilometre":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 100000.0);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Kilometre":setSameValue(resultView,enteredValue);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 39370.08);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 3280.84);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 1093.6132);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.6214);break;
                 }
                 break;
             case "Inch":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 25.4);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 2.54);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 0.0254);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.0000254);break;
+                    case "Inch":setSameValue(resultView,enteredValue);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 0.08333);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 0.02777);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.00001578);break;
                 }
                 break;
             case "Foot":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 304.8);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 30.48);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 0.3048);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.0003048);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 12);break;
+                    case "Foot":setSameValue(resultView,enteredValue);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 0.33333);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.0001893936);break;
                 }
                 break;
             case "Yard":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 914.4);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 91.44);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 0.9144);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 0.0009144);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 36);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 3);break;
+                    case "Yard":setSameValue(resultView,enteredValue);break;
+                    case "Mile":conversionMultiplier(resultView,enteredValue, 0.0005681);break;
                 }
                 break;
             case "Mile":
                 switch (txtFromSpinner2){
-                    case "Millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
-                    case "Centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
-                    case "Metre":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
-                    case "Kilometre":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
-                    case "Inch":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
-                    case "Foot":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
-                    case "Yard":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
-                    case "Mile":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Millimetre":conversionMultiplier(resultView,enteredValue, 1609347.21);break;
+                    case "Centimetre":conversionMultiplier(resultView,enteredValue, 160934.72);break;
+                    case "Metre":conversionMultiplier(resultView,enteredValue, 1609.34);break;
+                    case "Kilometre":conversionMultiplier(resultView,enteredValue, 1.6093);break;
+                    case "Inch":conversionMultiplier(resultView,enteredValue, 63360.12);break;
+                    case "Foot":conversionMultiplier(resultView,enteredValue, 5280.010);break;
+                    case "Yard":conversionMultiplier(resultView,enteredValue, 1760);break;
+                    case "Mile":setSameValue(resultView,enteredValue);break;
                 }
             case "Milligram":
                 switch (txtFromSpinner2){
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
-                    case "Tonne": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 0.001); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 0.000001); break;
+                    case "Tonne": conversionMultiplier(resultView,enteredValue, 0.000000001); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 0.0154); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 0.000035); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 0.0000022); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.00000002); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.000000001016); break;
+                    case "Milligram":setSameValue(resultView,enteredValue);
 
                 }
                 break;
             case "Gram":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Tonne": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 1000.0); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 0.001); break;
+                    case "Tonne": conversionMultiplier(resultView,enteredValue, 0.000000001); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 15.43); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 0.03527); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 0.002204); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.0000196); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.0000009); break;
+                    case "Gram":setSameValue(resultView,enteredValue);
                 }
                 break;
             case "Kilogram":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 1000000.0); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 1000.0); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 0.001); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 15432.35); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 35.27); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 2.20); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.01968); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.000984); break;
+                    case "Kilogram":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Tonne":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 1000000000.0); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 1000000.0); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 1000.0); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 15432358.35); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 35273.96); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 2204.62); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 19.68); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.9842); break;
+                    case "Tonne":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Grain":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 64.79); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 0.0647); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 0.000064); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 0.000000065); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 0.00228); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 0.000142857); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.000001429); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.000000064); break;
+                    case "Grain":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Ounce":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 28349.52); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 28.349); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 0.02834); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 0.00002835); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 437.49); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 0.0625); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.000558036); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.0000279022); break;
+                    case "Ounce":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Pound":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 453592.37); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 453.59); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 0.4535); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 0.0004535); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 6999.99); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 16); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.008928571); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.000446429); break;
+                    case "Pound":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Hundreweight":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
-                    case "Kilogram": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 50802345.44); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 50802.34); break;
+                    case "Kilogram": conversionMultiplier(resultView,enteredValue, 50.80); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 0.05080); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 783999.999); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 1792); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 112); break;
+                    case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.05); break;
+                    case "Hundreweight":setSameValue(resultView,enteredValue); break;
                 }
                 break;
             case "Ton(long)":
                 switch (txtFromSpinner2){
-                    case "Milligram":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
-                    case "Gram":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
-                    case "Kilogram":resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
-                    case "Tonne":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
-                    case "Grain":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
-                    case "Ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
-                    case "Pound":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
-                    case "Hundreweight":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
-                    case "Ton(long)":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Milligram":conversionMultiplier(resultView,enteredValue, 1016046908.8); break;
+                    case "Gram":conversionMultiplier(resultView,enteredValue, 1016046.90); break;
+                    case "Kilogram":conversionMultiplier(resultView,enteredValue, 1016.04); break;
+                    case "Tonne":conversionMultiplier(resultView,enteredValue, 1.016); break;
+                    case "Grain":conversionMultiplier(resultView,enteredValue, 15679999.99); break;
+                    case "Ounce":conversionMultiplier(resultView,enteredValue, 35840.0); break;
+                    case "Pound":conversionMultiplier(resultView,enteredValue, 2240.0); break;
+                    case "Hundreweight":conversionMultiplier(resultView,enteredValue, 20.0); break;
+                    case "Ton(long)":setSameValue(resultView,enteredValue); break;
                 }
             case "Meter/second":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
-                    case "Mach(SI)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0033)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.943)));break;
+                    case "Meter/second":setSameValue(resultView,enteredValue);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 3600);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 3.6);break;
+                    case "Mach(SI)":conversionMultiplier(resultView,enteredValue, 0.0033);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 3.28);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 11811.02);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 2.23);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 1.943);break;
                 }
                 break;
             case "Meter/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00053)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.00027);break;
+                    case "Meter/hour":setSameValue(resultView,enteredValue);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.0000002777777777);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 0.0009);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 3.28);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 0.00062);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.00053);break;
                 }
                 break;
             case "Kilometer/second":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.277)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.277);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.00027);break;
+                    case "Kilometer/hour":setSameValue(resultView,enteredValue);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 0.911);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 3280.8);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 0.621);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.539);break;
                 }
                 break;
             case "Kilometer/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.2777);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.00027);break;
+                    case "Kilometer/hour":setSameValue(resultView,enteredValue);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 0.911);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 3280.8);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 0.621);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.539);break;
                 }
                 break;
             case "Foot/second":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.3048);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 1097.28);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.0003048);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 1.09728);break;
+                    case "Foot/second":setSameValue(resultView,enteredValue);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 3600);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 0.681);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.5924);break;
                 }
                 break;
             case "Foot/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00016)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.000084);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 0.3);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.00000008466666666);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 0.00030);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 0.00027);break;
+                    case "Foot/hour":setSameValue(resultView,enteredValue);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 0.00018);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.00016);break;
                 }
                 break;
             case "Mile/hour":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8689)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.44);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 1609.3);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.00044);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 1.6);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 1.46);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 5280);break;
+                    case "Mile/hour":setSameValue(resultView,enteredValue);break;
+                    case "Knot/kt":conversionMultiplier(resultView,enteredValue, 0.8689);break;
                 }
                 break;
             case "Knot/kt":
                 switch (txtFromSpinner2) {
-                    case "Meter/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
-                    case "Meter/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
-                    case "Kilometer/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
-                    case "Kilometer/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-                    case "Foot/second":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
-                    case "Foot/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
-                    case "Mile/hour":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
-                    case "Knot/kt":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Meter/second":conversionMultiplier(resultView,enteredValue, 0.514);break;
+                    case "Meter/hour":conversionMultiplier(resultView,enteredValue, 1852);break;
+                    case "Kilometer/second":conversionMultiplier(resultView,enteredValue, 0.00051);break;
+                    case "Kilometer/hour":conversionMultiplier(resultView,enteredValue, 1.852);break;
+                    case "Foot/second":conversionMultiplier(resultView,enteredValue, 1.687);break;
+                    case "Foot/hour":conversionMultiplier(resultView,enteredValue, 6076.11);break;
+                    case "Mile/hour":conversionMultiplier(resultView,enteredValue, 1.150);break;
+                    case "Knot/kt":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Celsius":
                 switch (txtFromSpinner2) {
-                    case "Celsius":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +32)));break;
+                    case "Celsius":setSameValue(resultView,enteredValue);break;
+                    case "Fahrenheit":conversionMultiplier(resultView,enteredValue, NineDivFive +32);break;
                     case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue * NineDivFive +491.76)));break;
+                    case "Rankine":conversionMultiplier(resultView,enteredValue, NineDivFive +491.67);break;
                 }
                 break;
             case "Kelvin":
                 switch (txtFromSpinner2) {
                     case "Celsius":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
                     case "Fahrenheit":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
-                    case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
+                    case "Kelvin":setSameValue(resultView,enteredValue);break;
+                    case "Rankine":conversionMultiplier(resultView,enteredValue, 1.8);break;
                 }
                 break;
             case "Rankine/°R"  :
                 switch (txtFromSpinner2) {
                     case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
                     case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;//here
-                    case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
-                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Kelvin":conversionMultiplier(resultView,enteredValue,(5.0/9.0));break;
+                    case "Rankine":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Fahrenheit/°F" :
                 switch (txtFromSpinner2) {
                     case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
-                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Fahrenheit":setSameValue(resultView,enteredValue);break;
                     case "Kelvin":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
                     case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Seconds":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002777778)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000115741)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000016534)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000003805175038)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000003170979198)));break;
+                    case "Seconds":setSameValue(resultView,enteredValue);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 0.0166666667);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 0.0002777778);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 0.0000115741);break;
+                    case "Week":conversionMultiplier(resultView,enteredValue, 0.0000016534);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 0.0000003805175038);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.00000003170979198);break;
                 }
                 break;
             case "Minutes":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0006944444)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000992063)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000228311)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000019026)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 60);break;
+                    case "Minutes":setSameValue(resultView,enteredValue);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 0.0166666667);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 0.0006944444);break;
+                    case "Week":conversionMultiplier(resultView,enteredValue, 0.0000992063);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 0.0000228311);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.0000019026);break;
                 }
                 break;
             case "Hour":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0416666667)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue*0.005952381)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001369863)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001141553)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 3600);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 60);break;
+                    case "Hour":setSameValue(resultView,enteredValue);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 0.0416666667);break;
+                    case "Week":conversionMultiplier(resultView,enteredValue, 0.005952381);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 0.001369863);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.0001141553);break;
                 }
                 break;
             case "Day":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*0.23)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.19)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 604800);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 10080);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 168);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 7);break;
+                    case "Week":setSameValue(resultView,enteredValue);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 0.23);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.19);break;
                 }
                 break;
             case "Week":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2301369863)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0191780822)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 604800);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 10080);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 168);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 7);break;
+                    case "Week":setSameValue(resultView,enteredValue);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 0.2301369863);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.0191780822);break;
                 }
                 break;
             case "Month":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*2628000)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*43800)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*730)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*30.416666667)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue*4.3452380952)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0833333333)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 2628000);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 43800);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 730);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 30.416666667);break;
+                    case "Week":conversionMultiplier(resultView,enteredValue, 4.3452380952);break;
+                    case "Month":setSameValue(resultView,enteredValue);break;
+                    case "Year":conversionMultiplier(resultView,enteredValue, 0.0833333333);break;
                 }
                 break;
             case "Year":
                 switch (txtFromSpinner2) {
-                    case "Seconds":resultView.setText(String.valueOf(formatter.format(enteredValue*31536000)));break;
-                    case "Minutes":resultView.setText(String.valueOf(formatter.format(enteredValue*525600)));break;
-                    case "Hour":resultView.setText(String.valueOf(formatter.format(enteredValue*8760)));break;
-                    case "Day":resultView.setText(String.valueOf(formatter.format(enteredValue*365)));break;
-                    case "Week":resultView.setText(String.valueOf(formatter.format(enteredValue*52.142857143)));break;
-                    case "Month":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Year":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Seconds":conversionMultiplier(resultView,enteredValue, 31536000);break;
+                    case "Minutes":conversionMultiplier(resultView,enteredValue, 525600);break;
+                    case "Hour":conversionMultiplier(resultView,enteredValue, 8760);break;
+                    case "Day":conversionMultiplier(resultView,enteredValue, 365);break;
+                    case "Week":conversionMultiplier(resultView,enteredValue, 52.142857143);break;
+                    case "Month":conversionMultiplier(resultView,enteredValue, 12);break;
+                    case "Year":setSameValue(resultView,enteredValue);break;
                 }
             case "Cubic millimetre/mm³":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
+                    case "Cubic millimetre":setSameValue(resultView,enteredValue);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.000000001);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 0.0000351951);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 0.000007039);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 0.0000017598);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.0000008798769931);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.0000002199692482);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.000000006110256897);break;
                 }
                 break;
             case "Cubic centimetre":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Cubic centimetre":setSameValue(resultView,enteredValue);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 1);break;
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 0.0351950797);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 0.0070390159);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 0.001759754);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.000879877);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.0002199692);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0000002199692482);break;
                 }
                 break;
             case "Cubic metre":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break; //ok
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 1000000.0000);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Cubic metre":setSameValue(resultView,enteredValue);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 1000000.0);break; //ok
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 35195.079728);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 7039.0159456);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 1759.7539864);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 879.8769932);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 219.9692483);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 6.1102568972);break;
                 }
                 break;
             case "Milliliter":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 1);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.000001);break;
+                    case "Milliliter":setSameValue(resultView,enteredValue);break;
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 0.0351950797);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 0.0070390159);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 0.001759754);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.000879877);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.0002199692);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0000061103);break;
                 }
                 break;
             case "Liter":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 1000000.0);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.001);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 1000);break;
+                    case "Liter":setSameValue(resultView,enteredValue);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 35.195079728);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 7.0390159456);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 1.7597539864);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.8798769932);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.2199692483);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0061102569);break;
                 }
                 break;
             case "Gill":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 142065.3125);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 142.0653125);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.0001420653);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 142.0653125);break;
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.1420653125);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 5);break;
+                    case "Gill":setSameValue(resultView,enteredValue);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 0.25);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.125);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.03125);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0008680556);break;
                 }
                 break;
             case "Fluid ounce":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 28413.0625);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 28.4130625);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.0000284131);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 28.4130625);break;
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.0284130625);break;
+                    case "Fluid ounce":setSameValue(resultView,enteredValue);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 0.2);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 0.05);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.025);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.00625);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0001736111);break;
                 }
                 break;
             case "Pint":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;  //ok
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 568261.25);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 568.26125);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.0005682613);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 568.26125);break;  //ok
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 0.56826125);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 20);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 4);break;
+                    case "Pint":setSameValue(resultView,enteredValue);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 0.5);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.125);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0034722222);break;
                 }
                 break;
             case "Quart":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;  //ok
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 1136522.5);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 1136.5225);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.0011365225);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 1136.5225);break;  //ok
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 1.1365225);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 40);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 8);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 2);break;
+                    case "Quart":setSameValue(resultView,enteredValue);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 0.25);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0069444444);break;
                 }
                 break;
             case "Gallon":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;  //ok
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 4546090);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 4546.09);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.00454609);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 4546.09);break;  //ok
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 3.785);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 160);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 32);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 8);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 4);break;
+                    case "Gallon":setSameValue(resultView,enteredValue);break;
+                    case "Barrel(UK)":conversionMultiplier(resultView,enteredValue, 0.0277777778);break;
                 }
                 break;
             case "Barrel(UK)":
                 switch (txtFromSpinner2) {
-                    case "Cubic millimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
-                    case "Cubic centimetre":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
-                    case "Cubic metre":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
-                    case "Milliliter":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;  //ok
-                    case "Liter":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
-                    case "Fluid ounce":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
-                    case "Gill":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
-                    case "Pint":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
-                    case "Quart":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
-                    case "Gallon":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Barrel(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Cubic millimetre":conversionMultiplier(resultView,enteredValue, 163659240);break;
+                    case "Cubic centimetre":conversionMultiplier(resultView,enteredValue, 163659.24);break;
+                    case "Cubic metre":conversionMultiplier(resultView,enteredValue, 0.16365924);break;
+                    case "Milliliter":conversionMultiplier(resultView,enteredValue, 163659.24);break;  //ok
+                    case "Liter":conversionMultiplier(resultView,enteredValue, 163.65924);break;
+                    case "Fluid ounce":conversionMultiplier(resultView,enteredValue, 5760);break;
+                    case "Gill":conversionMultiplier(resultView,enteredValue, 1152);break;
+                    case "Pint":conversionMultiplier(resultView,enteredValue, 288);break;
+                    case "Quart":conversionMultiplier(resultView,enteredValue, 144);break;
+                    case "Gallon":conversionMultiplier(resultView,enteredValue, 36);break;
+                    case "Barrel(UK)":setSameValue(resultView,enteredValue);break;
                 }
                 break;
                 /*
@@ -1015,6 +1024,8 @@ public abstract class Activity_converter_Logic extends Activity_converter {
 }
 
 
+
+
     public static void ConvertValues_Ukr(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
         NumberFormat formatter = new DecimalFormat("###.########################");
         //0.0000000000003861021585
@@ -1027,889 +1038,890 @@ public abstract class Activity_converter_Logic extends Activity_converter {
         double radSphArea = Math.sqrt(enteredValue/4*PI);
         double radSphVolume = Math.pow(((enteredValue/PI)*(3.0/4.0)),1.0/3.0);
 */
-
         switch (txtFromSpinner1) {
             //area
             case "Мілліметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000001)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000000003861021585)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000002471053814)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001196)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000107639)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015500031)));break;
+                    case "Мілліметр квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,0.01);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.000000000001);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.0000000001);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.0000000000003861021585);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.0000000002471053814);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,0.000001196);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,0.0000107639);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,0.0015500031);break;
                 }
                 break;
             case "Сантіметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000000001)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000001)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000003861021585)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue *0.00000002471053814)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000119599)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001076391)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.15500031)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,100);break;
+                    case "Сантіметр квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue, 0.0001);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue, 0.0000000001);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.00000001);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.00000000003861021585);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.00000002471053814);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,0.000119599);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,0.001076391);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,0.15500031);break;
                 }
                 break;
             case "Метр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000.0)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003861021585)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002471054)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1.1959900463)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10.763910417)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550.0031)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,10000.0);break;
+                    case "Метр квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.0001);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.0000003861021585);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.0002471054);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,1.1959900463);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,10.763910417);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,1550.0031);break;
                 }
                 break;
             case "Кілометр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000000.0)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000000000.0)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 100.0)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3861021585)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 247.10538147)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1195990.0463)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10763910.417)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1550003100)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000000000.0);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,10000000000.0);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Кілометр квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,100.0);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.3861021585);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,247.10538147);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,1195990.0463);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,10763910.417);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,1550003100);break;
                 }
                 break;
             case "Гектар":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*10000000000.0)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 100000000)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 10000)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0038610216)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.4710538147)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 11959.900463)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 107639.10417)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 15500031)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,10000000000.0);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,100000000);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,10000);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.01);break;
+                    case "Гектар": setSameValue(resultView,enteredValue);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.0038610216);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,2.4710538147);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,11959.900463);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,107639.10417);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,15500031);break;
                 }
                 break;
             case "Міля квадратна":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*2589988110336.0)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 25899881103.0)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 2589988.1103)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 2.5899881103)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 258.99881103)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 640)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 3097600)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 27878400)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4014489600.0)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,2589988110336.0);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,25899881103.0);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,2589988.1103);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,2.5899881103);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,258.99881103);break;
+                    case "Міля квадратна": setSameValue(resultView,enteredValue);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,640);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,3097600);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,27878400);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,4014489600.0);break;
                 }
                 break;
             case "Акр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*4046856422.4)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 40468564.224)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4046.8564224)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0040468564)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4046856422)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0015625)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 4840)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 43560)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 6272640)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,4046856422.4);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,40468564.224);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,4046.8564224);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.0040468564);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.4046856422);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.0015625);break;
+                    case "Акр": setSameValue(resultView,enteredValue);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,4840);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,43560);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,6272640);break;
                 }
                 break;
             case "Ярд квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*836127.36)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 8361.2736)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.83612736)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000008361273599)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000836127)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000003228305785)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002066116)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 9)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 1296)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,836127.36);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,8361.2736);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.83612736);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.0000008361273599);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.0000836127);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.0000003228305785);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.0002066116);break;
+                    case "Ярд квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,9);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,1296);break;
                 }
                 break;
             case "Фут квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*92903.04)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 929.0304)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.09290304)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000009290303999)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000092903)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000387006427)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000229568)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1111111111)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 144)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,92903.04);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,929.0304);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.09290304);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.00000009290303999);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.0000092903);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.000000387006427);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.0000229568);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,0.1111111111);break;
+                    case "Фут квадратний": setSameValue(resultView,enteredValue);break;
+                    case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,144);break;
                 }
             case "Дюйм квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue*645.16)));break;
-                    case "Сантіметр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 6.4516)));break;
-                    case "Метр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00064516)));break;
-                    case "Кілометр квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000000064516)));break;
-                    case "Гектар": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000064516)));break;
-                    case "Міля квадратна": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000000290976686)));break;
-                    case "Акр": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000001594225079)));break;
-                    case "Ярд квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0007716049)));break;
-                    case "Фут квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0069444444)));break;
-                    case "Дюйм квадратний": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,645.16);break;
+                    case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,6.4516);break;
+                    case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.00064516);break;
+                    case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.00000000064516);break;
+                    case "Гектар": conversionMultiplier(resultView,enteredValue,0.000000064516);break;
+                    case "Міля квадратна": conversionMultiplier(resultView,enteredValue,0.000000000290976686);break;
+                    case "Акр": conversionMultiplier(resultView,enteredValue,0.0000001594225079);break;
+                    case "Ярд квадратний": conversionMultiplier(resultView,enteredValue,0.0007716049);break;
+                    case "Фут квадратний": conversionMultiplier(resultView,enteredValue,0.0069444444);break;
+                    case "Дюйм квадратний": setSameValue(resultView,enteredValue);break;
                 }
             case "Мілліньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000101)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000101)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1019)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00022)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00359)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000000100)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00723)));break;
+                    case "Мілліньютон":setSameValue(resultView,enteredValue);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000000101);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,0.1019);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.000101);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,0.1019);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.00022);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,0.00359);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.000000100);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,0.00723);break;
                 }
                 break;
             case "Ньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.10197)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.22480)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.5969)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0001)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 7.233)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Ньютон":setSameValue(resultView,enteredValue);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0001);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,101.971);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.10197);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,101.971);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.22480);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,3.5969);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0001);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,7.233);break;
                 }
                 break;
             case "Кілоньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.101971)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 101.971)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 101971.6)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 224.81)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 3596.94)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.1003)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 7233.01)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Кілоньютон":setSameValue(resultView,enteredValue);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.101971);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,101971.6);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,101.971);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,101971.6);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,224.81);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,3596.94);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.1003);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,7233.01);break;
                 }
                 break;
             case "Тонна-сила(метрична)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806650)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9806.65)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000000.0)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2204.62)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35273.96)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.9842)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 70931.63)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9806650);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,9806.65);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,9.80665);break;
+                    case "Тонна-сила(метрична)":setSameValue(resultView,enteredValue);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,2204.62);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,35273.96);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.9842);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,70931.63);break;
                 }
                 break;
             case "Грам-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.8066)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.009806)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098067)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9.8066);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,0.009806);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0000098067);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Грам-сила":setSameValue(resultView,enteredValue);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,1.0);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.002204);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,0.03527);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0000009842);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,0.07093);break;
                 }
                 break;
             case "Кілограм-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9806.65)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.80665)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0098066)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.20)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35.273)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009842)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 70.931)));break;
+                    case "Мілліньютон": conversionMultiplier(resultView,enteredValue,9806.65);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,9.80665);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0098066);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Кілограм-сила":setSameValue(resultView,enteredValue);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,2.20);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,35.273);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0009842);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,70.931);break;
                 }
                 break;
             case "Понд":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9.80665)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00980)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000098)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000001)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.002204)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03527)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000009842)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.07093)));break;
+                    case "Мілліньютон": conversionMultiplier(resultView,enteredValue,9.80665);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,0.00980);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0000098);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Грам-сила":setSameValue(resultView,enteredValue);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Понд":setSameValue(resultView,enteredValue);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.002204);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,0.03527);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0000009842);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,0.07093);break;
                 }
                 break;
             case "Фунт-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *4448.221)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 4.448)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00444)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00045)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.45359)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 453.59)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 16)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0004464)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 32.174)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,4448.221);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,4.448);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.00444);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.00045);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,453.59);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.45359);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,453.59);break;
+                    case "Фунт-сила":setSameValue(resultView,enteredValue);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,16);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0004464);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,32.174);break;
                 }
                 break;
             case "Унція-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *278.013)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.27801)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0002780)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000283)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.02834)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 28.349)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0625)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000279)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.010)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,278.013);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,0.27801);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0002780);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0000283);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,28.349);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.02834);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,28.349);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.0625);break;
+                    case "Унція-сила":setSameValue(resultView,enteredValue);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0000279);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,2.010);break;
                 }
                 break;
             case "Тонна-сила(довга)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *9964016.41)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9964.01)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 9.9640)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.016)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016.046)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 1016046.90)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 2240.0)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 35840.0)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue )));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue * 72069.86)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9964016.41);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,9964.01);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,9.9640);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,1.016);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,1016046.90);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,1016.046);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,1016046.90);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,2240.0);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,35840.0);break;
+                    case "Тонна-сила(довга)":setSameValue(resultView,enteredValue);break;
+                    case "Паундаль":conversionMultiplier(resultView,enteredValue,72069.86);break;
                 }
                 break;
             case "Паундаль":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":resultView.setText(String.valueOf(formatter.format(enteredValue *138.25)));break;
-                    case "Ньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.13825)));break;
-                    case "Кілоньютон":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000138)));break;
-                    case "Тонна-сила(метрична)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000140)));break;
-                    case "Грам-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Кілограм-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.01409)));break;
-                    case "Понд":resultView.setText(String.valueOf(formatter.format(enteredValue * 14.09)));break;
-                    case "Фунт-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.03108)));break;
-                    case "Унція-сила":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.4972)));break;
-                    case "Тонна-сила(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000138)));break;
-                    case "Паундаль":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,138.25);break;
+                    case "Ньютон":conversionMultiplier(resultView,enteredValue,0.13825);break;
+                    case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.000138);break;
+                    case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0000140);break;
+                    case "Грам-сила":conversionMultiplier(resultView,enteredValue,14.09);break;
+                    case "Кілограм-сила":conversionMultiplier(resultView,enteredValue,0.01409);break;
+                    case "Понд":conversionMultiplier(resultView,enteredValue,14.09);break;
+                    case "Фунт-сила":conversionMultiplier(resultView,enteredValue,0.03108);break;
+                    case "Унція-сила":conversionMultiplier(resultView,enteredValue,0.4972);break;
+                    case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0000138);break;
+                    case "Паундаль":setSameValue(resultView,enteredValue);break;
                 }
             case "Мілліметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03937)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.003280)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001093)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000062137)));break;
+                    case "Мілліметр":setSameValue(resultView,enteredValue);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,0.1);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,0.03937);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,0.003280);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,0.001093);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.0000062137);break;
                 }
                 break;
             case "Сантіметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*10)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3937)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03280)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01093)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000006213)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,10);break;
+                    case "Сантіметр":setSameValue(resultView,enteredValue);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,0.01);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.00001);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,0.3937);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,0.03280);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,0.01093);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.000006213);break;
                 }
                 break;
             case "Метр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*100)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*39.37007)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3.2808)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1.09361)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00062137)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,100);break;
+                    case "Метр":setSameValue(resultView,enteredValue);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,39.37007);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,3.2808);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,1.09361);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.00062137);break;
                 }
                 break;
             case "Кілометр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*100000.0)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*39370.08)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3280.84)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1093.6132)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.6214)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,100000.0);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Кілометр":setSameValue(resultView,enteredValue);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,39370.08);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,3280.84);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,1093.6132);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.6214);break;
                 }
                 break;
             case "Дюйм":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*25.4)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*2.54)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0254)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000254)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*0.08333)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02777)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00001578)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,25.4);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,2.54);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,0.0254);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0000254);break;
+                    case "Дюйм":setSameValue(resultView,enteredValue);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,0.08333);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,0.02777);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.00001578);break;
                 }
                 break;
             case "Фут":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*304.8)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*30.48)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.3048)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0003048)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*0.33333)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001893936)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,304.8);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,30.48);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,0.3048);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0003048);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,12);break;
+                    case "Фут":setSameValue(resultView,enteredValue);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,0.33333);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.0001893936);break;
                 }
                 break;
             case "Ярд":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*914.4)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*91.44)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9144)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0009144)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*3)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005681)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,914.4);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,91.44);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,0.9144);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0009144);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,36);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,3);break;
+                    case "Ярд":setSameValue(resultView,enteredValue);break;
+                    case "Міля":conversionMultiplier(resultView,enteredValue,0.0005681);break;
                 }
                 break;
             case "Міля":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":resultView.setText(String.valueOf(formatter.format(enteredValue*1609347.21)));break;
-                    case "Сантіметр":resultView.setText(String.valueOf(formatter.format(enteredValue*160934.72)));break;
-                    case "Метр":resultView.setText(String.valueOf(formatter.format(enteredValue*1609.34)));break;
-                    case "Кілометр":resultView.setText(String.valueOf(formatter.format(enteredValue*1.6093)));break;
-                    case "Дюйм":resultView.setText(String.valueOf(formatter.format(enteredValue*63360.12)));break;
-                    case "Фут":resultView.setText(String.valueOf(formatter.format(enteredValue*5280.010)));break;
-                    case "Ярд":resultView.setText(String.valueOf(formatter.format(enteredValue*1760)));break;
-                    case "Міля":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1609347.21);break;
+                    case "Сантіметр":conversionMultiplier(resultView,enteredValue,160934.72);break;
+                    case "Метр":conversionMultiplier(resultView,enteredValue,1609.34);break;
+                    case "Кілометр":conversionMultiplier(resultView,enteredValue,1.6093);break;
+                    case "Дюйм":conversionMultiplier(resultView,enteredValue,63360.12);break;
+                    case "Фут":conversionMultiplier(resultView,enteredValue,5280.010);break;
+                    case "Ярд":conversionMultiplier(resultView,enteredValue,1760);break;
+                    case "Міля":setSameValue(resultView,enteredValue);break;
                 }
             case "Мілліграм":
                 switch (txtFromSpinner2){
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0154))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000035))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000022))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000002))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001016))); break;
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Грам":conversionMultiplier(resultView,enteredValue,0.001); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,0.000001); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.000000001); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,0.0154); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,0.000035); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,0.0000022); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.00000002); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.000000001016); break;
+                    case "Мілліграм":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Грам":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Тонна": resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15.43))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03527))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.002204))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000196))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000009))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue)));
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000.0); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,0.001); break;
+                    case "Тонна": conversionMultiplier(resultView,enteredValue,0.000000001); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,15.43); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,0.03527); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,0.002204); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.0000196); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.0000009); break;
+                    case "Грам":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Кілограм":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15432.35))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35.27))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2.20))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.01968))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000984))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000000.0); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,1000.0); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.001); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,15432.35); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,35.27); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,2.20); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.01968); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.000984); break;
+                    case "Кілограм":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Тонна":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000000.0))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*1000.0))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15432358.35))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35273.96))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2204.62))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*19.68))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.9842))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000000000.0); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,1000000.0); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,1000.0); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,15432358.35); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,35273.96); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,2204.62); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,19.68); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.9842); break;
+                    case "Тонна":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Гран":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*64.79))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0647))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000064))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000065))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00228))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000142857))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001429))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000064))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,64.79); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,0.0647); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,0.000064); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.000000065); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,0.00228); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,0.000142857); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.000001429); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.000000064); break;
+                    case "Гран":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Унція":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*28349.52))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*28.349))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.02834))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00002835))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*437.49))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0625))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000558036))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000279022))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,28349.52); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,28.349); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,0.02834); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.00002835); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,437.49); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,0.0625); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.000558036); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.0000279022); break;
+                    case "Унція":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Фунт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*453592.37))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*453.59))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*0.4535))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0004535))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*6999.99))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*16))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.008928571))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000446429))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,453592.37); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,453.59); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,0.4535); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.0004535); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,6999.99); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,16); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.008928571); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.000446429); break;
+                    case "Фунт":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Хандредвейт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*50802345.44))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*50802.34))); break;
-                    case "Кілограм": resultView.setText(String.valueOf(formatter.format(enteredValue*50.80))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05080))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*783999.999))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*1792))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*112))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,50802345.44); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,50802.34); break;
+                    case "Кілограм": conversionMultiplier(resultView,enteredValue,50.80); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,0.05080); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,783999.999); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,1792); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,112); break;
+                    case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.05); break;
+                    case "Хандредвейт":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case  "Тонна(довга)":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046908.8))); break;
-                    case "Грам":resultView.setText(String.valueOf(formatter.format(enteredValue*1016046.90))); break;
-                    case "Кілограм":resultView.setText(String.valueOf(formatter.format(enteredValue*1016.04))); break;
-                    case "Тонна":resultView.setText(String.valueOf(formatter.format(enteredValue*1.016))); break;
-                    case "Гран":resultView.setText(String.valueOf(formatter.format(enteredValue*15679999.99))); break;
-                    case "Унція":resultView.setText(String.valueOf(formatter.format(enteredValue*35840.0))); break;
-                    case "Фунт":resultView.setText(String.valueOf(formatter.format(enteredValue*2240.0))); break;
-                    case "Хандредвейт":resultView.setText(String.valueOf(formatter.format(enteredValue*20.0))); break;
-                    case "Тонна(довга)":resultView.setText(String.valueOf(formatter.format(enteredValue))); break;
+                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1016046908.8); break;
+                    case "Грам":conversionMultiplier(resultView,enteredValue,1016046.90); break;
+                    case "Кілограм":conversionMultiplier(resultView,enteredValue,1016.04); break;
+                    case "Тонна":conversionMultiplier(resultView,enteredValue,1.016); break;
+                    case "Гран":conversionMultiplier(resultView,enteredValue,15679999.99); break;
+                    case "Унція":conversionMultiplier(resultView,enteredValue,35840.0); break;
+                    case "Фунт":conversionMultiplier(resultView,enteredValue,2240.0); break;
+                    case "Хандредвейт":conversionMultiplier(resultView,enteredValue,20.0); break;
+                    case "Тонна(довга)":setSameValue(resultView,enteredValue);break;
                 }
             case "Метрів/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.6)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811.02)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 2.23)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.943)));break;
+                    case "Метрів/секунда":setSameValue(resultView,enteredValue);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,3600);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,3.6);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,3.28);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,11811.02);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,2.23);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,1.943);break;
                 }
                 break;
             case "Метрів/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0000002777777777)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.001)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0009)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3.28)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00062)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00053)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.00027);break;
+                    case "Метрів/година":setSameValue(resultView,enteredValue);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.0000002777777777);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,0.0009);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,3.28);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,0.00062);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,0.00053);break;
                 }
                 break;
             case "Кілометр/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600000)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.83)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 11811023.6)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 2236.9)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 1943.8)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,3600000);break;
+                    case "Кілометр/секунда":setSameValue(resultView,enteredValue);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,3600);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,3280.83);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,11811023.6);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,2236.9);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,1943.8);break;
                 }
                 break;
             case "Кілометр/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.2777)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1000)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.911)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3280.8)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.621)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.539)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.2777);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.00027);break;
+                    case "Кілометр/година":setSameValue(resultView,enteredValue);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,0.911);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,3280.8);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,0.621);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,0.539);break;
                 }
                 break;
             case "Фут/секунда":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3048)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1097.28)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.0003048)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.09728)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 3600)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.681)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.5924)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.3048);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,1097.28);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.0003048);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,1.09728);break;
+                    case "Фут/секунда":setSameValue(resultView,enteredValue);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,3600);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,0.681);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,0.5924);break;
                 }
                 break;
             case "Фут/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.000084)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.3)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00000008466666666)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00030)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00027)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00018)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00016)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.000084);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,0.3);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.00000008466666666);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,0.00030);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,0.00027);break;
+                    case "Фут/година":setSameValue(resultView,enteredValue);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,0.00018);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,0.00016);break;
                 }
                 break;
             case "Міль/година":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.44)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1609.3)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00044)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.6)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.46)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 5280)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.8689)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.44);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,1609.3);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.00044);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,1.6);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,1.46);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,5280);break;
+                    case "Міль/година":setSameValue(resultView,enteredValue);break;
+                    case "Вузол/В":conversionMultiplier(resultView,enteredValue,0.8689);break;
                 }
                 break;
             case "Вузол/В":
                 switch (txtFromSpinner2) {
-                    case "Метрів/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.514)));break;
-                    case "Метрів/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1852)));break;
-                    case "Кілометр/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 0.00051)));break;
-                    case "Кілометр/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.852)));break;
-                    case "Фут/секунда":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.687)));break;
-                    case "Фут/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 6076.11)));break;
-                    case "Міль/година":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.150)));break;
-                    case "Вузол/В":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Метрів/секунда":conversionMultiplier(resultView,enteredValue,0.514);break;
+                    case "Метрів/година":conversionMultiplier(resultView,enteredValue,1852);break;
+                    case "Кілометр/секунда":conversionMultiplier(resultView,enteredValue,0.00051);break;
+                    case "Кілометр/година":conversionMultiplier(resultView,enteredValue,1.852);break;
+                    case "Фут/секунда":conversionMultiplier(resultView,enteredValue,1.687);break;
+                    case "Фут/година":conversionMultiplier(resultView,enteredValue,6076.11);break;
+                    case "Міль/година":conversionMultiplier(resultView,enteredValue,1.150);break;
+                    case "Вузол/В":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Цельсій":
                 switch (txtFromSpinner2) {
-                    case "Цельсій":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+32)));break;
+                    case "Цельсій":setSameValue(resultView,enteredValue);break;
+                    case "Фаренгейт":conversionMultiplier(resultView,enteredValue,(9.0/5.0)+32);break;
                     case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue * (9.0/5.0)+491.76)));break;
+                    case "Ранкін":conversionMultiplier(resultView,enteredValue,(9.0/5.0)+491.76);break;
                 }
                 break;
             case "Кельвін":
                 switch (txtFromSpinner2) {
                     case "Цельсій":resultView.setText(String.valueOf(formatter.format(enteredValue-273.15)));break;//here
                     case "Фаренгейт":resultView.setText(String.valueOf(formatter.format((enteredValue-273.15)*NineDivFive +32)));break; //here
-                    case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue * 1.8)));break;
+                    case "Кельвін":setSameValue(resultView,enteredValue);break;
+                    case "Ранкін":conversionMultiplier(resultView,enteredValue,1.8);break;
                 }
                 break;
             case "Ранкін":
                 switch (txtFromSpinner2) {
                     case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
                     case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;
-                    case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue*(5.0/9.0))));break;
-                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Кельвін":conversionMultiplier(resultView,enteredValue,(5.0/9.0));break;
+                    case "Ранкін":setSameValue(resultView,enteredValue);break;
                 }
                 break;
             case "Фаренгейт":
                 switch (txtFromSpinner2) {
                     case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
-                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Фаренгейт":setSameValue(resultView,enteredValue);break;
                     case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
                     case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Секунди":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002777778)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000115741)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000016534)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000003805175038)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.00000003170979198)));break;
+                    case "Секунди": setSameValue(resultView,enteredValue);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,0.0166666667);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,0.0002777778);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,0.0000115741);break;
+                    case "Тиждень": conversionMultiplier(resultView,enteredValue,0.0000016534);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,0.0000003805175038);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.00000003170979198);break;
                 }
                 break;
             case "Хвилини":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0166666667)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0006944444)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000992063)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000228311)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000019026)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,60);break;
+                    case "Хвилини": setSameValue(resultView,enteredValue);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,0.0166666667);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,0.0006944444);break;
+                    case "Тиждень": conversionMultiplier(resultView,enteredValue,0.0000992063);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,0.0000228311);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.0000019026);break;
                 }
                 break;
             case "Година":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*3600)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*60)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0416666667)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*0.005952381)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.001369863)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001141553)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,3600);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,60);break;
+                    case "Година": setSameValue(resultView,enteredValue);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,0.0416666667);break;
+                    case "Тиждень": conversionMultiplier(resultView,enteredValue,0.005952381);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,0.001369863);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.0001141553);break;
                 }
                 break;
             case "День":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.23)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.19)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,604800);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,10080);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,168);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,7);break;
+                    case "Тиждень": setSameValue(resultView,enteredValue);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,0.23);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.19);break;
                 }
                 break;
             case "Тиждень":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*604800)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*10080)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*168)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*7)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*0.2301369863)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0191780822)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,604800);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,10080);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,168);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,7);break;
+                    case "Тиждень": setSameValue(resultView,enteredValue);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,0.2301369863);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.0191780822);break;
                 }
                 break;
             case "Місяц":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*2628000)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*43800)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*730)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*30.416666667)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*4.3452380952)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue*0.0833333333)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,2628000);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,43800);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,730);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,30.416666667);break;
+                    case "Тиждень": conversionMultiplier(resultView,enteredValue,4.3452380952);break;
+                    case "Місяц": setSameValue(resultView,enteredValue);break;
+                    case "Рік": conversionMultiplier(resultView,enteredValue,0.0833333333);break;
                 }
                 break;
             case "Рік":
                 switch (txtFromSpinner2) {
-                    case "Секунди": resultView.setText(String.valueOf(formatter.format(enteredValue*31536000)));break;
-                    case "Хвилини": resultView.setText(String.valueOf(formatter.format(enteredValue*525600)));break;
-                    case "Година": resultView.setText(String.valueOf(formatter.format(enteredValue*8760)));break;
-                    case "День": resultView.setText(String.valueOf(formatter.format(enteredValue*365)));break;
-                    case "Тиждень": resultView.setText(String.valueOf(formatter.format(enteredValue*52.142857143)));break;
-                    case "Місяц": resultView.setText(String.valueOf(formatter.format(enteredValue*12)));break;
-                    case "Рік": resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Секунди": conversionMultiplier(resultView,enteredValue,31536000);break;
+                    case "Хвилини": conversionMultiplier(resultView,enteredValue,525600);break;
+                    case "Година": conversionMultiplier(resultView,enteredValue,8760);break;
+                    case "День": conversionMultiplier(resultView,enteredValue,365);break;
+                    case "Тиждень": conversionMultiplier(resultView,enteredValue,52.142857143);break;
+                    case "Місяц": conversionMultiplier(resultView,enteredValue,12);break;
+                    case "Рік": setSameValue(resultView,enteredValue);break;
                 }
             case "Мілліметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000001)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000351951)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000007039)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000017598)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000008798769931)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000000006110256897)));break;
+                    case "Мілліметр кубічний":setSameValue(resultView,enteredValue);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000000001);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0000351951);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,0.000007039);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,0.0000017598);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.0000008798769931);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.0000002199692482);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.000000006110256897);break;
                 }
                 break;
             case "Сантіметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000002199692482)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Сантіметр кубічний":setSameValue(resultView,enteredValue);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Міллілітр":setSameValue(resultView,enteredValue);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0351950797);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,0.0070390159);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,0.001759754);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.000879877);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.0002199692);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0000002199692482);break;
                 }
                 break;
             case "Метр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0000)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*35195.079728)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*7039.0159456)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*1759.7539864)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*879.8769932)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*219.9692483)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*6.1102568972)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0000);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Метр кубічний":setSameValue(resultView,enteredValue);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,35195.079728);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,7039.0159456);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,1759.7539864);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,879.8769932);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,219.9692483);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,6.1102568972);break;
                 }
                 break;
             case "Міллілітр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000001)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0351950797)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0070390159)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001759754)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.000879877)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0002199692)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000061103)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Сантіметр кубічний":setSameValue(resultView,enteredValue);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000001);break;
+                    case "Міллілітр":setSameValue(resultView,enteredValue);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0351950797);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,0.0070390159);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,0.001759754);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.000879877);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.0002199692);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0000061103);break;
                 }
                 break;
             case "Літр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000000.0)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.001)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1000)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*35.195079728)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*7.0390159456)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*1.7597539864)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.8798769932)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2199692483)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0061102569)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Літр":setSameValue(resultView,enteredValue);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,35.195079728);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,7.0390159456);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,1.7597539864);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.8798769932);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.2199692483);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0061102569);break;
                 }
                 break;
             case "Джил":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*142065.3125)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001420653)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*142.0653125)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.1420653125)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*5)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.03125)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0008680556)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,142065.3125);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,142.0653125);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0001420653);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,142.0653125);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.1420653125);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,5);break;
+                    case "Джил":setSameValue(resultView,enteredValue);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,0.25);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.125);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.03125);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0008680556);break;
                 }
                 break;
             case "Унція рідка":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*28413.0625)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0000284131)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*28.4130625)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0284130625)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*0.2)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*0.05)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.025)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00625)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0001736111)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,28413.0625);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,28.4130625);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0000284131);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,28.4130625);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.0284130625);break;
+                    case "Унція рідка":setSameValue(resultView,enteredValue);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,0.2);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,0.05);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.025);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.00625);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0001736111);break;
                 }
                 break;
             case "Пінта":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*568261.25)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0005682613)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*568.26125)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*0.56826125)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*20)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*0.5)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.125)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0034722222)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,568261.25);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,568.26125);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0005682613);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,568.26125);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,0.56826125);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,20);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,4);break;
+                    case "Пінта":setSameValue(resultView,enteredValue);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,0.5);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.125);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0034722222);break;
                 }
                 break;
             case "Кварт":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1136522.5)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0011365225)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*1136.5225)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*1.1365225)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*40)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*2)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*0.25)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0069444444)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1136522.5);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1136.5225);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0011365225);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1136.5225);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,1.1365225);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,40);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,8);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,2);break;
+                    case "Кварт":setSameValue(resultView,enteredValue);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,0.25);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0069444444);break;
                 }
                 break;
             case "Галлон":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*4546090)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.00454609)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*4546.09)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*3.785)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*160)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*32)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*8)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*4)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue*0.0277777778)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,4546090);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,4546.09);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.00454609);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,4546.09);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,3.785);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,160);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,32);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,8);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,4);break;
+                    case "Галлон":setSameValue(resultView,enteredValue);break;
+                    case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,0.0277777778);break;
                 }
                 break;
             case "Баррель(UK)":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*163659240)));break;
-                    case "Сантіметр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
-                    case "Метр кубічний":resultView.setText(String.valueOf(formatter.format(enteredValue*0.16365924)));break;
-                    case "Міллілітр":resultView.setText(String.valueOf(formatter.format(enteredValue*163659.24)));break;
-                    case "Літр":resultView.setText(String.valueOf(formatter.format(enteredValue*163.65924)));break;
-                    case "Унція рідка":resultView.setText(String.valueOf(formatter.format(enteredValue*5760)));break;
-                    case "Джил":resultView.setText(String.valueOf(formatter.format(enteredValue*1152)));break;
-                    case "Пінта":resultView.setText(String.valueOf(formatter.format(enteredValue*288)));break;
-                    case "Кварт":resultView.setText(String.valueOf(formatter.format(enteredValue*144)));break;
-                    case "Галлон":resultView.setText(String.valueOf(formatter.format(enteredValue*36)));break;
-                    case "Баррель(UK)":resultView.setText(String.valueOf(formatter.format(enteredValue)));break;
+                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,163659240);break;
+                    case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,163659.24);break;
+                    case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.16365924);break;
+                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,163659.24);break;
+                    case "Літр":conversionMultiplier(resultView,enteredValue,163.65924);break;
+                    case "Унція рідка":conversionMultiplier(resultView,enteredValue,5760);break;
+                    case "Джил":conversionMultiplier(resultView,enteredValue,1152);break;
+                    case "Пінта":conversionMultiplier(resultView,enteredValue,288);break;
+                    case "Кварт":conversionMultiplier(resultView,enteredValue,144);break;
+                    case "Галлон":conversionMultiplier(resultView,enteredValue,36);break;
+                    case "Баррель(UK)":setSameValue(resultView,enteredValue);break;
                 }
+
+
                 /*
             case "Радіус кругу":
                 switch (txtFromSpinner2) {
