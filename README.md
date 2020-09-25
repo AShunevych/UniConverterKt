@@ -1,6 +1,6 @@
 # UniConverter
 Calculation and conversion app.    
-Min API - 21    
+Min API - 26    
 Locales - English / Ukranian      
            
 Aveliable for converssion: 
@@ -11,9 +11,14 @@ Aveliable for converssion:
 - Temperature 
 - Speed   
 - Volume    
-- Weight      
+- Weight  
+     
+Aveliable calculators:  
+- Math  
+- Currency (require Internet connection)     
+    
 Screen:  
-|<img src="https://github.com/AShunevich/UniConverter/blob/master/Screenshot_20200825-195637_UniConverter.jpg" width="25%" height="30%" >  | <img src="https://github.com/AShunevich/UniConverter/blob/master/Screenshot_20200825-195702_UniConverter.jpg" width="25%" height="30%" >  |     
+<img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204606_UniConverter.jpg" width="25%" height="30%" > <img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204614_UniConverter.jpg" width="25%" height="30%" > <img  src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204626_UniConverter.jpg" width="25%" height="30%" >     
 
 # Thanks to 
 ![MathParser]("http://mathparser.org/")     
