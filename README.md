@@ -3,7 +3,7 @@ Calculation and conversion app.
 Min API - 26    
 Locales - English / Ukranian      
            
-Aveliable for converssion: 
+Aveliable for conversion:
 - Area   
 - Force 
 - Time 

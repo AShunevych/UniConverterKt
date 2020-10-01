@@ -448,7 +448,6 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Hundreweight":conversionMultiplier(resultView,enteredValue, 0.00000002); break;
                     case "Ton(long)":conversionMultiplier(resultView,enteredValue, 0.000000001016); break;
                     case "Milligram":setSameValue(resultView,enteredValue);
-
                 }
                 break;
             case "Gram":
@@ -1652,9 +1651,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Цельсій":
                 switch (txtFromSpinner2) {
                     case "Цельсій":setSameValue(resultView,enteredValue);break;
-                    case "Фаренгейт":conversionMultiplier(resultView,enteredValue,(9.0/5.0)+32);break;
+                    case "Фаренгейт":conversionMultiplier(resultView,enteredValue,NineDivFive+32);break;
                     case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Ранкін":conversionMultiplier(resultView,enteredValue,(9.0/5.0)+491.76);break;
+                    case "Ранкін":conversionMultiplier(resultView,enteredValue,NineDivFive+491.76);break;
                 }
                 break;
             case "Кельвін":
@@ -1675,9 +1674,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Фаренгейт":
                 switch (txtFromSpinner2) {
-                    case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
+                    case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*FiveDivNine)));break;
                     case "Фаренгейт":setSameValue(resultView,enteredValue);break;
-                    case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*FiveDivNine+273.15)));break;
                     case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Секунди":
