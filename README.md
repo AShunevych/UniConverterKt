@@ -1,9 +1,6 @@
 # UniConverter
-Calculation and conversion app.    
-Min API - 26    
-Locales - English / Ukranian      
-           
-Aveliable for converssion: 
+Application provides conversion and calculation functions.    
+Available for conversion: 
 - Area   
 - Force 
 - Time 
@@ -13,9 +10,12 @@ Aveliable for converssion:
 - Volume    
 - Weight  
      
-Aveliable calculators:  
+Available calculators:  
 - Math  
-- Currency (require Internet connection)     
+- Currency (require Internet connection)  
+     
+Min API - 26    
+Locales - English / Ukranian      
     
 Screen:  
 <img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204606_UniConverter.jpg" width="25%" height="30%" > <img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204614_UniConverter.jpg" width="25%" height="30%" > <img  src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204626_UniConverter.jpg" width="25%" height="30%" >     
