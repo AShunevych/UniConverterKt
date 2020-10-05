@@ -3,20 +3,14 @@
     <item>
         <layer-list>
             <item>
-                <shape
-                    android:shape="rectangle">
-                    <stroke android:width="0.01dp" android:color="@color/transparentOne" />
-                    <padding
-                        android:left="6dp"
-                        android:top="6dp"
-                        android:right="6dp"
-                        android:bottom="6dp" />
-                    <corners android:radius="45.0dp" />
-                    <solid android:color="@color/backgroundColor" />
+                <shape android:shape="rectangle">
+                    <stroke android:width="0.01dp" android:color="@color/transparentOne"/>
+                    <padding android:left="6dp" android:top="6dp" android:right="6dp" android:bottom="6dp"/>
+                    <corners android:radius="45.0dp"/>
+                    <solid android:color="@color/backgroundColor"/>
                 </shape>
             </item>
-            <item android:drawable="@drawable/ic_calc_ico_48_48" />
+            <item android:drawable="@drawable/ic_calc_ico_48_48"/>
         </layer-list>
     </item>
-
 </ripple>

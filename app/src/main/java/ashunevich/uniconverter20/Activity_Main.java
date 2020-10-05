@@ -11,16 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Locale;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

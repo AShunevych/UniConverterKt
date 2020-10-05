@@ -8,7 +8,6 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,10 +47,9 @@ public class Activity_converter extends Fragment {
 
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
-    private boolean checkweight = true;
     private final String SAVED_VALUE = "savedValue";
     private final String SAVED_RESULT = "saveResult";
-    private String  sDefSystemLanguage ;
+    private String  sDefSystemLanguage;
     private int tabPos;
     protected HashMap<String, String> hm;
 
@@ -227,7 +225,8 @@ public class Activity_converter extends Fragment {
             getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
             getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
             getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-               if (activeLocale.equals("русский")){
+            //activeLocale.equals("русский") |
+               if (activeLocale.equals("українcький")){
                    Activity_converter_Logic.ConvertValues_Ukr(getValueSpinnerFrom, getValueSpinnerTo, getEnteredValue, resultView);
                }
                else{

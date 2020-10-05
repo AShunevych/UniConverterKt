@@ -1,14 +1,10 @@
 package ashunevich.uniconverter20;
 
-import android.content.Context;
-import android.text.InputType;
+
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
