@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 
-import android.text.InputType;
+
 import android.text.TextUtils;
 import android.text.TextWatcher;
 
@@ -29,6 +29,8 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static ashunevich.uniconverter20.Activity_converter_Utils.blockInput;
 
 public class Activity_converter extends Fragment {
 
@@ -111,12 +113,14 @@ public class Activity_converter extends Fragment {
 
     @Subscribe()
     public void getCalculatorNumber(BusPost_Number event) {
-        if (event.getNumber().contains("check") | event.getNumber().contains("correct") |
+        if (event.getNumber().contains("check") | event.getNumber().contains("correction") |
                event.getNumber().contains("clear")){
            switch (event.getNumber()){
                case "check":
-                       Activity_converter_Utils.appendMinusPlus(valueEdit);break;
-               case "correct": Activity_converter_Utils.correctValue(valueEdit,resultView);break;
+                       Activity_converter_Utils.appendMinusPlus(valueEdit);
+                       break;
+               case "correction": Activity_converter_Utils.correctValue(valueEdit,resultView);
+                                                break;
                case "clear": Activity_converter_Utils.clearView(valueEdit,resultView);break;
            }
        }
@@ -181,10 +185,7 @@ public class Activity_converter extends Fragment {
                         valueEdit.setSelection(s.length()-1);
                         showToast();
                     }
-                    else{
                         convertAndShowValues(sDefSystemLanguage);
-                    }
-
                 }
 
                 @Override
@@ -194,6 +195,7 @@ public class Activity_converter extends Fragment {
                 @Override
                 public void onTextChanged(CharSequence s, int start,
                                           int before, int count) {
+
                 }
             });
         }
@@ -211,10 +213,6 @@ public class Activity_converter extends Fragment {
         Activity_converter_Logic.setUnitsView(getValueSpinnerTo,resultUnit );
     }
 
-    private void blockInput( EditText first, EditText second){
-        first.setInputType(InputType.TYPE_NULL);
-        second.setInputType(InputType.TYPE_NULL);
-    }
 
     private void convertAndShowValues(String activeLocale){
 

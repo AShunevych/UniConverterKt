@@ -1,14 +1,13 @@
 package ashunevich.uniconverter20;
 
 
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.mariuszgromada.math.mxparser.Expression;
-
-import java.util.concurrent.TimeUnit;
 
 public abstract class Activity_converter_Utils extends Activity_converter {
 
@@ -17,6 +16,11 @@ public abstract class Activity_converter_Utils extends Activity_converter {
     public Activity_converter_Utils(EditText resultView, EditText valueEdit ){
         this.resultView = resultView;
         this.valueEdit = valueEdit;
+    }
+
+    public static void blockInput( EditText resultView, EditText valueEdit){
+        resultView.setInputType(InputType.TYPE_NULL);
+        valueEdit.setInputType(InputType.TYPE_NULL);
     }
 
 
@@ -63,11 +67,8 @@ public abstract class Activity_converter_Utils extends Activity_converter {
                 valueEdit.setText("-"+valueEdit.getText());
             }
         }
-       else {
-          
-       }
-
     }
+
 
     protected static void correctValue(EditText valueEdit, TextView resultEdit){
         int x = valueEdit.getText().length();

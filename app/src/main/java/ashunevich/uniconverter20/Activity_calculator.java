@@ -2,6 +2,7 @@ package ashunevich.uniconverter20;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public class Activity_calculator extends AppCompatActivity {
         setContentView(R.layout.calculator_activity);
         ButterKnife.bind(this);
         calcValue.setCursorVisible(true);
-
+        calcValue.setInputType(InputType.TYPE_NULL);
     }
 
     @Override

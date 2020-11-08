@@ -21,6 +21,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
     }
 
 
+
     public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
@@ -648,9 +649,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Celsius":
                 switch (txtFromSpinner2) {
                     case "Celsius":conversionMultiplier(resultView,enteredValue,1);break;
-                    case "Fahrenheit":conversionMultiplier(resultView,enteredValue, NineDivFive +32);break;
+                    case "Fahrenheit":resultView.setText(String.valueOf(formatter.format((enteredValue*NineDivFive)+32)));break;
                     case "Kelvin":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Rankine":conversionMultiplier(resultView,enteredValue, NineDivFive +491.67);break;
+                    case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue*NineDivFive+491.67)));break;
                 }
                 break;
             case "Kelvin":
@@ -665,15 +666,15 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 switch (txtFromSpinner2) {
                     case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
                     case "Fahrenheit":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;//here
-                    case "Kelvin":conversionMultiplier(resultView,enteredValue,(5.0/9.0));break;
+                    case "Kelvin":conversionMultiplier(resultView,enteredValue,FiveDivNine);break;
                     case "Rankine":conversionMultiplier(resultView,enteredValue,1);break;
                 }
                 break;
             case "Fahrenheit/°F" :
                 switch (txtFromSpinner2) {
-                    case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*(5.0/9.0))));break;
+                    case "Celsius":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*FiveDivNine)));break;
                     case "Fahrenheit":conversionMultiplier(resultView,enteredValue,1);break;
-                    case "Kelvin":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*(5.0/9.0)+273.15)));break;
+                    case "Kelvin":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*FiveDivNine+273.15)));break;
                     case "Rankine":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Seconds":
@@ -1646,9 +1647,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Цельсій":
                 switch (txtFromSpinner2) {
                     case "Цельсій":conversionMultiplier(resultView,enteredValue,1);break;
-                    case "Фаренгейт":conversionMultiplier(resultView,enteredValue,NineDivFive+32);break;
+                    case "Фаренгейт":resultView.setText(String.valueOf(formatter.format((enteredValue*NineDivFive)+32)));break;
                     case "Кельвін":resultView.setText(String.valueOf(formatter.format(enteredValue + 273.15)));break;
-                    case "Ранкін":conversionMultiplier(resultView,enteredValue,NineDivFive+491.76);break;
+                    case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue*NineDivFive+491.67)));break;
                 }
                 break;
             case "Кельвін":
@@ -1663,7 +1664,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 switch (txtFromSpinner2) {
                     case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-491.67)*FiveDivNine)));break;//here
                     case "Фаренгейт":resultView.setText(String.valueOf(formatter.format(enteredValue-459.67)));break;
-                    case "Кельвін":conversionMultiplier(resultView,enteredValue,(5.0/9.0));break;
+                    case "Кельвін":conversionMultiplier(resultView,enteredValue,FiveDivNine);break;
                     case "Ранкін":conversionMultiplier(resultView,enteredValue,1);break;
                 }
                 break;
@@ -1671,7 +1672,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 switch (txtFromSpinner2) {
                     case "Цельсій":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*FiveDivNine)));break;
                     case "Фаренгейт":conversionMultiplier(resultView,enteredValue,1);break;
-                    case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32.00)*FiveDivNine+273.15)));break;
+                    case "Кельвін":resultView.setText(String.valueOf(formatter.format((enteredValue-32)*FiveDivNine+273.15)));break;
                     case "Ранкін":resultView.setText(String.valueOf(formatter.format(enteredValue + 459.67)));break;
                 }
             case "Секунди":

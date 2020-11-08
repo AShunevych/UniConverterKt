@@ -108,7 +108,7 @@ public class Activity_Main extends AppCompatActivity {
                 int pos = tabLayout.getSelectedTabPosition();
                 Log.d("TAB NUMBER ----", String.valueOf(pos));
                 bus.post(new BusPost_Tab_Position(pos));
-                setButtonStatus(pos);
+                setAlpha(pos);
             }
 
             @Override
@@ -118,7 +118,7 @@ public class Activity_Main extends AppCompatActivity {
         });
     }
 
-    private void setButtonStatus(int pos){
+    private void setAlpha(int pos){
         if (pos == 5){
             plusMinus.setEnabled(true);
             plusMinus.setAlpha(1.0f);
@@ -137,46 +137,46 @@ public class Activity_Main extends AppCompatActivity {
     public void setViewOnClickEvent(View view) {
         switch (view.getId()) {
             case R.id.but_one:
-                setValue(getResources().getString(R.string.one));
+                sendValue(getResources().getString(R.string.one));
                 break;
             case R.id.but_two:
-                setValue(getResources().getString(R.string.two));
+                sendValue(getResources().getString(R.string.two));
                 break;
             case R.id.but_three:
-                setValue(getResources().getString(R.string.three));
+                sendValue(getResources().getString(R.string.three));
                 break;
             case R.id.but_four:
-                setValue(getResources().getString(R.string.four));
+                sendValue(getResources().getString(R.string.four));
                 break;
             case R.id.but_five:
-                setValue(getResources().getString(R.string.five));
+                sendValue(getResources().getString(R.string.five));
                 break;
             case R.id.but_six:
-                setValue(getResources().getString(R.string.six));
+                sendValue(getResources().getString(R.string.six));
                 break;
             case R.id.but_seven:
-                setValue(getResources().getString(R.string.seven));
+                sendValue(getResources().getString(R.string.seven));
                 break;
             case R.id.button_eight:
-                setValue(getResources().getString(R.string.eight));
+                sendValue(getResources().getString(R.string.eight));
                 break;
             case R.id.but_nine:
-                setValue(getResources().getString(R.string.nine));
+                sendValue(getResources().getString(R.string.nine));
                 break;
             case R.id.button_zero:
-                setValue(getResources().getString(R.string.zero));
+                sendValue(getResources().getString(R.string.zero));
                 break;
             case R.id.button_plus_minus:
-                setValue("check");
+                sendValue("check");
                 break;
             case R.id.but_clear:
-                setValue("correct");
+                sendValue("correction");
                 break;
             case R.id.but_correct:
-                setValue("clear");
+                sendValue("clear");
                 break;
             case R.id.button_decimal:
-                setValue(getResources().getString(R.string.decimal));
+                sendValue(getResources().getString(R.string.decimal));
                 break;
             case R.id.calculator_button:
                 Intent intentCalc = new Intent(Activity_Main.this, Activity_calculator.class);
@@ -192,7 +192,7 @@ public class Activity_Main extends AppCompatActivity {
             }
     }
 
-    public void setValue(String number) {
+    public void sendValue(String number) {
         bus.post(new BusPost_Number(number));
     }
 

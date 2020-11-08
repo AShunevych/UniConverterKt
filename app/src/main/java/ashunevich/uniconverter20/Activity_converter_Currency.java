@@ -1,9 +1,12 @@
 
 package ashunevich.uniconverter20;
 
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,7 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,6 +42,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
+
 public class Activity_converter_Currency  extends AppCompatActivity {
 
     @BindView(R.id.spinnerFromCurrency)
@@ -55,6 +60,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
      TextView valueUnit;
      @BindView(R.id.currency_to_short)
      TextView resultUnit;
+     @BindView(R.id.currencyLayout)
+    ConstraintLayout curLay;
 
     protected double getEnteredValue;
     protected String getValueSpinnerFrom, getValueSpinnerTo;
@@ -88,7 +95,10 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         setSpinnersListeners();
         checkConnection();
         addTextWatcher();
+        valueEdit.setInputType(InputType.TYPE_NULL);
     }
+
+
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
@@ -109,7 +119,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
             getJsonDate();
         }
         else{
-            Toast.makeText(this, getResources().getString(R.string.NoInternetConnection), Toast.LENGTH_SHORT).show();
+            Snackbar.make(curLay, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -181,7 +191,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
             }});
 
     }
-    //Auto convertion  when user add number to value for convert
+
+    //Auto conversion  when user add number to value for convert
     private void addTextWatcher() {
         valueEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -193,7 +204,6 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                             valueEdit.getText().toString().contains("(") |
                             valueEdit.getText().toString().contains(")")|
                             TextUtils.isEmpty(valueEdit.getText().toString())){
-                        "".isEmpty()  ;
                 }
                     else{
                         convertOnTextChange();
@@ -213,7 +223,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         });
     }
 
-    //set units of mesaurments for value
+    //set units of measurements for value
     private void setUnitMeasurments(){
         getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
         getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
@@ -280,11 +290,11 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                     assert response != null;
                     String data = response.getString("date");
                     if (date.getText().equals(data)){
-                        Toast.makeText(Activity_converter_Currency.this, getResources().getString(R.string.SameDate),
-                                Toast.LENGTH_SHORT).show();
+                        Snackbar.make(curLay, getResources().getString(R.string.SameDate),Snackbar.LENGTH_SHORT).show();
                     }
                     else{
                         date.setText(data);
+                        Snackbar.make(curLay, getResources().getString(R.string.UpdateSuccessful),Snackbar.LENGTH_SHORT).show();
                         getJsonOnlineData();
                     }
 
@@ -322,7 +332,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                     String PLN = phone.getString("PLN");
                     String NZD = phone.getString("NZD");
                     String RUB = phone.getString("RUB");
-                    if(sDefSystemLanguage.equals("русский")){
+                    //"русский"
+                    if(sDefSystemLanguage.equals("українcький")){
                         hm.put("Доллар США", USD);
                         hm.put("Великобританський фунт", GBP);
                         hm.put("Індозенійська Рупія", IDR);
