@@ -1,6 +1,7 @@
 package ashunevich.uniconverter20;
 
 
+import android.annotation.SuppressLint;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,11 +13,6 @@ import org.mariuszgromada.math.mxparser.Expression;
 public abstract class Activity_converter_Utils extends Activity_converter {
 
     private static final String TAG = "ERROR-" ;
-
-    public Activity_converter_Utils(EditText resultView, EditText valueEdit ){
-        this.resultView = resultView;
-        this.valueEdit = valueEdit;
-    }
 
     public static void blockInput( EditText resultView, EditText valueEdit){
         resultView.setInputType(InputType.TYPE_NULL);
@@ -54,6 +50,7 @@ public abstract class Activity_converter_Utils extends Activity_converter {
     }
 
 
+    @SuppressLint("SetTextI18n")
     protected static void appendMinusPlus(EditText valueEdit){
       int x = valueEdit.getText().length();
        if (x != 15 | valueEdit.getText().toString().contains("-")){

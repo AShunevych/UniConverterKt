@@ -1,7 +1,9 @@
 
 package ashunevich.uniconverter20;
 
-import android.support.constraint.ConstraintLayout;
+
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,18 +15,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,43 +29,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mariuszgromada.math.mxparser.Expression;
 
+import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-
+import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
 
 public class Activity_converter_Currency  extends AppCompatActivity {
 
-    @BindView(R.id.spinnerFromCurrency)
-    Spinner spinnerValue;
-    @BindView(R.id.spinnerToCurrency)
-    Spinner spinnerResult;
-    @BindView(R.id.valueCurrency)
-    EditText valueEdit;
-    @BindView(R.id.resultCurrency)
-    TextView resultView;
-    @BindView(R.id.dateView)
-    TextView date;
-     @BindView(R.id.currency_FROM_short)
-     TextView valueUnit;
-     @BindView(R.id.currency_to_short)
-     TextView resultUnit;
-     @BindView(R.id.currencyLayout)
-    ConstraintLayout curLay;
-
+     
+     private CurrencyActivityBinding binding;
+    private SharedPreferences mPrefs;
     protected double getEnteredValue;
-    protected String getValueSpinnerFrom, getValueSpinnerTo;
     protected HashMap<String, String> hm;
     private final String SAVED_VALUE = "savedValue";
     private final String SAVED_RESULT = "saveResult";
-    private String  sDefSystemLanguage ;
+    private final String SAVED_DATE = "saveDate";
+    private final String SAVED_HMAP = "CurrencyHMAP";
 
     @Override
     public void onStart(){
@@ -77,34 +56,48 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mPrefs
+                = getSharedPreferences("MySharedPref",
+                MODE_PRIVATE);
+        if (mPrefs != null){
+            binding.dateView.setText(mPrefs.getString(SAVED_DATE,""));
+            Type typeOfHashMap = new TypeToken<HashMap<String, String>>() { }.getType();
+            String JSONHash = mPrefs.getString(SAVED_HMAP,"");
+            hm = new Gson().fromJson(JSONHash, typeOfHashMap);
+        }
+    }
+
+    @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
-        savedInstanceState.putString(SAVED_VALUE,valueEdit.getText().toString());
-        savedInstanceState.putString(SAVED_RESULT,resultView.getText().toString());
+        savedInstanceState.putString(SAVED_VALUE,binding.valueCurrency.getText().toString());
+        savedInstanceState.putString(SAVED_RESULT,binding.resultCurrency.getText().toString());
+        savedInstanceState.putString(SAVED_DATE,binding.dateView.getText().toString());
         super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_currency);
-        ButterKnife.bind(this);
-        sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
-        hm = new HashMap<>();
+        binding = CurrencyActivityBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        setButtonBindings_ConverterCurrency();
         setAdapter((getResources().getStringArray(R.array.currency)));
         setUnitMeasurement();
         setSpinnersListeners();
         checkConnection();
         addTextWatcher();
-        valueEdit.setInputType(InputType.TYPE_NULL);
+        binding.valueCurrency.setInputType(InputType.TYPE_NULL);
     }
-
 
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
-        valueEdit.setText(savedInstanceState.getString(SAVED_VALUE));
-        resultView.setText(savedInstanceState.getString(SAVED_RESULT));
-
+        binding.valueCurrency.setText(savedInstanceState.getString(SAVED_VALUE));
+        binding.resultCurrency.setText(savedInstanceState.getString(SAVED_RESULT));
+        binding.dateView.setText(savedInstanceState.getString(SAVED_DATE));
         super.onRestoreInstanceState(savedInstanceState);
     }
 
@@ -114,12 +107,25 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         super.onStop();
     }
 
+    @SuppressLint("ApplySharedPref")
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPrefs = getSharedPreferences("MySharedPref",
+                MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = mPrefs.edit();
+        myEdit.putString(SAVED_DATE,binding.dateView.getText().toString());
+        String hashMapString = new Gson().toJson(hm);
+        myEdit.putString(SAVED_HMAP,hashMapString);
+        myEdit.commit();
+    }
+
     private void checkConnection(){
         if(InternetConnection.checkConnection(this)){
-            getJsonDate();
+             getJsonDate();
         }
         else{
-            Snackbar.make(curLay, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -129,45 +135,40 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                 event.getNumber().contains("clear")|
                 event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": Activity_converter_Utils.checkBrackets(valueEdit); break;
+                case "brackets": Activity_converter_Utils.checkBrackets(binding.valueCurrency); break;
                 case "solve": convertOnDemand();break;
-                case "clear": Activity_converter_Utils.clearView(valueEdit,resultView);break;
+                case "clear": Activity_converter_Utils.clearView(binding.valueCurrency,binding.resultCurrency);break;
             }
         }
         else{
-            valueEdit.append(event.getNumber());
+            binding.valueCurrency.append(event.getNumber());
         }
     }
 
-    @OnClick({R.id.refreshJSONData, R.id.correction})
-    public void setViewvClick(View view) {
-        switch (view.getId()) {
-            case R.id.refreshJSONData:
-                checkConnection();break;
-            case R.id.correction:
-                Activity_converter_Utils.correctValue(valueEdit,resultView);
-                break;
-        }
+    private void setButtonBindings_ConverterCurrency(){
+        binding.refreshJSONData.setOnClickListener(v ->
+                checkConnection());
+        binding.correction.setOnClickListener(v ->Activity_converter_Utils.correctValue(binding.valueCurrency,binding.resultCurrency));
     }
-
+    
 
     private void setAdapter( String [] array ){
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.custom_spinner_item,array);
-        spinnerValue.setAdapter(adapter);
-        spinnerResult.setAdapter(adapter);
+        binding.spinnerFromCurrency.setAdapter(adapter);
+        binding.spinnerToCurrency.setAdapter(adapter);
     }
 
     private void setUnitMeasurement(){
-        getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-        getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-        Activity_converter_Logic.setUnitsView(getValueSpinnerFrom,valueUnit);
-        Activity_converter_Logic.setUnitsView(getValueSpinnerTo,resultUnit );
+        //getValueSpinnerFrom = binding.spinnerFromCurrency.getSelectedItem().toString();
+        //getValueSpinnerTo = binding.spinnerToCurrency.getSelectedItem().toString();
+        Activity_converter_Logic.setUnitsView(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
+        Activity_converter_Logic.setUnitsView(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
     }
 
-    //if user changes unit - it will change mesaurments and will automatically recalculate result
+    //if user changes unit - it will change measurements and will automatically recalculate result
     private void setSpinnersListeners(){
-        spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        binding.spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 setUnitMeasurments();
@@ -180,7 +181,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
         });
 
-        spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        binding.spinnerToCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 setUnitMeasurments();
@@ -194,16 +195,17 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     //Auto conversion  when user add number to value for convert
     private void addTextWatcher() {
-        valueEdit.addTextChangedListener(new TextWatcher() {
+        binding.valueCurrency.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                    if (valueEdit.getText().toString().contains("+") |
-                            valueEdit.getText().toString().contains("-") |
-                            valueEdit.getText().toString().contains("/") |
-                            valueEdit.getText().toString().contains("*")|
-                            valueEdit.getText().toString().contains("(") |
-                            valueEdit.getText().toString().contains(")")|
-                            TextUtils.isEmpty(valueEdit.getText().toString())){
+                    if (binding.valueCurrency.getText().toString().contains("+") |
+                            binding.valueCurrency.getText().toString().contains("-") |
+                            binding.valueCurrency.getText().toString().contains("/") |
+                            binding.valueCurrency.getText().toString().contains("*")|
+                            binding.valueCurrency.getText().toString().contains("(") |
+                            binding.valueCurrency.getText().toString().contains(")")|
+                            TextUtils.isEmpty(binding.valueCurrency.getText().toString())){
+                        Log.d("valueCurrency ","occurred exception");
                 }
                     else{
                         convertOnTextChange();
@@ -225,20 +227,15 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     //set units of measurements for value
     private void setUnitMeasurments(){
-        getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-        getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-
-        Activity_converter_Logic.setUnitsView(getValueSpinnerFrom,valueUnit);
-        Activity_converter_Logic.setUnitsView(getValueSpinnerTo,resultUnit );
+        Activity_converter_Logic.setUnitsView(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
+        Activity_converter_Logic.setUnitsView(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
     }
 
     private void convertOnTextChange(){
-        getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-        getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
-        getEnteredValue = Double.parseDouble(valueEdit.getText().toString());
+        getEnteredValue = Double.parseDouble(binding.valueCurrency.getText().toString());
         try {
-            double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(getValueSpinnerFrom)));
-            double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(getValueSpinnerTo)));
+            double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerFromCurrency.getSelectedItem().toString())));
+            double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerToCurrency.getSelectedItem().toString())));
             double resultFinal = ((targetRate * getEnteredValue) / initRate);
             setStringFormat(resultFinal);
         }
@@ -248,17 +245,15 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     }
 
     private void convertOnDemand(){
-        if (TextUtils.isEmpty(valueEdit.getText().toString())) {
-            resultView.setText("");
+        if (TextUtils.isEmpty(binding.valueCurrency.getText().toString())) {
+            binding.resultCurrency.setText("");
         }
         else {
-            getValueSpinnerFrom = spinnerValue.getSelectedItem().toString();
-            getValueSpinnerTo = spinnerResult.getSelectedItem().toString();
             try{ //get JSON received values
-                   double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(getValueSpinnerFrom)));
-                   double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(getValueSpinnerTo)));
+                   double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerFromCurrency.getSelectedItem().toString())));
+                   double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerToCurrency.getSelectedItem().toString())));
                    //use MathParser to calculate value
-                   String getValue = valueEdit.getText().toString();
+                   String getValue = binding.valueCurrency.getText().toString();
                    Expression value = new Expression(getValue);
                    double resultDouble = value.calculate();
                    //use calculated value
@@ -273,98 +268,71 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     private void setStringFormat(double resultDouble){
         NumberFormat formatter = new DecimalFormat("###.####");
-        resultView.setText(String.valueOf(formatter.format(resultDouble)));
+        binding.resultCurrency.setText(String.valueOf(formatter.format(resultDouble)));
     }
 
     private void getJsonDate() {
         String url = "https://api.exchangeratesapi.io/latest";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                if (response != null){
-                    Log.d("Tag", "Response is null");
-                }
-                //USD,GBP,IDR,PLN,NZD,RUB
-                try {
-                    assert response != null;
-                    String data = response.getString("date");
-                    if (date.getText().equals(data)){
-                        Snackbar.make(curLay, getResources().getString(R.string.SameDate),Snackbar.LENGTH_SHORT).show();
+                url, null, response -> {
+                    if (response != null){
+                        Log.d("Tag", "Response is null");
                     }
-                    else{
-                        date.setText(data);
-                        Snackbar.make(curLay, getResources().getString(R.string.UpdateSuccessful),Snackbar.LENGTH_SHORT).show();
-                        getJsonOnlineData();
+                    //USD,GBP,IDR,PLN,NZD,RUB
+                    try {
+                        assert response != null;
+                        String date = response.getString("date");
+                        // if user starts new activity and there is no saved data
+                         if (TextUtils.isEmpty(binding.dateView.getText().toString())){
+                            binding.dateView.setText(date);
+                            getJsonOnlineData();
+                        }
+                         // if user wants to update data, and data on source is equals to data in the phone. so data was already saved before.
+                        else if (binding.dateView.getText().equals(date)){
+                            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.SameDate),Snackbar.LENGTH_SHORT).show();
+                        }
+                        // if user wants to update, and data is different on the source
+                        else {
+                             binding.dateView.setText(date);
+                             Snackbar.make(binding.currencyLayout, getResources().getString(R.string.UpdateSuccessful),Snackbar.LENGTH_SHORT).show();
+                             getJsonOnlineData();
+                         }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("TAG", "Error: " + error.getMessage());
-            }
-
-        });
+                }, error -> VolleyLog.d("TAG", "Error: " + error.getMessage()));
         RequestQueue queue = Volley.newRequestQueue(this);
         // Adding request to request queue
         queue.add(jsonObjReq);
-
     }
 
     private void getJsonOnlineData() {
         String url = "https://api.exchangeratesapi.io/latest";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                //USD,GBP,IDR,PLN,NZD,RUB
-                try {
-                    JSONObject phone = response.getJSONObject("rates");
-                    String USD = phone.getString("USD");
-                    String GBP = phone.getString("GBP");
-                    String IDR = phone.getString("IDR");
-                    String PLN = phone.getString("PLN");
-                    String NZD = phone.getString("NZD");
-                    String RUB = phone.getString("RUB");
-                    //"русский"
-                    if(sDefSystemLanguage.equals("українcький")){
-                        hm.put("Доллар США", USD);
-                        hm.put("Великобританський фунт", GBP);
-                        hm.put("Індозенійська Рупія", IDR);
-                        hm.put("Польский Злотий", PLN);
-                        hm.put("Доллар НЗ", NZD);
-                        hm.put("Рубль", RUB);
-                    }
-                    else{
-                        hm.put("United States Dollar", USD );
-                        hm.put("Great Britain Pound",GBP);
-                        hm.put("Indonesian rupiah", IDR );
-                        hm.put("Polish złoty",PLN);
-                        hm.put("New Zealand dollar", NZD );
-                        hm.put("Russian Ruble",RUB);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                url, null, response -> {
+                    //USD,GBP,IDR,PLN,NZD,RUB
+                    try {
+                            JSONObject phone = response.getJSONObject("rates");
+                                hm = new HashMap<>();
+                                hm.put(getResources().getString(R.string.USD), phone.getString("USD"));
+                                hm.put(getResources().getString(R.string.GBP), phone.getString("GBP"));
+                                hm.put(getResources().getString(R.string.IDR), phone.getString("IDR"));
+                                hm.put(getResources().getString(R.string.PLN), phone.getString("PLN"));
+                                hm.put(getResources().getString(R.string.NZD), phone.getString("NZD"));
+                                hm.put(getResources().getString(R.string.RUB), phone.getString("RUB"));
 
-            }
-        }, new Response.ErrorListener() {
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("TAG", "Error: " + error.getMessage());
-            }
-        });
+                }, error -> VolleyLog.d("TAG", "Error: " + error.getMessage()));
         RequestQueue queue = Volley.newRequestQueue(this);
         // Adding request to request queue
         queue.add(jsonObjReq);
     }
+
     }
 
 

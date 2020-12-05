@@ -91,9 +91,15 @@
     <string name="NPStoDN">Таблиця розмірів труб</string>
 
     <string name="NoInternetConnection">Немає з\'єднання.</string>
-    <string name="SameDate">Дані актуальні.Запит відхилено.</string>
+    <string name="SameDate">Дані актуальні.</string>
     <string name="UpdateSuccessful">Дані успішно оновлені.</string>
 
     <string name= "maxNumberReached">Досягнуто максимальна кількість (15) символів</string>
+    <string name="USD">Доллар США</string>
+    <string name="GBP">Великобританський фунт</string>
+    <string name="IDR">Індозенійська Рупія</string>
+    <string name="PLN">Польский Злотий</string>
+    <string name="NZD">Доллар НЗ</string>
+    <string name="RUB">Рубль</string>
 
 </resources>

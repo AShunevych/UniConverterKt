@@ -95,5 +95,13 @@
     <string name="SameDate">Data is up to date.Request declined</string>
     <string name="UpdateSuccessful">Data update successful</string>
     <string name= "maxNumberReached">Maximum length (15) reached</string>
+
+    <string name="USD">United States Dollar</string>
+    <string name="GBP">Great Britain Pound</string>
+    <string name="IDR">Indonesian rupiah</string>
+    <string name="PLN">Polish złoty</string>
+    <string name="NZD">New Zealand dollar</string>
+    <string name="RUB">Russian Ruble</string>
+
 </resources>
 

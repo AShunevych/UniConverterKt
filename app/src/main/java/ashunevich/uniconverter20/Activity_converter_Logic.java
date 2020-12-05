@@ -1,7 +1,6 @@
 package ashunevich.uniconverter20;
 
 import android.content.res.Resources;
-import android.widget.EditText;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -9,9 +8,8 @@ import java.util.HashMap;
 
 
 public abstract class Activity_converter_Logic extends Activity_converter {
-    public Activity_converter_Logic(EditText resultView, HashMap<String, String> hm){
+    public Activity_converter_Logic(HashMap<String, String> hm){
         this.hm = hm;
-        this.resultView = resultView;
     }
 
 
@@ -21,8 +19,8 @@ public abstract class Activity_converter_Logic extends Activity_converter {
     }
 
 
-
-    public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
+    public static void ConvertValues(String txtFromSpinner1, String txtFromSpinner2 ,
+                                     Double enteredValue, TextView resultView) {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
       /*
@@ -1018,10 +1016,8 @@ public abstract class Activity_converter_Logic extends Activity_converter {
         }
 }
 
-
-
-
-    public static void ConvertValues_Ukr(String txtFromSpinner1, String txtFromSpinner2 , Double enteredValue, TextView resultView) {
+    public static void ConvertValues_Ukr(String txtFromSpinner1, String txtFromSpinner2 ,
+                                         Double enteredValue, TextView resultView) {
         NumberFormat formatter = new DecimalFormat("###.########################");
         //0.0000000000003861021585
         final double NineDivFive = 9.0/5.0;
@@ -1035,9 +1031,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
 */
         switch (txtFromSpinner1) {
             //area
-            case "Мілліметр квадратний":
+            case "Міліметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,1);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,0.01);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.000001);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.000000000001);break;
@@ -1051,7 +1047,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Сантіметр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,100);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,100);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,1);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue, 0.0001);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue, 0.0000000001);break;
@@ -1065,7 +1061,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Метр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,10000.0);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,1);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.000001);break;
@@ -1079,7 +1075,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кілометр квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000000000.0);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,1000000000000.0);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,10000000000.0);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,1);break;
@@ -1093,7 +1089,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Гектар":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,10000000000.0);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,10000000000.0);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,100000000);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,10000);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.01);break;
@@ -1107,7 +1103,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Міля квадратна":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,2589988110336.0);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,2589988110336.0);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,25899881103.0);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,2589988.1103);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,2.5899881103);break;
@@ -1121,7 +1117,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Акр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,4046856422.4);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,4046856422.4);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,40468564.224);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,4046.8564224);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.0040468564);break;
@@ -1135,7 +1131,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Ярд квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,836127.36);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,836127.36);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,8361.2736);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.83612736);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.0000008361273599);break;
@@ -1149,7 +1145,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Фут квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,92903.04);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,92903.04);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,929.0304);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.09290304);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.00000009290303999);break;
@@ -1162,7 +1158,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 }
             case "Дюйм квадратний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр квадратний": conversionMultiplier(resultView,enteredValue,645.16);break;
+                    case "Міліметр квадратний": conversionMultiplier(resultView,enteredValue,645.16);break;
                     case "Сантіметр квадратний": conversionMultiplier(resultView,enteredValue,6.4516);break;
                     case "Метр квадратний": conversionMultiplier(resultView,enteredValue,0.00064516);break;
                     case "Кілометр квадратний": conversionMultiplier(resultView,enteredValue,0.00000000064516);break;
@@ -1173,9 +1169,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Фут квадратний": conversionMultiplier(resultView,enteredValue,0.0069444444);break;
                     case "Дюйм квадратний": conversionMultiplier(resultView,enteredValue,1);break;
                 }
-            case "Мілліньютон":
+            case "Міліньютон ":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.000001);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000000101);break;
@@ -1190,7 +1186,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Ньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0001);break;
@@ -1205,7 +1201,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кілоньютон":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.101971);break;
@@ -1220,7 +1216,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Тонна-сила(метрична)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9806650);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,9806650);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,9806.65);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,9.80665);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,1);break;
@@ -1235,7 +1231,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Грам-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9.8066);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,9.8066);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,0.009806);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0000098067);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000001);break;
@@ -1250,7 +1246,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кілограм-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон": conversionMultiplier(resultView,enteredValue,9806.65);break;
+                    case "Міліньютон ": conversionMultiplier(resultView,enteredValue,9806.65);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,9.80665);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0098066);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.001);break;
@@ -1265,7 +1261,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Понд":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон": conversionMultiplier(resultView,enteredValue,9.80665);break;
+                    case "Міліньютон ": conversionMultiplier(resultView,enteredValue,9.80665);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,0.00980);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0000098);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.000001);break;
@@ -1280,7 +1276,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Фунт-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,4448.221);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,4448.221);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,4.448);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.00444);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.00045);break;
@@ -1295,7 +1291,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Унція-сила":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,278.013);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,278.013);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,0.27801);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.0002780);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0000283);break;
@@ -1310,7 +1306,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Тонна-сила(довга)":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,9964016.41);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,9964016.41);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,9964.01);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,9.9640);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,1.016);break;
@@ -1325,7 +1321,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Паундаль":
                 switch (txtFromSpinner2) {
-                    case "Мілліньютон":conversionMultiplier(resultView,enteredValue,138.25);break;
+                    case "Міліньютон ":conversionMultiplier(resultView,enteredValue,138.25);break;
                     case "Ньютон":conversionMultiplier(resultView,enteredValue,0.13825);break;
                     case "Кілоньютон":conversionMultiplier(resultView,enteredValue,0.000138);break;
                     case "Тонна-сила(метрична)":conversionMultiplier(resultView,enteredValue,0.0000140);break;
@@ -1337,9 +1333,9 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Тонна-сила(довга)":conversionMultiplier(resultView,enteredValue,0.0000138);break;
                     case "Паундаль":conversionMultiplier(resultView,enteredValue,1);break;
                 }
-            case "Мілліметр":
+            case "Міліметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,0.1);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.000001);break;
@@ -1351,7 +1347,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Сантіметр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,10);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,10);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,0.01);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.00001);break;
@@ -1363,7 +1359,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Метр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,100);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.001);break;
@@ -1375,7 +1371,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кілометр":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,100000.0);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,1);break;
@@ -1387,7 +1383,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Дюйм":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,25.4);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,25.4);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,2.54);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,0.0254);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0000254);break;
@@ -1399,7 +1395,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Фут":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,304.8);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,304.8);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,30.48);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,0.3048);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0003048);break;
@@ -1411,7 +1407,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Ярд":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,914.4);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,914.4);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,91.44);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,0.9144);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,0.0009144);break;
@@ -1423,7 +1419,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Міля":
                 switch (txtFromSpinner2){
-                    case "Мілліметр":conversionMultiplier(resultView,enteredValue,1609347.21);break;
+                    case "Міліметр":conversionMultiplier(resultView,enteredValue,1609347.21);break;
                     case "Сантіметр":conversionMultiplier(resultView,enteredValue,160934.72);break;
                     case "Метр":conversionMultiplier(resultView,enteredValue,1609.34);break;
                     case "Кілометр":conversionMultiplier(resultView,enteredValue,1.6093);break;
@@ -1432,7 +1428,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Ярд":conversionMultiplier(resultView,enteredValue,1760);break;
                     case "Міля":conversionMultiplier(resultView,enteredValue,1);break;
                 }
-            case "Мілліграм":
+            case "Міліграм":
                 switch (txtFromSpinner2){
                     case "Грам":conversionMultiplier(resultView,enteredValue,0.001); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,0.000001); break;
@@ -1442,12 +1438,12 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Фунт":conversionMultiplier(resultView,enteredValue,0.0000022); break;
                     case "Хандредвейт":conversionMultiplier(resultView,enteredValue,0.00000002); break;
                     case "Тонна(довга)":conversionMultiplier(resultView,enteredValue,0.000000001016); break;
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,1);break;
                 }
                 break;
             case "Грам":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000.0); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,1000.0); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,0.001); break;
                     case "Тонна": conversionMultiplier(resultView,enteredValue,0.000000001); break;
                     case "Гран":conversionMultiplier(resultView,enteredValue,15.43); break;
@@ -1460,7 +1456,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кілограм":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000000.0); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,1000000.0); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,1000.0); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,0.001); break;
                     case "Гран":conversionMultiplier(resultView,enteredValue,15432.35); break;
@@ -1473,7 +1469,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Тонна":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1000000000.0); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,1000000000.0); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,1000000.0); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,1000.0); break;
                     case "Гран":conversionMultiplier(resultView,enteredValue,15432358.35); break;
@@ -1486,7 +1482,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Гран":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,64.79); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,64.79); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,0.0647); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,0.000064); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,0.000000065); break;
@@ -1499,7 +1495,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Унція":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,28349.52); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,28349.52); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,28.349); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,0.02834); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,0.00002835); break;
@@ -1512,7 +1508,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Фунт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,453592.37); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,453592.37); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,453.59); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,0.4535); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,0.0004535); break;
@@ -1525,7 +1521,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Хандредвейт":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,50802345.44); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,50802345.44); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,50802.34); break;
                     case "Кілограм": conversionMultiplier(resultView,enteredValue,50.80); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,0.05080); break;
@@ -1538,7 +1534,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case  "Тонна(довга)":
                 switch (txtFromSpinner2){
-                    case "Мілліграм":conversionMultiplier(resultView,enteredValue,1016046908.8); break;
+                    case "Міліграм":conversionMultiplier(resultView,enteredValue,1016046908.8); break;
                     case "Грам":conversionMultiplier(resultView,enteredValue,1016046.90); break;
                     case "Кілограм":conversionMultiplier(resultView,enteredValue,1016.04); break;
                     case "Тонна":conversionMultiplier(resultView,enteredValue,1.016); break;
@@ -1751,12 +1747,12 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Місяц": conversionMultiplier(resultView,enteredValue,12);break;
                     case "Рік": conversionMultiplier(resultView,enteredValue,1);break;
                 }
-            case "Мілліметр кубічний":
+            case "Міліметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000000001);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,0.001);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.000001);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0000351951);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,0.000007039);break;
@@ -1768,10 +1764,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Сантіметр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000001);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0351950797);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,0.0070390159);break;
@@ -1783,10 +1779,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Метр кубічний":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0000);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0000);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,1);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,35195.079728);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,7039.0159456);break;
@@ -1796,12 +1792,12 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,6.1102568972);break;
                 }
                 break;
-            case "Міллілітр":
+            case "Мілілітр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.000001);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.001);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,0.0351950797);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,0.0070390159);break;
@@ -1813,10 +1809,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Літр":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1000000.0);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.001);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1000);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,1000);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,35.195079728);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,7.0390159456);break;
@@ -1828,10 +1824,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Джил":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,142065.3125);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,142065.3125);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,142.0653125);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0001420653);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,142.0653125);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,142.0653125);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.1420653125);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,5);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,1);break;
@@ -1843,10 +1839,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Унція рідка":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,28413.0625);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,28413.0625);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,28.4130625);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0000284131);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,28.4130625);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,28.4130625);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.0284130625);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,1);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,0.2);break;
@@ -1858,10 +1854,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Пінта":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,568261.25);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,568261.25);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,568.26125);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0005682613);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,568.26125);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,568.26125);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,0.56826125);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,20);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,4);break;
@@ -1873,10 +1869,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Кварт":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,1136522.5);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,1136522.5);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,1136.5225);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.0011365225);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,1136.5225);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,1136.5225);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,1.1365225);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,40);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,8);break;
@@ -1888,10 +1884,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Галлон":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,4546090);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,4546090);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,4546.09);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.00454609);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,4546.09);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,4546.09);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,3.785);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,160);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,32);break;
@@ -1903,10 +1899,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                 break;
             case "Баррель(UK)":
                 switch (txtFromSpinner2) {
-                    case "Мілліметр кубічний":conversionMultiplier(resultView,enteredValue,163659240);break;
+                    case "Міліметр кубічний":conversionMultiplier(resultView,enteredValue,163659240);break;
                     case "Сантіметр кубічний":conversionMultiplier(resultView,enteredValue,163659.24);break;
                     case "Метр кубічний":conversionMultiplier(resultView,enteredValue,0.16365924);break;
-                    case "Міллілітр":conversionMultiplier(resultView,enteredValue,163659.24);break;
+                    case "Мілілітр":conversionMultiplier(resultView,enteredValue,163659.24);break;
                     case "Літр":conversionMultiplier(resultView,enteredValue,163.65924);break;
                     case "Унція рідка":conversionMultiplier(resultView,enteredValue,5760);break;
                     case "Джил":conversionMultiplier(resultView,enteredValue,1152);break;
@@ -2097,7 +2093,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "New Zealand dollar":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
             case "Russian Ruble":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
 //Ukrainian locale
-            case "Мілліграм":    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Міліграм":    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
             case "Грам":    measurementUnit.setText(resources.getString(R.string.unit_G));break;
             case "Кілограм":    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
             case "Тонна":    measurementUnit.setText(resources.getString(R.string.unit_T));break;
@@ -2106,7 +2102,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Фунт":    measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
             case "Хандредвейт":    measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
             case "Тонна(довга)":    measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
-            case "Мілліметр":    measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
+            case "Міліметр":    measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
             case "Сантіметр":    measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
             case "Метр":    measurementUnit.setText(resources.getString(R.string.unit_M));break;
             case "Кілометр":    measurementUnit.setText(resources.getString(R.string.unit_Km));break;
@@ -2118,7 +2114,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Кельвін":    measurementUnit.setText(resources.getString(R.string.unit_k));break;
             case "Ранкін":    measurementUnit.setText(resources.getString(R.string.unit_r));break;
             case "Фаренгейт":    measurementUnit.setText(resources.getString(R.string.unit_f));break;
-            case "Мілліметр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
+            case "Міліметр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));break;
             case "Сантіметр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));break;
             case "Метр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_М_Square));break;
             case "Кілометр квадратний":    measurementUnit.setText(resources.getString(R.string.unit_Km_Square));break;
@@ -2135,10 +2131,10 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Тиждень"  :measurementUnit.setText(resources.getString(R.string.unit_Week));break;
             case "Місяц"  :measurementUnit.setText(resources.getString(R.string.unit_Month));break;
             case "Рік"  :measurementUnit.setText(resources.getString(R.string.unit_Year));break;
-            case "Мілліметр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
+            case "Міліметр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));break;
             case "Сантіметр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));break;
             case "Метр кубічний":    measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));break;
-            case "Міллілітр":    measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
+            case "Мілілітр":    measurementUnit.setText(resources.getString(R.string.unit_Ml));break;
             case "Літр":    measurementUnit.setText(resources.getString(R.string.unit_L));break;
             case "Унція рідка":    measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));break;
             case "Баррель(UK)":    measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));break;
@@ -2146,7 +2142,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
             case "Пінта":    measurementUnit.setText(resources.getString(R.string.unit_Pt));break;
             case "Кварт":    measurementUnit.setText(resources.getString(R.string.unit_Qt));break;
             case "Галлон":    measurementUnit.setText(resources.getString(R.string.unit_Gal));break;
-            case "Мілліньютон":    measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
+            case "Міліньютон ":    measurementUnit.setText(resources.getString(R.string.unit_Mn));break;
             case "Ньютон":    measurementUnit.setText(resources.getString(R.string.unit_N));break;
             case "Кілоньютон":    measurementUnit.setText(resources.getString(R.string.unit_Kn));break;
             case "Тонна-сила(метрична)":    measurementUnit.setText(resources.getString(R.string.unit_Tf));break;

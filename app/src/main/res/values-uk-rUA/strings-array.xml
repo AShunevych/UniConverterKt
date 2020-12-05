@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="area">
-        <item>Мілліметр квадратний</item>
+        <item>Міліметр квадратний</item>
         <item>Сантіметр квадратний</item>
         <item>Метр квадратний</item>
         <item>Кілометр квадратний</item>
@@ -14,7 +14,7 @@
     </string-array>
 
     <string-array name="weight">
-        <item>Мілліграм</item>
+        <item>Міліграм</item>
         <item>Грам</item>
         <item>Кілограм</item>
         <item>Тонна</item>
@@ -26,7 +26,7 @@
     </string-array>
 
     <string-array name="length">
-        <item>Мілліметр</item>
+        <item>Міліметр</item>
         <item>Сантіметр</item>
         <item>Метр</item>
         <item>Кілометр</item>
@@ -54,10 +54,10 @@
     </string-array>
 
     <string-array name="volume">
-        <item>Мілліметр кубічний</item>
+        <item>Міліметр кубічний</item>
         <item>Сантіметр кубічний</item>
         <item>Метр кубічний</item>
-        <item>Міллілітр</item>
+        <item>Мілілітр</item>
         <item>Літр</item>
         <item>Унція рідка</item>
         <item>Баррель(UK)</item>
@@ -77,7 +77,7 @@
     </string-array>
 
     <string-array name="force">
-        <item>Мілліньютон</item>
+        <item>Міліньютон</item>
         <item>Ньютон</item>
         <item>Кілоньютон</item>
         <item>Тонна-сила(метрична)</item>
@@ -125,6 +125,5 @@
         <item>Default</item>
         <item>Alternative</item>
     </string-array>
-
 
 </resources>

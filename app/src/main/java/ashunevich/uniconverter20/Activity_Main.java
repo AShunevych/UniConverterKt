@@ -2,7 +2,6 @@ package ashunevich.uniconverter20;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,59 +9,32 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-
 
 import org.greenrobot.eventbus.EventBus;
-
 import java.util.ArrayList;
-
 import java.util.List;
 
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import ashunevich.uniconverter20.databinding.MainActivityBinding;
 
 public class Activity_Main extends AppCompatActivity {
 
-    @BindView(R.id.tabLayout)
-    TabLayout tabLayout;
-    @BindView(R.id.viewPager)
-    ViewPager viewPager;
+    private MainActivityBinding binding;
     EventBus bus;
-    @BindView((R.id.button_plus_minus)) Button plusMinus;
-
-    @BindView(R.id.calculator_button)
-    Button calc;
-    @BindView(R.id.currency_calculator)
-    Button currency;
-
-    @Override
 
     protected void onStart() {
         super.onStart();
     }
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activty_new);
-        ButterKnife.bind(this);
-        String [] tabNames = new String[] {getResources().getString(R.string.mass_button),
-                getResources().getString(R.string.distance_button), getResources().getString(R.string.volume_button),
-                getResources().getString(R.string.sq),getResources().getString(R.string.force_button),
-                getResources().getString(R.string.temperature_button),getResources().getString(R.string.time_button),
-                getResources().getString(R.string.speed_button)}; //getResources().getString(R.string.circleSphere_button
+        binding = MainActivityBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        setViewPage();
+        setButtonBindings();
         bus = EventBus.getDefault();
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        for (String tabName : tabNames) {
-            adapter.addFragment(new Activity_converter(), tabName);
-        }
-        plusMinus.setEnabled(false);
-        plusMinus.setAlpha(0.5f);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-        getTabPostion(viewPager);
+        alphaButtonState(false,0.5f);
     }
 
     static class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -100,12 +72,11 @@ public class Activity_Main extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-
             }
 
             @Override
             public void onPageSelected(int i) {
-                int pos = tabLayout.getSelectedTabPosition();
+                int pos = binding.tabLayout.getSelectedTabPosition();
                 Log.d("TAB NUMBER ----", String.valueOf(pos));
                 bus.post(new BusPost_Tab_Position(pos));
                 setAlpha(pos);
@@ -118,87 +89,73 @@ public class Activity_Main extends AppCompatActivity {
         });
     }
 
+    private void alphaButtonState(Boolean buttonStatus,float alpha){
+     binding.buttonPlusMinus.setEnabled(buttonStatus);
+       binding.buttonPlusMinus.setAlpha(alpha);
+    }
+
     private void setAlpha(int pos){
         if (pos == 5){
-            plusMinus.setEnabled(true);
-            plusMinus.setAlpha(1.0f);
+            alphaButtonState(true,1.0f);
         }
         else{
-            plusMinus.setEnabled(false);
-            plusMinus.setAlpha(0.5f);
+            alphaButtonState(false,0.5f);
         }
     }
 
-    //R.id.currency_calculator
-    @OnClick({R.id.button_plus_minus, R.id.but_one, R.id.but_two, R.id.but_three,
-            R.id.but_four, R.id.but_five, R.id.but_six, R.id.but_seven,
-            R.id.button_eight, R.id.but_nine,R.id.button_decimal,
-            R.id.button_zero,R.id.but_clear,R.id.but_correct,R.id.calculator_button})
-    public void setViewOnClickEvent(View view) {
-        switch (view.getId()) {
-            case R.id.but_one:
-                sendValue(getResources().getString(R.string.one));
-                break;
-            case R.id.but_two:
-                sendValue(getResources().getString(R.string.two));
-                break;
-            case R.id.but_three:
-                sendValue(getResources().getString(R.string.three));
-                break;
-            case R.id.but_four:
-                sendValue(getResources().getString(R.string.four));
-                break;
-            case R.id.but_five:
-                sendValue(getResources().getString(R.string.five));
-                break;
-            case R.id.but_six:
-                sendValue(getResources().getString(R.string.six));
-                break;
-            case R.id.but_seven:
-                sendValue(getResources().getString(R.string.seven));
-                break;
-            case R.id.button_eight:
-                sendValue(getResources().getString(R.string.eight));
-                break;
-            case R.id.but_nine:
-                sendValue(getResources().getString(R.string.nine));
-                break;
-            case R.id.button_zero:
-                sendValue(getResources().getString(R.string.zero));
-                break;
-            case R.id.button_plus_minus:
-                sendValue("check");
-                break;
-            case R.id.but_clear:
-                sendValue("correction");
-                break;
-            case R.id.but_correct:
-                sendValue("clear");
-                break;
-            case R.id.button_decimal:
-                sendValue(getResources().getString(R.string.decimal));
-                break;
-            case R.id.calculator_button:
-                Intent intentCalc = new Intent(Activity_Main.this, Activity_calculator.class);
-                startActivity(intentCalc);
+    private void setViewPage(){
+        String [] tabNames = new String[] {getResources().getString(R.string.mass_button),
+                getResources().getString(R.string.distance_button), getResources().getString(R.string.volume_button),
+                getResources().getString(R.string.sq),getResources().getString(R.string.force_button),
+                getResources().getString(R.string.temperature_button),getResources().getString(R.string.time_button),
+                getResources().getString(R.string.speed_button)}; //getResources().getString(R.string.circleSphere_button)
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        for (String tabName : tabNames) {
+            adapter.addFragment(new Activity_converter(), tabName);
         }
+      binding.viewPager.setAdapter(adapter);
+     binding.tabLayout.setupWithViewPager(binding.viewPager);
+        getTabPostion(binding.viewPager);
     }
 
-        @OnClick({R.id.currency_calculator})
-        public void setViewvClick(View view) {
-            if (view.getId() == R.id.currency_calculator) {
-                Intent intentCurrency = new Intent(Activity_Main.this, Activity_converter_Currency.class);
-                startActivity(intentCurrency);
-            }
+    private void setButtonBindings(){
+        binding.butOne.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.one)));
+        binding.butTwo.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.two)));
+        binding.butThree.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.three)));
+        binding.butFour.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.four)));
+        binding.butFive.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.five)));
+        binding.butSix.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.six)));
+        binding.butSeven.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.seven)));
+        binding.buttonEight.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.eight)));
+        binding.butNine.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.nine)));
+        binding.buttonZero.setOnClickListener
+                (v -> sendValue(getResources().getString(R.string.zero)));
+        binding.buttonPlusMinus.setOnClickListener
+                (v -> sendValue("check"));
+        binding.butClear.setOnClickListener
+                (v -> sendValue("clear"));
+        binding.butCorrect.setOnClickListener
+                (v -> sendValue("correction"));
+        binding.buttonDecimal.setOnClickListener
+                (v -> sendValue("correction"));
+        binding.calculatorButton.setOnClickListener
+                (v -> startActivity(new Intent(Activity_Main.this, Activity_calculator.class)));
+        binding.currencyCalculator.setOnClickListener
+                (v -> startActivity(new Intent(Activity_Main.this, Activity_converter_Currency.class)));
     }
 
-    public void sendValue(String number) {
-        bus.post(new BusPost_Number(number));
+    public void sendValue(String value) {
+        bus.post(new BusPost_Number(value));
     }
-
-
-
-
     }
 
 

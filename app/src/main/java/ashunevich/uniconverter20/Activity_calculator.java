@@ -4,23 +4,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import org.mariuszgromada.math.mxparser.Expression;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
+import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
+
 
 public class Activity_calculator extends AppCompatActivity {
 
-    @BindView(R.id.calcValue) EditText calcValue;
-    @BindView(R.id.calcResult) TextView resultSet;
 
-  //  private static final String TAG = "myLogs"
+    private CalculatorActivityBinding binding;
     private final String VALUE_STRING = "valueString";
     private final String RESULT_STRING = "resultString";
 
@@ -32,8 +28,8 @@ public class Activity_calculator extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
-        savedInstanceState.putString(VALUE_STRING,calcValue.getText().toString());
-        savedInstanceState.putString(RESULT_STRING,resultSet.getText().toString());
+        savedInstanceState.putString(VALUE_STRING,binding.calcValue.getText().toString());
+        savedInstanceState.putString(RESULT_STRING,binding.calcResult.getText().toString());
         super.onSaveInstanceState(savedInstanceState);
 
     }
@@ -41,16 +37,23 @@ public class Activity_calculator extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calculator_activity);
-        ButterKnife.bind(this);
-        calcValue.setCursorVisible(true);
-        calcValue.setInputType(InputType.TYPE_NULL);
+        binding = CalculatorActivityBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        binding.correction.setOnClickListener(v -> Activity_converter_Utils.correctValue(binding.calcValue,binding.calcResult));
+       setUtils();
+    }
+
+    private void setUtils(){
+        binding.calcValue.setCursorVisible(true);
+        binding.calcValue.setInputType(InputType.TYPE_NULL);
+        binding.correction.setOnClickListener(v -> Activity_converter_Utils.correctValue(binding.calcValue,binding.calcResult));
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
-        calcValue.setText(savedInstanceState.getString(VALUE_STRING));
-        resultSet.setText(savedInstanceState.getString(RESULT_STRING));
+        binding.calcValue.setText(savedInstanceState.getString(VALUE_STRING));
+        binding.calcResult.setText(savedInstanceState.getString(RESULT_STRING));
         super.onRestoreInstanceState(savedInstanceState);
     }
     @Override
@@ -64,42 +67,14 @@ public class Activity_calculator extends AppCompatActivity {
         if (event.getNumber().contains("brackets") |
                 event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": Activity_converter_Utils.checkBrackets(calcValue); break;
-                case "solve": Activity_converter_Utils.readAndSolve(calcValue,resultSet);break;
-                case "clear": Activity_converter_Utils.clearView(calcValue,resultSet);break;
+                case "brackets": Activity_converter_Utils.checkBrackets(binding.calcValue); break;
+                case "solve": Activity_converter_Utils.readAndSolve(binding.calcValue,binding.calcResult);break;
+                case "clear": Activity_converter_Utils.clearView(binding.calcValue,binding.calcResult);break;
             }
         }
         else{
-            calcValue.append(event.getNumber());
+            binding.calcValue.append(event.getNumber());
         }
     }
-
-    public void checkBrackets (EditText valueEdit){
-        if (valueEdit.getText().toString().contains("(")){
-            valueEdit.append(")");
-        }
-        else{
-            valueEdit.append("(");
-        }
-    }
-
-    @OnClick({R.id.correction})
-    public void setViewOnClickEvent(View view) {
-        switch (view.getId()) {
-            case R.id.correction:
-                Activity_converter_Utils.correctValue(calcValue,resultSet);break;
-        }
-    }
-
-
-
-    private void readAndSolve(){
-      String getValue = calcValue.getText().toString();
-      Expression value = new Expression(getValue);
-      String getResult = Double.toString(value.calculate());
-        resultSet.setText(getResult);
-    }
-
-
 
 }
