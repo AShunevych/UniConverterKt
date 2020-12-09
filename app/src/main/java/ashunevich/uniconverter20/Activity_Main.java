@@ -16,6 +16,7 @@ import java.util.List;
 
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 
+@SuppressWarnings("ConstantConditions")
 public class Activity_Main extends AppCompatActivity {
 
     private MainActivityBinding binding;
@@ -89,6 +90,7 @@ public class Activity_Main extends AppCompatActivity {
         });
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void alphaButtonState(Boolean buttonStatus,float alpha){
      binding.buttonPlusMinus.setEnabled(buttonStatus);
        binding.buttonPlusMinus.setAlpha(alpha);

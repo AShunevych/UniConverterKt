@@ -66,6 +66,7 @@ public class Activity_converter extends Fragment {
         return view;
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void setAdapter( String [] array ){
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
                 R.layout.custom_spinner_item,array);
