@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter;
 
 import android.widget.Toast;
 
+import com.ashunevich.conversionlibrary.UnitConverter;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -175,8 +177,8 @@ public class Activity_converter extends Fragment {
 
     //set units of mesaurments for value
     private void setUnitMeasurement(){
-        Activity_converter_Logic.setUnitsView(binding.spinnerValue.getSelectedItem().toString(),binding.valueUnit);
-        Activity_converter_Logic.setUnitsView(binding.spinnerResult.getSelectedItem().toString(),binding.resultUnit );
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerValue.getSelectedItem().toString(),binding.valueUnit);
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerResult.getSelectedItem().toString(),binding.resultUnit );
     }
 
     private void convertAndShowValues(String activeLocale){
@@ -186,16 +188,16 @@ public class Activity_converter extends Fragment {
         }
         else {
                if (activeLocale.equals("українська")){
-                   Activity_converter_Logic.ConvertValues_Ukr(binding.spinnerValue.getSelectedItem().toString(),
+                   UnitConverter.ConvertValues_Ukr(binding.spinnerValue.getSelectedItem().toString(),
                            binding.spinnerResult.getSelectedItem().toString(),
                            Double.parseDouble(binding.valueEdit.getText().toString()),
                            binding.resultView);
                }
                else{
-                   Activity_converter_Logic.ConvertValues(binding.spinnerValue.getSelectedItem().toString(),
-                           binding.spinnerResult.getSelectedItem().toString(),
-                           Double.parseDouble(binding.valueEdit.getText().toString()),
-                           binding.resultView);
+                   UnitConverter.ConvertValues(binding.spinnerValue.getSelectedItem().toString(),
+                         binding.spinnerResult.getSelectedItem().toString(),
+                          Double.parseDouble(binding.valueEdit.getText().toString()),
+                         binding.resultView);
                }
            }
 

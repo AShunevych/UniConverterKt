@@ -162,8 +162,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     private void setUnitMeasurement(){
         //getValueSpinnerFrom = binding.spinnerFromCurrency.getSelectedItem().toString();
         //getValueSpinnerTo = binding.spinnerToCurrency.getSelectedItem().toString();
-        Activity_converter_Logic.setUnitsView(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
-        Activity_converter_Logic.setUnitsView(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
     }
 
     //if user changes unit - it will change measurements and will automatically recalculate result
@@ -227,8 +227,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     //set units of measurements for value
     private void setUnitMeasurments(){
-        Activity_converter_Logic.setUnitsView(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
-        Activity_converter_Logic.setUnitsView(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
+        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
     }
 
     private void convertOnTextChange(){
