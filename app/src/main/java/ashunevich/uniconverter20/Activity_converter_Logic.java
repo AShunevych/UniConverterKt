@@ -4,14 +4,8 @@ import android.content.res.Resources;
 import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.HashMap;
-
 
 public abstract class Activity_converter_Logic extends Activity_converter {
-    public Activity_converter_Logic(HashMap<String, String> hm){
-        this.hm = hm;
-    }
-
 
     private static void conversionMultiplier(TextView resultView, double value, double multiplier){
         NumberFormat formatter = new DecimalFormat("###.#######################");
@@ -23,13 +17,14 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                                      Double enteredValue, TextView resultView) {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
-      /*
+        /*
+        final double PI = Math.PI;
         double radDiam = enteredValue/2;
         double radCirc = enteredValue/(2*PI);
         double radArea = Math.sqrt(enteredValue/PI);
         double radSphArea = Math.sqrt(enteredValue/4*PI);
         double radSphVolume = Math.pow(((enteredValue/PI)*(3.0/4.0)),1.0/3.0);
-*/
+        */
         NumberFormat formatter = new DecimalFormat("###.#######################");
                                                             //0.000000000000386102158
         switch (txtFromSpinner1) {
@@ -1023,6 +1018,7 @@ public abstract class Activity_converter_Logic extends Activity_converter {
         final double NineDivFive = 9.0/5.0;
         final double FiveDivNine = 5.0/9.0;
         /*
+         final double PI = Math.PI;
         double radDiam = enteredValue/2;
         double radCirc = enteredValue/(2*PI);
         double radArea = Math.sqrt(enteredValue/PI);
@@ -1911,8 +1907,6 @@ public abstract class Activity_converter_Logic extends Activity_converter {
                     case "Галлон":conversionMultiplier(resultView,enteredValue,36);break;
                     case "Баррель(UK)":conversionMultiplier(resultView,enteredValue,1);break;
                 }
-
-
                 /*
             case "Радіус кругу":
                 switch (txtFromSpinner2) {

@@ -20,7 +20,6 @@ import android.widget.Toast;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.HashMap;
 import java.util.Locale;
 
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
@@ -31,7 +30,6 @@ public class Activity_converter extends Fragment {
 
     private ConverterActivityBinding binding;
     private String  sDefSystemLanguage;
-    protected HashMap<String, String> hm;
 
     EventBus bus;
     public Activity_converter() {
@@ -133,7 +131,6 @@ public class Activity_converter extends Fragment {
             public void onNothingSelected(AdapterView<?> parentView) {
 
             }
-
         });
 
         binding.spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -145,7 +142,6 @@ public class Activity_converter extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }});
-
     }
 
     //Auto conversion when user add number to value for convert

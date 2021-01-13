@@ -106,7 +106,7 @@
         app:layout_constraintStart_toStartOf="@+id/but_one" />
 
     <Button
-        android:id="@+id/but_clear"
+        android:id="@+id/but_correctValue"
         style="@style/supportSW480"
         android:layout_height="0dp"
         android:layout_marginStart="28dp"
@@ -212,15 +212,15 @@
         app:layout_constraintTop_toTopOf="@+id/button_zero" />
 
     <Button
-        android:id="@+id/but_correct"
+        android:id="@+id/but_clear"
         style="@style/supportSW480"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/clear"
         android:textColor="#870000"
         app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
-        app:layout_constraintEnd_toEndOf="@+id/but_clear"
-        app:layout_constraintStart_toStartOf="@+id/but_clear"
+        app:layout_constraintEnd_toEndOf="@+id/but_correctValue"
+        app:layout_constraintStart_toStartOf="@+id/but_correctValue"
         app:layout_constraintTop_toTopOf="@+id/but_three" />
 
 </android.support.constraint.ConstraintLayout>

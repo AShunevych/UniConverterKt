@@ -69,7 +69,7 @@ public class Activity_Main extends AppCompatActivity {
 
     }
 
-    private void getTabPostion(final  ViewPager viewPager){
+    private void getTabPosition(final  ViewPager viewPager){
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -117,7 +117,7 @@ public class Activity_Main extends AppCompatActivity {
         }
       binding.viewPager.setAdapter(adapter);
      binding.tabLayout.setupWithViewPager(binding.viewPager);
-        getTabPostion(binding.viewPager);
+        getTabPosition(binding.viewPager);
     }
 
     private void setButtonBindings(){
@@ -145,10 +145,10 @@ public class Activity_Main extends AppCompatActivity {
                 (v -> sendValue("check"));
         binding.butClear.setOnClickListener
                 (v -> sendValue("clear"));
-        binding.butCorrect.setOnClickListener
+        binding.butCorrectValue.setOnClickListener
                 (v -> sendValue("correction"));
         binding.buttonDecimal.setOnClickListener
-                (v -> sendValue("correction"));
+                (v -> sendValue(getResources().getString(R.string.decimal)));
         binding.calculatorButton.setOnClickListener
                 (v -> startActivity(new Intent(Activity_Main.this, Activity_calculator.class)));
         binding.currencyCalculator.setOnClickListener
