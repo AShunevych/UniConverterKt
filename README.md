@@ -14,7 +14,7 @@ Available calculators:
 - Math  
 - Currency (require Internet connection)  
      
-Min API - 26    
+Minimum Sdk Version - 26 (Android 8.0)       
 Locales - English / Ukranian      
     
 Screen:  
