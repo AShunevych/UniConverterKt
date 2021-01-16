@@ -85,13 +85,12 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         setContentView(view);
         setButtonBindings_ConverterCurrency();
         setAdapter((getResources().getStringArray(R.array.currency)));
-        setUnitMeasurement();
+        setUnitMeasurments();
         setSpinnersListeners();
         checkConnection();
         addTextWatcher();
         binding.valueCurrency.setInputType(InputType.TYPE_NULL);
     }
-
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
@@ -145,28 +144,14 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         }
     }
 
+    //app Listeners work
     private void setButtonBindings_ConverterCurrency(){
         binding.refreshJSONData.setOnClickListener(v ->
                 checkConnection());
         binding.correction.setOnClickListener(v ->Activity_converter_Utils.correctValue(binding.valueCurrency,binding.resultCurrency));
     }
-    
 
-    private void setAdapter( String [] array ){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                R.layout.custom_spinner_item,array);
-        binding.spinnerFromCurrency.setAdapter(adapter);
-        binding.spinnerToCurrency.setAdapter(adapter);
-    }
-
-    private void setUnitMeasurement(){
-        //getValueSpinnerFrom = binding.spinnerFromCurrency.getSelectedItem().toString();
-        //getValueSpinnerTo = binding.spinnerToCurrency.getSelectedItem().toString();
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
-    }
-
-    //if user changes unit - it will change measurements and will automatically recalculate result
+             //if user changes unit - it will change measurements and will automatically recalculate result
     private void setSpinnersListeners(){
         binding.spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -193,7 +178,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     }
 
-    //Auto conversion  when user add number to value for convert
+             //Auto conversion  when user add number to value for convert
     private void addTextWatcher() {
         binding.valueCurrency.addTextChangedListener(new TextWatcher() {
             @Override
@@ -225,12 +210,28 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         });
     }
 
+
+
     //set units of measurements for value
     private void setUnitMeasurments(){
         Activity_converter_Utils.measurementUnitsHandler(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
         Activity_converter_Utils.measurementUnitsHandler(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
     }
 
+    private void setAdapter( String [] array ){
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                R.layout.custom_spinner_item,array);
+        binding.spinnerFromCurrency.setAdapter(adapter);
+        binding.spinnerToCurrency.setAdapter(adapter);
+    }
+
+    private void setStringFormat(double resultDouble){
+        NumberFormat formatter = new DecimalFormat("###.####");
+        binding.resultCurrency.setText(String.valueOf(formatter.format(resultDouble)));
+    }
+
+
+    // app conversion work
     private void convertOnTextChange(){
         getEnteredValue = Double.parseDouble(binding.valueCurrency.getText().toString());
         try {
@@ -253,8 +254,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                    double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerFromCurrency.getSelectedItem().toString())));
                    double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerToCurrency.getSelectedItem().toString())));
                    //use MathParser to calculate value
-                   String getValue = binding.valueCurrency.getText().toString();
-                   Expression value = new Expression(getValue);
+                   Expression value = new Expression(binding.valueCurrency.getText().toString());
                    double resultDouble = value.calculate();
                    //use calculated value
                    double resultFinal = ((targetRate * resultDouble) / initRate);
@@ -266,10 +266,9 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         }
     }
 
-    private void setStringFormat(double resultDouble){
-        NumberFormat formatter = new DecimalFormat("###.####");
-        binding.resultCurrency.setText(String.valueOf(formatter.format(resultDouble)));
-    }
+
+
+    // app JSON retrieving work
 
     private void getJsonDate() {
         String url = "https://api.exchangeratesapi.io/latest";
@@ -322,7 +321,6 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                                 hm.put(getResources().getString(R.string.PLN), phone.getString("PLN"));
                                 hm.put(getResources().getString(R.string.NZD), phone.getString("NZD"));
                                 hm.put(getResources().getString(R.string.RUB), phone.getString("RUB"));
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
