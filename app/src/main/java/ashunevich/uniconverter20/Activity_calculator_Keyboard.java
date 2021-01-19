@@ -31,6 +31,7 @@ public class Activity_calculator_Keyboard extends Fragment {
     public View onCreateView(@Nullable LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        assert inflater != null;
         binding = CalculatorKeyboardBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         bus = EventBus.getDefault();
@@ -38,6 +39,7 @@ public class Activity_calculator_Keyboard extends Fragment {
         return view;
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void setButtonBindingsCalcKeyboard(){
         binding.butOne.setOnClickListener
                 (v -> postValue(getResources().getString(R.string.one)));

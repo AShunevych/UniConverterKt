@@ -26,7 +26,8 @@ import java.util.Locale;
 
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
 
-import static ashunevich.uniconverter20.Activity_converter_Utils.blockInput;
+import static ashunevich.uniconverter20.Utils.blockInput;
+import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 
 public class Activity_converter extends Fragment {
 
@@ -89,7 +90,7 @@ public class Activity_converter extends Fragment {
     @Subscribe
     public void getText (BusPost_Tab_Position event) {
             setSpinnerAdapterOnBusEvent(event.getPos());
-            Activity_converter_Utils.clearView(binding.valueEdit,binding.resultView);
+            Utils.clearView(binding.valueEdit,binding.resultView);
     }
 
     @Subscribe()
@@ -97,9 +98,9 @@ public class Activity_converter extends Fragment {
         if (event.getNumber().contains("check") | event.getNumber().contains("correction") |
                event.getNumber().contains("clear")){
            switch (event.getNumber()){
-               case "check": Activity_converter_Utils.appendMinusPlus(binding.valueEdit);break;
-               case "correction": Activity_converter_Utils.correctValue(binding.valueEdit,binding.resultView);break;
-               case "clear": Activity_converter_Utils.clearView(binding.valueEdit,binding.resultView);break;
+               case "check": Utils.appendMinusPlus(binding.valueEdit);break;
+               case "correction": Utils.correctValue(binding.valueEdit,binding.resultView);break;
+               case "clear": Utils.clearView(binding.valueEdit,binding.resultView);break;
            }
        }
          else{
@@ -177,8 +178,8 @@ public class Activity_converter extends Fragment {
 
     //set units of mesaurments for value
     private void setUnitMeasurement(){
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerValue.getSelectedItem().toString(),binding.valueUnit);
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerResult.getSelectedItem().toString(),binding.resultUnit );
+        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue),binding.valueUnit);
+        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult),binding.resultUnit);
     }
 
     private void convertAndShowValues(String activeLocale){
@@ -188,14 +189,14 @@ public class Activity_converter extends Fragment {
         }
         else {
                if (activeLocale.equals("українська")){
-                   UnitConverter.ConvertValues_Ukr(binding.spinnerValue.getSelectedItem().toString(),
-                           binding.spinnerResult.getSelectedItem().toString(),
+                   UnitConverter.ConvertValues_Ukr(getSpinnerValueString(binding.spinnerValue),
+                           getSpinnerValueString(binding.spinnerResult),
                            Double.parseDouble(binding.valueEdit.getText().toString()),
                            binding.resultView);
                }
                else{
-                   UnitConverter.ConvertValues(binding.spinnerValue.getSelectedItem().toString(),
-                         binding.spinnerResult.getSelectedItem().toString(),
+                   UnitConverter.ConvertValues(getSpinnerValueString(binding.spinnerValue),
+                           getSpinnerValueString(binding.spinnerResult),
                           Double.parseDouble(binding.valueEdit.getText().toString()),
                          binding.resultView);
                }

@@ -40,14 +40,14 @@ public class Activity_calculator extends AppCompatActivity {
         binding = CalculatorActivityBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        binding.correction.setOnClickListener(v -> Activity_converter_Utils.correctValue(binding.calcValue,binding.calcResult));
+        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.calcValue,binding.calcResult));
        setUtils();
     }
 
     private void setUtils(){
         binding.calcValue.setCursorVisible(true);
         binding.calcValue.setInputType(InputType.TYPE_NULL);
-        binding.correction.setOnClickListener(v -> Activity_converter_Utils.correctValue(binding.calcValue,binding.calcResult));
+        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.calcValue,binding.calcResult));
     }
 
     @Override
@@ -67,9 +67,9 @@ public class Activity_calculator extends AppCompatActivity {
         if (event.getNumber().contains("brackets") |
                 event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": Activity_converter_Utils.checkBrackets(binding.calcValue); break;
-                case "solve": Activity_converter_Utils.readAndSolve(binding.calcValue,binding.calcResult);break;
-                case "clear": Activity_converter_Utils.clearView(binding.calcValue,binding.calcResult);break;
+                case "brackets": Utils.checkBrackets(binding.calcValue); break;
+                case "solve": Utils.readAndSolve(binding.calcValue,binding.calcResult);break;
+                case "clear": Utils.clearView(binding.calcValue,binding.calcResult);break;
             }
         }
         else{

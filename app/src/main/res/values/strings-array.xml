@@ -3,12 +3,12 @@
     <string-array name="weight">
         <item>Milligram</item>
         <item>Gram</item>
-        <item>Kilogram/</item>
+        <item>Kilogram</item>
         <item>Tonne</item>
-        <item>Grain</item>\
+        <item>Grain</item>
         <item>Ounce</item>
         <item>Pound</item>
-        <item>Hundreweight</item>
+        <item>Hundredweight</item>
         <item>Ton(long)</item>
     </string-array>
 

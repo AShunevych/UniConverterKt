@@ -37,6 +37,8 @@ import java.util.Objects;
 
 import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
 
+import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
+
 public class Activity_converter_Currency  extends AppCompatActivity {
 
      
@@ -134,9 +136,9 @@ public class Activity_converter_Currency  extends AppCompatActivity {
                 event.getNumber().contains("clear")|
                 event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": Activity_converter_Utils.checkBrackets(binding.valueCurrency); break;
+                case "brackets": Utils.checkBrackets(binding.valueCurrency); break;
                 case "solve": convertOnDemand();break;
-                case "clear": Activity_converter_Utils.clearView(binding.valueCurrency,binding.resultCurrency);break;
+                case "clear": Utils.clearView(binding.valueCurrency,binding.resultCurrency);break;
             }
         }
         else{
@@ -148,7 +150,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     private void setButtonBindings_ConverterCurrency(){
         binding.refreshJSONData.setOnClickListener(v ->
                 checkConnection());
-        binding.correction.setOnClickListener(v ->Activity_converter_Utils.correctValue(binding.valueCurrency,binding.resultCurrency));
+        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.valueCurrency,binding.resultCurrency));
     }
 
              //if user changes unit - it will change measurements and will automatically recalculate result
@@ -214,8 +216,8 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     //set units of measurements for value
     private void setUnitMeasurments(){
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerFromCurrency.getSelectedItem().toString(),binding.currencyFROMShort);
-        Activity_converter_Utils.measurementUnitsHandler(binding.spinnerToCurrency.getSelectedItem().toString(),binding.currencyToShort );
+        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerFromCurrency),binding.currencyFROMShort);
+        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerToCurrency),binding.currencyToShort );
     }
 
     private void setAdapter( String [] array ){
@@ -235,10 +237,9 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     private void convertOnTextChange(){
         getEnteredValue = Double.parseDouble(binding.valueCurrency.getText().toString());
         try {
-            double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerFromCurrency.getSelectedItem().toString())));
-            double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerToCurrency.getSelectedItem().toString())));
-            double resultFinal = ((targetRate * getEnteredValue) / initRate);
-            setStringFormat(resultFinal);
+            double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(getSpinnerValueString(binding.spinnerFromCurrency))));
+            double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(getSpinnerValueString(binding.spinnerToCurrency))));
+            setStringFormat(Utils.currencyConverter(getEnteredValue,targetRate,initRate));
         }
         catch (Exception e){
             Log.d(" Exception","exeption catched") ;
@@ -250,15 +251,14 @@ public class Activity_converter_Currency  extends AppCompatActivity {
             binding.resultCurrency.setText("");
         }
         else {
-            try{ //get JSON received values
-                   double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerFromCurrency.getSelectedItem().toString())));
-                   double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(binding.spinnerToCurrency.getSelectedItem().toString())));
-                   //use MathParser to calculate value
-                   Expression value = new Expression(binding.valueCurrency.getText().toString());
-                   double resultDouble = value.calculate();
-                   //use calculated value
-                   double resultFinal = ((targetRate * resultDouble) / initRate);
-                   setStringFormat(resultFinal); }
+            try { //get JSON received values
+                double initRate = Double.parseDouble(Objects.requireNonNull(hm.get(getSpinnerValueString(binding.spinnerFromCurrency))));
+                double targetRate = Double.parseDouble(Objects.requireNonNull(hm.get(getSpinnerValueString(binding.spinnerToCurrency))));
+                //use MathParser to calculate value
+                Expression value = new Expression(binding.valueCurrency.getText().toString());
+                //use calculated value
+                setStringFormat(Utils.currencyConverter(value.calculate(), targetRate, initRate));
+            }
             catch (Exception e){
                 Log.d(" Exception","exeption catched") ;
             }

@@ -7,11 +7,12 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
-public abstract class Activity_converter_Utils extends Activity_converter {
+public abstract class Utils {
 
     private static final String TAG = "ERROR-" ;
 
@@ -23,6 +24,10 @@ public abstract class Activity_converter_Utils extends Activity_converter {
     protected static void clearView (EditText valueEdit,TextView resultView){
         resultView.setText("");
         valueEdit.setText("");
+    }
+
+    protected static String getSpinnerValueString(Spinner spinner){
+        return spinner.getSelectedItem().toString();
     }
 
     protected static void readAndSolve (EditText valueEdit, TextView resultView){
@@ -92,7 +97,7 @@ public abstract class Activity_converter_Utils extends Activity_converter {
             case "Grain":   measurementUnit.setText(resources.getString(R.string.unit_Gr));break;
             case "Ounce":   measurementUnit.setText(resources.getString(R.string.unit_Oz));break;
             case "Pound":   measurementUnit.setText(resources.getString(R.string.unit_Lb));break;
-            case "Hundreweight":   measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
+            case "Hundredweight":   measurementUnit.setText(resources.getString(R.string.unit_Hw));break;
             case "Ton(long)":   measurementUnit.setText(resources.getString(R.string.unit_Tl));break;
             case "Millimetre":   measurementUnit.setText(resources.getString(R.string.unit_Mm));break;
             case "Centimetre":   measurementUnit.setText(resources.getString(R.string.unit_Sm));break;
@@ -235,6 +240,10 @@ public abstract class Activity_converter_Utils extends Activity_converter {
             case "Доллар НЗ":    measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
             case "Рубль":    measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
         }
+    }
+
+    protected static Double currencyConverter(Double value,Double targetRate, Double initRate ){
+        return ((targetRate * value) / initRate);
     }
 
 
