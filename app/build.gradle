@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.github.AShunevich:Conversion-Library-Android:0.1.0'
+    implementation 'com.github.AShunevich:Conversion-Library-Android:0.1.1'
     testImplementation 'junit:junit:4.13.1'
     implementation 'com.android.support:preference-v7:28.0.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -46,6 +46,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
     implementation'com.google.code.gson:gson:2.8.6'
-    implementation 'org.greenrobot:eventbus:3.1.1'
-
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }
