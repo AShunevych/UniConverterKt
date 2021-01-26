@@ -45,18 +45,18 @@
         android:id="@+id/spinnerFromCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerToCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valueCurrency" />
 
     <TextView
@@ -85,52 +85,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/valueCurrency"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/valueCurrency"
         app:layout_constraintTop_toBottomOf="@+id/spinnerToCurrency" />
-
-    <TextView
-        android:id="@+id/currencyValueFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:textAppearance="@style/currency_style_sw300"
-        app:layout_constraintEnd_toStartOf="@+id/currencyValueTu"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1 USD = " />
-
-    <TextView
-        android:id="@+id/currencyResultFrom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/currency_style_sw300"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerToCurrency"
-        app:layout_constraintEnd_toEndOf="@+id/currencyValueFrom"
-        app:layout_constraintStart_toStartOf="@+id/currencyValueFrom"
-        app:layout_constraintTop_toTopOf="@+id/spinnerToCurrency"
-        tools:text="1 EUR =" />
-
-    <TextView
-        android:id="@+id/currencyValueTu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textAppearance="@style/currency_style_sw300"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/currencyValueFrom"
-        tools:text="0.88 EUR" />
-
-    <TextView
-        android:id="@+id/currencyResulTo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/currency_style_sw300"
-        app:layout_constraintEnd_toEndOf="@+id/currencyValueTu"
-        app:layout_constraintStart_toStartOf="@+id/currencyValueTu"
-        app:layout_constraintTop_toTopOf="@+id/currencyResultFrom"
-        tools:text="1.1 USD" />
 
     <TextView
         android:id="@+id/dateView"
