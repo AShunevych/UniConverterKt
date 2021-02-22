@@ -174,25 +174,12 @@
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!-- Values for  "angle activity" fields except "Value" sw330dp -->
-    <style name="angleStyle_sw330" parent="angle_style_basic_values">
-        <item name="android:layout_marginStart">8dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:paddingStart">4dp</item>
-        <item name="android:paddingTop">4dp</item>
-        <item name="android:paddingEnd">2dp</item>
-        <item name="android:paddingBottom">4dp</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-    <style name="angle_aux_text">
-        <item name="android:textSize">12sp</item>
-        <item name="android:gravity">center_horizontal|center_vertical</item>
-    </style>
 
     <style name="button_basic" parent="Widget.AppCompat.Button.Small">
         <item name="android:background">@drawable/ripple</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="elevation">1dp</item>
     </style>
 
 
