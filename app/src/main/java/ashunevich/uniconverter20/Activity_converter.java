@@ -189,16 +189,16 @@ public class Activity_converter extends Fragment {
         }
         else {
                if (activeLocale.equals("українська")){
-                   UnitConverter.ConvertValues_Ukr(getSpinnerValueString(binding.spinnerValue),
+                   binding.resultView.setText(UnitConverter.ConvertValues_Ukr
+                           (getSpinnerValueString(binding.spinnerValue),
                            getSpinnerValueString(binding.spinnerResult),
-                           Double.parseDouble(binding.valueEdit.getText().toString()),
-                           binding.resultView);
+                           stringToDouble()));
                }
                else{
-                   UnitConverter.ConvertValues(getSpinnerValueString(binding.spinnerValue),
+                   binding.resultView.setText(UnitConverter.ConvertValues
+                           (getSpinnerValueString(binding.spinnerValue),
                            getSpinnerValueString(binding.spinnerResult),
-                          Double.parseDouble(binding.valueEdit.getText().toString()),
-                         binding.resultView);
+                           stringToDouble()));
                }
            }
 
@@ -208,6 +208,10 @@ public class Activity_converter extends Fragment {
     public void onDetach() {
         if (EventBus.getDefault().isRegistered(this)) { EventBus.getDefault().unregister(this); }
         super.onDetach();
+    }
+
+    private double stringToDouble(){
+        return Double.parseDouble(binding.valueEdit.getText().toString());
     }
 }
 
