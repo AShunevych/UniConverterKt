@@ -39,7 +39,6 @@ public class Activity_calculator_Keyboard extends Fragment {
         return view;
     }
 
-    @SuppressWarnings("ConstantConditions")
     private void setButtonBindingsCalcKeyboard(){
         binding.butOne.setOnClickListener
                 (v -> postValue(getResources().getString(R.string.one)));
