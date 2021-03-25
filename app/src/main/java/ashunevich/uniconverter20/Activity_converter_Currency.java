@@ -2,8 +2,7 @@
 package ashunevich.uniconverter20;
 
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,27 +27,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mariuszgromada.math.mxparser.Expression;
 
-import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Objects;
 
 import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import static ashunevich.uniconverter20.Utils.DATE;
+import static ashunevich.uniconverter20.Utils.HASH_MAP;
+import static ashunevich.uniconverter20.Utils.PREFERENCE_NAME;
+import static ashunevich.uniconverter20.Utils.SAVED_RESULT;
+import static ashunevich.uniconverter20.Utils.SAVED_VALUE;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 
 public class Activity_converter_Currency  extends AppCompatActivity {
 
      
      private CurrencyActivityBinding binding;
-    private SharedPreferences mPrefs;
+    private SharedPreferenceManager prefManager;
     protected double getEnteredValue;
-    protected HashMap<String, String> hm;
-    private final String SAVED_VALUE = "savedValue";
-    private final String SAVED_RESULT = "saveResult";
-    private final String SAVED_DATE = "saveDate";
-    private final String SAVED_HMAP = "CurrencyHMAP";
+    public HashMap<String, String> hm;
+
+
+
 
     @Override
     public void onStart(){
@@ -57,25 +61,12 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         super.onStart();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mPrefs
-                = getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        if (mPrefs != null){
-            binding.dateView.setText(mPrefs.getString(SAVED_DATE,""));
-            Type typeOfHashMap = new TypeToken<HashMap<String, String>>() { }.getType();
-            String JSONHash = mPrefs.getString(SAVED_HMAP,"");
-            hm = new Gson().fromJson(JSONHash, typeOfHashMap);
-        }
-    }
+
 
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState){
         savedInstanceState.putString(SAVED_VALUE,binding.valueCurrency.getText().toString());
         savedInstanceState.putString(SAVED_RESULT,binding.resultCurrency.getText().toString());
-        savedInstanceState.putString(SAVED_DATE,binding.dateView.getText().toString());
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -83,22 +74,25 @@ public class Activity_converter_Currency  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = CurrencyActivityBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(binding.getRoot());
+        prefManager = new SharedPreferenceManager(this, PREFERENCE_NAME);
+        getSharedPref();
         setButtonBindings_ConverterCurrency();
         setAdapter((getResources().getStringArray(R.array.currency)));
-        setUnitMeasurments();
+        setUnitMeasurements();
         setSpinnersListeners();
-        checkConnection();
+        if(TextUtils.isEmpty(returnDateString())){
+            checkConnection();
+        }
         addTextWatcher();
         binding.valueCurrency.setInputType(InputType.TYPE_NULL);
     }
+
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState){
         binding.valueCurrency.setText(savedInstanceState.getString(SAVED_VALUE));
         binding.resultCurrency.setText(savedInstanceState.getString(SAVED_RESULT));
-        binding.dateView.setText(savedInstanceState.getString(SAVED_DATE));
         super.onRestoreInstanceState(savedInstanceState);
     }
 
@@ -108,22 +102,15 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         super.onStop();
     }
 
-    @SuppressLint("ApplySharedPref")
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mPrefs = getSharedPreferences("MySharedPref",
-                MODE_PRIVATE);
-        SharedPreferences.Editor myEdit = mPrefs.edit();
-        myEdit.putString(SAVED_DATE,binding.dateView.getText().toString());
-        String hashMapString = new Gson().toJson(hm);
-        myEdit.putString(SAVED_HMAP,hashMapString);
-        myEdit.commit();
+    private void getSharedPref(){
+      binding.dateView.setText(prefManager.getValue(DATE,""));
+        hm = new HashMap<> ();
+      hm = prefManager.getHashMap(HASH_MAP);
     }
 
     private void checkConnection(){
-        if(InternetConnection.checkConnection(this)){
-             getJsonDate();
+        if(InternetUtils.checkConnection(this)){
+          checkDate ();
         }
         else{
             Snackbar.make(binding.currencyLayout, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
@@ -158,7 +145,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         binding.spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                setUnitMeasurments();
+                setUnitMeasurements();
                 convertOnDemand();
             }
             @Override
@@ -171,7 +158,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         binding.spinnerToCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                setUnitMeasurments();
+                setUnitMeasurements();
                 convertOnDemand();
             }
             @Override
@@ -215,7 +202,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
 
     //set units of measurements for value
-    private void setUnitMeasurments(){
+    private void setUnitMeasurements(){
         Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerFromCurrency),binding.currencyFROMShort);
         Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerToCurrency),binding.currencyToShort );
     }
@@ -229,6 +216,7 @@ public class Activity_converter_Currency  extends AppCompatActivity {
 
     private void setStringFormat(double resultDouble){
         NumberFormat formatter = new DecimalFormat("###.####");
+
         binding.resultCurrency.setText(String.valueOf(formatter.format(resultDouble)));
     }
 
@@ -266,61 +254,58 @@ public class Activity_converter_Currency  extends AppCompatActivity {
         }
     }
 
+    private void makeSnackBar(String snackText){
+        Snackbar.make(binding.currencyLayout, snackText,Snackbar.LENGTH_SHORT).show();
+    }
 
+    private String returnDateString(){return binding.dateView.getText().toString();}
 
     // app JSON retrieving work
 
-    private void getJsonDate() {
-        String url = "https://api.exchangeratesapi.io/latest";
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null, response -> {
-                    if (response != null){
-                        Log.d("Tag", "Response is null");
-                    }
-                    //USD,GBP,IDR,PLN,NZD,RUB
-                    try {
-                        assert response != null;
-                        String date = response.getString("date");
-                        // if user starts new activity and there is no saved data
-                         if (TextUtils.isEmpty(binding.dateView.getText().toString())){
-                            binding.dateView.setText(date);
-                            getJsonOnlineData();
-                        }
-                         // if user wants to update data, and data on source is equals to data in the phone. so data was already saved before.
-                        else if (binding.dateView.getText().equals(date)){
-                            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.SameDate),Snackbar.LENGTH_SHORT).show();
-                        }
-                        // if user wants to update, and data is different on the source
-                        else {
-                             binding.dateView.setText(date);
-                             Snackbar.make(binding.currencyLayout, getResources().getString(R.string.UpdateSuccessful),Snackbar.LENGTH_SHORT).show();
-                             getJsonOnlineData();
-                         }
+    private void checkDate(){
+        InternetUtils.getInstance().getJSONApi().getRates().enqueue(new Callback<DatePojo>() {
+            @Override
+            public void onResponse(@NonNull Call<DatePojo> call, @NonNull Response<DatePojo> response) {
+                Log.d("CALLBACK","OK");
+                DatePojo pojo = response.body ();
+                String date = pojo.date;
+                // if user wants to update data, and data on source is equals to data in the phone == data was already saved before.
+                if (TextUtils.isEmpty(returnDateString()) || !returnDateString().equals(date)) {
+                    binding.dateView.setText (date);
+                    prefManager.setValue (DATE, returnDateString ());
+                    loadData ();
+                    makeSnackBar (getResources ().getString (R.string.UpdateSuccessful));
+                }
+                else  {
+                    makeSnackBar(getResources().getString(R.string.SameDate));
+                }
+            }
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> VolleyLog.d("TAG", "Error: " + error.getMessage()));
-        RequestQueue queue = Volley.newRequestQueue(this);
-        // Adding request to request queue
-        queue.add(jsonObjReq);
+            @Override
+            public void onFailure(@NonNull Call<DatePojo> call, @NonNull Throwable t) {
+                Log.d("CALLBACK","FAILED");
+                t.printStackTrace();
+            }
+        });
     }
 
-    private void getJsonOnlineData() {
+    //need to replace this with Retrofit
+    private void loadData() {
         String url = "https://api.exchangeratesapi.io/latest";
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 url, null, response -> {
                     //USD,GBP,IDR,PLN,NZD,RUB
                     try {
                             JSONObject phone = response.getJSONObject("rates");
-                                hm = new HashMap<>();
+                                hm = new HashMap<> ();
                                 hm.put(getResources().getString(R.string.USD), phone.getString("USD"));
                                 hm.put(getResources().getString(R.string.GBP), phone.getString("GBP"));
                                 hm.put(getResources().getString(R.string.IDR), phone.getString("IDR"));
                                 hm.put(getResources().getString(R.string.PLN), phone.getString("PLN"));
                                 hm.put(getResources().getString(R.string.NZD), phone.getString("NZD"));
                                 hm.put(getResources().getString(R.string.RUB), phone.getString("RUB"));
+                                String hashMapString = new Gson ().toJson(hm);
+                                prefManager.setValue (HASH_MAP,hashMapString);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

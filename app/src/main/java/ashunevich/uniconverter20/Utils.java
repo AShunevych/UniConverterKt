@@ -16,6 +16,14 @@ public abstract class Utils {
 
     private static final String TAG = "ERROR-" ;
 
+    static String PREFERENCE_NAME ="APP_PREF";
+    static final String DATE="BALANCE";
+    static final String HASH_MAP="HashMAP";
+    static final String SAVED_VALUE = "savedValue";
+    static final String SAVED_RESULT = "saveResult";
+    static final String SAVED_DATE = "saveDate";
+
+
     public static void blockInput( EditText resultView, EditText valueEdit){
         resultView.setInputType(InputType.TYPE_NULL);
         valueEdit.setInputType(InputType.TYPE_NULL);
