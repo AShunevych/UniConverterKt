@@ -13,11 +13,11 @@ import org.greenrobot.eventbus.EventBus;
 import ashunevich.uniconverter20.databinding.CalculatorKeyboardBinding;
 
 
-public class Activity_calculator_Keyboard extends Fragment {
+public class FragmentKeyboard extends Fragment {
     EventBus bus;
     private CalculatorKeyboardBinding binding;
 
-    public Activity_calculator_Keyboard() {
+    public FragmentKeyboard() {
         // Required empty public constructor
     }
 
@@ -84,7 +84,7 @@ public class Activity_calculator_Keyboard extends Fragment {
     }
 
     public void postValue(String number) {
-        bus.post(new BusPost_Number(number));
+        bus.post(new BusEventPOJONumber (number));
         Log.d("Number",number);
     }
 

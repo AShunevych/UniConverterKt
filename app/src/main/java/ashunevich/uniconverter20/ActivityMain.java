@@ -16,7 +16,7 @@ import java.util.List;
 
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 
-public class Activity_Main extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
 
     private MainActivityBinding binding;
     EventBus bus;
@@ -78,7 +78,7 @@ public class Activity_Main extends AppCompatActivity {
             public void onPageSelected(int i) {
                 int pos = binding.tabLayout.getSelectedTabPosition();
                 Log.d("TAB NUMBER ----", String.valueOf(pos));
-                bus.post(new BusPost_Tab_Position(pos));
+                bus.post(new BusEventPOJOTabPosition (pos));
                 setAlpha(pos);
             }
 
@@ -112,7 +112,7 @@ public class Activity_Main extends AppCompatActivity {
                 getResources().getString(R.string.speed_button)}; //getResources().getString(R.string.circleSphere_button)
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         for (String tabName : tabNames) {
-            adapter.addFragment(new Activity_converter(), tabName);
+            adapter.addFragment(new ActivityConverter (), tabName);
         }
       binding.viewPager.setAdapter(adapter);
      binding.tabLayout.setupWithViewPager(binding.viewPager);
@@ -149,13 +149,13 @@ public class Activity_Main extends AppCompatActivity {
         binding.buttonDecimal.setOnClickListener
                 (v -> sendValue(getResources().getString(R.string.decimal)));
         binding.calculatorButton.setOnClickListener
-                (v -> startActivity(new Intent(Activity_Main.this, Activity_calculator.class)));
+                (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class)));
         binding.currencyCalculator.setOnClickListener
-                (v -> startActivity(new Intent(Activity_Main.this, Activity_converter_Currency.class)));
+                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class)));
     }
 
     public void sendValue(String value) {
-        bus.post(new BusPost_Number(value));
+        bus.post(new BusEventPOJONumber (value));
     }
     }
 

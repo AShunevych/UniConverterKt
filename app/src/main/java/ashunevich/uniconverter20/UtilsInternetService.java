@@ -11,13 +11,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class InternetUtils {
-    private static InternetUtils instance;
+public class UtilsInternetService {
+    private static UtilsInternetService instance;
 
     private static final String RATES_URL = "https://api.exchangeratesapi.io/";
     private final Retrofit mRetrofit;
 
-    private InternetUtils() {
+    private UtilsInternetService() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -28,15 +28,15 @@ public class InternetUtils {
                 .build();
     }
 
-    public static InternetUtils getInstance() {
+    public static UtilsInternetService getInstance() {
         if (instance == null) {
-            instance = new InternetUtils();
+            instance = new UtilsInternetService ();
         }
         return instance;
     }
 
-    public HolderRatesAPI getJSONApi() {
-        return mRetrofit.create(HolderRatesAPI.class);
+    public CurrencyRatesAPI getJSONApi() {
+        return mRetrofit.create(CurrencyRatesAPI.class);
     }
 
 

@@ -13,7 +13,7 @@ import org.greenrobot.eventbus.Subscribe;
 import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
 
 
-public class Activity_calculator extends AppCompatActivity {
+public class ActivityCalculator extends AppCompatActivity {
 
 
     private CalculatorActivityBinding binding;
@@ -63,7 +63,7 @@ public class Activity_calculator extends AppCompatActivity {
     }
 
     @Subscribe()
-    public void getText (BusPost_Number event) {
+    public void getText (BusEventPOJONumber event) {
         if (event.getNumber().contains("brackets") |
                 event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
             switch (event.getNumber()){

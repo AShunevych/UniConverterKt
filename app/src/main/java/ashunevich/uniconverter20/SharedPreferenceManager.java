@@ -32,8 +32,8 @@ public class SharedPreferenceManager {
         return mSettings.getString(key, defaultValue);
     }
 
-    public HashMap<String,String> getHashMap(String key){
-        Type typeOfHashMap = new TypeToken<HashMap<String, String>>() { }.getType();
+    public HashMap<String,Double> getHashMap(String key){
+        Type typeOfHashMap = new TypeToken<HashMap<String, Double>>() { }.getType();
         String JSONHash = mSettings.getString(key,"");
         return new Gson().fromJson(JSONHash, typeOfHashMap);
     }

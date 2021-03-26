@@ -29,13 +29,13 @@ import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
 import static ashunevich.uniconverter20.Utils.blockInput;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 
-public class Activity_converter extends Fragment {
+public class ActivityConverter extends Fragment {
 
     private ConverterActivityBinding binding;
     private String  sDefSystemLanguage;
 
     EventBus bus;
-    public Activity_converter() {
+    public ActivityConverter() {
         // Required empty public constructor
     }
 
@@ -87,13 +87,13 @@ public class Activity_converter extends Fragment {
     }
 
     @Subscribe
-    public void getText (BusPost_Tab_Position event) {
+    public void getText (BusEventPOJOTabPosition event) {
             setSpinnerAdapterOnBusEvent(event.getPos());
             Utils.clearView(binding.valueEdit,binding.resultView);
     }
 
     @Subscribe()
-    public void getCalculatorNumber(BusPost_Number event) {
+    public void getCalculatorNumber(BusEventPOJONumber event) {
         if (event.getNumber().contains("check") | event.getNumber().contains("correction") |
                event.getNumber().contains("clear")){
            switch (event.getNumber()){

@@ -1,13 +1,13 @@
 package ashunevich.uniconverter20;
 
-public class BusPost_Number {
+public class BusEventPOJONumber {
     public String getNumber() {
         return number;
     }
 
     public String number;
 
-    public BusPost_Number(String number){
+    public BusEventPOJONumber(String number){
         this.number = number;
     }
 

@@ -76,7 +76,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="ashunevich.uniconverter20.Activity_calculator_Keyboard"
+        android:name="ashunevich.uniconverter20.FragmentKeyboard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

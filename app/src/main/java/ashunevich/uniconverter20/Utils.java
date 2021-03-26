@@ -14,31 +14,30 @@ import org.mariuszgromada.math.mxparser.Expression;
 
 public abstract class Utils {
 
-    private static final String TAG = "ERROR-" ;
+     static final String TAG = "ERROR-" ;
 
     static String PREFERENCE_NAME ="APP_PREF";
-    static final String DATE="BALANCE";
     static final String HASH_MAP="HashMAP";
     static final String SAVED_VALUE = "savedValue";
     static final String SAVED_RESULT = "saveResult";
     static final String SAVED_DATE = "saveDate";
 
 
-    public static void blockInput( EditText resultView, EditText valueEdit){
+     static void blockInput( EditText resultView, EditText valueEdit){
         resultView.setInputType(InputType.TYPE_NULL);
         valueEdit.setInputType(InputType.TYPE_NULL);
     }
 
-    protected static void clearView (EditText valueEdit,TextView resultView){
+     static void clearView (EditText valueEdit,TextView resultView){
         resultView.setText("");
         valueEdit.setText("");
     }
 
-    protected static String getSpinnerValueString(Spinner spinner){
+     static String getSpinnerValueString(Spinner spinner){
         return spinner.getSelectedItem().toString();
     }
 
-    protected static void readAndSolve (EditText valueEdit, TextView resultView){
+     static void readAndSolve (EditText valueEdit, TextView resultView){
         if (TextUtils.isEmpty(valueEdit.getText().toString())) {
             resultView.setText("");
         }
@@ -50,7 +49,7 @@ public abstract class Utils {
         }
     }
 
-    protected static void checkBrackets (EditText valueEdit){
+     static void checkBrackets (EditText valueEdit){
         if (valueEdit.getText().toString().contains("(")){
             valueEdit.append(")");
         }
@@ -60,7 +59,7 @@ public abstract class Utils {
     }
 
     @SuppressLint("SetTextI18n")
-    protected static void appendMinusPlus(EditText valueEdit){
+     static void appendMinusPlus(EditText valueEdit){
       int x = valueEdit.getText().length();
        if (x != 15 | valueEdit.getText().toString().contains("-")){
             StringBuilder sb = new StringBuilder();
@@ -75,7 +74,7 @@ public abstract class Utils {
         }
     }
 
-    protected static void correctValue(EditText valueEdit, TextView resultEdit){
+     static void correctValue(EditText valueEdit, TextView resultEdit){
         int x = valueEdit.getText().length();
         if (x >0) {
             valueEdit.setText(removeLastChar(valueEdit.getText().toString()));
@@ -86,19 +85,21 @@ public abstract class Utils {
         }
     }
 
-    public static String removeLastChar(String str) {
-        return removeLastChars(str, 1);
+     static String removeLastChar(String str) {
+        return removeLastChars(str);
     }
 
-    public static String removeLastChars(String str, int chars) {
-        return str.substring(0, str.length() - chars);
+     static String removeLastChars(String str) {
+        return str.substring(0, str.length() - 1);
     }
 
-    public static void measurementUnitsHandler(String spinnerTextValue,
+     static void measurementUnitsHandler(String spinnerTextValue,
                                                TextView measurementUnit){
         Resources resources = measurementUnit.getResources();
         switch (spinnerTextValue) {
-            case "Milligram":   measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
+            case "Milligram":
+            case "Міліграм":
+                measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
             case "Gram":   measurementUnit.setText(resources.getString(R.string.unit_G));break;
             case "Kilogram":   measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
             case "Tonne":   measurementUnit.setText(resources.getString(R.string.unit_T));break;
@@ -172,8 +173,6 @@ public abstract class Utils {
             case "Polish złoty":   measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
             case "New Zealand dollar":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
             case "Russian Ruble":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
-//Ukrainian locale
-            case "Міліграм":    measurementUnit.setText(resources.getString(R.string.unit_Mg));break;
             case "Грам":    measurementUnit.setText(resources.getString(R.string.unit_G));break;
             case "Кілограм":    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
             case "Тонна":    measurementUnit.setText(resources.getString(R.string.unit_T));break;
@@ -250,11 +249,11 @@ public abstract class Utils {
         }
     }
 
-    protected static Double currencyConverter(Double value,Double targetRate, Double initRate ){
+     static Double currencyConverter(Double value,Double targetRate, Double initRate ){
         return ((targetRate * value) / initRate);
     }
 
-
+     static String returnDateString(TextView dateTextView){return dateTextView.getText().toString();}
 
 
 

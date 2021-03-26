@@ -2,12 +2,12 @@ package ashunevich.uniconverter20;
 
 
 import retrofit2.Call;
-;
+
 import retrofit2.http.GET;
 
-public interface HolderRatesAPI {
+public interface CurrencyRatesAPI {
     @GET("latest")
-    Call<DatePojo> getRates();
+    Call<CurrencyResponseObject> getRates();
 
 
 }
