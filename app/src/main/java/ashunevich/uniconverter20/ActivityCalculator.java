@@ -3,7 +3,6 @@ package ashunevich.uniconverter20;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
-import android.view.View;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -11,6 +10,11 @@ import org.greenrobot.eventbus.Subscribe;
 
 
 import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
+
+import static ashunevich.uniconverter20.Utils.checkBrackets;
+import static ashunevich.uniconverter20.Utils.clearView;
+import static ashunevich.uniconverter20.Utils.correctValue;
+import static ashunevich.uniconverter20.Utils.readAndSolve;
 
 
 public class ActivityCalculator extends AppCompatActivity {
@@ -38,16 +42,15 @@ public class ActivityCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = CalculatorActivityBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.calcValue,binding.calcResult));
+        setContentView(binding.getRoot());
+        binding.correction.setOnClickListener(v -> correctValue(binding.calcValue,binding.calcResult));
        setUtils();
     }
 
     private void setUtils(){
         binding.calcValue.setCursorVisible(true);
         binding.calcValue.setInputType(InputType.TYPE_NULL);
-        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.calcValue,binding.calcResult));
+        binding.correction.setOnClickListener(v -> correctValue(binding.calcValue,binding.calcResult));
     }
 
     @Override
@@ -67,9 +70,9 @@ public class ActivityCalculator extends AppCompatActivity {
         if (event.getNumber().contains("brackets") |
                 event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
             switch (event.getNumber()){
-                case "brackets": Utils.checkBrackets(binding.calcValue); break;
-                case "solve": Utils.readAndSolve(binding.calcValue,binding.calcResult);break;
-                case "clear": Utils.clearView(binding.calcValue,binding.calcResult);break;
+                case "brackets": checkBrackets(binding.calcValue); break;
+                case "solve": readAndSolve(binding.calcValue,binding.calcResult);break;
+                case "clear": clearView(binding.calcValue,binding.calcResult);break;
             }
         }
         else{

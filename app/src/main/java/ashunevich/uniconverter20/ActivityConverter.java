@@ -23,11 +23,13 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
 
 import static ashunevich.uniconverter20.Utils.blockInput;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
+import static ashunevich.uniconverter20.Utils.measurementUnitsHandler;
 
 public class ActivityConverter extends Fragment {
 
@@ -56,7 +58,6 @@ public class ActivityConverter extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = ConverterActivityBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
         sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
         bus = EventBus.getDefault();
         blockInput(binding.resultView,binding.valueEdit);
@@ -64,11 +65,11 @@ public class ActivityConverter extends Fragment {
         addTextWatcher();
         setSpinnersListeners();
         setUnitMeasurement();
-        return view;
+        return binding.getRoot();
     }
 
     private void setAdapter( String [] array ){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull (getContext ()),
                 R.layout.custom_spinner_item,array);
         binding.spinnerValue.setAdapter(adapter);
         binding.spinnerResult.setAdapter(adapter);
@@ -177,8 +178,8 @@ public class ActivityConverter extends Fragment {
 
     //set units of mesaurments for value
     private void setUnitMeasurement(){
-        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue),binding.valueUnit);
-        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult),binding.resultUnit);
+        measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue),binding.valueUnit);
+        measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult),binding.resultUnit);
     }
 
     private void convertAndShowValues(String activeLocale){

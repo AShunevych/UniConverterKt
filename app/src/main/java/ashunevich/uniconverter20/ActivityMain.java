@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ import java.util.List;
 
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 
+@SuppressWarnings("ConstantConditions")
 public class ActivityMain extends AppCompatActivity {
 
     private MainActivityBinding binding;
@@ -29,8 +29,7 @@ public class ActivityMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(binding.getRoot());
         setViewPage();
         setButtonBindings();
         bus = EventBus.getDefault();

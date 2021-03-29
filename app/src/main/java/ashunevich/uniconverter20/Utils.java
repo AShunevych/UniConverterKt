@@ -3,6 +3,7 @@ package ashunevich.uniconverter20;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -32,6 +33,7 @@ public abstract class Utils {
         resultView.setText("");
         valueEdit.setText("");
     }
+
 
      static String getSpinnerValueString(Spinner spinner){
         return spinner.getSelectedItem().toString();
@@ -167,12 +169,6 @@ public abstract class Utils {
             case "Foot/hour":   measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
             case "Mile/hour":   measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
             case "Knot":   measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
-            case "United States Dollar":   measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
-            case "Great Britain Pound":   measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
-            case "Indonesian rupiah":   measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
-            case "Polish złoty":   measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
-            case "New Zealand dollar":   measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
-            case "Russian Ruble":   measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
             case "Грам":    measurementUnit.setText(resources.getString(R.string.unit_G));break;
             case "Кілограм":    measurementUnit.setText(resources.getString(R.string.unit_Kg));break;
             case "Тонна":    measurementUnit.setText(resources.getString(R.string.unit_T));break;
@@ -240,12 +236,37 @@ public abstract class Utils {
             case "Фут/година":    measurementUnit.setText(resources.getString(R.string.unit_F_h));break;
             case "Міль/година":    measurementUnit.setText(resources.getString(R.string.unit_Mi));break;
             case "Вузол":    measurementUnit.setText(resources.getString(R.string.unit_Kt));break;
-            case "Доллар США":    measurementUnit.setText(resources.getString(R.string.unit_Usd));break;
-            case "Великобританський фунт":    measurementUnit.setText(resources.getString(R.string.unit_Gbp));break;
-            case "Індозенійська Рупія":    measurementUnit.setText(resources.getString(R.string.unit_Ipr));break;
-            case "Польский Злотий":    measurementUnit.setText(resources.getString(R.string.unit_Pln));break;
-            case "Доллар НЗ":    measurementUnit.setText(resources.getString(R.string.unit_Nzd));break;
-            case "Рубль":    measurementUnit.setText(resources.getString(R.string.unit_Rub));break;
+        }
+    }
+
+    static void currencyUnitHandler(String spinnerTextValue,
+                                        TextView measurementUnit) {
+        Resources resources = measurementUnit.getResources ();
+        switch (spinnerTextValue) {
+            case "United States Dollar":
+            case "Доллар США":
+                measurementUnit.setText (resources.getString (R.string.unit_Usd));
+                break;
+            case "Great Britain Pound":
+            case "Великобританський фунт":
+                measurementUnit.setText (resources.getString (R.string.unit_Gbp));
+                break;
+            case "Indonesian rupiah":
+            case "Індозенійська Рупія":
+                measurementUnit.setText (resources.getString (R.string.unit_Ipr));
+                break;
+            case "Polish złoty":
+            case "Польский Злотий":
+                measurementUnit.setText (resources.getString (R.string.unit_Pln));
+                break;
+            case "New Zealand dollar":
+            case "Доллар НЗ":
+                measurementUnit.setText (resources.getString (R.string.unit_Nzd));
+                break;
+            case "Russian Ruble":
+            case "Рубль":
+                measurementUnit.setText (resources.getString (R.string.unit_Rub));
+                break;
         }
     }
 

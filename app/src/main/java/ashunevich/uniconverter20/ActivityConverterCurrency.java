@@ -36,6 +36,7 @@ import static ashunevich.uniconverter20.Utils.HASH_MAP;
 import static ashunevich.uniconverter20.Utils.PREFERENCE_NAME;
 import static ashunevich.uniconverter20.Utils.SAVED_RESULT;
 import static ashunevich.uniconverter20.Utils.SAVED_VALUE;
+import static ashunevich.uniconverter20.Utils.currencyUnitHandler;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 import static ashunevich.uniconverter20.Utils.returnDateString;
 
@@ -198,8 +199,8 @@ public class ActivityConverterCurrency extends AppCompatActivity {
 
     //set units of measurements for value
     private void setUnitMeasurements(){
-        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerFromCurrency),binding.currencyFROMShort);
-        Utils.measurementUnitsHandler(getSpinnerValueString(binding.spinnerToCurrency),binding.currencyToShort );
+        currencyUnitHandler(getSpinnerValueString(binding.spinnerFromCurrency),binding.currencyFROMShort);
+        currencyUnitHandler(getSpinnerValueString(binding.spinnerToCurrency),binding.currencyToShort );
     }
 
     private void setAdapter( String [] array ){
@@ -220,9 +221,11 @@ public class ActivityConverterCurrency extends AppCompatActivity {
     private void convertOnTextChange(){
         getEnteredValue = Double.parseDouble(binding.valueCurrency.getText().toString());
         try {
-            double initRate = hm.get(getSpinnerValueString(binding.spinnerFromCurrency));
-            double targetRate = hm.get(getSpinnerValueString(binding.spinnerToCurrency));
-            setStringFormat(Utils.currencyConverter(getEnteredValue,targetRate,initRate));
+            if(hm != null){
+                Double initRate = hm.get(getSpinnerValueString(binding.spinnerFromCurrency));
+                Double targetRate = hm.get(getSpinnerValueString(binding.spinnerToCurrency));
+                setStringFormat(Utils.currencyConverter(getEnteredValue,targetRate,initRate));
+            }
         }
         catch (Exception e){
             Log.d(" Exception","Exception cached") ;
@@ -235,8 +238,8 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         }
         else {
             try { //get JSON received values
-                double initRate = hm.get(getSpinnerValueString(binding.spinnerFromCurrency));
-                double targetRate = hm.get(getSpinnerValueString(binding.spinnerToCurrency));
+                Double initRate = hm.get(getSpinnerValueString(binding.spinnerFromCurrency));
+                Double targetRate = hm.get(getSpinnerValueString(binding.spinnerToCurrency));
                 //use MathParser to calculate value
                 Expression value = new Expression(binding.valueCurrency.getText().toString());
                 //use calculated value
@@ -255,7 +258,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
 
 
 
-    // app JSON retrieving work
+    // JSON retrieving work
 
     private void checkDate(){
         UtilsInternetService.getInstance().getJSONApi().getRates().enqueue(new Callback<CurrencyResponseObject>() {
@@ -263,6 +266,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
             public void onResponse(@NonNull Call<CurrencyResponseObject> call, @NonNull Response<CurrencyResponseObject> response) {
                 Log.d("CALLBACK","OK");
                 CurrencyResponseObject pojo = response.body ();
+                assert pojo != null;
                 String date = pojo.date;
                 // if user wants to update data, and data on source is equals to data in the phone == data was already saved before
                 if (TextUtils.isEmpty(returnDateString(binding.dateView)) || !returnDateString(binding.dateView).equals(date)) {
@@ -291,11 +295,12 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         hm.put(getResources().getString(R.string.PLN), pojo.object.getRate("PLN"));
         hm.put(getResources().getString(R.string.NZD), pojo.object.getRate("NZD"));
         hm.put(getResources().getString(R.string.RUB), pojo.object.getRate("RUB"));
-        String hashMapString = new Gson ().toJson(hm);
-        prefManager.setValue (HASH_MAP,hashMapString);
         if(hm != null){
             makeSnackBar (getResources ().getString (R.string.UpdateSuccessful));
         }
+
+        String hashMapString = new Gson ().toJson(hm);
+        prefManager.setValue (HASH_MAP,hashMapString);
 
     }
 
