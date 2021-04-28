@@ -1,5 +1,5 @@
 # UniConverter
-Application provides conversion and calculation functions.    
+App for conversion and calculation .    
 Available for conversion: 
 - Area   
 - Force 
