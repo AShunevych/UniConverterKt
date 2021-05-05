@@ -1,5 +1,6 @@
 package ashunevich.uniconverter20;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -148,9 +149,11 @@ public class ActivityMain extends AppCompatActivity {
         binding.buttonDecimal.setOnClickListener
                 (v -> sendValue(getResources().getString(R.string.decimal)));
         binding.calculatorButton.setOnClickListener
-                (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class)));
+                (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class),
+                        ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
         binding.currencyCalculator.setOnClickListener
-                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class)));
+                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class),
+                        ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
     }
 
     public void sendValue(String value) {

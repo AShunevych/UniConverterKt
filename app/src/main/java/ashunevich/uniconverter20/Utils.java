@@ -3,7 +3,6 @@ package ashunevich.uniconverter20;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
