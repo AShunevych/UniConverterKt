@@ -44,14 +44,12 @@ public class ActivityCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = CalculatorActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.correction.setOnClickListener(v -> correctValue(binding.calcValue,binding.calcResult));
        setUtils();
     }
 
     private void setUtils(){
         binding.calcValue.setCursorVisible(true);
         binding.calcValue.setInputType(InputType.TYPE_NULL);
-        binding.correction.setOnClickListener(v -> correctValue(binding.calcValue,binding.calcResult));
     }
 
     @Override

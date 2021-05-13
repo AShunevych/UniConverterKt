@@ -5,6 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/calcResult"
+        style="@style/calcValueResult_sw300"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:lines="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"
+        tools:text="76" />
+
     <EditText
         android:id="@+id/calcValue"
         style="@style/calcValueResult_sw300"
@@ -12,45 +28,37 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:clickable="false"
-        android:lines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
         tools:text="sometext" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/calcResult"
+        app:layout_constraintEnd_toEndOf="@+id/divider3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/divider3"
+        app:layout_constraintTop_toBottomOf="@+id/calcValue" />
 
     <View
         android:id="@+id/divider3"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/fragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correction" />
-
-    <TextView
-        android:id="@+id/calcResult"
-        style="@style/calcValueResult_sw300"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:lines="1"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/calcResult"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calcValue"
-        tools:text="76" />
+        app:layout_constraintStart_toStartOf="@+id/calcResult"
+        app:layout_constraintTop_toBottomOf="@+id/calcResult" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline6"
@@ -63,22 +71,12 @@
         app:layout_constraintGuide_begin="158dp"
         app:layout_constraintGuide_percent="0.5" />
 
-    <Button
-        android:id="@+id/correction"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/backspace_ico_layer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calcResult" />
-
     <fragment
         android:id="@+id/fragment"
         android:name="ashunevich.uniconverter20.FragmentKeyboard"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

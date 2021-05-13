@@ -8,13 +8,14 @@
 
     <EditText
         android:id="@+id/valueEdit"
-        style="@style/value_style_sw330"
+        style="@style/calcValueResult_sw300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:cursorVisible="true"
+        android:selectAllOnFocus="false"
         android:singleLine="true"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,7 @@
 
     <EditText
         android:id="@+id/resultView"
-        style="@style/result_style_sw330"
+        style="@style/calcValueResult_sw300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
