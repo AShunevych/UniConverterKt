@@ -14,7 +14,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class UtilsInternetService {
     private static UtilsInternetService instance;
 
-    private static final String RATES_URL = "https://api.exchangeratesapi.io/";
+    private static final String RATES_URL = "https://api.openrates.io/";
     private final Retrofit mRetrofit;
 
     private UtilsInternetService() {
