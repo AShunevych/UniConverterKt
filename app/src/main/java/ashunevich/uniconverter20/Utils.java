@@ -32,12 +32,9 @@ public abstract class Utils {
         resultView.setText("");
         valueEdit.setText("");
     }
-
-
-     static String getSpinnerValueString(Spinner spinner){
-        return spinner.getSelectedItem().toString();
+    static String getSpinnerValueString(Spinner spinner){
+            return spinner.getSelectedItem().toString();
     }
-
      static void readAndSolve (EditText valueEdit, TextView resultView){
         if (TextUtils.isEmpty(valueEdit.getText().toString())) {
             resultView.setText("");

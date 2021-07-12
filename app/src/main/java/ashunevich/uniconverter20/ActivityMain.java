@@ -3,92 +3,102 @@ package ashunevich.uniconverter20;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 
 @SuppressWarnings("ConstantConditions")
 public class ActivityMain extends AppCompatActivity {
 
-    private MainActivityBinding binding;
-    EventBus bus;
+   private MainActivityBinding binding;
+   EventBus bus;
+   private final List<String> mFragmentTitleList = new ArrayList<> ();
+   public TabPositionViewModel model;
+
 
     protected void onStart() {
         super.onStart();
     }
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        mFragmentTitleList.addAll(Arrays.asList(getResources().getStringArray(R.array.units)));
         setViewPage();
+        setTabLayoutMediator ();
         setButtonBindings();
+
+        binding.currencyCalculator.setVisibility (View.GONE);//temporary
         bus = EventBus.getDefault();
+        getTabPosition(binding.viewPager);
+        model = new ViewModelProvider (this).get(TabPositionViewModel.class);
+
         alphaButtonState(false,0.5f);
     }
 
-    static class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
+
+    static class ViewPagerAdapter extends FragmentStateAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+
+        private ViewPagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+            super(fragmentManager, lifecycle);
         }
 
+        public void addFragment(Fragment fragment) {
+            mFragmentList.add(fragment);
+        }
+
+        @NonNull
         @Override
-        public Fragment getItem(int position) {
+        public Fragment createFragment(int position) {
             return mFragmentList.get(position);
         }
 
         @Override
-        public int getCount() {
+        public int getItemCount() {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-
 
     }
 
-    private void getTabPosition(final  ViewPager viewPager){
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    private void getTabPosition(final ViewPager2 viewPager){
+        viewPager.registerOnPageChangeCallback (new ViewPager2.OnPageChangeCallback () {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled (position, positionOffset, positionOffsetPixels);
             }
 
             @Override
-            public void onPageSelected(int i) {
-                int pos = binding.tabLayout.getSelectedTabPosition();
-                Log.d("TAB NUMBER ----", String.valueOf(pos));
-                bus.post(new BusEventPOJOTabPosition (pos));
-                setAlpha(pos);
+            public void onPageSelected(int position) {
+                model.select (position);
+                setAlpha(position);
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {
-
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged (state);
             }
         });
     }
-
 
     private void alphaButtonState(Boolean buttonStatus,float alpha){
      binding.buttonPlusMinus.setEnabled(buttonStatus);
@@ -105,18 +115,20 @@ public class ActivityMain extends AppCompatActivity {
     }
 
     private void setViewPage(){
-        String [] tabNames = new String[] {getResources().getString(R.string.mass_button),
-                getResources().getString(R.string.distance_button), getResources().getString(R.string.volume_button),
-                getResources().getString(R.string.sq),getResources().getString(R.string.force_button),
-                getResources().getString(R.string.temperature_button),getResources().getString(R.string.time_button),
-                getResources().getString(R.string.speed_button)}; //getResources().getString(R.string.circleSphere_button)
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        for (String tabName : tabNames) {
-            adapter.addFragment(new ActivityConverter (), tabName);
+        ViewPagerAdapter adapter = new ViewPagerAdapter (getSupportFragmentManager (),
+               getLifecycle ());
+
+        for(int i = 0; i<getResources ().getIntArray (R.array.units).length;i++){
+            adapter.addFragment (new ActivityConverter ());
         }
+
       binding.viewPager.setAdapter(adapter);
-     binding.tabLayout.setupWithViewPager(binding.viewPager);
-        getTabPosition(binding.viewPager);
+    }
+
+    private void setTabLayoutMediator(){
+        TabLayoutMediator tabLayoutMediator= new TabLayoutMediator(binding.tabLayout, binding.viewPager, (tab, position) ->
+                tab.setText(mFragmentTitleList.get(position)));
+        tabLayoutMediator.attach();
     }
 
     private void setButtonBindings(){
@@ -151,9 +163,11 @@ public class ActivityMain extends AppCompatActivity {
         binding.calculatorButton.setOnClickListener
                 (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class),
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
+        /*
         binding.currencyCalculator.setOnClickListener
                 (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class),
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
+         */
     }
 
     public void sendValue(String value) {

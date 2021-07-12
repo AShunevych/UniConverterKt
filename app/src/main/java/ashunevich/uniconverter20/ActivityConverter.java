@@ -1,20 +1,14 @@
 package ashunevich.uniconverter20;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
-
-
 import android.text.TextUtils;
 import android.text.TextWatcher;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-
 import android.widget.Toast;
 
 import com.ashunevich.conversionlibrary.UnitConverter;
@@ -23,8 +17,11 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Locale;
-import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
 
 import static ashunevich.uniconverter20.Utils.blockInput;
@@ -35,6 +32,7 @@ public class ActivityConverter extends Fragment {
 
     private ConverterActivityBinding binding;
     private String  sDefSystemLanguage;
+    private static final int DEFAULT_POS = 0;
 
     EventBus bus;
     public ActivityConverter() {
@@ -60,16 +58,29 @@ public class ActivityConverter extends Fragment {
         binding = ConverterActivityBinding.inflate(inflater, container, false);
         sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
         bus = EventBus.getDefault();
-        blockInput(binding.resultView,binding.valueEdit);
-        setAdapter(getResources().getStringArray(R.array.weight));
-        addTextWatcher();
-        setSpinnersListeners();
+        setSpinnerAdapterOnBusEvent(DEFAULT_POS);
         setUnitMeasurement();
+        blockInput(binding.resultView,binding.valueEdit);
+
         return binding.getRoot();
     }
 
-    private void setAdapter( String [] array ){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull (getContext ()),
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        setSpinnersListeners();
+        addTextWatcher();
+        initViewModel();
+        super.onViewCreated (view, savedInstanceState);
+
+    }
+
+    private void initViewModel(){
+        TabPositionViewModel model = new ViewModelProvider (requireActivity ()).get (TabPositionViewModel.class);
+        model.getSelected ().observe (getViewLifecycleOwner (), this::setSpinnerAdapterOnBusEvent);
+    }
+
+    private void setAdapter(String [] array ){
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext (),
                 R.layout.custom_spinner_item,array);
         binding.spinnerValue.setAdapter(adapter);
         binding.spinnerResult.setAdapter(adapter);
@@ -85,12 +96,6 @@ public class ActivityConverter extends Fragment {
     public void onDestroyView() {
         binding = null;
         super.onDestroyView();
-    }
-
-    @Subscribe
-    public void getText (BusEventPOJOTabPosition event) {
-            setSpinnerAdapterOnBusEvent(event.getPos());
-            Utils.clearView(binding.valueEdit,binding.resultView);
     }
 
     @Subscribe()
@@ -109,8 +114,8 @@ public class ActivityConverter extends Fragment {
         }
 
     //Filling spinners with values
-    private void setSpinnerAdapterOnBusEvent(int activeValue) {
-            switch (activeValue) {
+    private void setSpinnerAdapterOnBusEvent(int tabPos) {
+            switch (tabPos) {
                 case 0: setAdapter(getResources().getStringArray(R.array.weight));  break;
                 case 1: setAdapter(getResources().getStringArray(R.array.length)); break;
                 case 2: setAdapter(getResources().getStringArray(R.array.volume)); break;
@@ -119,10 +124,9 @@ public class ActivityConverter extends Fragment {
                 case 5: setAdapter(getResources().getStringArray(R.array.temperature_array)); break;
                 case 6: setAdapter(getResources().getStringArray(R.array.time_array)); break;
                 case 7: setAdapter(getResources().getStringArray(R.array.speed)); break;
-                case 8: setAdapter(getResources().getStringArray(R.array.circlesAndSpheres)); break;
         } }
 
-    //if user changes unit - it will change mesaurments and will automatically recalculate result
+    //if user changes unit - it will change measurements and will automatically recalculate result
     private void setSpinnersListeners(){
         binding.spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -181,6 +185,8 @@ public class ActivityConverter extends Fragment {
         measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue),binding.valueUnit);
         measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult),binding.resultUnit);
     }
+
+
 
     private void convertAndShowValues(String activeLocale){
 

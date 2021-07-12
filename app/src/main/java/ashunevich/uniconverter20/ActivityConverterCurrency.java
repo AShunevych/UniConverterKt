@@ -2,9 +2,6 @@
 package ashunevich.uniconverter20;
 
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -14,26 +11,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 import org.mariuszgromada.math.mxparser.Expression;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static ashunevich.uniconverter20.Utils.SAVED_DATE;
 import static ashunevich.uniconverter20.Utils.HASH_MAP;
 import static ashunevich.uniconverter20.Utils.PREFERENCE_NAME;
+import static ashunevich.uniconverter20.Utils.SAVED_DATE;
 import static ashunevich.uniconverter20.Utils.SAVED_RESULT;
 import static ashunevich.uniconverter20.Utils.SAVED_VALUE;
 import static ashunevich.uniconverter20.Utils.currencyUnitHandler;
@@ -213,7 +212,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
     private void setStringFormat(double resultDouble){
         NumberFormat formatter = new DecimalFormat("###.####");
 
-        binding.resultCurrency.setText(String.valueOf(formatter.format(resultDouble)));
+        binding.resultCurrency.setText((formatter.format(resultDouble)));
     }
 
 

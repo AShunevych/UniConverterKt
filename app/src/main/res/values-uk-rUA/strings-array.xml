@@ -121,9 +121,15 @@
         <item>Рубль</item>
     </string-array>
 
-    <string-array name="theme">
-        <item>Default</item>
-        <item>Alternative</item>
+    <string-array name="units">
+        <item>@string/mass_button</item>
+        <item>@string/distance_button</item>
+        <item>@string/volume_button</item>
+        <item>@string/area_button</item>
+        <item>@string/force_button</item>
+        <item>@string/temperature_button</item>
+        <item>@string/time_button</item>
+        <item>@string/speed_button</item>
     </string-array>
 
 </resources>

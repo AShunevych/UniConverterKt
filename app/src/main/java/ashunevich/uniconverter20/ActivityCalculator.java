@@ -1,20 +1,16 @@
 package ashunevich.uniconverter20;
 
-import android.app.ActivityOptions;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
-
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-
+import androidx.appcompat.app.AppCompatActivity;
 import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
 
 import static ashunevich.uniconverter20.Utils.checkBrackets;
 import static ashunevich.uniconverter20.Utils.clearView;
-import static ashunevich.uniconverter20.Utils.correctValue;
 import static ashunevich.uniconverter20.Utils.readAndSolve;
 
 
