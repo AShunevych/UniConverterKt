@@ -22,6 +22,5 @@ Screen:
 
 # Third-party resources :  
 [MathParser](http://mathparser.org/)  
-[OpenRates.io](https://openrates.io/)   
 [Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)
 
