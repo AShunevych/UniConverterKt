@@ -11,12 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 import org.mariuszgromada.math.mxparser.Expression;
 
 import java.text.DecimalFormat;
@@ -35,7 +34,14 @@ import static ashunevich.uniconverter20.Utils.PREFERENCE_NAME;
 import static ashunevich.uniconverter20.Utils.SAVED_DATE;
 import static ashunevich.uniconverter20.Utils.SAVED_RESULT;
 import static ashunevich.uniconverter20.Utils.SAVED_VALUE;
+import static ashunevich.uniconverter20.Utils.SYMBOL_BRACKETS;
+import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;
+import static ashunevich.uniconverter20.Utils.SYMBOL_SOLVE;
+import static ashunevich.uniconverter20.Utils.checkBrackets;
+import static ashunevich.uniconverter20.Utils.clearView;
+import static ashunevich.uniconverter20.Utils.correctValue;
 import static ashunevich.uniconverter20.Utils.currencyUnitHandler;
+import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 import static ashunevich.uniconverter20.Utils.returnDateString;
 
@@ -48,11 +54,8 @@ public class ActivityConverterCurrency extends AppCompatActivity {
     public HashMap<String, Double> hm;
 
 
-
-
     @Override
     public void onStart(){
-        EventBus.getDefault().register(this);
         super.onStart();
     }
 
@@ -75,10 +78,15 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         setButtonBindings_ConverterCurrency();
         setAdapter((getResources().getStringArray(R.array.currency)));
         setUnitMeasurements();
-        setSpinnersListeners();
+        setSpinnersListeners(binding.spinnerFromCurrency);
+        setSpinnersListeners(binding.spinnerToCurrency);
         if(TextUtils.isEmpty(returnDateString(binding.dateView))){
             checkConnection();
         }
+
+        AppViewModel model = generateViewModel (this);
+        model.getPostedNumber ().observe (this, this::getText);
+
         addTextWatcher();
         binding.valueCurrency.setInputType(InputType.TYPE_NULL);
     }
@@ -93,7 +101,6 @@ public class ActivityConverterCurrency extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        EventBus.getDefault().unregister(this);
         super.onStop();
     }
 
@@ -112,57 +119,43 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         }
     }
 
-    @Subscribe()
-    public void getText (BusEventPOJONumber event) {
-        if (event.getNumber().contains("brackets") |
-                event.getNumber().contains("clear")|
-                event.getNumber().contains("solve")){
-            switch (event.getNumber()){
-                case "brackets": Utils.checkBrackets(binding.valueCurrency); break;
-                case "solve": convertOnDemand();break;
-                case "clear": Utils.clearView(binding.valueCurrency,binding.resultCurrency);break;
+    public void getText (String event) {
+        if(event.equals (SYMBOL_BRACKETS)|| event.equals (SYMBOL_SOLVE)|| event.equals (SYMBOL_CLEAR)){
+            switch (event){
+                case SYMBOL_BRACKETS: checkBrackets (binding.valueCurrency); break;
+                case SYMBOL_SOLVE: convertOnDemand();break;
+                case SYMBOL_CLEAR: clearView (binding.valueCurrency,binding.resultCurrency);break;
             }
         }
         else{
-            binding.valueCurrency.append(event.getNumber());
+            binding.valueCurrency.append(event);
         }
     }
 
-    //app Listeners work
+    //app Listeners
     private void setButtonBindings_ConverterCurrency(){
-        binding.refreshJSONData.setOnClickListener(v ->
-                checkConnection());
-        binding.correction.setOnClickListener(v -> Utils.correctValue(binding.valueCurrency,binding.resultCurrency));
+        binding.refreshJSONData.setOnClickListener(v -> checkConnection());
+        binding.correction.setOnClickListener(v -> correctValue (binding.valueCurrency,binding.resultCurrency));
     }
 
-             //if user changes unit - it will change measurements and will automatically recalculate result
-    private void setSpinnersListeners(){
-        binding.spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    //if user changes unit - it will change measurements and will automatically recalculate result
+    private void setSpinnersListeners(Spinner spinner) {
+        spinner.setOnItemSelectedListener (new AdapterView.OnItemSelectedListener () {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                setUnitMeasurements();
-                convertOnDemand();
+                setUnitMeasurements ();
+                convertOnDemand ();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
 
             }
 
         });
-
-        binding.spinnerToCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                setUnitMeasurements();
-                convertOnDemand();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-            }});
-
     }
 
-             //Auto conversion  when user add number to value for convert
+    //Auto conversion  when user add number to value for convert
     private void addTextWatcher() {
         binding.valueCurrency.addTextChangedListener(new TextWatcher() {
             @Override
@@ -193,7 +186,6 @@ public class ActivityConverterCurrency extends AppCompatActivity {
             }
         });
     }
-
 
 
     //set units of measurements for value
@@ -300,12 +292,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
 
         String hashMapString = new Gson ().toJson(hm);
         prefManager.setValue (HASH_MAP,hashMapString);
-
     }
-
-
-
-
     }
 
 

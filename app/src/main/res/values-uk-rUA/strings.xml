@@ -49,6 +49,7 @@
     <string name="clear">C</string>
     <string name="rightBracket">)</string>
     <string name="leftBracket">(</string>
+    <string name="brackets">( )</string>
 
     <string name="cir">КРУГ</string>
     <string name="sph">СФЕРА</string>

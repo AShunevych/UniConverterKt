@@ -77,7 +77,7 @@
     </string-array>
 
     <string-array name="force">
-        <item>Mlilinewton</item>
+        <item>Millinewton</item>
         <item>Newton</item>
         <item>Kilonewton</item>
         <item>Ton-force(metric)</item>

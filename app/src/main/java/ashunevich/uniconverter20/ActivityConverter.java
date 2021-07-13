@@ -9,39 +9,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ashunevich.conversionlibrary.UnitConverter;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.Locale;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
 
+import static ashunevich.uniconverter20.Utils.SYMBOL_CHECK;
+import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;
+import static ashunevich.uniconverter20.Utils.SYMBOL_CORRECT;
+import static ashunevich.uniconverter20.Utils.appendMinusPlus;
 import static ashunevich.uniconverter20.Utils.blockInput;
+import static ashunevich.uniconverter20.Utils.clearView;
+import static ashunevich.uniconverter20.Utils.correctValue;
+import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 import static ashunevich.uniconverter20.Utils.measurementUnitsHandler;
+import static ashunevich.uniconverter20.Utils.returnLocale;
 
 public class ActivityConverter extends Fragment {
 
     private ConverterActivityBinding binding;
-    private String  sDefSystemLanguage;
     private static final int DEFAULT_POS = 0;
 
-    EventBus bus;
     public ActivityConverter() {
         // Required empty public constructor
     }
 
     @Override
     public void onStart(){
-        if (!EventBus.getDefault().isRegistered(this)) { EventBus.getDefault().register(this); }
         super.onStart();
     }
 
@@ -51,14 +51,11 @@ public class ActivityConverter extends Fragment {
     }
 
     @Override
-    @Subscribe
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = ConverterActivityBinding.inflate(inflater, container, false);
-        sDefSystemLanguage = Locale.getDefault().getDisplayLanguage();
-        bus = EventBus.getDefault();
-        setSpinnerAdapterOnBusEvent(DEFAULT_POS);
+        setSpinnerOnTabPositionChange (DEFAULT_POS);
         setUnitMeasurement();
         blockInput(binding.resultView,binding.valueEdit);
 
@@ -67,29 +64,30 @@ public class ActivityConverter extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        setSpinnersListeners();
+        initTabPositionViewModel();
+        initKeyBoardViewModel();
+        setSpinnerListener (binding.spinnerValue);
+        setSpinnerListener(binding.spinnerResult);
         addTextWatcher();
-        initViewModel();
         super.onViewCreated (view, savedInstanceState);
 
     }
 
-    private void initViewModel(){
-        TabPositionViewModel model = new ViewModelProvider (requireActivity ()).get (TabPositionViewModel.class);
-        model.getSelected ().observe (getViewLifecycleOwner (), this::setSpinnerAdapterOnBusEvent);
+    private void initTabPositionViewModel(){
+        AppViewModel tabPositionViewModel = generateViewModel(requireActivity ());
+        tabPositionViewModel.getSelected ().observe (getViewLifecycleOwner (), this::setSpinnerOnTabPositionChange);
+    }
+
+    private void initKeyBoardViewModel(){
+        AppViewModel keyboardViewModel = generateViewModel (requireActivity ());
+        keyboardViewModel.getPostedNumber ().observe (getViewLifecycleOwner (), this::setViewModelTextReceiver);
     }
 
     private void setAdapter(String [] array ){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext (),
-                R.layout.custom_spinner_item,array);
-        binding.spinnerValue.setAdapter(adapter);
-        binding.spinnerResult.setAdapter(adapter);
-    }
-
-    @Override
-    public void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
+        binding.spinnerValue.setAdapter(new ArrayAdapter<>(getContext (),
+                R.layout.custom_spinner_item,array));
+        binding.spinnerResult.setAdapter(new ArrayAdapter<>(getContext (),
+                R.layout.custom_spinner_item,array));
     }
 
     @Override
@@ -98,23 +96,22 @@ public class ActivityConverter extends Fragment {
         super.onDestroyView();
     }
 
-    @Subscribe()
-    public void getCalculatorNumber(BusEventPOJONumber event) {
-        if (event.getNumber().contains("check") | event.getNumber().contains("correction") |
-               event.getNumber().contains("clear")){
-           switch (event.getNumber()){
-               case "check": Utils.appendMinusPlus(binding.valueEdit);break;
-               case "correction": Utils.correctValue(binding.valueEdit,binding.resultView);break;
-               case "clear": Utils.clearView(binding.valueEdit,binding.resultView);break;
-           }
-       }
-         else{
-            binding.valueEdit.append(event.getNumber());
+
+    public void setViewModelTextReceiver(String event) {
+        if(event.equals (SYMBOL_CORRECT)|| event.equals (SYMBOL_CLEAR)||event.equals (SYMBOL_CHECK)){
+            switch (event){
+                case SYMBOL_CORRECT: correctValue(binding.valueEdit,binding.resultView);break;
+                case SYMBOL_CLEAR: clearView(binding.valueEdit,binding.resultView);break;
+                case SYMBOL_CHECK:appendMinusPlus (binding.valueEdit);break;
             }
         }
+        else{
+            binding.valueEdit.append(event);
+        }
+    }
 
     //Filling spinners with values
-    private void setSpinnerAdapterOnBusEvent(int tabPos) {
+    private void setSpinnerOnTabPositionChange(int tabPos) {
             switch (tabPos) {
                 case 0: setAdapter(getResources().getStringArray(R.array.weight));  break;
                 case 1: setAdapter(getResources().getStringArray(R.array.length)); break;
@@ -127,11 +124,11 @@ public class ActivityConverter extends Fragment {
         } }
 
     //if user changes unit - it will change measurements and will automatically recalculate result
-    private void setSpinnersListeners(){
-        binding.spinnerValue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    private void setSpinnerListener(Spinner spinner){
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                convertAndShowValues(sDefSystemLanguage);
+                convertAndShowValues(returnLocale());
                 setUnitMeasurement();
             }
             @Override
@@ -139,16 +136,6 @@ public class ActivityConverter extends Fragment {
 
             }
         });
-
-        binding.spinnerResult.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                setUnitMeasurement();
-                convertAndShowValues(sDefSystemLanguage);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-            }});
     }
 
     //Auto conversion when user add number to value for convert
@@ -161,7 +148,7 @@ public class ActivityConverter extends Fragment {
                         binding.valueEdit.setSelection(s.length()-1);
                         showToast();
                     }
-                        convertAndShowValues(sDefSystemLanguage);
+                        convertAndShowValues(returnLocale ());
                 }
 
                 @Override
@@ -180,13 +167,11 @@ public class ActivityConverter extends Fragment {
             Toast.makeText(getActivity(), getResources().getString(R.string.maxNumberReached), Toast.LENGTH_SHORT).show();
         }
 
-    //set units of mesaurments for value
+    //set units of measurements for value
     private void setUnitMeasurement(){
         measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue),binding.valueUnit);
         measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult),binding.resultUnit);
     }
-
-
 
     private void convertAndShowValues(String activeLocale){
 
@@ -212,7 +197,6 @@ public class ActivityConverter extends Fragment {
 
     @Override
     public void onDetach() {
-        if (EventBus.getDefault().isRegistered(this)) { EventBus.getDefault().unregister(this); }
         super.onDetach();
     }
 

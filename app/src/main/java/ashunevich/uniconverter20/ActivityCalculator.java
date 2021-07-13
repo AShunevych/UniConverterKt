@@ -3,19 +3,19 @@ package ashunevich.uniconverter20;
 import android.os.Bundle;
 import android.text.InputType;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
 import androidx.appcompat.app.AppCompatActivity;
 import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
 
+import static ashunevich.uniconverter20.Utils.SYMBOL_BRACKETS;
+import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;
+import static ashunevich.uniconverter20.Utils.SYMBOL_SOLVE;
 import static ashunevich.uniconverter20.Utils.checkBrackets;
 import static ashunevich.uniconverter20.Utils.clearView;
+import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.readAndSolve;
 
 
 public class ActivityCalculator extends AppCompatActivity {
-
 
     private CalculatorActivityBinding binding;
     private final String VALUE_STRING = "valueString";
@@ -23,7 +23,6 @@ public class ActivityCalculator extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        EventBus.getDefault().register(this);
         super.onStart();
     }
 
@@ -32,20 +31,25 @@ public class ActivityCalculator extends AppCompatActivity {
         savedInstanceState.putString(VALUE_STRING,binding.calcValue.getText().toString());
         savedInstanceState.putString(RESULT_STRING,binding.calcResult.getText().toString());
         super.onSaveInstanceState(savedInstanceState);
-
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = CalculatorActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-       setUtils();
+    super.onCreate(savedInstanceState);
+    binding = CalculatorActivityBinding.inflate(getLayoutInflater());
+    setContentView(binding.getRoot());
+    setUtils();
+    initViewModel();
     }
 
     private void setUtils(){
         binding.calcValue.setCursorVisible(true);
         binding.calcValue.setInputType(InputType.TYPE_NULL);
+    }
+
+    private void initViewModel(){
+        AppViewModel model = generateViewModel(this);
+        model.getPostedNumber ().observe (this, this::getText);
     }
 
     @Override
@@ -54,25 +58,17 @@ public class ActivityCalculator extends AppCompatActivity {
         binding.calcResult.setText(savedInstanceState.getString(RESULT_STRING));
         super.onRestoreInstanceState(savedInstanceState);
     }
-    @Override
-    protected void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
-    }
 
-    @Subscribe()
-    public void getText (BusEventPOJONumber event) {
-        if (event.getNumber().contains("brackets") |
-                event.getNumber().contains("clear")|   event.getNumber().contains("solve")){
-            switch (event.getNumber()){
-                case "brackets": checkBrackets(binding.calcValue); break;
-                case "solve": readAndSolve(binding.calcValue,binding.calcResult);break;
-                case "clear": clearView(binding.calcValue,binding.calcResult);break;
+    public void getText (String event) {
+        if(event.equals (SYMBOL_BRACKETS)|| event.equals (SYMBOL_SOLVE)|| event.equals (SYMBOL_CLEAR)){
+            switch (event){
+                case SYMBOL_BRACKETS: checkBrackets(binding.calcValue);break;
+                case SYMBOL_SOLVE: readAndSolve(binding.calcValue,binding.calcResult);break;
+                case SYMBOL_CLEAR: clearView(binding.calcValue,binding.calcResult);break;
             }
         }
         else{
-            binding.calcValue.append(event.getNumber());
+            binding.calcValue.append(event);
         }
     }
-
 }

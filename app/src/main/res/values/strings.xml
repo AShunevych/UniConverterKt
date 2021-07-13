@@ -50,6 +50,7 @@
     <string name="logStr">log</string>
     <string name="percent">%</string>
     <string name="clear">C</string>
+    <string name="brackets">( )</string>
     <string name="rightBracket">)</string>
     <string name="leftBracket">(</string>
 

@@ -125,7 +125,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/plus"
         android:textColor="@color/supportColor"
-        app:layout_constraintBottom_toTopOf="@+id/but_equal"
+        app:layout_constraintBottom_toTopOf="@+id/but_solve"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/but_three"
@@ -163,7 +163,7 @@
         style="@style/newSW330"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="( )"
+        android:text="@string/brackets"
         android:textColor="@color/supportColor"
         app:layout_constraintBottom_toTopOf="@+id/button_eight"
         app:layout_constraintEnd_toStartOf="@+id/but_percent"
@@ -241,7 +241,7 @@
         app:layout_constraintTop_toBottomOf="@+id/but_duzhky" />
 
     <Button
-        android:id="@+id/but_equal"
+        android:id="@+id/but_solve"
         style="@style/newSW330"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/dzero"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/but_equal"
+        app:layout_constraintEnd_toStartOf="@+id/but_solve"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_zero"
         app:layout_constraintTop_toBottomOf="@+id/but_three" />

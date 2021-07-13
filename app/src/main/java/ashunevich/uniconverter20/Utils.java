@@ -6,48 +6,58 @@ import android.content.res.Resources;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
+import java.util.Locale;
+
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
+
 public abstract class Utils {
 
-     static final String TAG = "ERROR-" ;
-
-    static String PREFERENCE_NAME ="APP_PREF";
+    static final String TAG = "ERROR-" ;
+    static final String PREFERENCE_NAME ="APP_PREF";
     static final String HASH_MAP="HashMAP";
     static final String SAVED_VALUE = "savedValue";
     static final String SAVED_RESULT = "saveResult";
     static final String SAVED_DATE = "saveDate";
 
+    static final String SYMBOL_CORRECT = "⇽";
+    static final String SYMBOL_CLEAR = "C";
+    static final String SYMBOL_BRACKETS = "( )";
+    static final String SYMBOL_SOLVE = "=";
+    static final String SYMBOL_CHECK = "-/+";
 
-     static void blockInput( EditText resultView, EditText valueEdit){
+    static void blockInput( EditText resultView, EditText valueEdit){
         resultView.setInputType(InputType.TYPE_NULL);
         valueEdit.setInputType(InputType.TYPE_NULL);
     }
 
-     static void clearView (EditText valueEdit,TextView resultView){
+    static void clearView (EditText valueEdit,TextView resultView){
         resultView.setText("");
         valueEdit.setText("");
     }
     static String getSpinnerValueString(Spinner spinner){
             return spinner.getSelectedItem().toString();
     }
-     static void readAndSolve (EditText valueEdit, TextView resultView){
-        if (TextUtils.isEmpty(valueEdit.getText().toString())) {
-            resultView.setText("");
-        }
-         else {
+    static void readAndSolve (EditText valueEdit, TextView resultView){
+        if (!TextUtils.isEmpty(valueEdit.getText().toString())) {
             String getValue = valueEdit.getText().toString();
             Expression value = new Expression(getValue);
             String getResult = Double.toString(value.calculate());
             resultView.setText(getResult);
         }
+         else {
+            resultView.setText("");
+        }
     }
 
-     static void checkBrackets (EditText valueEdit){
+    static void checkBrackets (EditText valueEdit){
         if (valueEdit.getText().toString().contains("(")){
             valueEdit.append(")");
         }
@@ -56,8 +66,17 @@ public abstract class Utils {
         }
     }
 
+    static void postTextOnClick(AppViewModel model, Button button){
+         String buttonText = button.getText ().toString ();
+         button.setOnClickListener (view -> model.setPostNumber (buttonText));
+    }
+
+    static String returnLocale(){
+         return Locale.getDefault().getDisplayLanguage();
+    }
+
     @SuppressLint("SetTextI18n")
-     static void appendMinusPlus(EditText valueEdit){
+    static void appendMinusPlus(EditText valueEdit){
       int x = valueEdit.getText().length();
        if (x != 15 | valueEdit.getText().toString().contains("-")){
             StringBuilder sb = new StringBuilder();
@@ -72,7 +91,7 @@ public abstract class Utils {
         }
     }
 
-     static void correctValue(EditText valueEdit, TextView resultEdit){
+    static void correctValue(EditText valueEdit, TextView resultEdit){
         int x = valueEdit.getText().length();
         if (x >0) {
             valueEdit.setText(removeLastChar(valueEdit.getText().toString()));
@@ -83,15 +102,15 @@ public abstract class Utils {
         }
     }
 
-     static String removeLastChar(String str) {
+    static String removeLastChar(String str) {
         return removeLastChars(str);
     }
 
-     static String removeLastChars(String str) {
+    static String removeLastChars(String str) {
         return str.substring(0, str.length() - 1);
     }
 
-     static void measurementUnitsHandler(String spinnerTextValue,
+    static void measurementUnitsHandler(String spinnerTextValue,
                                                TextView measurementUnit){
         Resources resources = measurementUnit.getResources();
         switch (spinnerTextValue) {
@@ -266,13 +285,15 @@ public abstract class Utils {
         }
     }
 
-     static Double currencyConverter(Double value,Double targetRate, Double initRate ){
+    static Double currencyConverter(Double value,Double targetRate, Double initRate ){
         return ((targetRate * value) / initRate);
     }
 
-     static String returnDateString(TextView dateTextView){return dateTextView.getText().toString();}
+    static String returnDateString(TextView dateTextView){return dateTextView.getText().toString();}
 
-
+    static AppViewModel generateViewModel(ViewModelStoreOwner owner){
+        return new ViewModelProvider (owner).get (AppViewModel.class);
+    }
 
 }
 
