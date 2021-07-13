@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
+import ashunevich.uniconverter20.ui.AppViewModel;
 
 import static ashunevich.uniconverter20.Utils.SYMBOL_CHECK;
 import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;

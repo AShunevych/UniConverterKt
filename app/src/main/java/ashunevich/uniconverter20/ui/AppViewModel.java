@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.ui;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

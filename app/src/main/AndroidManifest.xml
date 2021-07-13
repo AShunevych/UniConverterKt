@@ -29,7 +29,7 @@
         </activity>
 
         <activity
-            android:name=".ActivityConverterCurrency"
+            android:name=".currencyapi.ActivityConverterCurrency"
             android:parentActivityName=".ActivityMain"
             android:screenOrientation="portrait"
             android:label="@string/currency_button"

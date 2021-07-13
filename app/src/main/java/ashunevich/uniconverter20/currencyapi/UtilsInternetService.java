@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.currencyapi;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class UtilsInternetService {
+class UtilsInternetService {
     private static UtilsInternetService instance;
 
     private static final String RATES_URL = "https://api.openrates.io/";
@@ -28,20 +28,20 @@ public class UtilsInternetService {
                 .build();
     }
 
-    public static UtilsInternetService getInstance() {
+    protected static UtilsInternetService getInstance() {
         if (instance == null) {
             instance = new UtilsInternetService ();
         }
         return instance;
     }
 
-    public CurrencyRatesAPI getJSONApi() {
+    protected CurrencyRatesAPI getJSONApi() {
         return mRetrofit.create(CurrencyRatesAPI.class);
     }
 
 
     // CHECK WHETHER INTERNET CONNECTION IS AVAILABLE OR NOT
-        public static boolean checkConnection(Context context) {
+    protected static boolean checkConnection(Context context) {
             final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             if (connMgr != null) {
                 NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();

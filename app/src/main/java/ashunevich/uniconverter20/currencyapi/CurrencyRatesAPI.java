@@ -1,11 +1,10 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.currencyapi;
 
 
 import retrofit2.Call;
-
 import retrofit2.http.GET;
 
-public interface CurrencyRatesAPI {
+interface CurrencyRatesAPI {
     @GET("latest")
     Call<CurrencyResponseObject> getRates();
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/currencyLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="Autofill,TextFields,LabelFor">
 
     <Button
         android:id="@+id/correction"
@@ -60,9 +61,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="USD"
         app:layout_constraintBottom_toBottomOf="@+id/valueCurrency"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="USD" />
 
     <TextView
         android:id="@+id/currency_to_short"
@@ -93,9 +94,9 @@
         app:layout_constraintTop_toBottomOf="@+id/resultCurrency"
         tools:text="somedate" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment3"
-        android:name="ashunevich.uniconverter20.FragmentKeyboard"
+        android:name="ashunevich.uniconverter20.ui.FragmentKeyboard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

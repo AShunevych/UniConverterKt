@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -17,35 +17,36 @@ import java.util.Locale;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
+import ashunevich.uniconverter20.ui.AppViewModel;
 
 public abstract class Utils {
 
-    static final String TAG = "ERROR-" ;
-    static final String PREFERENCE_NAME ="APP_PREF";
-    static final String HASH_MAP="HashMAP";
-    static final String SAVED_VALUE = "savedValue";
-    static final String SAVED_RESULT = "saveResult";
-    static final String SAVED_DATE = "saveDate";
+    public static final String TAG = "ERROR-" ;
+    public static final String PREFERENCE_NAME ="APP_PREF";
+    public static final String HASH_MAP="HashMAP";
+    public static final String SAVED_VALUE = "savedValue";
+    public static final String SAVED_RESULT = "saveResult";
+    public static final String SAVED_DATE = "saveDate";
 
-    static final String SYMBOL_CORRECT = "⇽";
-    static final String SYMBOL_CLEAR = "C";
-    static final String SYMBOL_BRACKETS = "( )";
-    static final String SYMBOL_SOLVE = "=";
-    static final String SYMBOL_CHECK = "-/+";
+    public static final String SYMBOL_CORRECT = "⇽";
+    public static final String SYMBOL_CLEAR = "C";
+    public static final String SYMBOL_BRACKETS = "( )";
+    public static final String SYMBOL_SOLVE = "=";
+    public static final String SYMBOL_CHECK = "-/+";
 
-    static void blockInput( EditText resultView, EditText valueEdit){
+    public static void blockInput( EditText resultView, EditText valueEdit){
         resultView.setInputType(InputType.TYPE_NULL);
         valueEdit.setInputType(InputType.TYPE_NULL);
     }
 
-    static void clearView (EditText valueEdit,TextView resultView){
+    public static void clearView (EditText valueEdit,TextView resultView){
         resultView.setText("");
         valueEdit.setText("");
     }
-    static String getSpinnerValueString(Spinner spinner){
+    public static String getSpinnerValueString(Spinner spinner){
             return spinner.getSelectedItem().toString();
     }
-    static void readAndSolve (EditText valueEdit, TextView resultView){
+    public static void readAndSolve (EditText valueEdit, TextView resultView){
         if (!TextUtils.isEmpty(valueEdit.getText().toString())) {
             String getValue = valueEdit.getText().toString();
             Expression value = new Expression(getValue);
@@ -57,7 +58,7 @@ public abstract class Utils {
         }
     }
 
-    static void checkBrackets (EditText valueEdit){
+    public static void checkBrackets (EditText valueEdit){
         if (valueEdit.getText().toString().contains("(")){
             valueEdit.append(")");
         }
@@ -66,17 +67,17 @@ public abstract class Utils {
         }
     }
 
-    static void postTextOnClick(AppViewModel model, Button button){
+    public static void postTextOnClick(AppViewModel model, Button button){
          String buttonText = button.getText ().toString ();
          button.setOnClickListener (view -> model.setPostNumber (buttonText));
     }
 
-    static String returnLocale(){
+    public static String returnLocale(){
          return Locale.getDefault().getDisplayLanguage();
     }
 
     @SuppressLint("SetTextI18n")
-    static void appendMinusPlus(EditText valueEdit){
+    public static void appendMinusPlus(EditText valueEdit){
       int x = valueEdit.getText().length();
        if (x != 15 | valueEdit.getText().toString().contains("-")){
             StringBuilder sb = new StringBuilder();
@@ -91,7 +92,7 @@ public abstract class Utils {
         }
     }
 
-    static void correctValue(EditText valueEdit, TextView resultEdit){
+    public static void correctValue(EditText valueEdit, TextView resultEdit){
         int x = valueEdit.getText().length();
         if (x >0) {
             valueEdit.setText(removeLastChar(valueEdit.getText().toString()));
@@ -102,15 +103,15 @@ public abstract class Utils {
         }
     }
 
-    static String removeLastChar(String str) {
+    public static String removeLastChar(String str) {
         return removeLastChars(str);
     }
 
-    static String removeLastChars(String str) {
+    public static String removeLastChars(String str) {
         return str.substring(0, str.length() - 1);
     }
 
-    static void measurementUnitsHandler(String spinnerTextValue,
+    public static void measurementUnitsHandler(String spinnerTextValue,
                                                TextView measurementUnit){
         Resources resources = measurementUnit.getResources();
         switch (spinnerTextValue) {
@@ -254,7 +255,7 @@ public abstract class Utils {
         }
     }
 
-    static void currencyUnitHandler(String spinnerTextValue,
+    public static void currencyUnitHandler(String spinnerTextValue,
                                         TextView measurementUnit) {
         Resources resources = measurementUnit.getResources ();
         switch (spinnerTextValue) {
@@ -285,13 +286,13 @@ public abstract class Utils {
         }
     }
 
-    static Double currencyConverter(Double value,Double targetRate, Double initRate ){
+    public static Double currencyConverter(Double value,Double targetRate, Double initRate ){
         return ((targetRate * value) / initRate);
     }
 
-    static String returnDateString(TextView dateTextView){return dateTextView.getText().toString();}
+    public static String returnDateString(TextView dateTextView){return dateTextView.getText().toString();}
 
-    static AppViewModel generateViewModel(ViewModelStoreOwner owner){
+    public static AppViewModel generateViewModel(ViewModelStoreOwner owner){
         return new ViewModelProvider (owner).get (AppViewModel.class);
     }
 

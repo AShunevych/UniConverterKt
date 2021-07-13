@@ -1,5 +1,5 @@
 
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.currencyapi;
 
 
 import android.os.Bundle;
@@ -24,7 +24,11 @@ import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import ashunevich.uniconverter20.R;
+import ashunevich.uniconverter20.SharedPreferenceManager;
+import ashunevich.uniconverter20.Utils;
 import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
+import ashunevich.uniconverter20.ui.AppViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,7 +55,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
      private CurrencyActivityBinding binding;
     private SharedPreferenceManager prefManager;
     protected double getEnteredValue;
-    public HashMap<String, Double> hm;
+    protected HashMap<String, Double> hm;
 
 
     @Override
@@ -119,7 +123,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         }
     }
 
-    public void getText (String event) {
+    protected void getText (String event) {
         if(event.equals (SYMBOL_BRACKETS)|| event.equals (SYMBOL_SOLVE)|| event.equals (SYMBOL_CLEAR)){
             switch (event){
                 case SYMBOL_BRACKETS: checkBrackets (binding.valueCurrency); break;

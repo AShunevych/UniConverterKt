@@ -16,11 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
+import ashunevich.uniconverter20.ui.AppViewModel;
 
+import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.postTextOnClick;
 
 
@@ -28,8 +29,7 @@ public class ActivityMain extends AppCompatActivity {
 
    private MainActivityBinding binding;
    private final List<String> mFragmentTitleList = new ArrayList<> ();
-   private AppViewModel tabPositionModel;
-    private AppViewModel keyboardModel;
+   private AppViewModel tabPositionModel,keyboardModel;
 
 
     protected void onStart() {
@@ -53,8 +53,8 @@ public class ActivityMain extends AppCompatActivity {
     }
 
     private void initViewModels(){
-        tabPositionModel = new ViewModelProvider (this).get(AppViewModel.class);
-        keyboardModel = new ViewModelProvider (this).get(AppViewModel.class);
+        tabPositionModel = generateViewModel (this);
+        keyboardModel = generateViewModel (this);
     }
 
     private void setTabPositionListener(){

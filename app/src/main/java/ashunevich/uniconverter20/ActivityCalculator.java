@@ -5,6 +5,7 @@ import android.text.InputType;
 
 import androidx.appcompat.app.AppCompatActivity;
 import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
+import ashunevich.uniconverter20.ui.AppViewModel;
 
 import static ashunevich.uniconverter20.Utils.SYMBOL_BRACKETS;
 import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;

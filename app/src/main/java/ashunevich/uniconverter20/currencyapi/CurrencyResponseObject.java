@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20.currencyapi;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -10,7 +10,7 @@ public class CurrencyResponseObject {
     @SerializedName ("rates")
     CurrencyRateObject object;
 
-    public CurrencyResponseObject(CurrencyRateObject object, String date){
+    protected CurrencyResponseObject(CurrencyRateObject object, String date){
         this.object =object;
         this.date = date;
     }
