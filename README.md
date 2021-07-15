@@ -10,8 +10,9 @@ Available for conversion:
 - Volume    
 - Weight  
      
-Available calculators:  
-- Math  
+Other:  
+- Calculator
+- Online currency converter
      
 Minimum Sdk Version - 26 (Android 8.0)       
 Locales - English / Ukrainian
