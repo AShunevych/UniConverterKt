@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
@@ -22,20 +21,12 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import ashunevich.uniconverter20.R;
-import ashunevich.uniconverter20.SharedPreferenceManager;
 import ashunevich.uniconverter20.Utils;
 import ashunevich.uniconverter20.databinding.CurrencyActivityBinding;
 import ashunevich.uniconverter20.ui.AppViewModel;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-import static ashunevich.uniconverter20.Utils.HASH_MAP;
-import static ashunevich.uniconverter20.Utils.PREFERENCE_NAME;
-import static ashunevich.uniconverter20.Utils.SAVED_DATE;
 import static ashunevich.uniconverter20.Utils.SAVED_RESULT;
 import static ashunevich.uniconverter20.Utils.SAVED_VALUE;
 import static ashunevich.uniconverter20.Utils.SYMBOL_BRACKETS;
@@ -49,14 +40,12 @@ import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 import static ashunevich.uniconverter20.Utils.returnDateString;
 
-public class ActivityConverterCurrency extends AppCompatActivity {
+public class ActivityConverterCurrency extends AppCompatActivity implements CurrencyContract.CurrencyView {
 
      
      private CurrencyActivityBinding binding;
-    private SharedPreferenceManager prefManager;
     protected double getEnteredValue;
     protected HashMap<String, Double> hm;
-
 
     @Override
     public void onStart(){
@@ -77,8 +66,6 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = CurrencyActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        prefManager = new SharedPreferenceManager(this, PREFERENCE_NAME);
-        getSharedPref();
         setButtonBindings_ConverterCurrency();
         setAdapter((getResources().getStringArray(R.array.currency)));
         setUnitMeasurements();
@@ -88,8 +75,13 @@ public class ActivityConverterCurrency extends AppCompatActivity {
             checkConnection();
         }
 
+        CurrencyContract.CurrencyPresenter presenter = new CurrencyPresenterImp (this, new CurrencyInteractorImpl ());
+        presenter.requestDataFromServer ();
+
         AppViewModel model = generateViewModel (this);
         model.getPostedNumber ().observe (this, this::getText);
+
+
 
         addTextWatcher();
         binding.valueCurrency.setInputType(InputType.TYPE_NULL);
@@ -108,18 +100,12 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         super.onStop();
     }
 
-    private void getSharedPref(){
-      binding.dateView.setText(prefManager.getValue(SAVED_DATE,""));
-        hm = new HashMap<> ();
-      hm = prefManager.getHashMap(HASH_MAP);
-    }
-
     private void checkConnection(){
-        if(UtilsInternetService.checkConnection(this)){
-          checkDate ();
+        if(!CurrencyInternetService.checkConnection(this)){
+            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
         }
         else{
-            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.NoInternetConnection),Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.currencyLayout, getResources().getString(R.string.PostitiveInternetConnection),Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -207,7 +193,6 @@ public class ActivityConverterCurrency extends AppCompatActivity {
 
     private void setStringFormat(double resultDouble){
         NumberFormat formatter = new DecimalFormat("###.####");
-
         binding.resultCurrency.setText((formatter.format(resultDouble)));
     }
 
@@ -241,6 +226,7 @@ public class ActivityConverterCurrency extends AppCompatActivity {
                 setStringFormat(Utils.currencyConverter(value.calculate(), targetRate, initRate));
             }
             catch (Exception e){
+                e.printStackTrace ();
                 Log.d(" Exception","Exception cached") ;
             }
 
@@ -251,53 +237,30 @@ public class ActivityConverterCurrency extends AppCompatActivity {
         Snackbar.make(binding.currencyLayout, snackText,Snackbar.LENGTH_SHORT).show();
     }
 
-
-
-    // JSON retrieving work
-
-    private void checkDate(){
-        UtilsInternetService.getInstance().getJSONApi().getRates().enqueue(new Callback<CurrencyResponseObject>() {
-            @Override
-            public void onResponse(@NonNull Call<CurrencyResponseObject> call, @NonNull Response<CurrencyResponseObject> response) {
-                Log.d("CALLBACK","OK");
-                CurrencyResponseObject pojo = response.body ();
-                assert pojo != null;
-                String date = pojo.date;
-                // if user wants to update data, and data on source is equals to data in the phone == data was already saved before
-                if (TextUtils.isEmpty(returnDateString(binding.dateView)) || !returnDateString(binding.dateView).equals(date)) {
-                    binding.dateView.setText (date);
-                    prefManager.setValue (SAVED_DATE, returnDateString (binding.dateView));
-                    getCurrencyRates(pojo);
-                }
-                else if(returnDateString(binding.dateView).equals(date)) {
-                    makeSnackBar(getResources().getString(R.string.SameDate));
-                }
-
-            }
-            @Override
-            public void onFailure(@NonNull Call<CurrencyResponseObject> call, @NonNull Throwable t) {
-                Log.d("CALLBACK","FAILED");
-                t.printStackTrace();
-            }
-        });
+    @Override
+    public void onResponseFailure(Throwable throwable) {
+        makeSnackBar("Response Failed!");
     }
 
-    private void getCurrencyRates(CurrencyResponseObject pojo){
+    @Override
+    public void parseDataFromResponseToHashmap(CurrencyResponseObject receivedObj) {
+        binding.dateView.setText (receivedObj.date);
+
         hm = new HashMap<> ();
-        hm.put(getResources().getString(R.string.USD), pojo.object.getRate("USD"));
-        hm.put(getResources().getString(R.string.GBP), pojo.object.getRate("GBP"));
-        hm.put(getResources().getString(R.string.IDR), pojo.object.getRate("IDR"));
-        hm.put(getResources().getString(R.string.PLN), pojo.object.getRate("PLN"));
-        hm.put(getResources().getString(R.string.NZD), pojo.object.getRate("NZD"));
-        hm.put(getResources().getString(R.string.RUB), pojo.object.getRate("RUB"));
-        if(hm != null){
-            makeSnackBar (getResources ().getString (R.string.UpdateSuccessful));
+        hm.put (getResources ().getString (R.string.USD), receivedObj.object.getRate ("USD"));
+        hm.put (getResources ().getString (R.string.GBP), receivedObj.object.getRate ("GBP"));
+        hm.put (getResources ().getString (R.string.IDR), receivedObj.object.getRate ("IDR"));
+        hm.put (getResources ().getString (R.string.PLN), receivedObj.object.getRate ("PLN"));
+        hm.put (getResources ().getString (R.string.NZD), receivedObj.object.getRate ("NZD"));
+        hm.put (getResources ().getString (R.string.RUB), receivedObj.object.getRate ("RUB"));
+        if(hm.isEmpty ()){
+            makeSnackBar("Fail!");
         }
-
-        String hashMapString = new Gson ().toJson(hm);
-        prefManager.setValue (HASH_MAP,hashMapString);
+        else {
+            makeSnackBar("Success!");
+        }
     }
-    }
+}
 
 
 

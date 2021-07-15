@@ -22,11 +22,8 @@ import ashunevich.uniconverter20.ui.AppViewModel;
 public abstract class Utils {
 
     public static final String TAG = "ERROR-" ;
-    public static final String PREFERENCE_NAME ="APP_PREF";
-    public static final String HASH_MAP="HashMAP";
     public static final String SAVED_VALUE = "savedValue";
     public static final String SAVED_RESULT = "saveResult";
-    public static final String SAVED_DATE = "saveDate";
 
     public static final String SYMBOL_CORRECT = "⇽";
     public static final String SYMBOL_CLEAR = "C";

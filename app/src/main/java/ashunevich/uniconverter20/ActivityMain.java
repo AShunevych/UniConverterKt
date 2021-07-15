@@ -3,7 +3,6 @@ package ashunevich.uniconverter20;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -18,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import ashunevich.uniconverter20.currencyapi.ActivityConverterCurrency;
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 import ashunevich.uniconverter20.ui.AppViewModel;
 
@@ -46,7 +46,6 @@ public class ActivityMain extends AppCompatActivity {
         initTabLayoutMediator();
         initOnClickListeners ();
 
-        binding.currencyCalculator.setVisibility (View.GONE);//temporary
         setTabPositionListener ();
 
         enableButtonOnPositionChange(binding.tabLayout.getSelectedTabPosition ());
@@ -123,11 +122,11 @@ public class ActivityMain extends AppCompatActivity {
         binding.calculatorButton.setOnClickListener
                 (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class),
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
-        /*
+
         binding.currencyCalculator.setOnClickListener
                 (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class),
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
-         */
+
     }
 
     static class ViewPagerAdapter extends FragmentStateAdapter {

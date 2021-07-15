@@ -11,13 +11,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-class UtilsInternetService {
-    private static UtilsInternetService instance;
+class CurrencyInternetService {
+    private static CurrencyInternetService instance;
 
-    private static final String RATES_URL = "https://api.openrates.io/";
+    private static final String RATES_URL = "https://www.frankfurter.app/";
     private final Retrofit mRetrofit;
 
-    private UtilsInternetService() {
+    private CurrencyInternetService() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -28,9 +28,9 @@ class UtilsInternetService {
                 .build();
     }
 
-    protected static UtilsInternetService getInstance() {
+    protected static CurrencyInternetService getInstance() {
         if (instance == null) {
-            instance = new UtilsInternetService ();
+            instance = new CurrencyInternetService ();
         }
         return instance;
     }

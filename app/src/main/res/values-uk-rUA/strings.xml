@@ -94,6 +94,7 @@
     <string name="NoInternetConnection">Немає з\'єднання.</string>
     <string name="SameDate">Дані актуальні.</string>
     <string name="UpdateSuccessful">Дані успішно оновлені.</string>
+    <string name="PostitiveInternetConnection">Встановлюю з\'єднання…завантажую дані</string>
 
     <string name= "maxNumberReached">Досягнуто максимальна кількість (15) символів</string>
     <string name="USD">Доллар США</string>
