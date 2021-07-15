@@ -75,8 +75,6 @@ public class ActivityConverterCurrency extends AppCompatActivity implements Curr
             checkConnection();
         }
 
-        CurrencyContract.CurrencyPresenter presenter = new CurrencyPresenterImp (this, new CurrencyInteractorImpl ());
-        presenter.requestDataFromServer ();
 
         AppViewModel model = generateViewModel (this);
         model.getPostedNumber ().observe (this, this::getText);
@@ -106,6 +104,8 @@ public class ActivityConverterCurrency extends AppCompatActivity implements Curr
         }
         else{
             Snackbar.make(binding.currencyLayout, getResources().getString(R.string.PostitiveInternetConnection),Snackbar.LENGTH_SHORT).show();
+            CurrencyContract.CurrencyPresenter presenter = new CurrencyPresenterImp (this, new CurrencyInteractorImpl ());
+            presenter.requestDataFromServer ();
         }
     }
 
