@@ -24,6 +24,6 @@ Screen:
 [Currency API - Frankfurter](https://api.frankfurter.app/latest)
 
 # Third-party libraries  :  
-[Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)
-[Google: GSON](https://github.com/google/gson)
-[Square: Retrofit 2](https://github.com/square/retrofit)
+[Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)   
+[Google GSON](https://github.com/google/gson)   
+[Retrofit 2](https://github.com/square/retrofit)  
