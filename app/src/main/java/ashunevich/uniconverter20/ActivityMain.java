@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-import ashunevich.uniconverter20.currencyapi.ActivityConverterCurrency;
+import ashunevich.uniconverter20.currencyapi.ActivityConverter;
 import ashunevich.uniconverter20.databinding.MainActivityBinding;
 import ashunevich.uniconverter20.ui.AppViewModel;
 
@@ -92,7 +92,7 @@ public class ActivityMain extends AppCompatActivity {
                getLifecycle ());
 
         for(int i = 0; i<getResources ().getIntArray (R.array.units).length;i++){
-            adapter.addFragment (new ActivityConverter ());
+            adapter.addFragment (new ashunevich.uniconverter20.ActivityConverter ());
         }
 
       binding.viewPager.setAdapter(adapter);
@@ -124,7 +124,7 @@ public class ActivityMain extends AppCompatActivity {
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
 
         binding.currencyCalculator.setOnClickListener
-                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverterCurrency.class),
+                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverter.class),
                         ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
 
     }

@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CurrencyInteractorImpl implements CurrencyContract.currencyInteractor {
+public class InteractorImpl implements CurrencyContractor.Interactor {
 
     @Override
     public void getCurrencyData(OnFinishedListener onFinishedListener) {
@@ -16,7 +16,6 @@ public class CurrencyInteractorImpl implements CurrencyContract.currencyInteract
             public void onResponse(@NonNull Call<CurrencyResponseObject> call, @NonNull Response<CurrencyResponseObject> response) {
                 Log.d("CALLBACK","OK");
                 CurrencyResponseObject pojo = response.body ();
-
                 onFinishedListener.onFinished (pojo);
 
             }

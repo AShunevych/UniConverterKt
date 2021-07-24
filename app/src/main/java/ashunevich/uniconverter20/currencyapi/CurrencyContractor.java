@@ -1,20 +1,20 @@
 package ashunevich.uniconverter20.currencyapi;
 
-public interface CurrencyContract {
+public interface CurrencyContractor {
 
 
-    interface CurrencyPresenter {
+    interface Presenter {
         void requestDataFromServer();
     }
 
-    interface CurrencyView {
+    interface View {
 
         void onResponseFailure(Throwable throwable);
 
         void parseDataFromResponseToHashmap(CurrencyResponseObject object);
     }
 
-    interface currencyInteractor {
+    interface Interactor {
 
         interface OnFinishedListener {
             void onFinished(CurrencyResponseObject object);
@@ -22,5 +22,7 @@ public interface CurrencyContract {
         }
 
         void getCurrencyData(OnFinishedListener onFinishedListener);
+
+
     }
 }

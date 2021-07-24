@@ -8,7 +8,6 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -40,7 +39,7 @@ import static ashunevich.uniconverter20.Utils.generateViewModel;
 import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
 import static ashunevich.uniconverter20.Utils.returnDateString;
 
-public class ActivityConverterCurrency extends AppCompatActivity implements CurrencyContract.CurrencyView {
+public class ActivityConverter extends AppCompatActivity implements CurrencyContractor.View {
 
      
      private CurrencyActivityBinding binding;
@@ -104,7 +103,7 @@ public class ActivityConverterCurrency extends AppCompatActivity implements Curr
         }
         else{
             Snackbar.make(binding.currencyLayout, getResources().getString(R.string.PostitiveInternetConnection),Snackbar.LENGTH_SHORT).show();
-            CurrencyContract.CurrencyPresenter presenter = new CurrencyPresenterImp (this, new CurrencyInteractorImpl ());
+            CurrencyContractor.Presenter presenter = new PresenterImp (this, new InteractorImpl ());
             presenter.requestDataFromServer ();
         }
     }
@@ -132,7 +131,7 @@ public class ActivityConverterCurrency extends AppCompatActivity implements Curr
     private void setSpinnersListeners(Spinner spinner) {
         spinner.setOnItemSelectedListener (new AdapterView.OnItemSelectedListener () {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+            public void onItemSelected(AdapterView<?> parentView, android.view.View selectedItemView, int position, long id) {
                 setUnitMeasurements ();
                 convertOnDemand ();
             }
