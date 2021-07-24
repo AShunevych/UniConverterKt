@@ -10,8 +10,9 @@ Available for conversion:
 - Volume    
 - Weight  
      
-Available calculators:  
-- Math  
+Other:  
+- Calculator
+- Online currency converter
      
 Minimum Sdk Version - 26 (Android 8.0)       
 Locales - English / Ukrainian
@@ -24,6 +25,6 @@ Screen:
 [Currency API - Frankfurter](https://api.frankfurter.app/latest)
 
 # Third-party libraries  :  
-[Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)
-[Google: GSON](https://github.com/google/gson)
-[Square: Retrofit 2](https://github.com/square/retrofit)
+[Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)   
+[Google GSON](https://github.com/google/gson)   
+[Retrofit 2](https://github.com/square/retrofit)  
