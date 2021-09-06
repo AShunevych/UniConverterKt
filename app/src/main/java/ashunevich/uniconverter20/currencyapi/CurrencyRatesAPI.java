@@ -7,6 +7,4 @@ import retrofit2.http.GET;
 interface CurrencyRatesAPI {
     @GET("latest")
     Call<CurrencyResponseObject> getRates();
-
-
 }

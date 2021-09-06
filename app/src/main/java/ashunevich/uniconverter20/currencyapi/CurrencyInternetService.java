@@ -30,7 +30,7 @@ class CurrencyInternetService {
 
     protected static CurrencyInternetService getInstance() {
         if (instance == null) {
-            instance = new CurrencyInternetService ();
+            instance = new CurrencyInternetService();
         }
         return instance;
     }
@@ -42,24 +42,23 @@ class CurrencyInternetService {
 
     // CHECK WHETHER INTERNET CONNECTION IS AVAILABLE OR NOT
     protected static boolean checkConnection(Context context) {
-            final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connMgr != null) {
-                NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
+        final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connMgr != null) {
+            NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
 
-                if (activeNetworkInfo != null) { // connected to the internet
-                    // connected to the mobile provider's data plan
-                    if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-                        // connected to wifi
-                        return true;
-                    } else return activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
-                }
+            if (activeNetworkInfo != null) { // connected to the internet
+                // connected to the mobile provider's data plan
+                if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                    // connected to wifi
+                    return true;
+                } else return activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
             }
-            return false;
         }
-
-
-
+        return false;
     }
+
+
+}
 
 
 

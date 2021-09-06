@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class AppViewModel extends ViewModel {
-    private final MutableLiveData<Integer> selected = new MutableLiveData<> ();
-    private final MutableLiveData<String> postNumber = new MutableLiveData<> ();
+    private final MutableLiveData<Integer> selected = new MutableLiveData<>();
+    private final MutableLiveData<String> postNumber = new MutableLiveData<>();
 
     public void setPostNumber(String textNumber) {
-        postNumber.setValue (textNumber);
+        postNumber.setValue(textNumber);
     }
 
     public LiveData<String> getPostedNumber() {

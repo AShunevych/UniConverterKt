@@ -16,16 +16,16 @@ public class PresenterImp implements CurrencyContractor.Presenter,
 
     @Override
     public void requestDataFromServer() {
-        interactor.getCurrencyData (this);
+        interactor.getCurrencyData(this);
     }
 
     @Override
     public void onFinished(CurrencyResponseObject object) {
-        view.parseDataFromResponseToHashmap (object);
+        view.parseDataFromResponseToHashmap(object);
     }
 
     @Override
     public void onFailure(Throwable t) {
-        view.onResponseFailure (t);
+        view.onResponseFailure(t);
     }
 }

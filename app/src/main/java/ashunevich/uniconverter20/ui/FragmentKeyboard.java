@@ -1,5 +1,7 @@
 package ashunevich.uniconverter20.ui;
 
+import static ashunevich.uniconverter20.Utils.postTextOnClick;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import ashunevich.uniconverter20.databinding.CalculatorKeyboardBinding;
 
-import static ashunevich.uniconverter20.Utils.postTextOnClick;
+import ashunevich.uniconverter20.databinding.CalculatorKeyboardBinding;
 
 
 public class FragmentKeyboard extends Fragment {
@@ -38,33 +39,33 @@ public class FragmentKeyboard extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable  Bundle savedInstanceState) {
-        model = new ViewModelProvider (requireActivity ()).get (AppViewModel.class);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        model = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
         setButtonBindingsCalcKeyboard();
-        super.onViewCreated (view, savedInstanceState);
+        super.onViewCreated(view, savedInstanceState);
     }
 
-    private void setButtonBindingsCalcKeyboard(){
-        postTextOnClick (model,binding.butOne);
-        postTextOnClick (model,binding.butTwo);
-        postTextOnClick (model,binding.butThree);
-        postTextOnClick (model,binding.butFour);
-        postTextOnClick (model,binding.butFive);
-        postTextOnClick (model,binding.butSix);
-        postTextOnClick (model,binding.butSeven);
-        postTextOnClick (model,binding.buttonEight);
-        postTextOnClick (model,binding.butNine);
-        postTextOnClick (model,binding.buttonZero);
-        postTextOnClick (model,binding.buttonDzero);
-        postTextOnClick (model,binding.buttonDecimal);
-        postTextOnClick (model,binding.butDuzhky);
-        postTextOnClick (model,binding.butPercent);
-        postTextOnClick (model,binding.butDivide);
-        postTextOnClick (model,binding.butMultiply);
-        postTextOnClick (model,binding.butMinus);
-        postTextOnClick (model,binding.butPlus);
-        postTextOnClick (model,binding.butSolve);
-        postTextOnClick (model,binding.butClearView);
+    private void setButtonBindingsCalcKeyboard() {
+        postTextOnClick(model, binding.butOne);
+        postTextOnClick(model, binding.butTwo);
+        postTextOnClick(model, binding.butThree);
+        postTextOnClick(model, binding.butFour);
+        postTextOnClick(model, binding.butFive);
+        postTextOnClick(model, binding.butSix);
+        postTextOnClick(model, binding.butSeven);
+        postTextOnClick(model, binding.buttonEight);
+        postTextOnClick(model, binding.butNine);
+        postTextOnClick(model, binding.buttonZero);
+        postTextOnClick(model, binding.buttonDzero);
+        postTextOnClick(model, binding.buttonDecimal);
+        postTextOnClick(model, binding.butDuzhky);
+        postTextOnClick(model, binding.butPercent);
+        postTextOnClick(model, binding.butDivide);
+        postTextOnClick(model, binding.butMultiply);
+        postTextOnClick(model, binding.butMinus);
+        postTextOnClick(model, binding.butPlus);
+        postTextOnClick(model, binding.butSolve);
+        postTextOnClick(model, binding.butClearView);
     }
 
     @Override

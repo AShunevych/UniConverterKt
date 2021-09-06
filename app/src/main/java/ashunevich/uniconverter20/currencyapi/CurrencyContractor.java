@@ -18,6 +18,7 @@ public interface CurrencyContractor {
 
         interface OnFinishedListener {
             void onFinished(CurrencyResponseObject object);
+
             void onFailure(Throwable t);
         }
 

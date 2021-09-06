@@ -7,38 +7,44 @@ public class CurrencyResponseObject {
     @SerializedName("date")
     String date;
 
-    @SerializedName ("rates")
+    @SerializedName("rates")
     CurrencyRateObject object;
 
-    protected CurrencyResponseObject(CurrencyRateObject object, String date){
-        this.object =object;
+    protected CurrencyResponseObject(CurrencyRateObject object, String date) {
+        this.object = object;
         this.date = date;
     }
 
 }
 
 
-class CurrencyRateObject{
-    @SerializedName ("USD")
-     double USD;
-    @SerializedName ("GBP")
-     double GBP;
-    @SerializedName ("IDR")
-     double IDR;
-    @SerializedName ("PLN")
-     double PLN;
-    @SerializedName ("RUB")
-     double RUB;
+class CurrencyRateObject {
+    @SerializedName("USD")
+    double USD;
+    @SerializedName("GBP")
+    double GBP;
+    @SerializedName("IDR")
+    double IDR;
+    @SerializedName("PLN")
+    double PLN;
+    @SerializedName("RUB")
+    double RUB;
 
-    protected double getRate(String currency ){
-       switch (currency){
-           case "USD": return USD;
-           case "GBP": return GBP;
-           case "IDR": return IDR;
-           case "PLN": return PLN;
-           case "RUB": return RUB;
-           default:return 0.0;
-       }
+    protected double getRate(String currency) {
+        switch (currency) {
+            case "USD":
+                return USD;
+            case "GBP":
+                return GBP;
+            case "IDR":
+                return IDR;
+            case "PLN":
+                return PLN;
+            case "RUB":
+                return RUB;
+            default:
+                return 0.0;
+        }
     }
 
 }
