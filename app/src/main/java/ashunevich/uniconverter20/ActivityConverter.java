@@ -98,7 +98,6 @@ public class ActivityConverter extends Fragment {
         super.onDestroyView();
     }
 
-
     public void setViewModelTextReceiver(String event) {
         if (event.equals(SYMBOL_CORRECT) || event.equals(SYMBOL_CLEAR) || event.equals(SYMBOL_CHECK)) {
             switch (event) {
@@ -200,7 +199,6 @@ public class ActivityConverter extends Fragment {
     }
 
     private void convertAndShowValues(String activeLocale) {
-
         if (TextUtils.isEmpty(binding.valueEdit.getText().toString()) | binding.valueEdit.getText().toString().equals("-")) {
             binding.resultView.setText("");
         } else {
@@ -216,7 +214,6 @@ public class ActivityConverter extends Fragment {
                                 stringToDouble()));
             }
         }
-
     }
 
     @Override

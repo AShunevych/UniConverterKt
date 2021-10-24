@@ -42,7 +42,6 @@ import ashunevich.uniconverter20.ui.AppViewModel;
 
 public class ActivityConverter extends AppCompatActivity implements CurrencyContractor.View {
 
-
     private CurrencyActivityBinding binding;
     protected double getEnteredValue;
     protected HashMap<String, Double> hm;
@@ -51,7 +50,6 @@ public class ActivityConverter extends AppCompatActivity implements CurrencyCont
     public void onStart() {
         super.onStart();
     }
-
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -73,7 +71,6 @@ public class ActivityConverter extends AppCompatActivity implements CurrencyCont
         if (TextUtils.isEmpty(returnDateString(binding.dateView))) {
             checkConnection();
         }
-
 
         AppViewModel model = generateViewModel(this);
         model.getPostedNumber().observe(this, this::getText);
