@@ -1,29 +1,21 @@
-package ashunevich.uniconverter20.currencyapi;
+package ashunevich.uniconverter20.currencyapi
 
-public interface CurrencyContractor {
-
-
-    interface Presenter {
-        void requestDataFromServer();
+open interface CurrencyContractor {
+    open interface Presenter {
+        fun requestDataFromServer()
     }
 
-    interface View {
-
-        void onResponseFailure(Throwable throwable);
-
-        void parseDataFromResponseToHashmap(CurrencyResponseObject object);
+    open interface View {
+        fun onResponseFailure(throwable: Throwable?)
+        fun parseDataFromResponseToHashmap(`object`: CurrencyResponseObject?)
     }
 
-    interface Interactor {
-
-        interface OnFinishedListener {
-            void onFinished(CurrencyResponseObject object);
-
-            void onFailure(Throwable t);
+    open interface Interactor {
+        open interface OnFinishedListener {
+            fun onFinished(`object`: CurrencyResponseObject?)
+            fun onFailure(t: Throwable?)
         }
 
-        void getCurrencyData(OnFinishedListener onFinishedListener);
-
-
+        fun getCurrencyData(onFinishedListener: OnFinishedListener)
     }
 }

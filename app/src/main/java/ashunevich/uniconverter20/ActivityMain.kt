@@ -1,157 +1,146 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20
 
-import static ashunevich.uniconverter20.Utils.generateViewModel;
-import static ashunevich.uniconverter20.Utils.postTextOnClick;
+import ashunevich.uniconverter20.ui.AppViewModel
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
+import com.google.android.material.tabs.TabLayout
+import android.content.Intent
+import android.app.ActivityOptions
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import ashunevich.uniconverter20.databinding.MainActivityBinding
+import java.util.*
 
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import ashunevich.uniconverter20.currencyapi.ActivityConverter;
-import ashunevich.uniconverter20.databinding.MainActivityBinding;
-import ashunevich.uniconverter20.ui.AppViewModel;
-
-
-public class ActivityMain extends AppCompatActivity {
-
-    private MainActivityBinding binding;
-    private final List<String> mFragmentTitleList = new ArrayList<>();
-    private AppViewModel tabPositionModel, keyboardModel;
-
-
-    protected void onStart() {
-        super.onStart();
+class ActivityMain constructor() : AppCompatActivity() {
+    private var binding: MainActivityBinding? = null
+    private val mFragmentTitleList: MutableList<String> = ArrayList()
+    private var tabPositionModel: AppViewModel? = null
+    private var keyboardModel: AppViewModel? = null
+    override fun onStart() {
+        super.onStart()
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = MainActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        initViewModels();
-        mFragmentTitleList.addAll(Arrays.asList(getResources().getStringArray(R.array.units)));
-        initViewPager();
-        initTabLayoutMediator();
-        initOnClickListeners();
-        setTabPositionListener();
-
-        enableButtonOnPositionChange(binding.tabLayout.getSelectedTabPosition());
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = MainActivityBinding.inflate(getLayoutInflater())
+        setContentView(binding!!.getRoot())
+        initViewModels()
+        mFragmentTitleList.addAll(Arrays.asList(*getResources().getStringArray(R.array.units)))
+        initViewPager()
+        initTabLayoutMediator()
+        initOnClickListeners()
+        setTabPositionListener()
+        enableButtonOnPositionChange(binding!!.tabLayout.getSelectedTabPosition())
     }
 
-    private void initViewModels() {
-        tabPositionModel = generateViewModel(this);
-        keyboardModel = generateViewModel(this);
+    private fun initViewModels() {
+        tabPositionModel = Utils.generateViewModel(this)
+        keyboardModel = Utils.generateViewModel(this)
     }
 
-    private void setTabPositionListener() {
-        binding.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+    private fun setTabPositionListener() {
+        binding!!.viewPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+            public override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
             }
 
-            @Override
-            public void onPageSelected(int position) {
-                tabPositionModel.select(position);
-                enableButtonOnPositionChange(position);
+            public override fun onPageSelected(position: Int) {
+                tabPositionModel!!.select(position)
+                enableButtonOnPositionChange(position)
             }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
+            public override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
             }
-        });
+        })
     }
 
-    private void enableButtonOnPositionChange(int pos) {
+    private fun enableButtonOnPositionChange(pos: Int) {
         if (pos == 5) {
-            binding.buttonPlusMinus.setEnabled(true);
-            binding.buttonPlusMinus.setAlpha(1);
+            binding!!.buttonPlusMinus.setEnabled(true)
+            binding!!.buttonPlusMinus.setAlpha(1f)
         } else {
-            binding.buttonPlusMinus.setEnabled(false);
-            binding.buttonPlusMinus.setAlpha(0.5f);
+            binding!!.buttonPlusMinus.setEnabled(false)
+            binding!!.buttonPlusMinus.setAlpha(0.5f)
         }
     }
 
-    private void initViewPager() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(),
-                getLifecycle());
-
-        for (int i = 0; i < getResources().getIntArray(R.array.units).length; i++) {
-            adapter.addFragment(new ashunevich.uniconverter20.ActivityConverter());
+    private fun initViewPager() {
+        val adapter: ViewPagerAdapter = ViewPagerAdapter(
+            getSupportFragmentManager(),
+            getLifecycle()
+        )
+        for (i in getResources().getIntArray(R.array.units).indices) {
+            adapter.addFragment(ActivityConverter())
         }
-
-        binding.viewPager.setAdapter(adapter);
+        binding!!.viewPager.setAdapter(adapter)
     }
 
-    private void initTabLayoutMediator() {
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(binding.tabLayout, binding.viewPager, (tab, position) ->
-                tab.setText(mFragmentTitleList.get(position)));
-        tabLayoutMediator.attach();
+    private fun initTabLayoutMediator() {
+        val tabLayoutMediator: TabLayoutMediator = TabLayoutMediator(
+            binding!!.tabLayout,
+            binding!!.viewPager,
+            TabConfigurationStrategy({ tab: TabLayout.Tab, position: Int ->
+                tab.setText(mFragmentTitleList.get(position))
+            })
+        )
+        tabLayoutMediator.attach()
     }
 
-    private void initOnClickListeners() {
-        postTextOnClick(keyboardModel, binding.butOne);
-        postTextOnClick(keyboardModel, binding.butTwo);
-        postTextOnClick(keyboardModel, binding.butThree);
-        postTextOnClick(keyboardModel, binding.butFour);
-        postTextOnClick(keyboardModel, binding.butFive);
-        postTextOnClick(keyboardModel, binding.butSix);
-        postTextOnClick(keyboardModel, binding.butSeven);
-        postTextOnClick(keyboardModel, binding.buttonEight);
-        postTextOnClick(keyboardModel, binding.butNine);
-        postTextOnClick(keyboardModel, binding.buttonPlusMinus);
-        postTextOnClick(keyboardModel, binding.butClear);
-        postTextOnClick(keyboardModel, binding.buttonDecimal);
-        postTextOnClick(keyboardModel, binding.butCorrectValue);
-
-        binding.calculatorButton.setOnClickListener
-                (v -> startActivity(new Intent(ActivityMain.this, ActivityCalculator.class),
-                        ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
-
-        binding.currencyCalculator.setOnClickListener
-                (v -> startActivity(new Intent(ActivityMain.this, ActivityConverter.class),
-                        ActivityOptions.makeSceneTransitionAnimation(ActivityMain.this).toBundle()));
-
+    private fun initOnClickListeners() {
+        Utils.postTextOnClick(keyboardModel, binding!!.butOne)
+        Utils.postTextOnClick(keyboardModel, binding!!.butTwo)
+        Utils.postTextOnClick(keyboardModel, binding!!.butThree)
+        Utils.postTextOnClick(keyboardModel, binding!!.butFour)
+        Utils.postTextOnClick(keyboardModel, binding!!.butFive)
+        Utils.postTextOnClick(keyboardModel, binding!!.butSix)
+        Utils.postTextOnClick(keyboardModel, binding!!.butSeven)
+        Utils.postTextOnClick(keyboardModel, binding!!.buttonEight)
+        Utils.postTextOnClick(keyboardModel, binding!!.butNine)
+        Utils.postTextOnClick(keyboardModel, binding!!.buttonPlusMinus)
+        Utils.postTextOnClick(keyboardModel, binding!!.butClear)
+        Utils.postTextOnClick(keyboardModel, binding!!.buttonDecimal)
+        Utils.postTextOnClick(keyboardModel, binding!!.butCorrectValue)
+        binding!!.calculatorButton.setOnClickListener(View.OnClickListener({ v: View? ->
+            startActivity(
+                Intent(this@ActivityMain, ActivityCalculator::class.java),
+                ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
+            )
+        }))
+        binding!!.currencyCalculator.setOnClickListener(View.OnClickListener({ v: View? ->
+            startActivity(
+                Intent(
+                    this@ActivityMain,
+                    ashunevich.uniconverter20.currencyapi.CurrencyConverter::class.java
+                ),
+                ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
+            )
+        }))
     }
 
-    static class ViewPagerAdapter extends FragmentStateAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-
-        private ViewPagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
-            super(fragmentManager, lifecycle);
+    internal class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+        FragmentStateAdapter(fragmentManager, lifecycle) {
+        private val mFragmentList: MutableList<Fragment> = ArrayList()
+        fun addFragment(fragment: Fragment) {
+            mFragmentList.add(fragment)
         }
 
-        public void addFragment(Fragment fragment) {
-            mFragmentList.add(fragment);
+        public override fun createFragment(position: Int): Fragment {
+            return mFragmentList.get(position)
         }
 
-        @NonNull
-        @Override
-        public Fragment createFragment(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getItemCount() {
-            return mFragmentList.size();
+        public override fun getItemCount(): Int {
+            return mFragmentList.size
         }
     }
-
 }
-
-

@@ -1,50 +1,36 @@
-package ashunevich.uniconverter20.currencyapi;
+package ashunevich.uniconverter20.currencyapi
 
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName
 
-
-public class CurrencyResponseObject {
-    @SerializedName("date")
-    String date;
-
-    @SerializedName("rates")
-    CurrencyRateObject object;
-
-    protected CurrencyResponseObject(CurrencyRateObject object, String date) {
-        this.object = object;
-        this.date = date;
-    }
-
-}
-
+open class CurrencyResponseObject protected constructor(
+    @field:SerializedName("rates") var `object`: CurrencyRateObject, @field:SerializedName(
+        "date"
+    ) var date: String
+)
 
 class CurrencyRateObject {
     @SerializedName("USD")
-    double USD;
-    @SerializedName("GBP")
-    double GBP;
-    @SerializedName("IDR")
-    double IDR;
-    @SerializedName("PLN")
-    double PLN;
-    @SerializedName("RUB")
-    double RUB;
+    var USD: Double = 0.0
 
-    protected double getRate(String currency) {
-        switch (currency) {
-            case "USD":
-                return USD;
-            case "GBP":
-                return GBP;
-            case "IDR":
-                return IDR;
-            case "PLN":
-                return PLN;
-            case "RUB":
-                return RUB;
-            default:
-                return 0.0;
+    @SerializedName("GBP")
+    var GBP: Double = 0.0
+
+    @SerializedName("IDR")
+    var IDR: Double = 0.0
+
+    @SerializedName("PLN")
+    var PLN: Double = 0.0
+
+    @SerializedName("RUB")
+    var RUB: Double = 0.0
+    fun getRate(currency: String?): Double {
+        when (currency) {
+            "USD" -> return USD
+            "GBP" -> return GBP
+            "IDR" -> return IDR
+            "PLN" -> return PLN
+            "RUB" -> return RUB
+            else -> return 0.0
         }
     }
-
 }

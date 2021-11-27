@@ -1,228 +1,209 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20
 
-import static ashunevich.uniconverter20.Utils.SYMBOL_CHECK;
-import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;
-import static ashunevich.uniconverter20.Utils.SYMBOL_CORRECT;
-import static ashunevich.uniconverter20.Utils.appendMinusPlus;
-import static ashunevich.uniconverter20.Utils.blockInput;
-import static ashunevich.uniconverter20.Utils.clearView;
-import static ashunevich.uniconverter20.Utils.correctValue;
-import static ashunevich.uniconverter20.Utils.generateViewModel;
-import static ashunevich.uniconverter20.Utils.getSpinnerValueString;
-import static ashunevich.uniconverter20.Utils.measurementUnitsHandler;
-import static ashunevich.uniconverter20.Utils.returnLocale;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AdapterView
+import android.text.TextWatcher
+import android.text.Editable
+import android.widget.Toast
+import android.text.TextUtils
+import android.view.View
+import android.widget.Spinner
+import androidx.fragment.app.Fragment
+import ashunevich.uniconverter20.databinding.ConverterActivityBinding
+import com.ashunevich.conversionlibrary.UnitConverter
 
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+class ActivityConverter : Fragment() {
+    private var binding: ConverterActivityBinding? = null
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import com.ashunevich.conversionlibrary.UnitConverter;
-
-import ashunevich.uniconverter20.databinding.ConverterActivityBinding;
-import ashunevich.uniconverter20.ui.AppViewModel;
-
-public class ActivityConverter extends Fragment {
-
-    private ConverterActivityBinding binding;
-    private static final int DEFAULT_POS = 0;
-
-    public ActivityConverter() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        binding = ConverterActivityBinding.inflate(inflater, container, false);
-        setSpinnerOnTabPositionChange(DEFAULT_POS);
-        setUnitMeasurement();
-        blockInput(binding.resultView, binding.valueEdit);
-
-        return binding.getRoot();
+        binding = ConverterActivityBinding.inflate(inflater, container, false)
+        setSpinnerOnTabPositionChange(DEFAULT_POS)
+        setUnitMeasurement()
+        Utils.blockInput(binding!!.resultView, binding!!.valueEdit)
+        return binding!!.root
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        initTabPositionViewModel();
-        initKeyBoardViewModel();
-        setSpinnerListener(binding.spinnerValue);
-        setSpinnerListener(binding.spinnerResult);
-        addTextWatcher();
-        super.onViewCreated(view, savedInstanceState);
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initTabPositionViewModel()
+        initKeyBoardViewModel()
+        setSpinnerListener(binding!!.spinnerValue)
+        setSpinnerListener(binding!!.spinnerResult)
+        addTextWatcher()
+        super.onViewCreated(view, savedInstanceState)
     }
 
-    private void initTabPositionViewModel() {
-        AppViewModel tabPositionViewModel = generateViewModel(requireActivity());
-        tabPositionViewModel.getSelected().observe(getViewLifecycleOwner(), this::setSpinnerOnTabPositionChange);
+    private fun initTabPositionViewModel() {
+        val tabPositionViewModel = Utils.generateViewModel(requireActivity())
+        tabPositionViewModel.getSelected().observe(
+            viewLifecycleOwner,
+            { tabPos: Int -> setSpinnerOnTabPositionChange(tabPos) })
     }
 
-    private void initKeyBoardViewModel() {
-        AppViewModel keyboardViewModel = generateViewModel(requireActivity());
-        keyboardViewModel.getPostedNumber().observe(getViewLifecycleOwner(), this::setViewModelTextReceiver);
+    private fun initKeyBoardViewModel() {
+        val keyboardViewModel = Utils.generateViewModel(requireActivity())
+        keyboardViewModel.postedNumber.observe(
+            viewLifecycleOwner,
+            { event: String? ->
+                if (event != null) {
+                    setViewModelTextReceiver(event)
+                }
+            })
     }
 
-    private void setAdapter(String[] array) {
-        binding.spinnerValue.setAdapter(new ArrayAdapter<>(getContext(),
-                R.layout.custom_spinner_item, array));
-        binding.spinnerResult.setAdapter(new ArrayAdapter<>(getContext(),
-                R.layout.custom_spinner_item, array));
+    private fun setAdapter(array: Array<String>) {
+        binding!!.spinnerValue.adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_spinner_item, array
+        )
+        binding!!.spinnerResult.adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_spinner_item, array
+        )
     }
 
-    @Override
-    public void onDestroyView() {
-        binding = null;
-        super.onDestroyView();
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 
-    public void setViewModelTextReceiver(String event) {
-        if (event.equals(SYMBOL_CORRECT) || event.equals(SYMBOL_CLEAR) || event.equals(SYMBOL_CHECK)) {
-            switch (event) {
-                case SYMBOL_CORRECT:
-                    correctValue(binding.valueEdit, binding.resultView);
-                    break;
-                case SYMBOL_CLEAR:
-                    clearView(binding.valueEdit, binding.resultView);
-                    break;
-                case SYMBOL_CHECK:
-                    appendMinusPlus(binding.valueEdit);
-                    break;
+    fun setViewModelTextReceiver(event: String) {
+        if (event == Utils.SYMBOL_CORRECT || event == Utils.SYMBOL_CLEAR || event == Utils.SYMBOL_CHECK) {
+            when (event) {
+                Utils.SYMBOL_CORRECT -> Utils.correctValue(
+                    binding!!.valueEdit, binding!!.resultView
+                )
+                Utils.SYMBOL_CLEAR -> Utils.clearView(
+                    binding!!.valueEdit, binding!!.resultView
+                )
+                Utils.SYMBOL_CHECK -> Utils.appendMinusPlus(
+                    binding!!.valueEdit
+                )
             }
         } else {
-            binding.valueEdit.append(event);
+            binding!!.valueEdit.append(event)
         }
     }
 
     //Filling spinners with values
-    private void setSpinnerOnTabPositionChange(int tabPos) {
-        switch (tabPos) {
-            case 0:
-                setAdapter(getResources().getStringArray(R.array.weight));
-                break;
-            case 1:
-                setAdapter(getResources().getStringArray(R.array.length));
-                break;
-            case 2:
-                setAdapter(getResources().getStringArray(R.array.volume));
-                break;
-            case 3:
-                setAdapter(getResources().getStringArray(R.array.area));
-                break;
-            case 4:
-                setAdapter(getResources().getStringArray(R.array.force));
-                break;
-            case 5:
-                setAdapter(getResources().getStringArray(R.array.temperature_array));
-                break;
-            case 6:
-                setAdapter(getResources().getStringArray(R.array.time_array));
-                break;
-            case 7:
-                setAdapter(getResources().getStringArray(R.array.speed));
-                break;
+    private fun setSpinnerOnTabPositionChange(tabPos: Int) {
+        when (tabPos) {
+            0 -> setAdapter(resources.getStringArray(R.array.weight))
+            1 -> setAdapter(resources.getStringArray(R.array.length))
+            2 -> setAdapter(resources.getStringArray(R.array.volume))
+            3 -> setAdapter(resources.getStringArray(R.array.area))
+            4 -> setAdapter(resources.getStringArray(R.array.force))
+            5 -> setAdapter(resources.getStringArray(R.array.temperature_array))
+            6 -> setAdapter(resources.getStringArray(R.array.time_array))
+            7 -> setAdapter(resources.getStringArray(R.array.speed))
         }
     }
 
     //if user changes unit - it will change measurements and will automatically recalculate result
-    private void setSpinnerListener(Spinner spinner) {
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                convertAndShowValues(returnLocale());
-                setUnitMeasurement();
+    private fun setSpinnerListener(spinner: Spinner) {
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?,
+                selectedItemView: View,
+                position: Int,
+                id: Long
+            ) {
+                convertAndShowValues(Utils.returnLocale())
+                setUnitMeasurement()
             }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-
-            }
-        });
+            override fun onNothingSelected(parentView: AdapterView<*>?) {}
+        }
     }
 
     //Auto conversion when user add number to value for convert
-    private void addTextWatcher() {
-        binding.valueEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (binding.valueEdit.getText().toString().trim().length() > 15) {
-                    binding.valueEdit.setText(s.toString().substring(0, 15));
-                    binding.valueEdit.setSelection(s.length() - 1);
-                    showToast();
+    private fun addTextWatcher() {
+        binding!!.valueEdit.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                if (binding!!.valueEdit.text.toString().trim { it <= ' ' }.length > 15) {
+                    binding!!.valueEdit.setText(s.toString().substring(0, 15))
+                    binding!!.valueEdit.setSelection(s.length - 1)
+                    showToast()
                 }
-                convertAndShowValues(returnLocale());
+                convertAndShowValues(Utils.returnLocale())
             }
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
             }
-        });
+        })
     }
 
-    protected void showToast() {
-        Toast.makeText(getActivity(), getResources().getString(R.string.maxNumberReached), Toast.LENGTH_SHORT).show();
+    protected fun showToast() {
+        Toast.makeText(activity, resources.getString(R.string.maxNumberReached), Toast.LENGTH_SHORT)
+            .show()
     }
 
     //set units of measurements for value
-    private void setUnitMeasurement() {
-        measurementUnitsHandler(getSpinnerValueString(binding.spinnerValue), binding.valueUnit);
-        measurementUnitsHandler(getSpinnerValueString(binding.spinnerResult), binding.resultUnit);
+    private fun setUnitMeasurement() {
+        Utils.measurementUnitsHandler(
+            Utils.getSpinnerValueString(
+                binding!!.spinnerValue
+            ), binding!!.valueUnit
+        )
+        Utils.measurementUnitsHandler(
+            Utils.getSpinnerValueString(
+                binding!!.spinnerResult
+            ), binding!!.resultUnit
+        )
     }
 
-    private void convertAndShowValues(String activeLocale) {
-        if (TextUtils.isEmpty(binding.valueEdit.getText().toString()) | binding.valueEdit.getText().toString().equals("-")) {
-            binding.resultView.setText("");
+    private fun convertAndShowValues(activeLocale: String) {
+        if (TextUtils.isEmpty(binding!!.valueEdit.text.toString()) or (binding!!.valueEdit.text.toString() == "-")) {
+            binding!!.resultView.setText("")
         } else {
-            if (activeLocale.equals("українська")) {
-                binding.resultView.setText(UnitConverter.ConvertValues_Ukr
-                        (getSpinnerValueString(binding.spinnerValue),
-                                getSpinnerValueString(binding.spinnerResult),
-                                stringToDouble()));
+            if (activeLocale == "українська") {
+                binding!!.resultView.setText(
+                    UnitConverter.ConvertValues_Ukr(
+                        Utils.getSpinnerValueString(
+                            binding!!.spinnerValue
+                        ),
+                        Utils.getSpinnerValueString(binding!!.spinnerResult),
+                        stringToDouble()
+                    )
+                )
             } else {
-                binding.resultView.setText(UnitConverter.ConvertValues
-                        (getSpinnerValueString(binding.spinnerValue),
-                                getSpinnerValueString(binding.spinnerResult),
-                                stringToDouble()));
+                binding!!.resultView.setText(
+                    UnitConverter.ConvertValues(
+                        Utils.getSpinnerValueString(
+                            binding!!.spinnerValue
+                        ),
+                        Utils.getSpinnerValueString(binding!!.spinnerResult),
+                        stringToDouble()
+                    )
+                )
             }
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
+    override fun onDetach() {
+        super.onDetach()
     }
 
-    private double stringToDouble() {
-        return Double.parseDouble(binding.valueEdit.getText().toString());
+    private fun stringToDouble(): Double {
+        return binding!!.valueEdit.text.toString().toDouble()
+    }
+
+    companion object {
+        private const val DEFAULT_POS = 0
     }
 }
-

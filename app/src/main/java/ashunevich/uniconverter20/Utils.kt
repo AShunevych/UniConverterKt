@@ -1,567 +1,284 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20
 
 
-import android.annotation.SuppressLint;
-import android.content.res.Resources;
-import android.text.InputType;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
+import ashunevich.uniconverter20.ui.AppViewModel
+import androidx.lifecycle.ViewModelProvider
+import android.text.InputType
+import android.text.TextUtils
+import android.annotation.SuppressLint
+import androidx.lifecycle.ViewModelStoreOwner
+import android.util.Log
+import android.widget.*
+import org.mariuszgromada.math.mxparser.Expression
+import java.lang.StringBuilder
+import java.util.*
 
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
-
-import org.mariuszgromada.math.mxparser.Expression;
-
-import java.util.Locale;
-
-import ashunevich.uniconverter20.ui.AppViewModel;
-
-public abstract class Utils {
-
-    public static final String TAG = "ERROR-";
-    public static final String SAVED_VALUE = "savedValue";
-    public static final String SAVED_RESULT = "saveResult";
-
-    public static final String SYMBOL_CORRECT = "⇽";
-    public static final String SYMBOL_CLEAR = "C";
-    public static final String SYMBOL_BRACKETS = "( )";
-    public static final String SYMBOL_SOLVE = "=";
-    public static final String SYMBOL_CHECK = "-/+";
-
-    public static void blockInput(EditText resultView, EditText valueEdit) {
-        resultView.setInputType(InputType.TYPE_NULL);
-        valueEdit.setInputType(InputType.TYPE_NULL);
+object Utils {
+    private const val TAG = "ERROR-"
+    const val SAVED_VALUE = "savedValue"
+    const val SAVED_RESULT = "saveResult"
+    const val SYMBOL_CORRECT = "⇽"
+    const val SYMBOL_CLEAR = "C"
+    const val SYMBOL_BRACKETS = "( )"
+    const val SYMBOL_SOLVE = "="
+    const val SYMBOL_CHECK = "-/+"
+    fun blockInput(resultView: EditText, valueEdit: EditText) {
+        resultView.inputType = InputType.TYPE_NULL
+        valueEdit.inputType = InputType.TYPE_NULL
     }
 
-    public static void clearView(EditText valueEdit, TextView resultView) {
-        resultView.setText("");
-        valueEdit.setText("");
+    fun clearView(valueEdit: EditText, resultView: TextView) {
+        resultView.text = ""
+        valueEdit.setText("")
     }
 
-    public static String getSpinnerValueString(Spinner spinner) {
-        return spinner.getSelectedItem().toString();
+    fun getSpinnerValueString(spinner: Spinner): String {
+        return spinner.selectedItem.toString()
     }
 
-    public static void readAndSolve(EditText valueEdit, TextView resultView) {
-        if (!TextUtils.isEmpty(valueEdit.getText().toString())) {
-            String getValue = valueEdit.getText().toString();
-            Expression value = new Expression(getValue);
-            String getResult = Double.toString(value.calculate());
-            resultView.setText(getResult);
+    fun readAndSolve(valueEdit: EditText, resultView: TextView) {
+        if (!TextUtils.isEmpty(valueEdit.text.toString())) {
+            val getValue = valueEdit.text.toString()
+            val value = Expression(getValue)
+            val getResult = value.calculate().toString()
+            resultView.text = getResult
         } else {
-            resultView.setText("");
+            resultView.text = ""
         }
     }
 
-    public static void checkBrackets(EditText valueEdit) {
-        if (valueEdit.getText().toString().contains("(")) {
-            valueEdit.append(")");
+    fun checkBrackets(valueEdit: EditText) {
+        if (valueEdit.text.toString().contains("(")) {
+            valueEdit.append(")")
         } else {
-            valueEdit.append("(");
+            valueEdit.append("(")
         }
     }
 
-    public static void postTextOnClick(AppViewModel model, Button button) {
-        String buttonText = button.getText().toString();
-        button.setOnClickListener(view -> model.setPostNumber(buttonText));
+    fun postTextOnClick(model: AppViewModel?, button: Button) {
+        val buttonText = button.text.toString()
+        button.setOnClickListener { model!!.setPostNumber(buttonText) }
     }
 
-    public static String returnLocale() {
-        return Locale.getDefault().getDisplayLanguage();
+    fun returnLocale(): String {
+        return Locale.getDefault().displayLanguage
     }
 
     @SuppressLint("SetTextI18n")
-    public static void appendMinusPlus(EditText valueEdit) {
-        int x = valueEdit.getText().length();
-        if (x != 15 | valueEdit.getText().toString().contains("-")) {
-            StringBuilder sb = new StringBuilder();
-            if (valueEdit.getText().toString().contains("-")) {
-                sb.append(valueEdit.getText().toString());
-                sb.deleteCharAt(0);
-                valueEdit.setText(sb.toString());
+    fun appendMinusPlus(valueEdit: EditText) {
+        val x = valueEdit.text.length
+        if (x != 15 || valueEdit.text.toString().contains("-")) {
+            val sb = StringBuilder()
+            if (valueEdit.text.toString().contains("-")) {
+                sb.append(valueEdit.text.toString())
+                sb.deleteCharAt(0)
+                valueEdit.setText(sb.toString())
             } else {
-                valueEdit.setText("-" + valueEdit.getText());
+                valueEdit.setText("-" + valueEdit.text)
             }
         }
     }
 
-    public static void correctValue(EditText valueEdit, TextView resultEdit) {
-        int x = valueEdit.getText().length();
+    fun correctValue(valueEdit: EditText, resultEdit: TextView) {
+        val x = valueEdit.text.length
         if (x > 0) {
-            valueEdit.setText(removeLastChar(valueEdit.getText().toString()));
+            valueEdit.setText(removeLastChar(valueEdit.text.toString()))
         } else {
-            Log.d(TAG, "INVALID INPUT");
-            clearView(valueEdit, resultEdit);
+            Log.d(TAG, "INVALID INPUT")
+            clearView(valueEdit, resultEdit)
         }
     }
 
-    public static String removeLastChar(String str) {
-        return removeLastChars(str);
+    private fun removeLastChar(str: String): String {
+        return removeLastChars(str)
     }
 
-    public static String removeLastChars(String str) {
-        return str.substring(0, str.length() - 1);
+    private fun removeLastChars(str: String): String {
+        return str.substring(0, str.length - 1)
     }
 
-    public static void measurementUnitsHandler(String spinnerTextValue,
-                                               TextView measurementUnit) {
-        Resources resources = measurementUnit.getResources();
-        switch (spinnerTextValue) {
-            case "Milligram":
-            case "Міліграм":
-                measurementUnit.setText(resources.getString(R.string.unit_Mg));
-                break;
-            case "Gram":
-                measurementUnit.setText(resources.getString(R.string.unit_G));
-                break;
-            case "Kilogram":
-                measurementUnit.setText(resources.getString(R.string.unit_Kg));
-                break;
-            case "Tonne":
-                measurementUnit.setText(resources.getString(R.string.unit_T));
-                break;
-            case "Grain":
-                measurementUnit.setText(resources.getString(R.string.unit_Gr));
-                break;
-            case "Ounce":
-                measurementUnit.setText(resources.getString(R.string.unit_Oz));
-                break;
-            case "Pound":
-                measurementUnit.setText(resources.getString(R.string.unit_Lb));
-                break;
-            case "Hundredweight":
-                measurementUnit.setText(resources.getString(R.string.unit_Hw));
-                break;
-            case "Ton(long)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tl));
-                break;
-            case "Millimetre":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm));
-                break;
-            case "Centimetre":
-                measurementUnit.setText(resources.getString(R.string.unit_Sm));
-                break;
-            case "Metre":
-                measurementUnit.setText(resources.getString(R.string.unit_M));
-                break;
-            case "Kilometre":
-                measurementUnit.setText(resources.getString(R.string.unit_Km));
-                break;
-            case "Inch":
-                measurementUnit.setText(resources.getString(R.string.unit_In));
-                break;
-            case "Foot":
-                measurementUnit.setText(resources.getString(R.string.unit_Ft));
-                break;
-            case "Yard":
-                measurementUnit.setText(resources.getString(R.string.unit_Yd));
-                break;
-            case "Mile":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi));
-                break;
-            case "Celsius":
-                measurementUnit.setText(resources.getString(R.string.unit_c));
-                break;
-            case "Kelvin":
-                measurementUnit.setText(resources.getString(R.string.unit_k));
-                break;
-            case "Rankine":
-                measurementUnit.setText(resources.getString(R.string.unit_r));
-                break;
-            case "Fahrenheit":
-                measurementUnit.setText(resources.getString(R.string.unit_f));
-                break;
-            case "Square millimeter":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));
-                break;
-            case "Square centimeter":
-                measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));
-                break;
-            case "Square meter":
-                measurementUnit.setText(resources.getString(R.string.unit_М_Square));
-                break;
-            case "Square kilometer":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_Square));
-                break;
-            case "Hectare":
-                measurementUnit.setText(resources.getString(R.string.unit_Ha));
-                break;
-            case "Square mile":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));
-                break;
-            case "Square yard":
-                measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));
-                break;
-            case "Square feet":
-                measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));
-                break;
-            case "Square inch":
-                measurementUnit.setText(resources.getString(R.string.unit_In_Square));
-                break;
-            case "Acre":
-                measurementUnit.setText(resources.getString(R.string.unit_Ac));
-                break;
-            case "Seconds":
-                measurementUnit.setText(resources.getString(R.string.unit_Seconds));
-                break;
-            case "Minutes":
-                measurementUnit.setText(resources.getString(R.string.unit_Minutes));
-                break;
-            case "Hour":
-                measurementUnit.setText(resources.getString(R.string.unit_Hour));
-                break;
-            case "Day":
-                measurementUnit.setText(resources.getString(R.string.unit_Day));
-                break;
-            case "Week":
-                measurementUnit.setText(resources.getString(R.string.unit_Week));
-                break;
-            case "Month":
-                measurementUnit.setText(resources.getString(R.string.unit_Month));
-                break;
-            case "Year":
-                measurementUnit.setText(resources.getString(R.string.unit_Year));
-                break;
-            case "Cubic millimetre":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));
-                break;
-            case "Cubic centimetre":
-                measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));
-                break;
-            case "Cubic metre":
-                measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));
-                break;
-            case "Milliliter":
-                measurementUnit.setText(resources.getString(R.string.unit_Ml));
-                break;
-            case "Liter":
-                measurementUnit.setText(resources.getString(R.string.unit_L));
-                break;
-            case "Fluid ounce":
-                measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));
-                break;
-            case "Barrel(UK)":
-                measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));
-                break;
-            case "Gill":
-                measurementUnit.setText(resources.getString(R.string.unit_Gi));
-                break;
-            case "Pint":
-                measurementUnit.setText(resources.getString(R.string.unit_Pt));
-                break;
-            case "Quart":
-                measurementUnit.setText(resources.getString(R.string.unit_Qt));
-                break;
-            case "Gallon":
-                measurementUnit.setText(resources.getString(R.string.unit_Gal));
-                break;
-            case "Mlilinewton":
-                measurementUnit.setText(resources.getString(R.string.unit_Mn));
-                break;
-            case "Newton":
-                measurementUnit.setText(resources.getString(R.string.unit_N));
-                break;
-            case "Kilonewton":
-                measurementUnit.setText(resources.getString(R.string.unit_Kn));
-                break;
-            case "Ton-force(metric)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tf));
-                break;
-            case "Gram-force":
-                measurementUnit.setText(resources.getString(R.string.unit_Gf));
-                break;
-            case "Kilogram-force":
-                measurementUnit.setText(resources.getString(R.string.unit_Kgf));
-                break;
-            case "Pond":
-                measurementUnit.setText(resources.getString(R.string.unit_P));
-                break;
-            case "Pound-force":
-                measurementUnit.setText(resources.getString(R.string.unit_Lbf));
-                break;
-            case "Ounce-force":
-                measurementUnit.setText(resources.getString(R.string.unit_Ozf));
-                break;
-            case "Ton-force (long)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tonf));
-                break;
-            case "Poundal":
-                measurementUnit.setText(resources.getString(R.string.unit_Pdl));
-                break;
-            case "Meter/second":
-                measurementUnit.setText(resources.getString(R.string.unit_M_s));
-                break;
-            case "Meter/hour":
-                measurementUnit.setText(resources.getString(R.string.unit_M_h));
-                break;
-            case "Kilometer/second":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_s));
-                break;
-            case "Kilometer/hour":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_h));
-                break;
-            case "Foot/second":
-                measurementUnit.setText(resources.getString(R.string.unit_F_s));
-                break;
-            case "Foot/hour":
-                measurementUnit.setText(resources.getString(R.string.unit_F_h));
-                break;
-            case "Mile/hour":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi));
-                break;
-            case "Knot":
-                measurementUnit.setText(resources.getString(R.string.unit_Kt));
-                break;
-            case "Грам":
-                measurementUnit.setText(resources.getString(R.string.unit_G));
-                break;
-            case "Кілограм":
-                measurementUnit.setText(resources.getString(R.string.unit_Kg));
-                break;
-            case "Тонна":
-                measurementUnit.setText(resources.getString(R.string.unit_T));
-                break;
-            case "Гран":
-                measurementUnit.setText(resources.getString(R.string.unit_Gr));
-                break;
-            case "Унція":
-                measurementUnit.setText(resources.getString(R.string.unit_Oz));
-                break;
-            case "Фунт":
-                measurementUnit.setText(resources.getString(R.string.unit_Lb));
-                break;
-            case "Хандредвейт":
-                measurementUnit.setText(resources.getString(R.string.unit_Hw));
-                break;
-            case "Тонна(довга)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tl));
-                break;
-            case "Міліметр":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm));
-                break;
-            case "Сантіметр":
-                measurementUnit.setText(resources.getString(R.string.unit_Sm));
-                break;
-            case "Метр":
-                measurementUnit.setText(resources.getString(R.string.unit_M));
-                break;
-            case "Кілометр":
-                measurementUnit.setText(resources.getString(R.string.unit_Km));
-                break;
-            case "Дюйм":
-                measurementUnit.setText(resources.getString(R.string.unit_In));
-                break;
-            case "Фут":
-                measurementUnit.setText(resources.getString(R.string.unit_Ft));
-                break;
-            case "Ярд":
-                measurementUnit.setText(resources.getString(R.string.unit_Yd));
-                break;
-            case "Міля":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi));
-                break;
-            case "Цельсій":
-                measurementUnit.setText(resources.getString(R.string.unit_c));
-                break;
-            case "Кельвін":
-                measurementUnit.setText(resources.getString(R.string.unit_k));
-                break;
-            case "Ранкін":
-                measurementUnit.setText(resources.getString(R.string.unit_r));
-                break;
-            case "Фаренгейт":
-                measurementUnit.setText(resources.getString(R.string.unit_f));
-                break;
-            case "Міліметр квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm_Square));
-                break;
-            case "Сантіметр квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_Cm_Square));
-                break;
-            case "Метр квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_М_Square));
-                break;
-            case "Кілометр квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_Square));
-                break;
-            case "Гектар":
-                measurementUnit.setText(resources.getString(R.string.unit_Ha));
-                break;
-            case "Міля квадратна":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi_Square));
-                break;
-            case "Ярд квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_Yd_Square));
-                break;
-            case "Фут квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_Ft_Square));
-                break;
-            case "Дюйм квадратний":
-                measurementUnit.setText(resources.getString(R.string.unit_In_Square));
-                break;
-            case "Акр":
-                measurementUnit.setText(resources.getString(R.string.unit_Ac));
-                break;
-            case "Секунди":
-                measurementUnit.setText(resources.getString(R.string.unit_Seconds));
-                break;
-            case "Хвилини":
-                measurementUnit.setText(resources.getString(R.string.unit_Minutes));
-                break;
-            case "Година":
-                measurementUnit.setText(resources.getString(R.string.unit_Hour));
-                break;
-            case "День":
-                measurementUnit.setText(resources.getString(R.string.unit_Day));
-                break;
-            case "Тиждень":
-                measurementUnit.setText(resources.getString(R.string.unit_Week));
-                break;
-            case "Місяц":
-                measurementUnit.setText(resources.getString(R.string.unit_Month));
-                break;
-            case "Рік":
-                measurementUnit.setText(resources.getString(R.string.unit_Year));
-                break;
-            case "Міліметр кубічний":
-                measurementUnit.setText(resources.getString(R.string.unit_Mm_Cubic));
-                break;
-            case "Сантіметр кубічний":
-                measurementUnit.setText(resources.getString(R.string.unit_Cm_Cubic));
-                break;
-            case "Метр кубічний":
-                measurementUnit.setText(resources.getString(R.string.unit_M_Cubic));
-                break;
-            case "Мілілітр":
-                measurementUnit.setText(resources.getString(R.string.unit_Ml));
-                break;
-            case "Літр":
-                measurementUnit.setText(resources.getString(R.string.unit_L));
-                break;
-            case "Унція рідка":
-                measurementUnit.setText(resources.getString(R.string.unit_Fl_oz));
-                break;
-            case "Баррель(UK)":
-                measurementUnit.setText(resources.getString(R.string.unit_Bbl_uk));
-                break;
-            case "Джил":
-                measurementUnit.setText(resources.getString(R.string.unit_Gi));
-                break;
-            case "Пінта":
-                measurementUnit.setText(resources.getString(R.string.unit_Pt));
-                break;
-            case "Кварт":
-                measurementUnit.setText(resources.getString(R.string.unit_Qt));
-                break;
-            case "Галлон":
-                measurementUnit.setText(resources.getString(R.string.unit_Gal));
-                break;
-            case "Міліньютон ":
-                measurementUnit.setText(resources.getString(R.string.unit_Mn));
-                break;
-            case "Ньютон":
-                measurementUnit.setText(resources.getString(R.string.unit_N));
-                break;
-            case "Кілоньютон":
-                measurementUnit.setText(resources.getString(R.string.unit_Kn));
-                break;
-            case "Тонна-сила(метрична)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tf));
-                break;
-            case "Грам-сила":
-                measurementUnit.setText(resources.getString(R.string.unit_Gf));
-                break;
-            case "Кілограм-сила":
-                measurementUnit.setText(resources.getString(R.string.unit_Kgf));
-                break;
-            case "Понд":
-                measurementUnit.setText(resources.getString(R.string.unit_P));
-                break;
-            case "Фунт-сила":
-                measurementUnit.setText(resources.getString(R.string.unit_Lbf));
-                break;
-            case "Унція-сила":
-                measurementUnit.setText(resources.getString(R.string.unit_Ozf));
-                break;
-            case "Тонна-сила(довга)":
-                measurementUnit.setText(resources.getString(R.string.unit_Tonf));
-                break;
-            case "Паундаль":
-                measurementUnit.setText(resources.getString(R.string.unit_Pdl));
-                break;
-            case "Метрів/секунда":
-                measurementUnit.setText(resources.getString(R.string.unit_M_s));
-                break;
-            case "Метрів/година":
-                measurementUnit.setText(resources.getString(R.string.unit_M_h));
-                break;
-            case "Кілометр/секунда":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_s));
-                break;
-            case "Кілометр/година":
-                measurementUnit.setText(resources.getString(R.string.unit_Km_h));
-                break;
-            case "Фут/секунда":
-                measurementUnit.setText(resources.getString(R.string.unit_F_s));
-                break;
-            case "Фут/година":
-                measurementUnit.setText(resources.getString(R.string.unit_F_h));
-                break;
-            case "Міль/година":
-                measurementUnit.setText(resources.getString(R.string.unit_Mi));
-                break;
-            case "Вузол":
-                measurementUnit.setText(resources.getString(R.string.unit_Kt));
-                break;
+    fun measurementUnitsHandler(
+        spinnerTextValue: String?,
+        measurementUnit: TextView
+    ) {
+        val resources = measurementUnit.resources
+        when (spinnerTextValue) {
+            "Milligram", "Міліграм" -> measurementUnit.text = resources.getString(R.string.unit_Mg)
+            "Gram" -> measurementUnit.text = resources.getString(R.string.unit_G)
+            "Kilogram" -> measurementUnit.text = resources.getString(R.string.unit_Kg)
+            "Tonne" -> measurementUnit.text = resources.getString(R.string.unit_T)
+            "Grain" -> measurementUnit.text = resources.getString(R.string.unit_Gr)
+            "Ounce" -> measurementUnit.text = resources.getString(R.string.unit_Oz)
+            "Pound" -> measurementUnit.text = resources.getString(R.string.unit_Lb)
+            "Hundredweight" -> measurementUnit.text = resources.getString(R.string.unit_Hw)
+            "Ton(long)" -> measurementUnit.text = resources.getString(R.string.unit_Tl)
+            "Millimetre" -> measurementUnit.text = resources.getString(R.string.unit_Mm)
+            "Centimetre" -> measurementUnit.text = resources.getString(R.string.unit_Sm)
+            "Metre" -> measurementUnit.text = resources.getString(R.string.unit_M)
+            "Kilometre" -> measurementUnit.text = resources.getString(R.string.unit_Km)
+            "Inch" -> measurementUnit.text = resources.getString(R.string.unit_In)
+            "Foot" -> measurementUnit.text = resources.getString(R.string.unit_Ft)
+            "Yard" -> measurementUnit.text = resources.getString(R.string.unit_Yd)
+            "Mile" -> measurementUnit.text = resources.getString(R.string.unit_Mi)
+            "Celsius" -> measurementUnit.text = resources.getString(R.string.unit_c)
+            "Kelvin" -> measurementUnit.text = resources.getString(R.string.unit_k)
+            "Rankine" -> measurementUnit.text = resources.getString(R.string.unit_r)
+            "Fahrenheit" -> measurementUnit.text = resources.getString(R.string.unit_f)
+            "Square millimeter" -> measurementUnit.text =
+                resources.getString(R.string.unit_Mm_Square)
+            "Square centimeter" -> measurementUnit.text =
+                resources.getString(R.string.unit_Cm_Square)
+            "Square meter" -> measurementUnit.text = resources.getString(R.string.unit_М_Square)
+            "Square kilometer" -> measurementUnit.text =
+                resources.getString(R.string.unit_Km_Square)
+            "Hectare" -> measurementUnit.text = resources.getString(R.string.unit_Ha)
+            "Square mile" -> measurementUnit.text = resources.getString(R.string.unit_Mi_Square)
+            "Square yard" -> measurementUnit.text = resources.getString(R.string.unit_Yd_Square)
+            "Square feet" -> measurementUnit.text = resources.getString(R.string.unit_Ft_Square)
+            "Square inch" -> measurementUnit.text = resources.getString(R.string.unit_In_Square)
+            "Acre" -> measurementUnit.text = resources.getString(R.string.unit_Ac)
+            "Seconds" -> measurementUnit.text = resources.getString(R.string.unit_Seconds)
+            "Minutes" -> measurementUnit.text = resources.getString(R.string.unit_Minutes)
+            "Hour" -> measurementUnit.text = resources.getString(R.string.unit_Hour)
+            "Day" -> measurementUnit.text = resources.getString(R.string.unit_Day)
+            "Week" -> measurementUnit.text = resources.getString(R.string.unit_Week)
+            "Month" -> measurementUnit.text = resources.getString(R.string.unit_Month)
+            "Year" -> measurementUnit.text = resources.getString(R.string.unit_Year)
+            "Cubic millimetre" -> measurementUnit.text = resources.getString(R.string.unit_Mm_Cubic)
+            "Cubic centimetre" -> measurementUnit.text = resources.getString(R.string.unit_Cm_Cubic)
+            "Cubic metre" -> measurementUnit.text = resources.getString(R.string.unit_M_Cubic)
+            "Milliliter" -> measurementUnit.text = resources.getString(R.string.unit_Ml)
+            "Liter" -> measurementUnit.text = resources.getString(R.string.unit_L)
+            "Fluid ounce" -> measurementUnit.text = resources.getString(R.string.unit_Fl_oz)
+            "Barrel(UK)" -> measurementUnit.text = resources.getString(R.string.unit_Bbl_uk)
+            "Gill" -> measurementUnit.text = resources.getString(R.string.unit_Gi)
+            "Pint" -> measurementUnit.text = resources.getString(R.string.unit_Pt)
+            "Quart" -> measurementUnit.text = resources.getString(R.string.unit_Qt)
+            "Gallon" -> measurementUnit.text = resources.getString(R.string.unit_Gal)
+            "Mlilinewton" -> measurementUnit.text = resources.getString(R.string.unit_Mn)
+            "Newton" -> measurementUnit.text = resources.getString(R.string.unit_N)
+            "Kilonewton" -> measurementUnit.text = resources.getString(R.string.unit_Kn)
+            "Ton-force(metric)" -> measurementUnit.text = resources.getString(R.string.unit_Tf)
+            "Gram-force" -> measurementUnit.text = resources.getString(R.string.unit_Gf)
+            "Kilogram-force" -> measurementUnit.text = resources.getString(R.string.unit_Kgf)
+            "Pond" -> measurementUnit.text = resources.getString(R.string.unit_P)
+            "Pound-force" -> measurementUnit.text = resources.getString(R.string.unit_Lbf)
+            "Ounce-force" -> measurementUnit.text = resources.getString(R.string.unit_Ozf)
+            "Ton-force (long)" -> measurementUnit.text = resources.getString(R.string.unit_Tonf)
+            "Poundal" -> measurementUnit.text = resources.getString(R.string.unit_Pdl)
+            "Meter/second" -> measurementUnit.text = resources.getString(R.string.unit_M_s)
+            "Meter/hour" -> measurementUnit.text = resources.getString(R.string.unit_M_h)
+            "Kilometer/second" -> measurementUnit.text = resources.getString(R.string.unit_Km_s)
+            "Kilometer/hour" -> measurementUnit.text = resources.getString(R.string.unit_Km_h)
+            "Foot/second" -> measurementUnit.text = resources.getString(R.string.unit_F_s)
+            "Foot/hour" -> measurementUnit.text = resources.getString(R.string.unit_F_h)
+            "Mile/hour" -> measurementUnit.text = resources.getString(R.string.unit_Mi)
+            "Knot" -> measurementUnit.text = resources.getString(R.string.unit_Kt)
+            "Грам" -> measurementUnit.text = resources.getString(R.string.unit_G)
+            "Кілограм" -> measurementUnit.text = resources.getString(R.string.unit_Kg)
+            "Тонна" -> measurementUnit.text = resources.getString(R.string.unit_T)
+            "Гран" -> measurementUnit.text = resources.getString(R.string.unit_Gr)
+            "Унція" -> measurementUnit.text = resources.getString(R.string.unit_Oz)
+            "Фунт" -> measurementUnit.text = resources.getString(R.string.unit_Lb)
+            "Хандредвейт" -> measurementUnit.text = resources.getString(R.string.unit_Hw)
+            "Тонна(довга)" -> measurementUnit.text = resources.getString(R.string.unit_Tl)
+            "Міліметр" -> measurementUnit.text = resources.getString(R.string.unit_Mm)
+            "Сантіметр" -> measurementUnit.text = resources.getString(R.string.unit_Sm)
+            "Метр" -> measurementUnit.text = resources.getString(R.string.unit_M)
+            "Кілометр" -> measurementUnit.text = resources.getString(R.string.unit_Km)
+            "Дюйм" -> measurementUnit.text = resources.getString(R.string.unit_In)
+            "Фут" -> measurementUnit.text = resources.getString(R.string.unit_Ft)
+            "Ярд" -> measurementUnit.text = resources.getString(R.string.unit_Yd)
+            "Міля" -> measurementUnit.text = resources.getString(R.string.unit_Mi)
+            "Цельсій" -> measurementUnit.text = resources.getString(R.string.unit_c)
+            "Кельвін" -> measurementUnit.text = resources.getString(R.string.unit_k)
+            "Ранкін" -> measurementUnit.text = resources.getString(R.string.unit_r)
+            "Фаренгейт" -> measurementUnit.text = resources.getString(R.string.unit_f)
+            "Міліметр квадратний" -> measurementUnit.text =
+                resources.getString(R.string.unit_Mm_Square)
+            "Сантіметр квадратний" -> measurementUnit.text =
+                resources.getString(R.string.unit_Cm_Square)
+            "Метр квадратний" -> measurementUnit.text = resources.getString(R.string.unit_М_Square)
+            "Кілометр квадратний" -> measurementUnit.text =
+                resources.getString(R.string.unit_Km_Square)
+            "Гектар" -> measurementUnit.text = resources.getString(R.string.unit_Ha)
+            "Міля квадратна" -> measurementUnit.text = resources.getString(R.string.unit_Mi_Square)
+            "Ярд квадратний" -> measurementUnit.text = resources.getString(R.string.unit_Yd_Square)
+            "Фут квадратний" -> measurementUnit.text = resources.getString(R.string.unit_Ft_Square)
+            "Дюйм квадратний" -> measurementUnit.text = resources.getString(R.string.unit_In_Square)
+            "Акр" -> measurementUnit.text = resources.getString(R.string.unit_Ac)
+            "Секунди" -> measurementUnit.text = resources.getString(R.string.unit_Seconds)
+            "Хвилини" -> measurementUnit.text = resources.getString(R.string.unit_Minutes)
+            "Година" -> measurementUnit.text = resources.getString(R.string.unit_Hour)
+            "День" -> measurementUnit.text = resources.getString(R.string.unit_Day)
+            "Тиждень" -> measurementUnit.text = resources.getString(R.string.unit_Week)
+            "Місяц" -> measurementUnit.text = resources.getString(R.string.unit_Month)
+            "Рік" -> measurementUnit.text = resources.getString(R.string.unit_Year)
+            "Міліметр кубічний" -> measurementUnit.text =
+                resources.getString(R.string.unit_Mm_Cubic)
+            "Сантіметр кубічний" -> measurementUnit.text =
+                resources.getString(R.string.unit_Cm_Cubic)
+            "Метр кубічний" -> measurementUnit.text = resources.getString(R.string.unit_M_Cubic)
+            "Мілілітр" -> measurementUnit.text = resources.getString(R.string.unit_Ml)
+            "Літр" -> measurementUnit.text = resources.getString(R.string.unit_L)
+            "Унція рідка" -> measurementUnit.text = resources.getString(R.string.unit_Fl_oz)
+            "Баррель(UK)" -> measurementUnit.text = resources.getString(R.string.unit_Bbl_uk)
+            "Джил" -> measurementUnit.text = resources.getString(R.string.unit_Gi)
+            "Пінта" -> measurementUnit.text = resources.getString(R.string.unit_Pt)
+            "Кварт" -> measurementUnit.text = resources.getString(R.string.unit_Qt)
+            "Галлон" -> measurementUnit.text = resources.getString(R.string.unit_Gal)
+            "Міліньютон " -> measurementUnit.text = resources.getString(R.string.unit_Mn)
+            "Ньютон" -> measurementUnit.text = resources.getString(R.string.unit_N)
+            "Кілоньютон" -> measurementUnit.text = resources.getString(R.string.unit_Kn)
+            "Тонна-сила(метрична)" -> measurementUnit.text = resources.getString(R.string.unit_Tf)
+            "Грам-сила" -> measurementUnit.text = resources.getString(R.string.unit_Gf)
+            "Кілограм-сила" -> measurementUnit.text = resources.getString(R.string.unit_Kgf)
+            "Понд" -> measurementUnit.text = resources.getString(R.string.unit_P)
+            "Фунт-сила" -> measurementUnit.text = resources.getString(R.string.unit_Lbf)
+            "Унція-сила" -> measurementUnit.text = resources.getString(R.string.unit_Ozf)
+            "Тонна-сила(довга)" -> measurementUnit.text = resources.getString(R.string.unit_Tonf)
+            "Паундаль" -> measurementUnit.text = resources.getString(R.string.unit_Pdl)
+            "Метрів/секунда" -> measurementUnit.text = resources.getString(R.string.unit_M_s)
+            "Метрів/година" -> measurementUnit.text = resources.getString(R.string.unit_M_h)
+            "Кілометр/секунда" -> measurementUnit.text = resources.getString(R.string.unit_Km_s)
+            "Кілометр/година" -> measurementUnit.text = resources.getString(R.string.unit_Km_h)
+            "Фут/секунда" -> measurementUnit.text = resources.getString(R.string.unit_F_s)
+            "Фут/година" -> measurementUnit.text = resources.getString(R.string.unit_F_h)
+            "Міль/година" -> measurementUnit.text = resources.getString(R.string.unit_Mi)
+            "Вузол" -> measurementUnit.text = resources.getString(R.string.unit_Kt)
         }
     }
 
-    public static void currencyUnitHandler(String spinnerTextValue,
-                                           TextView measurementUnit) {
-        Resources resources = measurementUnit.getResources();
-        switch (spinnerTextValue) {
-            case "United States Dollar":
-            case "Доллар США":
-                measurementUnit.setText(resources.getString(R.string.unit_Usd));
-                break;
-            case "Great Britain Pound":
-            case "Великобританський фунт":
-                measurementUnit.setText(resources.getString(R.string.unit_Gbp));
-                break;
-            case "Indonesian rupiah":
-            case "Індозенійська Рупія":
-                measurementUnit.setText(resources.getString(R.string.unit_Ipr));
-                break;
-            case "Polish złoty":
-            case "Польский Злотий":
-                measurementUnit.setText(resources.getString(R.string.unit_Pln));
-                break;
-            case "New Zealand dollar":
-            case "Доллар НЗ":
-                measurementUnit.setText(resources.getString(R.string.unit_Nzd));
-                break;
-            case "Russian Ruble":
-            case "Рубль":
-                measurementUnit.setText(resources.getString(R.string.unit_Rub));
-                break;
+    fun currencyUnitHandler(
+        spinnerTextValue: String?,
+        measurementUnit: TextView
+    ) {
+        val resources = measurementUnit.resources
+        when (spinnerTextValue) {
+            "United States Dollar", "Доллар США" -> measurementUnit.text =
+                resources.getString(R.string.unit_Usd)
+            "Great Britain Pound", "Великобританський фунт" -> measurementUnit.text =
+                resources.getString(R.string.unit_Gbp)
+            "Indonesian rupiah", "Індозенійська Рупія" -> measurementUnit.text =
+                resources.getString(R.string.unit_Ipr)
+            "Polish złoty", "Польский Злотий" -> measurementUnit.text =
+                resources.getString(R.string.unit_Pln)
+            "New Zealand dollar", "Доллар НЗ" -> measurementUnit.text =
+                resources.getString(R.string.unit_Nzd)
+            "Russian Ruble", "Рубль" -> measurementUnit.text =
+                resources.getString(R.string.unit_Rub)
         }
     }
 
-    public static Double currencyConverter(Double value, Double targetRate, Double initRate) {
-        return ((targetRate * value) / initRate);
+    fun currencyConverter(value: Double, targetRate: Double?, initRate: Double?): Double {
+        return targetRate!! * value / initRate!!
     }
 
-    public static String returnDateString(TextView dateTextView) {
-        return dateTextView.getText().toString();
+    fun returnDateString(dateTextView: TextView): String {
+        return dateTextView.text.toString()
     }
 
-    public static AppViewModel generateViewModel(ViewModelStoreOwner owner) {
-        return new ViewModelProvider(owner).get(AppViewModel.class);
+    fun generateViewModel(owner: ViewModelStoreOwner?): AppViewModel {
+        return ViewModelProvider(owner!!).get(AppViewModel::class.java)
     }
-
 }
-

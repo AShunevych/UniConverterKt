@@ -1,81 +1,61 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverter20
 
-import static ashunevich.uniconverter20.Utils.SYMBOL_BRACKETS;
-import static ashunevich.uniconverter20.Utils.SYMBOL_CLEAR;
-import static ashunevich.uniconverter20.Utils.SYMBOL_SOLVE;
-import static ashunevich.uniconverter20.Utils.checkBrackets;
-import static ashunevich.uniconverter20.Utils.clearView;
-import static ashunevich.uniconverter20.Utils.generateViewModel;
-import static ashunevich.uniconverter20.Utils.readAndSolve;
+import ashunevich.uniconverter20.ui.AppViewModel
+import android.os.Bundle
+import android.text.InputType
+import androidx.appcompat.app.AppCompatActivity
+import ashunevich.uniconverter20.databinding.CalculatorActivityBinding
 
-import android.os.Bundle;
-import android.text.InputType;
+class ActivityCalculator : AppCompatActivity() {
+    private var binding: CalculatorActivityBinding? = null
+    private val VALUE_STRING: String = "valueString"
+    private val RESULT_STRING: String = "resultString"
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import ashunevich.uniconverter20.databinding.CalculatorActivityBinding;
-import ashunevich.uniconverter20.ui.AppViewModel;
-
-
-public class ActivityCalculator extends AppCompatActivity {
-
-    private CalculatorActivityBinding binding;
-    private final String VALUE_STRING = "valueString";
-    private final String RESULT_STRING = "resultString";
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putString(VALUE_STRING, binding!!.calcValue.getText().toString())
+        savedInstanceState.putString(RESULT_STRING, binding!!.calcResult.getText().toString())
+        super.onSaveInstanceState(savedInstanceState)
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString(VALUE_STRING, binding.calcValue.getText().toString());
-        savedInstanceState.putString(RESULT_STRING, binding.calcResult.getText().toString());
-        super.onSaveInstanceState(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = CalculatorActivityBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
+        setUtils()
+        initViewModel()
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = CalculatorActivityBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        setUtils();
-        initViewModel();
+    private fun setUtils() {
+        binding!!.calcValue.isCursorVisible = true
+        binding!!.calcValue.inputType = InputType.TYPE_NULL
     }
 
-    private void setUtils() {
-        binding.calcValue.setCursorVisible(true);
-        binding.calcValue.setInputType(InputType.TYPE_NULL);
+    private fun initViewModel() {
+        val model: AppViewModel = Utils.generateViewModel(this)
+        model.postedNumber.observe(this, { event: String? -> this.getText(event) })
     }
 
-    private void initViewModel() {
-        AppViewModel model = generateViewModel(this);
-        model.getPostedNumber().observe(this, this::getText);
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        binding!!.calcValue.setText(savedInstanceState.getString(VALUE_STRING))
+        binding!!.calcResult.text = savedInstanceState.getString(RESULT_STRING)
+        super.onRestoreInstanceState(savedInstanceState)
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        binding.calcValue.setText(savedInstanceState.getString(VALUE_STRING));
-        binding.calcResult.setText(savedInstanceState.getString(RESULT_STRING));
-        super.onRestoreInstanceState(savedInstanceState);
-    }
-
-    public void getText(String event) {
-        if (event.equals(SYMBOL_BRACKETS) || event.equals(SYMBOL_SOLVE) || event.equals(SYMBOL_CLEAR)) {
-            switch (event) {
-                case SYMBOL_BRACKETS:
-                    checkBrackets(binding.calcValue);
-                    break;
-                case SYMBOL_SOLVE:
-                    readAndSolve(binding.calcValue, binding.calcResult);
-                    break;
-                case SYMBOL_CLEAR:
-                    clearView(binding.calcValue, binding.calcResult);
-                    break;
+    private fun getText(event: String?) {
+        if ((event == Utils.SYMBOL_BRACKETS) || (event == Utils.SYMBOL_SOLVE) || (event == Utils.SYMBOL_CLEAR)) {
+            when (event) {
+                Utils.SYMBOL_BRACKETS -> Utils.checkBrackets(
+                    binding!!.calcValue
+                )
+                Utils.SYMBOL_SOLVE -> Utils.readAndSolve(
+                    binding!!.calcValue, binding!!.calcResult
+                )
+                Utils.SYMBOL_CLEAR -> Utils.clearView(
+                    binding!!.calcValue, binding!!.calcResult
+                )
             }
         } else {
-            binding.calcValue.append(event);
+            binding!!.calcValue.append(event)
         }
     }
 }
