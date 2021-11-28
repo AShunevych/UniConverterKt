@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20.currencyapi
+package ashunevich.uniconverterKT.currencyapi
 
 import com.google.gson.annotations.SerializedName
 

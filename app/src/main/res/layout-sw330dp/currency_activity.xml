@@ -104,7 +104,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment3"
-        android:name="ashunevich.uniconverter20.ui.FragmentKeyboard"
+        android:name="ashunevich.uniconverterKT.ui.FragmentKeyboard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

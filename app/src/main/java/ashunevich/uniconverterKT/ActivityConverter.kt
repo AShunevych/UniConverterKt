@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20
+package ashunevich.uniconverterKT
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,10 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import ashunevich.uniconverter20.databinding.ConverterActivityBinding
+import ashunevich.uniconverterKT.Utils.appendMinusPlus
+import ashunevich.uniconverterKT.Utils.clearView
+import ashunevich.uniconverterKT.Utils.correctValue
+import ashunevich.uniconverterKT.databinding.ConverterActivityBinding
 import com.ashunevich.conversionlibrary.UnitConverter
 
 class ActivityConverter : Fragment() {
@@ -21,7 +24,7 @@ class ActivityConverter : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = ConverterActivityBinding.inflate(inflater, container, false)
         setSpinnerOnTabPositionChange(DEFAULT_POS)
@@ -73,16 +76,16 @@ class ActivityConverter : Fragment() {
         super.onDestroyView()
     }
 
-    fun setViewModelTextReceiver(event: String) {
+    private fun setViewModelTextReceiver(event: String) {
         if (event == Utils.SYMBOL_CORRECT || event == Utils.SYMBOL_CLEAR || event == Utils.SYMBOL_CHECK) {
             when (event) {
-                Utils.SYMBOL_CORRECT -> Utils.correctValue(
+                Utils.SYMBOL_CORRECT -> correctValue(
                     binding!!.valueEdit, binding!!.resultView
                 )
-                Utils.SYMBOL_CLEAR -> Utils.clearView(
+                Utils.SYMBOL_CLEAR -> clearView(
                     binding!!.valueEdit, binding!!.resultView
                 )
-                Utils.SYMBOL_CHECK -> Utils.appendMinusPlus(
+                Utils.SYMBOL_CHECK -> appendMinusPlus(
                     binding!!.valueEdit
                 )
             }

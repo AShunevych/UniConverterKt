@@ -1,4 +1,4 @@
-package ashunevich.uniconverter20;
+package ashunevich.uniconverterKT;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

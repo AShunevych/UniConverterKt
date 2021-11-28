@@ -1,42 +1,37 @@
-package ashunevich.uniconverter20
+package ashunevich.uniconverterKT
 
-import ashunevich.uniconverter20.ui.AppViewModel
+import ashunevich.uniconverterKT.ui.AppViewModel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.google.android.material.tabs.TabLayout
 import android.content.Intent
 import android.app.ActivityOptions
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import ashunevich.uniconverter20.databinding.MainActivityBinding
+import ashunevich.uniconverterKT.databinding.MainActivityBinding
 import java.util.*
 
-class ActivityMain constructor() : AppCompatActivity() {
+class ActivityMain : AppCompatActivity() {
     private var binding: MainActivityBinding? = null
     private val mFragmentTitleList: MutableList<String> = ArrayList()
     private var tabPositionModel: AppViewModel? = null
     private var keyboardModel: AppViewModel? = null
-    override fun onStart() {
-        super.onStart()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainActivityBinding.inflate(getLayoutInflater())
-        setContentView(binding!!.getRoot())
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
         initViewModels()
-        mFragmentTitleList.addAll(Arrays.asList(*getResources().getStringArray(R.array.units)))
+        mFragmentTitleList.addAll(listOf(*resources.getStringArray(R.array.units)))
         initViewPager()
         initTabLayoutMediator()
         initOnClickListeners()
         setTabPositionListener()
-        enableButtonOnPositionChange(binding!!.tabLayout.getSelectedTabPosition())
+        enableButtonOnPositionChange(binding!!.tabLayout.selectedTabPosition)
     }
 
     private fun initViewModels() {
@@ -46,54 +41,41 @@ class ActivityMain constructor() : AppCompatActivity() {
 
     private fun setTabPositionListener() {
         binding!!.viewPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
-            public override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-            }
-
-            public override fun onPageSelected(position: Int) {
+            override fun onPageSelected(position: Int) {
                 tabPositionModel!!.select(position)
                 enableButtonOnPositionChange(position)
-            }
-
-            public override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
             }
         })
     }
 
     private fun enableButtonOnPositionChange(pos: Int) {
         if (pos == 5) {
-            binding!!.buttonPlusMinus.setEnabled(true)
-            binding!!.buttonPlusMinus.setAlpha(1f)
+            binding!!.buttonPlusMinus.isEnabled = true
+            binding!!.buttonPlusMinus.alpha = 1f
         } else {
-            binding!!.buttonPlusMinus.setEnabled(false)
-            binding!!.buttonPlusMinus.setAlpha(0.5f)
+            binding!!.buttonPlusMinus.isEnabled = false
+            binding!!.buttonPlusMinus.alpha = 0.5f
         }
     }
 
     private fun initViewPager() {
-        val adapter: ViewPagerAdapter = ViewPagerAdapter(
-            getSupportFragmentManager(),
-            getLifecycle()
+        val adapter = ViewPagerAdapter(
+            supportFragmentManager,
+            lifecycle
         )
-        for (i in getResources().getIntArray(R.array.units).indices) {
+        for (i in resources.getIntArray(R.array.units).indices) {
             adapter.addFragment(ActivityConverter())
         }
-        binding!!.viewPager.setAdapter(adapter)
+        binding!!.viewPager.adapter = adapter
     }
 
     private fun initTabLayoutMediator() {
-        val tabLayoutMediator: TabLayoutMediator = TabLayoutMediator(
+        val tabLayoutMediator = TabLayoutMediator(
             binding!!.tabLayout,
-            binding!!.viewPager,
-            TabConfigurationStrategy({ tab: TabLayout.Tab, position: Int ->
-                tab.setText(mFragmentTitleList.get(position))
-            })
-        )
+            binding!!.viewPager
+        ) { tab: TabLayout.Tab, position: Int ->
+            tab.text = mFragmentTitleList[position]
+        }
         tabLayoutMediator.attach()
     }
 
@@ -111,21 +93,21 @@ class ActivityMain constructor() : AppCompatActivity() {
         Utils.postTextOnClick(keyboardModel, binding!!.butClear)
         Utils.postTextOnClick(keyboardModel, binding!!.buttonDecimal)
         Utils.postTextOnClick(keyboardModel, binding!!.butCorrectValue)
-        binding!!.calculatorButton.setOnClickListener(View.OnClickListener({ v: View? ->
+        binding!!.calculatorButton.setOnClickListener {
             startActivity(
                 Intent(this@ActivityMain, ActivityCalculator::class.java),
                 ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
             )
-        }))
-        binding!!.currencyCalculator.setOnClickListener(View.OnClickListener({ v: View? ->
+        }
+        binding!!.currencyCalculator.setOnClickListener {
             startActivity(
                 Intent(
                     this@ActivityMain,
-                    ashunevich.uniconverter20.currencyapi.CurrencyConverter::class.java
+                    ashunevich.uniconverterKT.currencyapi.CurrencyConverter::class.java
                 ),
                 ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
             )
-        }))
+        }
     }
 
     internal class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
@@ -135,11 +117,11 @@ class ActivityMain constructor() : AppCompatActivity() {
             mFragmentList.add(fragment)
         }
 
-        public override fun createFragment(position: Int): Fragment {
-            return mFragmentList.get(position)
+        override fun createFragment(position: Int): Fragment {
+            return mFragmentList[position]
         }
 
-        public override fun getItemCount(): Int {
+        override fun getItemCount(): Int {
             return mFragmentList.size
         }
     }

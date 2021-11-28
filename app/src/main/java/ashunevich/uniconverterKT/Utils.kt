@@ -1,7 +1,7 @@
-package ashunevich.uniconverter20
+package ashunevich.uniconverterKT
 
 
-import ashunevich.uniconverter20.ui.AppViewModel
+import ashunevich.uniconverterKT.ui.AppViewModel
 import androidx.lifecycle.ViewModelProvider
 import android.text.InputType
 import android.text.TextUtils

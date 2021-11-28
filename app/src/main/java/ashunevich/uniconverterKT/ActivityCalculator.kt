@@ -1,19 +1,22 @@
-package ashunevich.uniconverter20
+package ashunevich.uniconverterKT
 
-import ashunevich.uniconverter20.ui.AppViewModel
+import ashunevich.uniconverterKT.ui.AppViewModel
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
-import ashunevich.uniconverter20.databinding.CalculatorActivityBinding
+import ashunevich.uniconverterKT.Utils.checkBrackets
+import ashunevich.uniconverterKT.Utils.clearView
+import ashunevich.uniconverterKT.Utils.readAndSolve
+import ashunevich.uniconverterKT.databinding.CalculatorActivityBinding
 
 class ActivityCalculator : AppCompatActivity() {
     private var binding: CalculatorActivityBinding? = null
-    private val VALUE_STRING: String = "valueString"
-    private val RESULT_STRING: String = "resultString"
+    private val value = "valueString"
+    private val result = "resultString"
 
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        savedInstanceState.putString(VALUE_STRING, binding!!.calcValue.getText().toString())
-        savedInstanceState.putString(RESULT_STRING, binding!!.calcResult.getText().toString())
+        savedInstanceState.putString(value, binding!!.calcValue.text.toString())
+        savedInstanceState.putString(result, binding!!.calcResult.text.toString())
         super.onSaveInstanceState(savedInstanceState)
     }
 
@@ -36,21 +39,21 @@ class ActivityCalculator : AppCompatActivity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        binding!!.calcValue.setText(savedInstanceState.getString(VALUE_STRING))
-        binding!!.calcResult.text = savedInstanceState.getString(RESULT_STRING)
+        binding!!.calcValue.setText(savedInstanceState.getString(value))
+        binding!!.calcResult.text = savedInstanceState.getString(result)
         super.onRestoreInstanceState(savedInstanceState)
     }
 
     private fun getText(event: String?) {
         if ((event == Utils.SYMBOL_BRACKETS) || (event == Utils.SYMBOL_SOLVE) || (event == Utils.SYMBOL_CLEAR)) {
             when (event) {
-                Utils.SYMBOL_BRACKETS -> Utils.checkBrackets(
+                Utils.SYMBOL_BRACKETS -> checkBrackets(
                     binding!!.calcValue
                 )
-                Utils.SYMBOL_SOLVE -> Utils.readAndSolve(
+                Utils.SYMBOL_SOLVE -> readAndSolve(
                     binding!!.calcValue, binding!!.calcResult
                 )
-                Utils.SYMBOL_CLEAR -> Utils.clearView(
+                Utils.SYMBOL_CLEAR -> clearView(
                     binding!!.calcValue, binding!!.calcResult
                 )
             }

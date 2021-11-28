@@ -1,11 +1,10 @@
-package ashunevich.uniconverter20.currencyapi
+package ashunevich.uniconverterKT.currencyapi
 
-import ashunevich.uniconverter20.ui.AppViewModel
+import ashunevich.uniconverterKT.ui.AppViewModel
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
-import ashunevich.uniconverter20.R
-import ashunevich.uniconverter20.currencyapi.CurrencyContractor.Presenter
+import ashunevich.uniconverterKT.R
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import android.text.TextWatcher
@@ -14,15 +13,15 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.lifecycle.Observer
-import ashunevich.uniconverter20.Utils
-import ashunevich.uniconverter20.databinding.CurrencyActivityBinding
+import ashunevich.uniconverterKT.Utils
+import ashunevich.uniconverterKT.databinding.CurrencyActivityBinding
 import org.mariuszgromada.math.mxparser.Expression
 import java.lang.Exception
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.HashMap
 
-open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
+open class CurrencyConverter : AppCompatActivity() {
     private var binding: CurrencyActivityBinding? = null
     protected var getEnteredValue: Double = 0.0
     protected var hm: HashMap<String?, Double>? = null
@@ -46,13 +45,13 @@ open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
         super.onCreate(savedInstanceState)
         binding = CurrencyActivityBinding.inflate(getLayoutInflater())
         setContentView(binding!!.getRoot())
-        setButtonBindings_ConverterCurrency()
+       //setButtonBindings_ConverterCurrency()
         setAdapter((getResources().getStringArray(R.array.currency)))
         setUnitMeasurements()
         setSpinnersListeners(binding!!.spinnerFromCurrency)
         setSpinnersListeners(binding!!.spinnerToCurrency)
         if (TextUtils.isEmpty(Utils.returnDateString(binding!!.dateView))) {
-            checkConnection()
+          //  checkConnection()
         }
         val model: AppViewModel = Utils.generateViewModel(this)
         model.postedNumber.observe(this, Observer({ event: String? -> this.getText(event) }))
@@ -66,7 +65,7 @@ open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
         super.onRestoreInstanceState(savedInstanceState)
     }
 
-    private fun checkConnection() {
+   /* private fun checkConnection() {
         if (!CurrencyInternetService.Companion.checkConnection(this)) {
             Snackbar.make(
                 binding!!.currencyLayout,
@@ -82,7 +81,7 @@ open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
             val presenter: Presenter = PresenterImp(this, InteractorImpl())
             presenter.requestDataFromServer()
         }
-    }
+    }*/
 
     protected fun getText(event: String?) {
         if ((event == Utils.SYMBOL_BRACKETS) || (event == Utils.SYMBOL_SOLVE) || (event == Utils.SYMBOL_CLEAR)) {
@@ -101,14 +100,14 @@ open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
     }
 
     //app Listeners
-    private fun setButtonBindings_ConverterCurrency() {
+   /* private fun setButtonBindings_ConverterCurrency() {
         binding!!.refreshJSONData.setOnClickListener(View.OnClickListener({ v: View? -> checkConnection() }))
         binding!!.correction.setOnClickListener(View.OnClickListener({ v: View? ->
             Utils.correctValue(
                 binding!!.valueCurrency, binding!!.resultCurrency
             )
         }))
-    }
+    }*/
 
     //if user changes unit - it will change measurements and will automatically recalculate result
     private fun setSpinnersListeners(spinner: Spinner) {
@@ -237,11 +236,8 @@ open class CurrencyConverter : AppCompatActivity(), CurrencyContractor.View {
         Snackbar.make(binding!!.currencyLayout, snackText, Snackbar.LENGTH_SHORT).show()
     }
 
-    override fun onResponseFailure(throwable: Throwable?) {
-        makeSnackBar("Response Failed!")
-    }
 
-     override fun parseDataFromResponseToHashmap(`object`: CurrencyResponseObject?) {
+    fun parseDataFromResponseToHashmap(`object`: CurrencyResponseObject?) {
          binding!!.dateView.text = `object`!!.date
         hm = HashMap()
          hm!![resources.getString(R.string.USD)] = `object`.`object`.getRate("USD")
