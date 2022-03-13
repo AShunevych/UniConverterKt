@@ -176,7 +176,7 @@
         style="@style/newSW330"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/divide"
+        android:text="@string/divide_symbol"
         android:textColor="@color/supportColor"
         app:layout_constraintBottom_toTopOf="@+id/but_multiply"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,9 +12,6 @@ import ashunevich.uniconverterKT.databinding.CalculatorKeyboardBinding
 class FragmentKeyboard : Fragment() {
     private var binding: CalculatorKeyboardBinding? = null
     var model: AppViewModel? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
