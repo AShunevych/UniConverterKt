@@ -11,6 +11,7 @@
     <color name="vectorColor">#000000</color>
     <color name="colorDrawableLight">#00000000</color>
     <color name="colorTabSwitch">#870000</color>
+    <color name="colorClearButton">#870000</color>
     <color name="tableHeaderColor">#AFAFAF</color>
     <color name="rectangleSolid">#AFAFAF</color>
     <color name="supportColor">#66bb6a</color>

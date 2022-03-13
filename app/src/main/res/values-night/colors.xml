@@ -11,6 +11,7 @@
     <color name="transparentOne">#0000</color>
     <color name="colorDrawableLight">#00000000 </color>
     <color name="colorTabSwitch">#689f38</color>
+    <color name="colorClearButton">#870000</color>
     <color name="tableHeaderColor">#121212</color>
     <color name="rectangleSolid">#424242</color>
     <color name="supportColor">#689f38</color>

@@ -19,16 +19,13 @@ class CalculatorTests :BasicRule() {
     }
 
     @After
-    fun after(){
+    fun closeApp(){
         pressBackUnconditionally()
-        converterRobot {
-            verify()
-        }
         activityRule.scenario.close()
     }
 
     @Test
-    fun verifyEnteredValuesAreDisplayedCorrectly(){
+    fun testVerifyEnteredValuesAreDisplayedCorrectly(){
         calculatorRobot {
             verify()
             tapCalcButton(buttonEight)
@@ -40,7 +37,7 @@ class CalculatorTests :BasicRule() {
     }
 
     @Test
-    fun verifyCalculatorSymbolsDisplay(){
+    fun testVerifyCalculatorSymbolsDisplay(){
         calculatorRobot {
             verify()
 
@@ -83,6 +80,5 @@ class CalculatorTests :BasicRule() {
             tapCalcButton(buttonSolve)
             verifyResult("21.0")
         }
-
     }
 }

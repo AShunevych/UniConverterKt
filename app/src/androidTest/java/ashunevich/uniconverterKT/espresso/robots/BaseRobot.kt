@@ -1,15 +1,11 @@
 package ashunevich.uniconverterKT.espresso.robots
 
 import android.view.View
-import android.widget.TextView
 import androidx.test.espresso.*
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
-import ashunevich.uniconverterKT.R
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.Matcher
 
