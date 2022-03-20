@@ -1,97 +1,99 @@
 package ashunevich.uniconverterKT.espresso.robots
 
-import android.view.View
+import androidx.test.espresso.ViewInteraction
 import ashunevich.uniconverterKT.R
-import org.hamcrest.Matcher
+import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
+import ashunevich.uniconverterKT.espresso.robots.helper.*
 
 fun calculatorRobot(func: CalculatorRobot.() -> Unit) = CalculatorRobot().apply { func() }
 
+@SuppressWarnings
 class CalculatorRobot :BaseRobot() {
 
+    val buttonOne : ViewInteraction = onViewWithId(R.id.but_one)
+    val buttonTwo: ViewInteraction = onViewWithId(R.id.but_two)
+    val buttonThree : ViewInteraction  = onViewWithId(R.id.but_three)
+    val buttonFour : ViewInteraction  = onViewWithId(R.id.but_four)
+    val buttonFive: ViewInteraction  = onViewWithId(R.id.but_five)
+    val buttonSix : ViewInteraction  = onViewWithId(R.id.but_six)
+    val buttonSeven : ViewInteraction  = onViewWithId(R.id.but_seven)
+    val buttonEight : ViewInteraction  = onViewWithId(R.id.button_eight)
+    val buttonNine : ViewInteraction  = onViewWithId(R.id.but_nine)
+    val buttonZero : ViewInteraction  = onViewWithId(R.id.button_zero)
+    val buttonDzero : ViewInteraction  = onViewWithId(R.id.button_dzero)
+    val buttonDecimal : ViewInteraction  = onViewWithId(R.id.button_decimal)
+    val buttonClear : ViewInteraction  = onViewWithId(R.id.but_clearView)
+    val buttonPercent : ViewInteraction = onViewWithId(R.id.but_percent)
+    val buttonDivide : ViewInteraction  = onViewWithId(R.id.but_divide)
+    val buttonMultiply : ViewInteraction  = onViewWithId(R.id.but_multiply)
+    val buttonMinus : ViewInteraction  = onViewWithId(R.id.but_minus)
+    val buttonSolve : ViewInteraction = onViewWithId(R.id.but_solve)
+    val buttonPlus : ViewInteraction  = onViewWithId(R.id.but_plus)
+    val buttonDuzhky : ViewInteraction  = onViewWithId(R.id.but_duzhky)
 
-    val buttonOne = onViewWithId(R.id.but_one)
-    val buttonTwo = onViewWithId(R.id.but_two)
-    val buttonThree = onViewWithId(R.id.but_three)
-    val buttonFour = onViewWithId(R.id.but_four)
-    val buttonFive = onViewWithId(R.id.but_five)
-    val buttonSix = onViewWithId(R.id.but_six)
-    val buttonSeven = onViewWithId(R.id.but_seven)
-    val buttonEight = onViewWithId(R.id.button_eight)
-    val buttonNine = onViewWithId(R.id.but_nine)
-    val buttonZero = onViewWithId(R.id.button_zero)
-    val buttonDzero = onViewWithId(R.id.button_dzero)
-    val buttonDecimal = onViewWithId(R.id.button_decimal)
-    val buttonClear = onViewWithId(R.id.but_clearView)
-    val buttonPercent = onViewWithId(R.id.but_percent)
-    val buttonDivide = onViewWithId(R.id.but_divide)
-    val buttonMultiply = onViewWithId(R.id.but_multiply)
-    val buttonMinus = onViewWithId(R.id.but_minus)
-    val buttonSolve = onViewWithId(R.id.but_solve)
-    val buttonPlus = onViewWithId(R.id.but_plus)
-    val buttonDuzhky = onViewWithId(R.id.but_duzhky)
-
-    val calucaltorValueView = onViewWithId(R.id.calcValue)
-    val calucaltorResult = onViewWithId(R.id.calcResult)
+    val calucaltorValueView : ViewInteraction = onViewWithId(R.id.calcValue)
+    val calucaltorResult : ViewInteraction  = onViewWithId(R.id.calcResult)
 
 
     fun verify(){
-        calucaltorValueView.matches(idleUntilVisible(defaultLoadTime))
-        calucaltorResult.matches(isVisible())
-        buttonOne.matches(isVisible())
-        buttonTwo.matches(isVisible())
-        buttonThree.matches(isVisible())
-        buttonFour.matches(isVisible())
-        buttonFive.matches(isVisible())
-        buttonSix.matches(isVisible())
-        buttonSeven.matches(isVisible())
-        buttonEight.matches(isVisible())
-        buttonNine.matches(isVisible())
-        buttonZero.matches(isVisible())
-        buttonDzero.matches(isVisible())
-        buttonDecimal.matches(isVisible())
-        buttonClear.matches(isVisible())
-        buttonPercent.matches(isVisible())
-        buttonDivide.matches(isVisible())
-        buttonMultiply.matches(isVisible())
-        buttonMinus.matches(isVisible())
-        buttonSolve.matches(isVisible())
-        buttonDuzhky.matches(isVisible())
-        buttonPlus.matches(isVisible())
+        calucaltorValueView.idleUntilVisible(defaultLoadTime)
+        calucaltorResult.isVisible()
+        buttonOne.isVisible()
+        buttonTwo.isVisible()
+        buttonThree.isVisible()
+        buttonFour.isVisible()
+        buttonFive.isVisible()
+        buttonSix.isVisible()
+        buttonSeven.isVisible()
+        buttonEight.isVisible()
+        buttonNine.isVisible()
+        buttonZero.isVisible()
+        buttonDzero.isVisible()
+        buttonDecimal.isVisible()
+        buttonClear.isVisible()
+        buttonPercent.isVisible()
+        buttonDivide.isVisible()
+        buttonMultiply.isVisible()
+        buttonMinus.isVisible()
+        buttonSolve.isVisible()
+        buttonDuzhky.isVisible()
+        buttonPlus.isVisible()
     }
 
-    fun tapCalcButton(matcher: Matcher<View>){
-        clickOnButton(matcher)
-    }
 
-    fun verifyEnteredText(expectedText:String){
-        viewHaveText(calucaltorValueView,expectedText)
-    }
+    fun verifyEnteredText(expectedText:String) = calucaltorValueView.haveText(expectedText)
 
-    fun verifyTextViewHaveNoText(){
-        viewHaveText(calucaltorResult,"")
-    }
+    fun verifyCalculatorResultIsCleared() = calucaltorResult.haveText("")
 
-    fun verifyResult(result:String){
-        viewHaveText(calucaltorResult,result)
-    }
+    fun verifyResult(result:String) = calucaltorResult.haveText(result)
 
     fun createSimpleCalc(){
-        tapCalcButton(buttonEight)
-        tapCalcButton(buttonFour)
-        tapCalcButton(buttonDivide)
-        tapCalcButton(buttonTwo)
+        clickOnButton(buttonEight)
+        clickOnButton(buttonFour)
+        clickOnButton(buttonDivide)
+        clickOnButton(buttonTwo)
         verifyEnteredText("84/2")
     }
 
     fun createSimpleCalcWithSymbols(){
-        tapCalcButton(buttonEight)
-        tapCalcButton(buttonFour)
-        tapCalcButton(buttonDivide)
-        tapCalcButton(buttonDuzhky)
-        tapCalcButton(buttonTwo)
-        tapCalcButton(buttonPlus)
-        tapCalcButton(buttonTwo)
-        tapCalcButton(buttonDuzhky)
+        clickOnButton(buttonEight)
+        clickOnButton(buttonFour)
+        clickOnButton(buttonDivide)
+        clickOnButton(buttonDuzhky)
+        clickOnButton(buttonTwo)
+        clickOnButton(buttonPlus)
+        clickOnButton(buttonTwo)
+        clickOnButton(buttonDuzhky)
         verifyEnteredText("84/(2+2)")
+    }
+
+    fun pressEveryButton(){
+        val buttonList = listOf(buttonOne,buttonTwo,buttonThree,buttonFour,buttonFive,
+                                buttonSix,buttonSeven,buttonEight,buttonNine,buttonZero,buttonDzero)
+
+        for (button in buttonList){
+            clickOnButton(button)
+            idleFor(500)
+        }
     }
 }

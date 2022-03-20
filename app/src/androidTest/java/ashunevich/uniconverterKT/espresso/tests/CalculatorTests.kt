@@ -4,7 +4,10 @@ import androidx.test.espresso.Espresso.pressBackUnconditionally
 import ashunevich.uniconverterKT.espresso.BasicRule
 import ashunevich.uniconverterKT.espresso.robots.calculatorRobot
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
+import ashunevich.uniconverterKT.espresso.robots.helper.clickOnButton
+import com.adevinta.android.barista.interaction.BaristaSleepInteractions
 import org.junit.After
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
@@ -28,10 +31,10 @@ class CalculatorTests :BasicRule() {
     fun testVerifyEnteredValuesAreDisplayedCorrectly(){
         calculatorRobot {
             verify()
-            tapCalcButton(buttonEight)
-            tapCalcButton(buttonFour)
-            tapCalcButton(buttonMinus)
-            tapCalcButton(buttonTwo)
+            clickOnButton(buttonEight)
+            clickOnButton(buttonFour)
+            clickOnButton(buttonMinus)
+            clickOnButton(buttonTwo)
             verifyEnteredText("84-2")
         }
     }
@@ -51,17 +54,17 @@ class CalculatorTests :BasicRule() {
 
 
             for (enterSymbol in basicOperations){
-                tapCalcButton(enterSymbol.first)
+                clickOnButton(enterSymbol.first)
                 verifyEnteredText(enterSymbol.second)
-                tapCalcButton(buttonClear)
-                verifyTextViewHaveNoText()
+                clickOnButton(buttonClear)
+                verifyCalculatorResultIsCleared()
                 Thread.sleep(5000)
             }
 
             //"(",")","()" symbols
-            tapCalcButton(buttonDuzhky)
+            clickOnButton(buttonDuzhky)
             verifyEnteredText("(")
-            tapCalcButton(buttonDuzhky)
+            clickOnButton(buttonDuzhky)
             verifyEnteredText("()")
         }
     }
@@ -71,14 +74,26 @@ class CalculatorTests :BasicRule() {
         calculatorRobot {
             verify()
             createSimpleCalc()
-            tapCalcButton(buttonSolve)
+            clickOnButton(buttonSolve)
             verifyResult("42.0")
-            tapCalcButton(buttonClear)
-            Thread.sleep(5000)
+            clickOnButton(buttonClear)
+            BaristaSleepInteractions.sleep(500)
 
             createSimpleCalcWithSymbols()
-            tapCalcButton(buttonSolve)
+            clickOnButton(buttonSolve)
             verifyResult("21.0")
+        }
+    }
+
+    @Test
+    fun testClickEveryButton(){
+        val textToCheck = "123456789000"
+
+        calculatorRobot {
+            verify()
+            pressEveryButton()
+
+            verifyEnteredText(textToCheck)
         }
     }
 }
