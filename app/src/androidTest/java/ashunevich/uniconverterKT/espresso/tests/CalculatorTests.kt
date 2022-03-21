@@ -7,14 +7,13 @@ import ashunevich.uniconverterKT.espresso.robots.converterRobot
 import ashunevich.uniconverterKT.espresso.robots.helper.clickOnButton
 import com.adevinta.android.barista.interaction.BaristaSleepInteractions
 import org.junit.After
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-class CalculatorTests :BasicRule() {
+class CalculatorTests : BasicRule() {
 
     @Before
-    fun start(){
+    fun start() {
         converterRobot {
             verify()
             accessCalculator()
@@ -22,38 +21,39 @@ class CalculatorTests :BasicRule() {
     }
 
     @After
-    fun closeApp(){
+    fun closeApp() {
         pressBackUnconditionally()
         activityRule.scenario.close()
     }
 
     @Test
-    fun testVerifyEnteredValuesAreDisplayedCorrectly(){
+    fun testVerifyEnteredValuesAreDisplayedCorrectly() {
         calculatorRobot {
             verify()
             clickOnButton(buttonEight)
             clickOnButton(buttonFour)
             clickOnButton(buttonMinus)
             clickOnButton(buttonTwo)
-            verifyEnteredText("84-2")
+            verifyEnteredText(expectedText = "84-2")
         }
     }
 
     @Test
-    fun testVerifyCalculatorSymbolsDisplay(){
+    fun testVerifyCalculatorSymbolsDisplay() {
         calculatorRobot {
             verify()
 
             val basicOperations = listOf(
-                Pair(buttonDivide,"/"),
-                Pair(buttonMultiply,"*"),
-                Pair(buttonMinus,"-"),
-                Pair(buttonPlus,"+"),
-                Pair(buttonPercent,"%"),
-                Pair(buttonDecimal,"."))
+                Pair(buttonDivide, "/"),
+                Pair(buttonMultiply, "*"),
+                Pair(buttonMinus, "-"),
+                Pair(buttonPlus, "+"),
+                Pair(buttonPercent, "%"),
+                Pair(buttonDecimal, ".")
+            )
 
 
-            for (enterSymbol in basicOperations){
+            for (enterSymbol in basicOperations) {
                 clickOnButton(enterSymbol.first)
                 verifyEnteredText(enterSymbol.second)
                 clickOnButton(buttonClear)
@@ -63,37 +63,37 @@ class CalculatorTests :BasicRule() {
 
             //"(",")","()" symbols
             clickOnButton(buttonDuzhky)
-            verifyEnteredText("(")
+            verifyEnteredText(expectedText = "(")
             clickOnButton(buttonDuzhky)
-            verifyEnteredText("()")
+            verifyEnteredText(expectedText = "()")
         }
     }
 
     @Test
-    fun testSolveSimpleCalculations(){
+    fun testSolveSimpleCalculations() {
         calculatorRobot {
             verify()
             createSimpleCalc()
             clickOnButton(buttonSolve)
-            verifyResult("42.0")
+            verifyResult(result = "42.0")
             clickOnButton(buttonClear)
             BaristaSleepInteractions.sleep(500)
 
             createSimpleCalcWithSymbols()
             clickOnButton(buttonSolve)
-            verifyResult("21.0")
+            verifyResult(result = "21.0")
         }
     }
 
     @Test
-    fun testClickEveryButton(){
+    fun testClickEveryButton() {
         val textToCheck = "123456789000"
 
         calculatorRobot {
             verify()
             pressEveryButton()
 
-            verifyEnteredText(textToCheck)
+            verifyEnteredText(expectedText = textToCheck)
         }
     }
 }
