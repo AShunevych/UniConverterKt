@@ -8,13 +8,13 @@ import ashunevich.uniconverterKT.espresso.robots.helper.*
 
 fun converterRobot(func: ConverterRobot.() -> Unit) = ConverterRobot().apply { func() }
 
-class ConverterRobot: BaseRobot(){
+class ConverterRobot: BaseRobot() {
 
     val calculatorButton = onViewWithId(R.id.calculator_button)
     val viewPagerView = onViewWithId(R.id.viewPager)
 
-    val valueView =onViewWithId(R.id.valueEdit)
-    val resultView =onViewWithId(R.id.resultView)
+    val valueView = onViewWithId(R.id.valueEdit)
+    val resultView = onViewWithId(R.id.resultView)
 
     val spinnerValue = onViewWithId(R.id.spinner_value)
     val spinnerResult = onViewWithId(R.id.spinner_result)
@@ -22,7 +22,7 @@ class ConverterRobot: BaseRobot(){
     val valueUnit = onViewWithId(R.id.valueUnit)
     val resultUnit = onViewWithId(R.id.resultUnit)
 
-    fun verify(){
+    fun verify() {
         viewPagerView.idleUntilVisible(defaultLoadTime)
         calculatorButton.isVisible()
         valueView.isVisible()
@@ -33,19 +33,20 @@ class ConverterRobot: BaseRobot(){
         resultUnit.isVisible()
     }
 
-    fun accessCalculator(){
+    fun accessCalculator() {
         clickOnButton(calculatorButton)
     }
 
-    fun swipeViewPagerLeft(){
+    fun swipeViewPagerLeft() {
         swipeLeft(viewPagerView)
         idleFor(500)
     }
 
-    fun swipeViewPagerRight(){
+    fun swipeViewPagerRight() {
         swipeRight(viewPagerView)
         idleFor(500)
     }
 
-    fun verifyViewPagerIsOnPage(page:Int) = viewPagerView.check(matches(withSelectedPage(page)))
+    fun verifyViewPagerIsOnPage(page: Int) = viewPagerView.check(matches(withSelectedPage(page)))
+
 }
