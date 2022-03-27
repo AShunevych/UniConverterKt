@@ -1,7 +1,11 @@
 package ashunevich.uniconverterKT.espresso.tests
 
+import androidx.test.espresso.Espresso.onView
+import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.BasicRule
+import ashunevich.uniconverterKT.espresso.robots.Data.weightValues
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
+import ashunevich.uniconverterKT.espresso.robots.helper.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -44,8 +48,30 @@ class ConverterTests : BasicRule() {
     }
 
     @Test
-    fun verifyUiChangeOnScroll() {
+    fun verifyValueChangeOnSpinerChange() {
+        converterRobot {
 
+            val weightArray = getResourceArray(R.array.weight)
+
+            for(item in weightArray){
+                clickOn(spinnerValue)
+                clickOnSpinnerItem(item.toString())
+                for(value in weightValues){
+                    valueUnitWithText(value.toString())
+                }
+            }
+
+
+            for(item in weightArray){
+                clickOn(spinnerResult)
+                clickOnSpinnerItem(item.toString())
+                for(value in weightValues){
+                    resultUnitWithText(value.toString())
+                }
+            }
+
+
+        }
     }
 }
 

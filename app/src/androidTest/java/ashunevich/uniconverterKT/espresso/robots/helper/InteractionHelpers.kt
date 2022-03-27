@@ -1,16 +1,21 @@
 package ashunevich.uniconverterKT.espresso.robots.helper
 
-import android.view.View
-import androidx.test.espresso.Espresso
+
+import androidx.annotation.IdRes
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.ViewPagerActions
-import com.adevinta.android.barista.interaction.BaristaScrollInteractions.scrollTo
 import com.adevinta.android.barista.interaction.BaristaSleepInteractions
-import org.hamcrest.Matcher
+import org.hamcrest.Matchers.*
 
-fun clickOnButton(matcher: ViewInteraction) = matcher
-    .perform(ViewActions.click())
+fun clickOn(matcher: ViewInteraction) = matcher
+    .perform(click())
+
+fun clickOnSpinnerItem(@IdRes itemText:String) = onData(allOf(`is`(instanceOf(String::class.java)),
+    `is`(itemText))).perform(click())
+
 
 fun idleFor(timeout:Long) = BaristaSleepInteractions.sleep(timeout)
 

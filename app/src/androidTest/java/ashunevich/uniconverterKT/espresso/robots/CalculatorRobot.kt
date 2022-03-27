@@ -68,22 +68,22 @@ class CalculatorRobot :BaseRobot() {
     fun verifyResult(result:String) = calucaltorResult.haveText(result)
 
     fun createSimpleCalc(){
-        clickOnButton(buttonEight)
-        clickOnButton(buttonFour)
-        clickOnButton(buttonDivide)
-        clickOnButton(buttonTwo)
+        clickOn(buttonEight)
+        clickOn(buttonFour)
+        clickOn(buttonDivide)
+        clickOn(buttonTwo)
         verifyEnteredText("84/2")
     }
 
     fun createSimpleCalcWithSymbols(){
-        clickOnButton(buttonEight)
-        clickOnButton(buttonFour)
-        clickOnButton(buttonDivide)
-        clickOnButton(buttonDuzhky)
-        clickOnButton(buttonTwo)
-        clickOnButton(buttonPlus)
-        clickOnButton(buttonTwo)
-        clickOnButton(buttonDuzhky)
+        clickOn(buttonEight)
+        clickOn(buttonFour)
+        clickOn(buttonDivide)
+        clickOn(buttonDuzhky)
+        clickOn(buttonTwo)
+        clickOn(buttonPlus)
+        clickOn(buttonTwo)
+        clickOn(buttonDuzhky)
         verifyEnteredText("84/(2+2)")
     }
 
@@ -92,7 +92,7 @@ class CalculatorRobot :BaseRobot() {
                                 buttonSix,buttonSeven,buttonEight,buttonNine,buttonZero,buttonDzero)
 
         for (button in buttonList){
-            clickOnButton(button)
+            clickOn(button)
             idleFor(500)
         }
     }

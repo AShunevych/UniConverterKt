@@ -4,7 +4,7 @@ import androidx.test.espresso.Espresso.pressBackUnconditionally
 import ashunevich.uniconverterKT.espresso.BasicRule
 import ashunevich.uniconverterKT.espresso.robots.calculatorRobot
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
-import ashunevich.uniconverterKT.espresso.robots.helper.clickOnButton
+import ashunevich.uniconverterKT.espresso.robots.helper.clickOn
 import com.adevinta.android.barista.interaction.BaristaSleepInteractions
 import org.junit.After
 import org.junit.Before
@@ -30,10 +30,10 @@ class CalculatorTests : BasicRule() {
     fun testVerifyEnteredValuesAreDisplayedCorrectly() {
         calculatorRobot {
             verify()
-            clickOnButton(buttonEight)
-            clickOnButton(buttonFour)
-            clickOnButton(buttonMinus)
-            clickOnButton(buttonTwo)
+            clickOn(buttonEight)
+            clickOn(buttonFour)
+            clickOn(buttonMinus)
+            clickOn(buttonTwo)
             verifyEnteredText(expectedText = "84-2")
         }
     }
@@ -54,17 +54,17 @@ class CalculatorTests : BasicRule() {
 
 
             for (enterSymbol in basicOperations) {
-                clickOnButton(enterSymbol.first)
+                clickOn(enterSymbol.first)
                 verifyEnteredText(enterSymbol.second)
-                clickOnButton(buttonClear)
+                clickOn(buttonClear)
                 verifyCalculatorResultIsCleared()
                 Thread.sleep(5000)
             }
 
             //"(",")","()" symbols
-            clickOnButton(buttonDuzhky)
+            clickOn(buttonDuzhky)
             verifyEnteredText(expectedText = "(")
-            clickOnButton(buttonDuzhky)
+            clickOn(buttonDuzhky)
             verifyEnteredText(expectedText = "()")
         }
     }
@@ -74,13 +74,13 @@ class CalculatorTests : BasicRule() {
         calculatorRobot {
             verify()
             createSimpleCalc()
-            clickOnButton(buttonSolve)
+            clickOn(buttonSolve)
             verifyResult(result = "42.0")
-            clickOnButton(buttonClear)
+            clickOn(buttonClear)
             BaristaSleepInteractions.sleep(500)
 
             createSimpleCalcWithSymbols()
-            clickOnButton(buttonSolve)
+            clickOn(buttonSolve)
             verifyResult(result = "21.0")
         }
     }

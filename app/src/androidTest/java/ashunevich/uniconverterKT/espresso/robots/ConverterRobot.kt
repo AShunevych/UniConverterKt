@@ -1,5 +1,6 @@
 package ashunevich.uniconverterKT.espresso.robots
 
+import androidx.annotation.IdRes
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
@@ -34,7 +35,7 @@ class ConverterRobot: BaseRobot() {
     }
 
     fun accessCalculator() {
-        clickOnButton(calculatorButton)
+        clickOn(calculatorButton)
     }
 
     fun swipeViewPagerLeft() {
@@ -49,4 +50,7 @@ class ConverterRobot: BaseRobot() {
 
     fun verifyViewPagerIsOnPage(page: Int) = viewPagerView.check(matches(withSelectedPage(page)))
 
+    fun valueUnitWithText(@IdRes result:String) = valueUnit.haveText(result)
+
+    fun resultUnitWithText(@IdRes result:String) = resultUnit.haveText(result)
 }
