@@ -1,6 +1,5 @@
 package ashunevich.uniconverterKT.espresso.tests
 
-import androidx.test.espresso.Espresso.onView
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.BasicRule
 import ashunevich.uniconverterKT.espresso.robots.Data.weightValues
