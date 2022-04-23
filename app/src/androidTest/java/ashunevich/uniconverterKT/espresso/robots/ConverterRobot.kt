@@ -4,7 +4,7 @@ import androidx.annotation.IdRes
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
-import ashunevich.uniconverterKT.espresso.robots.helper.*
+import ashunevich.uniconverterKT.espresso.helper.*
 
 
 fun converterRobot(func: ConverterRobot.() -> Unit) = ConverterRobot().apply { func() }

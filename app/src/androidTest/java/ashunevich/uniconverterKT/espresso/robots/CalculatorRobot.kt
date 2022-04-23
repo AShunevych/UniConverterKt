@@ -3,12 +3,12 @@ package ashunevich.uniconverterKT.espresso.robots
 import androidx.test.espresso.ViewInteraction
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
-import ashunevich.uniconverterKT.espresso.robots.helper.*
+import ashunevich.uniconverterKT.espresso.helper.*
 
 fun calculatorRobot(func: CalculatorRobot.() -> Unit) = CalculatorRobot().apply { func() }
 
 @SuppressWarnings
-class CalculatorRobot :BaseRobot() {
+class CalculatorRobot : BaseRobot() {
 
     val buttonOne : ViewInteraction = onViewWithId(R.id.but_one)
     val buttonTwo: ViewInteraction = onViewWithId(R.id.but_two)

@@ -1,4 +1,4 @@
-package ashunevich.uniconverterKT.espresso.robots.helper
+package ashunevich.uniconverterKT.espresso.helper
 
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction

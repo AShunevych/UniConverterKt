@@ -6,7 +6,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import org.hamcrest.CoreMatchers.allOf
 
 
-open class BaseRobot  {
+open class BaseRobot   {
 
     fun onViewWithId(id:Int) = onView(withId(id))
 

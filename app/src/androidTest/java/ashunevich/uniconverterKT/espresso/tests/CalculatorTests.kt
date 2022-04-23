@@ -1,10 +1,10 @@
 package ashunevich.uniconverterKT.espresso.tests
 
 import androidx.test.espresso.Espresso.pressBackUnconditionally
-import ashunevich.uniconverterKT.espresso.BasicRule
+import ashunevich.uniconverterKT.common.BasicRule
 import ashunevich.uniconverterKT.espresso.robots.calculatorRobot
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
-import ashunevich.uniconverterKT.espresso.robots.helper.clickOn
+import ashunevich.uniconverterKT.espresso.helper.clickOn
 import com.adevinta.android.barista.interaction.BaristaSleepInteractions
 import org.junit.After
 import org.junit.Before

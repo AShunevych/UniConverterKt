@@ -1,6 +1,7 @@
-package ashunevich.uniconverterKT.espresso.robots.Data
+package ashunevich.uniconverterKT.common.data
 
 import ashunevich.uniconverterKT.R
+import ashunevich.uniconverterKT.espresso.helper.getResourceArray
 
 val weightValues = listOf(
     R.string.unit_Mg,
@@ -13,3 +14,6 @@ val weightValues = listOf(
     R.string.unit_Hw,
     R.string.unit_Tl
 )
+
+val weightArray = getResourceArray(R.array.weight)
+

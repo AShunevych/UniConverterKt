@@ -1,4 +1,4 @@
-package ashunevich.uniconverterKT.espresso.robots.helper
+package ashunevich.uniconverterKT.espresso.helper
 
 import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
