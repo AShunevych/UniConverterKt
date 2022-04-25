@@ -1,20 +1,24 @@
 package ashunevich.uniconverterKT.kaspresso.tests
 
-import ashunevich.uniconverterKT.common.BasicRule
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import ashunevich.uniconverterKT.ActivityMain
+import ashunevich.uniconverterKT.common.data.weightArray
+import ashunevich.uniconverterKT.common.data.weightValues
 import ashunevich.uniconverterKT.kaspresso.robots.kConverterRobot
+import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
-class ConverterTests : BasicRule() {
+class ConverterTests : TestCase() {
+    @get:Rule
+    val activityRule = ActivityScenarioRule(ActivityMain::class.java)
 
     @Before
     fun start() {
         kConverterRobot {
             verify()
-            calculatorButton{
-                click()
-            }
         }
     }
 
@@ -23,49 +27,57 @@ class ConverterTests : BasicRule() {
         activityRule.scenario.close()
     }
 
-    @Test
+    //@Test
     fun verifyCorrectSwipe() {
-       /* converterRobot {
-            var page = 0
+        run {
+            step("1 Swipe to last page") {
+                kConverterRobot {
+                    viewPagerView{
 
-            repeat(5) {
-                verifyViewPagerIsOnPage(page = page)
-                swipeViewPagerLeft()
-                page++
-                verifyViewPagerIsOnPage(page = page)
+                    }
+                }
             }
+            step("2 Swipe to first page") {
+                kConverterRobot {
 
-            repeat(5) {
-                verifyViewPagerIsOnPage(page = page)
-                swipeViewPagerRight()
-                page--
-                verifyViewPagerIsOnPage(page = page)
+                }
             }
-
-            verifyViewPagerIsOnPage(0)
-        }*/
+        }
     }
+
 
     @Test
     fun verifyValueChangeOnSpinerChange() {
-       /* converterRobot {
-            for(item in weightArray){
-                clickOn(spinnerValue)
-                clickOnSpinnerItem(item.toString())
-                for(value in weightValues){
-                    valueUnitWithText(value.toString())
-                }
-            }
-
-
-            for(item in weightArray){
-                clickOn(spinnerResult)
-                clickOnSpinnerItem(item.toString())
-                for(value in weightValues){
-                    resultUnitWithText(value.toString())
-                }
-            }
-        }*/
+        run {
+            kConverterRobot {
+                step("Verify spinner value change") {
+                        for ((pos, item) in weightArray.withIndex()) {
+                            spinnerValue {
+                                open()
+                                emptyChildAt(pos) {
+                                    isDisplayed()
+                                    hasText(item.toString())
+                                    click()
+                                }
+                            }
+                            valueUnit.hasText(weightValues[pos])
+                        }
+                    } }
+            kConverterRobot {
+                step("Verify spinner result change") {
+                    for ((pos, item) in weightArray.withIndex()) {
+                        spinnerResult {
+                            open()
+                            emptyChildAt(pos) {
+                                isDisplayed()
+                                hasText(item.toString())
+                                click()
+                            }
+                        }
+                        resultUnit.hasText(weightValues[pos])
+                    }
+                } }
+        }
+        }
     }
-}
 
