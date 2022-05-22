@@ -16,6 +16,7 @@ import ashunevich.uniconverterKT.Utils
 import ashunevich.uniconverterKT.Utils.SYMBOL_BRACKETS
 import ashunevich.uniconverterKT.Utils.SYMBOL_CLEAR
 import ashunevich.uniconverterKT.Utils.SYMBOL_SOLVE
+import ashunevich.uniconverterKT.Utils.isNetworkAvailable
 import ashunevich.uniconverterKT.databinding.CurrencyActivityBinding
 import org.mariuszgromada.math.mxparser.Expression
 import java.lang.Exception
@@ -53,7 +54,7 @@ open class CurrencyConverter : AppCompatActivity() {
         setSpinnersListeners(binding!!.spinnerFromCurrency)
         setSpinnersListeners(binding!!.spinnerToCurrency)
         if (TextUtils.isEmpty(Utils.returnDateString(binding!!.dateView))) {
-          //  checkConnection()
+           checkConnection()
         }
         val model: AppViewModel = Utils.generateViewModel(this)
         model.postedNumber.observe(this) { event: String? -> this.getText(event) }
@@ -67,23 +68,23 @@ open class CurrencyConverter : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
     }
 
-   /* private fun checkConnection() {
-        if (!CurrencyInternetService.Companion.checkConnection(this)) {
+    private fun checkConnection() {
+        if (isNetworkAvailable(applicationContext)) {
             Snackbar.make(
                 binding!!.currencyLayout,
-                getResources().getString(R.string.NoInternetConnection),
+                resources.getString(R.string.NoInternetConnection),
                 Snackbar.LENGTH_SHORT
             ).show()
         } else {
             Snackbar.make(
                 binding!!.currencyLayout,
-                getResources().getString(R.string.PostitiveInternetConnection),
+                resources.getString(R.string.PostitiveInternetConnection),
                 Snackbar.LENGTH_SHORT
             ).show()
-            val presenter: Presenter = PresenterImp(this, InteractorImpl())
-            presenter.requestDataFromServer()
+           /* val presenter: Presenter = PresenterImp(this, InteractorImpl())
+            presenter.requestDataFromServer()*/
         }
-    }*/
+    }
 
     protected fun getText(event: String?) {
         if ((event == SYMBOL_BRACKETS) || (event == SYMBOL_SOLVE) || (event == SYMBOL_CLEAR)) {
@@ -131,6 +132,14 @@ open class CurrencyConverter : AppCompatActivity() {
     //Auto conversion  when user add number to value for convert
     private fun addTextWatcher() {
         binding!!.valueCurrency.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                TODO("Not yet implemented")
+            }
+
             override fun afterTextChanged(s: Editable) {
                 if ((binding!!.valueCurrency.text.toString().contains("+") or
                             binding!!.valueCurrency.text.toString().contains("-") or
@@ -144,18 +153,6 @@ open class CurrencyConverter : AppCompatActivity() {
                 } else {
                     convertOnTextChange()
                 }
-            }
-
-             override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
-
-             override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
             }
         })
     }
