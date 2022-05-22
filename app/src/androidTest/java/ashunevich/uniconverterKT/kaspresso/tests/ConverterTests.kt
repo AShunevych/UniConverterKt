@@ -27,42 +27,56 @@ class ConverterTests : TestCase() {
         activityRule.scenario.close()
     }
 
-    //@Test
-    fun verifyCorrectSwipe() {
+    @Test
+    fun verifyTempScreenReflectedCorrectly() {
         run {
-            step("1 Swipe to last page") {
+            step("1 Swipe to temperature list page") {
                 kConverterRobot {
-                    viewPagerView{
+                    viewPagerView {
+                        isVisible()
+                        scrollTo(5)
 
+                    }
+                    plusMinusButton{
+                        isVisible()
+                        isEnabled()
                     }
                 }
             }
-            step("2 Swipe to first page") {
+            step("2 Swipe to previous  page") {
                 kConverterRobot {
+                    viewPagerView {
+                        isVisible()
+                        scrollTo(4)
 
+                    }
+                    plusMinusButton{
+                        isVisible()
+                        isDisabled()
+                    }
                 }
             }
         }
     }
 
-
     @Test
-    fun verifyValueChangeOnSpinerChange() {
+    fun verifyValueChangeOnSpinnerChange() {
         run {
             kConverterRobot {
                 step("Verify spinner value change") {
-                        for ((pos, item) in weightArray.withIndex()) {
-                            spinnerValue {
-                                open()
-                                emptyChildAt(pos) {
-                                    isDisplayed()
-                                    hasText(item.toString())
-                                    click()
-                                }
+                    for ((pos, item) in weightArray.withIndex()) {
+                        spinnerValue {
+                            open()
+                            emptyChildAt(pos) {
+                                isDisplayed()
+                                hasText(item.toString())
+                                click()
                             }
-                            valueUnit.hasText(weightValues[pos])
                         }
-                    } }
+                        valueUnit.hasText(weightValues[pos])
+                    }
+                }
+            }
             kConverterRobot {
                 step("Verify spinner result change") {
                     for ((pos, item) in weightArray.withIndex()) {
@@ -76,8 +90,8 @@ class ConverterTests : TestCase() {
                         }
                         resultUnit.hasText(weightValues[pos])
                     }
-                } }
-        }
+                }
+            }
         }
     }
-
+}

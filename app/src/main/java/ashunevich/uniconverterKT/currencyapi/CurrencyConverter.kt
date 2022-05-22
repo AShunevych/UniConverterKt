@@ -12,8 +12,10 @@ import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.lifecycle.Observer
 import ashunevich.uniconverterKT.Utils
+import ashunevich.uniconverterKT.Utils.SYMBOL_BRACKETS
+import ashunevich.uniconverterKT.Utils.SYMBOL_CLEAR
+import ashunevich.uniconverterKT.Utils.SYMBOL_SOLVE
 import ashunevich.uniconverterKT.databinding.CurrencyActivityBinding
 import org.mariuszgromada.math.mxparser.Expression
 import java.lang.Exception
@@ -32,21 +34,21 @@ open class CurrencyConverter : AppCompatActivity() {
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         savedInstanceState.putString(
             Utils.SAVED_VALUE,
-            binding!!.valueCurrency.getText().toString()
+            binding!!.valueCurrency.text.toString()
         )
         savedInstanceState.putString(
             Utils.SAVED_RESULT,
-            binding!!.resultCurrency.getText().toString()
+            binding!!.resultCurrency.text.toString()
         )
         super.onSaveInstanceState(savedInstanceState)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = CurrencyActivityBinding.inflate(getLayoutInflater())
-        setContentView(binding!!.getRoot())
+        binding = CurrencyActivityBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
        //setButtonBindings_ConverterCurrency()
-        setAdapter((getResources().getStringArray(R.array.currency)))
+        setAdapter((resources.getStringArray(R.array.currency)))
         setUnitMeasurements()
         setSpinnersListeners(binding!!.spinnerFromCurrency)
         setSpinnersListeners(binding!!.spinnerToCurrency)
@@ -54,9 +56,9 @@ open class CurrencyConverter : AppCompatActivity() {
           //  checkConnection()
         }
         val model: AppViewModel = Utils.generateViewModel(this)
-        model.postedNumber.observe(this, Observer({ event: String? -> this.getText(event) }))
+        model.postedNumber.observe(this) { event: String? -> this.getText(event) }
         addTextWatcher()
-        binding!!.valueCurrency.setInputType(InputType.TYPE_NULL)
+        binding!!.valueCurrency.inputType = InputType.TYPE_NULL
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -84,13 +86,13 @@ open class CurrencyConverter : AppCompatActivity() {
     }*/
 
     protected fun getText(event: String?) {
-        if ((event == Utils.SYMBOL_BRACKETS) || (event == Utils.SYMBOL_SOLVE) || (event == Utils.SYMBOL_CLEAR)) {
+        if ((event == SYMBOL_BRACKETS) || (event == SYMBOL_SOLVE) || (event == SYMBOL_CLEAR)) {
             when (event) {
-                Utils.SYMBOL_BRACKETS -> Utils.checkBrackets(
+                SYMBOL_BRACKETS -> Utils.checkBrackets(
                     binding!!.valueCurrency
                 )
-                Utils.SYMBOL_SOLVE -> convertOnDemand()
-                Utils.SYMBOL_CLEAR -> Utils.clearView(
+                SYMBOL_SOLVE -> convertOnDemand()
+                SYMBOL_CLEAR -> Utils.clearView(
                     binding!!.valueCurrency, binding!!.resultCurrency
                 )
             }
@@ -111,8 +113,8 @@ open class CurrencyConverter : AppCompatActivity() {
 
     //if user changes unit - it will change measurements and will automatically recalculate result
     private fun setSpinnersListeners(spinner: Spinner) {
-        spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
-            public override fun onItemSelected(
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
                 parentView: AdapterView<*>?,
                 selectedItemView: View,
                 position: Int,
@@ -122,21 +124,21 @@ open class CurrencyConverter : AppCompatActivity() {
                 convertOnDemand()
             }
 
-            public override fun onNothingSelected(parentView: AdapterView<*>?) {}
-        })
+            override fun onNothingSelected(parentView: AdapterView<*>?) {}
+        }
     }
 
     //Auto conversion  when user add number to value for convert
     private fun addTextWatcher() {
         binding!!.valueCurrency.addTextChangedListener(object : TextWatcher {
-            public override fun afterTextChanged(s: Editable) {
-                if ((binding!!.valueCurrency.getText().toString().contains("+") or
-                            binding!!.valueCurrency.getText().toString().contains("-") or
-                            binding!!.valueCurrency.getText().toString().contains("/") or
-                            binding!!.valueCurrency.getText().toString().contains("*") or
-                            binding!!.valueCurrency.getText().toString().contains("(") or
-                            binding!!.valueCurrency.getText().toString().contains(")") or
-                            TextUtils.isEmpty(binding!!.valueCurrency.getText().toString()))
+            override fun afterTextChanged(s: Editable) {
+                if ((binding!!.valueCurrency.text.toString().contains("+") or
+                            binding!!.valueCurrency.text.toString().contains("-") or
+                            binding!!.valueCurrency.text.toString().contains("/") or
+                            binding!!.valueCurrency.text.toString().contains("*") or
+                            binding!!.valueCurrency.text.toString().contains("(") or
+                            binding!!.valueCurrency.text.toString().contains(")") or
+                            TextUtils.isEmpty(binding!!.valueCurrency.text.toString()))
                 ) {
                     Log.d("valueCurrency ", "occurred exception")
                 } else {
@@ -183,12 +185,12 @@ open class CurrencyConverter : AppCompatActivity() {
 
     private fun setStringFormat(resultDouble: Double) {
         val formatter: NumberFormat = DecimalFormat("###.####")
-        binding!!.resultCurrency.setText((formatter.format(resultDouble)))
+        binding!!.resultCurrency.text = (formatter.format(resultDouble))
     }
 
     // app conversion work
     private fun convertOnTextChange() {
-        getEnteredValue = binding!!.valueCurrency.getText().toString().toDouble()
+        getEnteredValue = binding!!.valueCurrency.text.toString().toDouble()
         try {
             if (hm != null) {
                 val initRate: Double? = hm!!.get(
