@@ -24,13 +24,13 @@ class CurrencyRateObject {
     @SerializedName("RUB")
     var RUB: Double = 0.0
     fun getRate(currency: String?): Double {
-        when (currency) {
-            "USD" -> return USD
-            "GBP" -> return GBP
-            "IDR" -> return IDR
-            "PLN" -> return PLN
-            "RUB" -> return RUB
-            else -> return 0.0
+        return when (currency) {
+            "USD" -> USD
+            "GBP" -> GBP
+            "IDR" -> IDR
+            "PLN" -> PLN
+            "RUB" -> RUB
+            else -> 0.0
         }
     }
 }

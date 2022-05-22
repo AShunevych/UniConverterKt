@@ -200,7 +200,6 @@ object Utils {
         }
     }
 
-
     fun currencyConverter(value: Double, targetRate: Double?, initRate: Double?): Double {
         return targetRate!! * value / initRate!!
     }
@@ -218,5 +217,4 @@ object Utils {
         val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
         return capabilities?.hasCapability(NET_CAPABILITY_INTERNET) == true
     }
-
 }
