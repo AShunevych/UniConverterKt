@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.shazam.fork'
 }
 
 apply plugin: 'com.shazam.fork'
@@ -72,8 +73,8 @@ dependencies {
 }
 
 fork {
-    title = "ForkAndroidTest"
-    testPackage = "ashunevich.uniconverterKT.espresso.tests"
+    title = "UI Test"
+    testPackage = "ashunevich.uniconverterKT.tests"
 
     poolingStrategy {
         computed {

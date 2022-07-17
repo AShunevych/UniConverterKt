@@ -19,12 +19,12 @@ class ScreenshotTest : TestCase()  {
         }
     }
 
-    @Test
+    // @Test
     fun ukrLocalizationScreen(){
 
     }
 
-    @Test
+    // @Test
     fun engLocalizationScreen(){
 
     }
