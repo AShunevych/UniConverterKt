@@ -72,7 +72,7 @@ dependencies {
 }
 
 fork {
-    title = "Espresso Test"
+    title = "ForkAndroidTest"
     testPackage = "ashunevich.uniconverterKT.espresso.tests"
 
     poolingStrategy {
