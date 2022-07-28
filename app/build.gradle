@@ -51,7 +51,7 @@ dependencies {
     //noinspection GradleDependency
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.github.AShunevich:Conversion-Library-Android:0.1.4'
+    implementation 'com.github.AShunevych:Conversion-Library-Android:0.1.4'
     testImplementation 'junit:junit:4.13.2'
     //noinspection GradleDependency
     implementation 'androidx.preference:preference-ktx:1.1.1'
