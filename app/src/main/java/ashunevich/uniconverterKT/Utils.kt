@@ -157,7 +157,7 @@ object Utils {
             "Pint", "Пінта"-> measurementUnit.text = resources.getString(R.string.unit_Pt)
             "Quart", "Кварт"-> measurementUnit.text = resources.getString(R.string.unit_Qt)
             "Gallon", "Галлон" -> measurementUnit.text = resources.getString(R.string.unit_Gal)
-            "Mlilinewton", "Міліньютон" -> measurementUnit.text = resources.getString(R.string.unit_Mn)
+            "Millinewton", "Міліньютон" -> measurementUnit.text = resources.getString(R.string.unit_Mn)
             "Newton", "Ньютон" -> measurementUnit.text = resources.getString(R.string.unit_N)
             "Kilonewton", "Кілоньютон" -> measurementUnit.text = resources.getString(R.string.unit_Kn)
             "Ton-force(metric)", "Тонна-сила(метрична)" -> measurementUnit.text = resources.getString(R.string.unit_Tf)
