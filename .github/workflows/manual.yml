@@ -25,7 +25,14 @@ jobs:
         run: ls -alrth
         # Grant permission
       - name: add permisiion to gradlew
-        run: chmod +x ./gradlew 
+        run: chmod +x ./gradlew
+  unit_tets:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v3
         # Execute unit tests
       - name: run unit tests
         working-directory: ./app/src/
