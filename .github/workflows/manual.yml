@@ -22,4 +22,7 @@ jobs:
 
       # Execute unit tests
       - name: Unit Test
-        run: chmod +x gradle  test
+        run: pwd
+        run: ls -alrth
+        run: chmod +x ./gradlew 
+        run: chmod +x ./test
