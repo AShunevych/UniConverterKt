@@ -198,10 +198,6 @@ class ActivityConverter : Fragment() {
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-    }
-
     private fun stringToDouble(): Double {
         return binding!!.valueEdit.text.toString().toDouble()
     }
