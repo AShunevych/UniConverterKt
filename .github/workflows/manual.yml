@@ -19,14 +19,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: pwd
-        run: pwd
+          
+        # List all files (Optional)
       - name: ls
         run: ls -alrth
+        # Grant permission
       - name: add permisiion to gradlew
         run: chmod +x ./gradlew 
         # Execute unit tests
-      - name: add permisiion to gradlew
+      - name: run unit tests
         working-directory: ./app/src/
         run: chmod +x ./test
