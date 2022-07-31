@@ -28,5 +28,5 @@ jobs:
         run: chmod +x ./gradlew 
         # Execute unit tests
       - name: add permisiion to gradlew
-        working-directory: ./app
+        working-directory: ./app/src/
         run: chmod +x ./test
