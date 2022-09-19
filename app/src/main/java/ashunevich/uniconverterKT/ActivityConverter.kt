@@ -18,7 +18,7 @@ import ashunevich.uniconverterKT.Utils.correctValue
 import ashunevich.uniconverterKT.databinding.ConverterActivityBinding
 import com.ashunevich.conversionlibrary.UnitConverter
 
-class ActivityConverter : Fragment() {
+open class ActivityConverter : Fragment() {
     private var binding: ConverterActivityBinding? = null
 
     override fun onCreateView(
@@ -45,19 +45,19 @@ class ActivityConverter : Fragment() {
     private fun initTabPositionViewModel() {
         val tabPositionViewModel = Utils.generateViewModel(requireActivity())
         tabPositionViewModel.getSelected().observe(
-            viewLifecycleOwner,
-            { tabPos: Int -> setSpinnerOnTabPositionChange(tabPos) })
+            viewLifecycleOwner
+        ) { tabPos: Int -> setSpinnerOnTabPositionChange(tabPos) }
     }
 
     private fun initKeyBoardViewModel() {
         val keyboardViewModel = Utils.generateViewModel(requireActivity())
         keyboardViewModel.postedNumber.observe(
-            viewLifecycleOwner,
-            { event: String? ->
-                if (event != null) {
-                    setViewModelTextReceiver(event)
-                }
-            })
+            viewLifecycleOwner
+        ) { event: String? ->
+            if (event != null) {
+                setViewModelTextReceiver(event)
+            }
+        }
     }
 
     private fun setAdapter(array: Array<String>) {
