@@ -3,8 +3,9 @@ package ashunevich.uniconverterKT.espresso.tests
 import ashunevich.uniconverterKT.common.BasicRule
 import ashunevich.uniconverterKT.common.data.weightArray
 import ashunevich.uniconverterKT.common.data.weightValues
+import ashunevich.uniconverterKT.espresso.helper.clickOn
+import ashunevich.uniconverterKT.espresso.helper.clickOnSpinnerItem
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
-import ashunevich.uniconverterKT.espresso.helper.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -47,28 +48,23 @@ class ConverterTests : BasicRule() {
     }
 
     @Test
-    fun verifyValueChangeOnSpinerChange() {
+    fun verifyValueChangeOnSpinnerChange() {
         converterRobot {
-
-            for(item in weightArray){
+            for (item in weightArray) {
                 clickOn(spinnerValue)
                 clickOnSpinnerItem(item.toString())
-                for(value in weightValues){
+                for (value in weightValues) {
                     valueUnitWithText(value.toString())
                 }
             }
 
-
-            for(item in weightArray){
+            for (item in weightArray) {
                 clickOn(spinnerResult)
                 clickOnSpinnerItem(item.toString())
-                for(value in weightValues){
+                for (value in weightValues) {
                     resultUnitWithText(value.toString())
                 }
             }
-
-
         }
     }
 }
-

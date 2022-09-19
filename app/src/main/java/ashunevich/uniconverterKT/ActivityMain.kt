@@ -1,19 +1,18 @@
 package ashunevich.uniconverterKT
 
-import ashunevich.uniconverterKT.ui.AppViewModel
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.tabs.TabLayout
-import android.content.Intent
-import android.app.ActivityOptions
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import ashunevich.uniconverterKT.databinding.MainActivityBinding
-import java.util.*
+import ashunevich.uniconverterKT.ui.AppViewModel
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ActivityMain : AppCompatActivity() {
     private var binding: MainActivityBinding? = null

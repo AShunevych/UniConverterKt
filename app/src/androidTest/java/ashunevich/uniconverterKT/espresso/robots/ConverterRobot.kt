@@ -3,14 +3,12 @@ package ashunevich.uniconverterKT.espresso.robots
 import androidx.annotation.IdRes
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import ashunevich.uniconverterKT.R
-import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
 import ashunevich.uniconverterKT.espresso.helper.*
-
+import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
 
 fun converterRobot(func: ConverterRobot.() -> Unit) = ConverterRobot().apply { func() }
 
-class ConverterRobot: BaseRobot() {
-
+class ConverterRobot : BaseRobot() {
     val calculatorButton = onViewWithId(R.id.calculator_button)
     val viewPagerView = onViewWithId(R.id.viewPager)
 
@@ -50,7 +48,7 @@ class ConverterRobot: BaseRobot() {
 
     fun verifyViewPagerIsOnPage(page: Int) = viewPagerView.check(matches(withSelectedPage(page)))
 
-    fun valueUnitWithText(@IdRes result:String) = valueUnit.haveText(result)
+    fun valueUnitWithText(@IdRes result: String) = valueUnit.haveText(result)
 
-    fun resultUnitWithText(@IdRes result:String) = resultUnit.haveText(result)
+    fun resultUnitWithText(@IdRes result: String) = resultUnit.haveText(result)
 }

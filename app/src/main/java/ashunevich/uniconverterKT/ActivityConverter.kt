@@ -1,16 +1,16 @@
 package ashunevich.uniconverterKT
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AdapterView
-import android.text.TextWatcher
 import android.text.Editable
-import android.widget.Toast
 import android.text.TextUtils
+import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import ashunevich.uniconverterKT.Utils.appendMinusPlus
 import ashunevich.uniconverterKT.Utils.clearView
@@ -94,7 +94,7 @@ open class ActivityConverter : Fragment() {
         }
     }
 
-    //Filling spinners with values
+    // Filling spinners with values
     private fun setSpinnerOnTabPositionChange(tabPos: Int) {
         when (tabPos) {
             0 -> setAdapter(resources.getStringArray(R.array.weight))
@@ -108,7 +108,7 @@ open class ActivityConverter : Fragment() {
         }
     }
 
-    //if user changes unit - it will change measurements and will automatically recalculate result
+    // if user changes unit - it will change measurements and will automatically recalculate result
     private fun setSpinnerListener(spinner: Spinner) {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -125,7 +125,7 @@ open class ActivityConverter : Fragment() {
         }
     }
 
-    //Auto conversion when user add number to value for convert
+    // Auto conversion when user add number to value for convert
     private fun addTextWatcher() {
         binding!!.valueEdit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -138,14 +138,18 @@ open class ActivityConverter : Fragment() {
             }
 
             override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
+                s: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
             ) {
             }
 
             override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
+                s: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
             ) {
             }
         })
@@ -156,7 +160,7 @@ open class ActivityConverter : Fragment() {
             .show()
     }
 
-    //set units of measurements for value
+    // set units of measurements for value
     private fun setUnitMeasurement() {
         Utils.measurementUnitsHandler(
             Utils.getSpinnerValueString(

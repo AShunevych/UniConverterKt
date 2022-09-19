@@ -1,6 +1,4 @@
 package ashunevich.uniconverterKT
-
-import ashunevich.uniconverterKT.ui.AppViewModel
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +6,7 @@ import ashunevich.uniconverterKT.Utils.checkBrackets
 import ashunevich.uniconverterKT.Utils.clearView
 import ashunevich.uniconverterKT.Utils.readAndSolve
 import ashunevich.uniconverterKT.databinding.CalculatorActivityBinding
+import ashunevich.uniconverterKT.ui.AppViewModel
 
 class ActivityCalculator : AppCompatActivity() {
     private var binding: CalculatorActivityBinding? = null
