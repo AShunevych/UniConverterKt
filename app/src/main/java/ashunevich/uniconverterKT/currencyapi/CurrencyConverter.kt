@@ -3,7 +3,6 @@ package ashunevich.uniconverterKT.currencyapi
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
@@ -16,7 +15,14 @@ import ashunevich.uniconverterKT.Utils
 import ashunevich.uniconverterKT.Utils.SYMBOL_BRACKETS
 import ashunevich.uniconverterKT.Utils.SYMBOL_CLEAR
 import ashunevich.uniconverterKT.Utils.SYMBOL_SOLVE
+import ashunevich.uniconverterKT.Utils.checkBrackets
+import ashunevich.uniconverterKT.Utils.clearView
+import ashunevich.uniconverterKT.Utils.currencyConverter
+import ashunevich.uniconverterKT.Utils.currencyUnitHandler
+import ashunevich.uniconverterKT.Utils.getSpinnerValueString
 import ashunevich.uniconverterKT.Utils.isNetworkAvailable
+import ashunevich.uniconverterKT.Utils.snackBarFabric
+import ashunevich.uniconverterKT.Utils.textIsEmpty
 import ashunevich.uniconverterKT.databinding.CurrencyActivityBinding
 import ashunevich.uniconverterKT.ui.AppViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -49,11 +55,11 @@ open class CurrencyConverter : AppCompatActivity() {
         binding = CurrencyActivityBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         // setButtonBindings_ConverterCurrency()
-        setAdapter((resources.getStringArray(R.array.currency)))
+        setAdapter(array = resources.getStringArray(R.array.currency))
         setUnitMeasurements()
-        setSpinnersListeners(binding!!.spinnerFromCurrency)
-        setSpinnersListeners(binding!!.spinnerToCurrency)
-        if (TextUtils.isEmpty(Utils.returnDateString(binding!!.dateView))) {
+        setSpinnersListeners(spinner = binding!!.spinnerFromCurrency)
+        setSpinnersListeners(spinner = binding!!.spinnerToCurrency)
+        if (textIsEmpty(binding!!.dateView)) {
             checkConnection()
         }
         val model: AppViewModel = Utils.generateViewModel(this)
@@ -70,17 +76,9 @@ open class CurrencyConverter : AppCompatActivity() {
 
     private fun checkConnection() {
         if (isNetworkAvailable(applicationContext)) {
-            Snackbar.make(
-                binding!!.currencyLayout,
-                resources.getString(R.string.NoInternetConnection),
-                Snackbar.LENGTH_SHORT
-            ).show()
+            makeSnackBar(snackText = resources.getString(R.string.NoInternetConnection))
         } else {
-            Snackbar.make(
-                binding!!.currencyLayout,
-                resources.getString(R.string.PostitiveInternetConnection),
-                Snackbar.LENGTH_SHORT
-            ).show()
+            makeSnackBar(snackText = resources.getString(R.string.PostitiveInternetConnection))
             /* val presenter: Presenter = PresenterImp(this, InteractorImpl())
              presenter.requestDataFromServer()*/
         }
@@ -89,12 +87,13 @@ open class CurrencyConverter : AppCompatActivity() {
     protected fun getText(event: String?) {
         if ((event == SYMBOL_BRACKETS) || (event == SYMBOL_SOLVE) || (event == SYMBOL_CLEAR)) {
             when (event) {
-                SYMBOL_BRACKETS -> Utils.checkBrackets(
-                    binding!!.valueCurrency
+                SYMBOL_BRACKETS -> checkBrackets(
+                    valueEdit = binding!!.valueCurrency
                 )
                 SYMBOL_SOLVE -> convertOnDemand()
-                SYMBOL_CLEAR -> Utils.clearView(
-                    binding!!.valueCurrency, binding!!.resultCurrency
+                SYMBOL_CLEAR -> clearView(
+                    valueEdit = binding!!.valueCurrency,
+                    resultView = binding!!.resultCurrency
                 )
             }
         } else {
@@ -159,17 +158,17 @@ open class CurrencyConverter : AppCompatActivity() {
 
     // set units of measurements for value
     private fun setUnitMeasurements() {
-        Utils.currencyUnitHandler(
-            Utils.getSpinnerValueString(
-                binding!!.spinnerFromCurrency
+        currencyUnitHandler(
+            spinnerTextValue = getSpinnerValueString(
+                spinner = binding!!.spinnerFromCurrency
             ),
-            binding!!.currencyFROMShort
+            measurementUnit = binding!!.currencyFROMShort
         )
-        Utils.currencyUnitHandler(
-            Utils.getSpinnerValueString(
-                binding!!.spinnerToCurrency
+        currencyUnitHandler(
+            spinnerTextValue = getSpinnerValueString(
+                spinner = binding!!.spinnerToCurrency
             ),
-            binding!!.currencyToShort
+            measurementUnit = binding!!.currencyToShort
         )
     }
 
@@ -192,10 +191,15 @@ open class CurrencyConverter : AppCompatActivity() {
         getEnteredValue = binding!!.valueCurrency.text.toString().toDouble()
         try {
             if (hm != null) {
-                val initRate: Double? = stringFromSpinner(binding!!.spinnerFromCurrency)
-                val targetRate: Double? = stringFromSpinner(binding!!.spinnerToCurrency)
+                val initRate: Double? = stringFromSpinner(spinner = binding!!.spinnerFromCurrency)
+                val targetRate: Double? = stringFromSpinner(spinner = binding!!.spinnerToCurrency)
 
-                setStringFormat(Utils.currencyConverter(getEnteredValue, targetRate, initRate))
+                setStringFormat(
+                    resultDouble = currencyConverter(
+                        value = getEnteredValue,
+                        targetRate = targetRate,
+                        initRate = initRate)
+                )
             }
         } catch (e: Exception) {
             Log.d(" Exception", "Exception cached")
@@ -203,23 +207,28 @@ open class CurrencyConverter : AppCompatActivity() {
     }
 
     private fun stringFromSpinner(spinner: Spinner): Double? {
-        return hm!![Utils.getSpinnerValueString(spinner)]
+        return hm!![getSpinnerValueString(spinner)]
     }
 
     private fun convertOnDemand() {
-        if (TextUtils.isEmpty(binding!!.valueCurrency.text.toString())) {
+        if (textIsEmpty(textview = binding!!.valueCurrency)) {
             binding!!.resultCurrency.text = ""
         } else {
             try { // get JSON received values
-                val initRate: Double? = stringFromSpinner(binding!!.spinnerFromCurrency)
-                val targetRate: Double? = stringFromSpinner(binding!!.spinnerToCurrency)
+                val initRate: Double? = stringFromSpinner(spinner = binding!!.spinnerFromCurrency)
+                val targetRate: Double? = stringFromSpinner(spinner = binding!!.spinnerToCurrency)
 
                 // use MathParser to calculate value
                 val value = Expression(
                     binding!!.valueCurrency.text.toString()
                 )
                 // use calculated value
-                setStringFormat(Utils.currencyConverter(value.calculate(), targetRate, initRate))
+                setStringFormat(
+                    resultDouble = currencyConverter(
+                        value = value.calculate(),
+                        targetRate = targetRate,
+                        initRate = initRate)
+                )
             } catch (e: Exception) {
                 e.printStackTrace()
                 Log.d(" Exception", "Exception cached")
@@ -227,8 +236,12 @@ open class CurrencyConverter : AppCompatActivity() {
         }
     }
 
-    private fun makeSnackBar(snackText: String) {
-        Snackbar.make(binding!!.currencyLayout, snackText, Snackbar.LENGTH_SHORT).show()
+    fun makeSnackBar(snackText: String) {
+        snackBarFabric(
+            layout = binding!!.currencyLayout,
+            snackText = snackText,
+            duration = Snackbar.LENGTH_SHORT)
+            .show()
     }
 
     fun parseDataFromResponseToHashmap(`object`: CurrencyResponseObject?) {
@@ -239,11 +252,10 @@ open class CurrencyConverter : AppCompatActivity() {
         hm!![resources.getString(R.string.IDR)] = `object`.`object`.getRate("IDR")
         hm!![resources.getString(R.string.PLN)] = `object`.`object`.getRate("PLN")
         hm!![resources.getString(R.string.NZD)] = `object`.`object`.getRate("NZD")
-        hm!![resources.getString(R.string.RUB)] = `object`.`object`.getRate("RUB")
         if (hm!!.isEmpty()) {
-            makeSnackBar("Fail!")
+            makeSnackBar(snackText = "Fail!")
         } else {
-            makeSnackBar("Success!")
+            makeSnackBar(snackText = "Success!")
         }
     }
 }
