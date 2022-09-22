@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import ashunevich.uniconverterKT.Utils.postTextOnClick
+import ashunevich.uniconverterKT.currencyapi.CurrencyConverter
 import ashunevich.uniconverterKT.databinding.MainActivityBinding
 import ashunevich.uniconverterKT.ui.AppViewModel
 import com.google.android.material.tabs.TabLayout
@@ -79,34 +81,41 @@ class ActivityMain : AppCompatActivity() {
     }
 
     private fun initOnClickListeners() {
-        Utils.postTextOnClick(keyboardModel, binding!!.butOne)
-        Utils.postTextOnClick(keyboardModel, binding!!.butTwo)
-        Utils.postTextOnClick(keyboardModel, binding!!.butThree)
-        Utils.postTextOnClick(keyboardModel, binding!!.butFour)
-        Utils.postTextOnClick(keyboardModel, binding!!.butFive)
-        Utils.postTextOnClick(keyboardModel, binding!!.butSix)
-        Utils.postTextOnClick(keyboardModel, binding!!.butSeven)
-        Utils.postTextOnClick(keyboardModel, binding!!.buttonEight)
-        Utils.postTextOnClick(keyboardModel, binding!!.butNine)
-        Utils.postTextOnClick(keyboardModel, binding!!.buttonPlusMinus)
-        Utils.postTextOnClick(keyboardModel, binding!!.butClear)
-        Utils.postTextOnClick(keyboardModel, binding!!.buttonDecimal)
-        Utils.postTextOnClick(keyboardModel, binding!!.butCorrectValue)
+        postTextOnClick(model = keyboardModel,button = binding!!.butOne)
+        postTextOnClick(model = keyboardModel,button = binding!!.butTwo)
+        postTextOnClick(model = keyboardModel,button = binding!!.butThree)
+        postTextOnClick(model = keyboardModel,button = binding!!.butFour)
+        postTextOnClick(model = keyboardModel,button = binding!!.butFive)
+        postTextOnClick(model = keyboardModel,button = binding!!.butSix)
+        postTextOnClick(model = keyboardModel,button = binding!!.butSeven)
+        postTextOnClick(model = keyboardModel,button = binding!!.buttonEight)
+        postTextOnClick(model = keyboardModel,button = binding!!.butNine)
+        postTextOnClick(model = keyboardModel,button = binding!!.buttonPlusMinus)
+        postTextOnClick(model = keyboardModel,button = binding!!.butClear)
+        postTextOnClick(model = keyboardModel,button = binding!!.buttonDecimal)
+        postTextOnClick(model = keyboardModel,button = binding!!.butCorrectValue)
+
         binding!!.calculatorButton.setOnClickListener {
-            startActivity(
-                Intent(this@ActivityMain, ActivityCalculator::class.java),
-                ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
+            val intent = Intent(
+                this@ActivityMain,
+                ActivityCalculator::class.java
             )
+            goToActivity(intent = intent)
         }
         binding!!.currencyCalculator.setOnClickListener {
-            startActivity(
-                Intent(
-                    this@ActivityMain,
-                    ashunevich.uniconverterKT.currencyapi.CurrencyConverter::class.java
-                ),
-                ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
+            val intent = Intent(
+                this@ActivityMain,
+                CurrencyConverter::class.java
             )
+            goToActivity(intent = intent)
         }
+    }
+
+    fun goToActivity(intent: Intent) {
+        startActivity(
+            intent,
+            ActivityOptions.makeSceneTransitionAnimation(this@ActivityMain).toBundle()
+        )
     }
 
     internal class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :

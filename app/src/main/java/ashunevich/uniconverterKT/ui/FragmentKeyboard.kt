@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import android.view.View
 import androidx.fragment.app.Fragment
-import ashunevich.uniconverterKT.Utils
+import ashunevich.uniconverterKT.Utils.postTextOnClick
 import ashunevich.uniconverterKT.databinding.CalculatorKeyboardBinding
 
 class FragmentKeyboard : Fragment() {
@@ -30,26 +30,26 @@ class FragmentKeyboard : Fragment() {
     }
 
     private fun setButtonBindingsCalcKeyboard() {
-        Utils.postTextOnClick(model, binding!!.butOne)
-        Utils.postTextOnClick(model, binding!!.butTwo)
-        Utils.postTextOnClick(model, binding!!.butThree)
-        Utils.postTextOnClick(model, binding!!.butFour)
-        Utils.postTextOnClick(model, binding!!.butFive)
-        Utils.postTextOnClick(model, binding!!.butSix)
-        Utils.postTextOnClick(model, binding!!.butSeven)
-        Utils.postTextOnClick(model, binding!!.buttonEight)
-        Utils.postTextOnClick(model, binding!!.butNine)
-        Utils.postTextOnClick(model, binding!!.buttonZero)
-        Utils.postTextOnClick(model, binding!!.buttonDzero)
-        Utils.postTextOnClick(model, binding!!.buttonDecimal)
-        Utils.postTextOnClick(model, binding!!.butDuzhky)
-        Utils.postTextOnClick(model, binding!!.butPercent)
-        Utils.postTextOnClick(model, binding!!.butDivide)
-        Utils.postTextOnClick(model, binding!!.butMultiply)
-        Utils.postTextOnClick(model, binding!!.butMinus)
-        Utils.postTextOnClick(model, binding!!.butPlus)
-        Utils.postTextOnClick(model, binding!!.butSolve)
-        Utils.postTextOnClick(model, binding!!.butClearView)
+        postTextOnClick(model, binding!!.butOne)
+        postTextOnClick(model, binding!!.butTwo)
+        postTextOnClick(model, binding!!.butThree)
+        postTextOnClick(model, binding!!.butFour)
+        postTextOnClick(model, binding!!.butFive)
+        postTextOnClick(model, binding!!.butSix)
+        postTextOnClick(model, binding!!.butSeven)
+        postTextOnClick(model, binding!!.buttonEight)
+        postTextOnClick(model, binding!!.butNine)
+        postTextOnClick(model, binding!!.buttonZero)
+        postTextOnClick(model, binding!!.buttonDzero)
+        postTextOnClick(model, binding!!.buttonDecimal)
+        postTextOnClick(model, binding!!.butDuzhky)
+        postTextOnClick(model, binding!!.butPercent)
+        postTextOnClick(model, binding!!.butDivide)
+        postTextOnClick(model, binding!!.butMultiply)
+        postTextOnClick(model, binding!!.butMinus)
+        postTextOnClick(model, binding!!.butPlus)
+        postTextOnClick(model, binding!!.butSolve)
+        postTextOnClick(model, binding!!.butClearView)
     }
 
     override fun onDestroyView() {

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import ashunevich.uniconverterKT.Utils.appendMinusPlus
 import ashunevich.uniconverterKT.Utils.clearView
 import ashunevich.uniconverterKT.Utils.correctValue
+import ashunevich.uniconverterKT.Utils.textIsLessThanFifteenSymbols
 import ashunevich.uniconverterKT.databinding.ConverterActivityBinding
 import com.ashunevich.conversionlibrary.UnitConverter
 
@@ -61,11 +62,12 @@ open class ActivityConverter : Fragment() {
     }
 
     private fun setAdapter(array: Array<String>) {
-        binding!!.spinnerValue.adapter = ArrayAdapter(
-            requireContext(),
-            R.layout.custom_spinner_item, array
-        )
-        binding!!.spinnerResult.adapter = ArrayAdapter(
+        binding!!.spinnerValue.adapter = arrayAdapterFactory(array = array)
+        binding!!.spinnerResult.adapter = arrayAdapterFactory(array = array)
+    }
+
+    private fun arrayAdapterFactory(array: Array<String>): ArrayAdapter<String> {
+        return ArrayAdapter(
             requireContext(),
             R.layout.custom_spinner_item, array
         )
@@ -129,7 +131,7 @@ open class ActivityConverter : Fragment() {
     private fun addTextWatcher() {
         binding!!.valueEdit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (binding!!.valueEdit.text.toString().trim { it <= ' ' }.length > 15) {
+                if (textIsLessThanFifteenSymbols(textview = binding!!.valueEdit)) {
                     binding!!.valueEdit.setText(s.toString().substring(0, 15))
                     binding!!.valueEdit.setSelection(s.length - 1)
                     showToast()

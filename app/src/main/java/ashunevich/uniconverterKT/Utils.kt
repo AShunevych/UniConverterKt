@@ -251,4 +251,8 @@ object Utils {
         val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
         return capabilities?.hasCapability(NET_CAPABILITY_INTERNET) == true
     }
+
+    fun textIsLessThanFifteenSymbols(textview: TextView): Boolean {
+        return textview.text.toString().trim { it <= ' ' }.length > 15
+    }
 }

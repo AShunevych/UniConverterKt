@@ -34,7 +34,7 @@ class ActivityCalculator : AppCompatActivity() {
 
     private fun initViewModel() {
         val model: AppViewModel = Utils.generateViewModel(this)
-        model.postedNumber.observe(this, { event: String? -> this.getText(event) })
+        model.postedNumber.observe(this) { event: String? -> this.getText(event) }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -44,16 +44,20 @@ class ActivityCalculator : AppCompatActivity() {
     }
 
     private fun getText(event: String?) {
-        if ((event == Utils.SYMBOL_BRACKETS) || (event == Utils.SYMBOL_SOLVE) || (event == Utils.SYMBOL_CLEAR)) {
+        if ((event == Utils.SYMBOL_BRACKETS) ||
+            (event == Utils.SYMBOL_SOLVE) ||
+            (event == Utils.SYMBOL_CLEAR)) {
             when (event) {
                 Utils.SYMBOL_BRACKETS -> checkBrackets(
-                    binding!!.calcValue
+                    valueEdit = binding!!.calcValue
                 )
                 Utils.SYMBOL_SOLVE -> readAndSolve(
-                    binding!!.calcValue, binding!!.calcResult
+                    valueEdit = binding!!.calcValue,
+                    resultView = binding!!.calcResult
                 )
                 Utils.SYMBOL_CLEAR -> clearView(
-                    binding!!.calcValue, binding!!.calcResult
+                    valueEdit = binding!!.calcValue,
+                    resultView = binding!!.calcResult
                 )
             }
         } else {
