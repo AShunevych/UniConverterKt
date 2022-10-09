@@ -23,6 +23,7 @@ import ashunevich.uniconverterKT.Utils.getSpinnerValueString
 import ashunevich.uniconverterKT.Utils.isNetworkAvailable
 import ashunevich.uniconverterKT.Utils.snackBarFabric
 import ashunevich.uniconverterKT.Utils.textIsEmpty
+import ashunevich.uniconverterKT.currencyapi.backend.CurrencyResponseObject
 import ashunevich.uniconverterKT.databinding.CurrencyActivityBinding
 import ashunevich.uniconverterKT.ui.AppViewModel
 import com.google.android.material.snackbar.Snackbar

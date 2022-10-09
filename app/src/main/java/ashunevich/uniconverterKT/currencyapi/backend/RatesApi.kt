@@ -1,9 +1,9 @@
-package ashunevich.uniconverterKT.currencyapi
+package ashunevich.uniconverterKT.currencyapi.backend
 
 import retrofit2.http.GET
 import retrofit2.Call
 
-interface CurrencyRatesAPI {
+interface RatesApi {
     @get:GET("latest")
     val rates: Call<CurrencyResponseObject?>
 }
