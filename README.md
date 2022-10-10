@@ -1,27 +1,18 @@
-# UniConverter
-App for conversion and calculation .    
-Available for conversion: 
-- Area   
-- Force 
-- Time 
-- Length 
-- Temperature 
-- Speed   
-- Volume    
-- Weight  
-     
-Other:  
-- Calculator
-- Online currency converter
-     
-Minimum Sdk Version - 26 (Android 8.0)       
+# App description   
+App/testbed based on original UniConverter by me to show how different UI tests are performed using Kotlin.
+# Android Espresso 
+  Standard UI automation frameworkd for Android OS provided by Google.     
+  [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/espresso)
+  
+# Kaspresso 
+  Framework from KasperskyLab based on KakaoCup      
+  [Git](https://github.com/KasperskyLab/Kaspresso)      
+  [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/kaspresso)
+ 
+# Info 
+Minimum Sdk Version - 30 (Android 11.0)       
 Locales - English / Ukrainian
     
-Screen:  
-<img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204606_UniConverter.jpg" width="25%" height="30%" >   <img src="https://github.com/AShunevich/UniConverter/blob/master/Screens/Screenshot_20200901-204614_UniConverter.jpg" width="25%" height="30%" >     
-
-# Third-party resources :  
-[MathParser](http://mathparser.org/)  
-
-# Third-party libraries  :  
+# Third-party resources and libraries :  
+[MathParser](http://mathparser.org/)     
 [Conversion library for Android](https://github.com/AShunevich/Conversion-Library-Android)   
