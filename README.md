@@ -4,8 +4,12 @@ App/testbed based on original UniConverter by me to show how different UI tests 
   Standard UI automation frameworkd for Android OS provided by Google.     
   [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/espresso)
   
+# KakaoCup   
+  DSL from Kakao. In progres...           
+  [Git](https://github.com/KakaoCup/Kakao)      
+  
 # Kaspresso 
-  Framework from KasperskyLab based on KakaoCup      
+  DSL from KasperskyLab based on KakaoCup      
   [Git](https://github.com/KasperskyLab/Kaspresso)      
   [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/kaspresso)
  
