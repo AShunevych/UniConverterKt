@@ -1,11 +1,11 @@
 # App description   
 App/testbed based on original UniConverter by me to show how different UI tests are performed using Kotlin.
 # Android Espresso 
-  Standard UI automation frameworkd for Android OS provided by Google.     
+  Standard UI automation framework for Android OS provided by Google.     
   [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/espresso)
   
 # KakaoCup   
-  DSL from Kakao. In progres...           
+  DSL from Kakao. In progress...           
   [Git](https://github.com/KakaoCup/Kakao)      
   
 # Kaspresso 
