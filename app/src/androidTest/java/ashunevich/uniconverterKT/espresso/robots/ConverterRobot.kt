@@ -50,7 +50,7 @@ class ConverterRobot : BaseRobot() {
     fun verifyViewPagerIsOnPage(page: Int) =
         viewPagerView
             .check(matches
-                (withSelectedPage(selectedPage = page)))
+                (isOnSelectedPage(selectedPage = page)))
 
     fun valueUnitWithText(@IdRes result: String) =
         valueUnit.haveText(text = result)

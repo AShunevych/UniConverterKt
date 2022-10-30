@@ -12,7 +12,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 
 
-fun withSelectedPage(selectedPage: Int): Matcher<View> {
+fun isOnSelectedPage(selectedPage: Int): Matcher<View> {
     return object : BoundedMatcher<View, ViewPager2>(ViewPager2::class.java) {
         private var actualSelection = -1
 
