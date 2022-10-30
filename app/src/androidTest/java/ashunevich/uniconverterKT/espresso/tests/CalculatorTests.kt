@@ -2,10 +2,10 @@ package ashunevich.uniconverterKT.espresso.tests
 
 import androidx.test.espresso.Espresso.pressBackUnconditionally
 import ashunevich.uniconverterKT.common.BasicRule
+import ashunevich.uniconverterKT.espresso.helper.idleFor
+import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultTimeoutTime
 import ashunevich.uniconverterKT.espresso.robots.calculatorRobot
 import ashunevich.uniconverterKT.espresso.robots.converterRobot
-import ashunevich.uniconverterKT.espresso.helper.clickOn
-import com.adevinta.android.barista.interaction.BaristaSleepInteractions
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -30,11 +30,8 @@ class CalculatorTests : BasicRule() {
     fun testVerifyEnteredValuesAreDisplayedCorrectly() {
         calculatorRobot {
             verify()
-            clickOn(buttonEight)
-            clickOn(buttonFour)
-            clickOn(buttonMinus)
-            clickOn(buttonTwo)
-            verifyEnteredText(expectedText = "84-2")
+            createSimpleCalc()
+            verifyEnteredText(enteredText = "84-2")
         }
     }
 
@@ -42,30 +39,7 @@ class CalculatorTests : BasicRule() {
     fun testVerifyCalculatorSymbolsDisplay() {
         calculatorRobot {
             verify()
-
-            val basicOperations = listOf(
-                Pair(buttonDivide, "/"),
-                Pair(buttonMultiply, "*"),
-                Pair(buttonMinus, "-"),
-                Pair(buttonPlus, "+"),
-                Pair(buttonPercent, "%"),
-                Pair(buttonDecimal, ".")
-            )
-
-
-            for (enterSymbol in basicOperations) {
-                clickOn(enterSymbol.first)
-                verifyEnteredText(enterSymbol.second)
-                clickOn(buttonClear)
-                verifyCalculatorResultIsCleared()
-                Thread.sleep(5000)
-            }
-
-            //"(",")","()" symbols
-            clickOn(buttonDuzhky)
-            verifyEnteredText(expectedText = "(")
-            clickOn(buttonDuzhky)
-            verifyEnteredText(expectedText = "()")
+            enterAndVerifySymbols()
         }
     }
 
@@ -73,27 +47,30 @@ class CalculatorTests : BasicRule() {
     fun testSolveSimpleCalculations() {
         calculatorRobot {
             verify()
+
             createSimpleCalc()
-            clickOn(buttonSolve)
+            verifyEnteredText(enteredText = "84/2")
+            solveValue()
             verifyResult(result = "42.0")
-            clickOn(buttonClear)
-            BaristaSleepInteractions.sleep(500)
+
+            clearText()
+            idleFor(defaultTimeoutTime)
 
             createSimpleCalcWithSymbols()
-            clickOn(buttonSolve)
+            verifyEnteredText("84/(2+2)")
+
+            solveValue()
             verifyResult(result = "21.0")
         }
     }
 
     @Test
     fun testClickEveryButton() {
-        val textToCheck = "123456789000"
-
         calculatorRobot {
             verify()
             pressEveryButton()
 
-            verifyEnteredText(expectedText = textToCheck)
+            verifyEnteredText(enteredText = "123456789000")
         }
     }
 }

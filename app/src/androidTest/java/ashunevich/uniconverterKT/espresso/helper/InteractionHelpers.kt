@@ -6,25 +6,20 @@ import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.contrib.ViewPagerActions
 import com.adevinta.android.barista.interaction.BaristaSleepInteractions
-import org.hamcrest.Matchers.*
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.instanceOf
 
-fun clickOn(matcher: ViewInteraction) = matcher
-    .perform(click())
+fun clickOn(button: ViewInteraction) = button.perform(click())
 
 fun clickOnSpinnerItem(@IdRes itemText:String) = onData(allOf(`is`(instanceOf(String::class.java)),
     `is`(itemText))).perform(click())
 
-
 fun idleFor(timeout:Long) = BaristaSleepInteractions.sleep(timeout)
 
-fun swipeLeft(matcher: ViewInteraction) = matcher
+fun swipeLeft(viewPager: ViewInteraction) = viewPager
     .perform(ViewActions.swipeLeft())
 
-fun swipeRight(matcher: ViewInteraction) = matcher
+fun swipeRight(viewPager: ViewInteraction) = viewPager
     .perform(ViewActions.swipeRight())
-
-fun scrollTo(matcher: ViewInteraction, page: Int) = matcher
-    .perform(ViewPagerActions.scrollToPage(page))
-

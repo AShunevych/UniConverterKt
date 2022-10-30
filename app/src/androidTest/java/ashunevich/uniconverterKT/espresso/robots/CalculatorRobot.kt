@@ -4,12 +4,12 @@ import androidx.test.espresso.ViewInteraction
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.helper.*
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
+import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultTimeoutTime
 
 fun calculatorRobot(func: CalculatorRobot.() -> Unit) = CalculatorRobot().apply { func() }
 
 @SuppressWarnings
 class CalculatorRobot : BaseRobot() {
-
     val buttonOne: ViewInteraction = onViewWithId(R.id.but_one)
     val buttonTwo: ViewInteraction = onViewWithId(R.id.but_two)
     val buttonThree: ViewInteraction = onViewWithId(R.id.but_three)
@@ -31,12 +31,21 @@ class CalculatorRobot : BaseRobot() {
     val buttonPlus: ViewInteraction = onViewWithId(R.id.but_plus)
     val buttonDuzhky: ViewInteraction = onViewWithId(R.id.but_duzhky)
 
-    val calucaltorValueView: ViewInteraction = onViewWithId(R.id.calcValue)
-    val calucaltorResult: ViewInteraction = onViewWithId(R.id.calcResult)
+    private val calculatorValueView: ViewInteraction = onViewWithId(R.id.calcValue)
+    private val calculatorResult: ViewInteraction = onViewWithId(R.id.calcResult)
+
+    private val basicOperations = listOf(
+        Pair(buttonDivide, "/"),
+        Pair(buttonMultiply, "*"),
+        Pair(buttonMinus, "-"),
+        Pair(buttonPlus, "+"),
+        Pair(buttonPercent, "%"),
+        Pair(buttonDecimal, ".")
+    )
 
     fun verify() {
-        calucaltorValueView.idleUntilVisible(defaultLoadTime)
-        calucaltorResult.isVisible()
+        calculatorValueView.idleUntilVisible(defaultLoadTime)
+        calculatorResult.isVisible()
         buttonOne.isVisible()
         buttonTwo.isVisible()
         buttonThree.isVisible()
@@ -59,30 +68,25 @@ class CalculatorRobot : BaseRobot() {
         buttonPlus.isVisible()
     }
 
-    fun verifyEnteredText(expectedText: String) = calucaltorValueView.haveText(expectedText)
+    fun verifyEnteredText(enteredText: String) = calculatorValueView.haveText(text = enteredText)
 
-    fun verifyCalculatorResultIsCleared() = calucaltorResult.haveText("")
+    fun verifyCalculatorResultIsCleared() = calculatorResult.haveText(text = "")
 
-    fun verifyResult(result: String) = calucaltorResult.haveText(result)
+    fun verifyResult(result: String) = calculatorResult.haveText(text = result)
 
     fun createSimpleCalc() {
-        clickOn(buttonEight)
-        clickOn(buttonFour)
-        clickOn(buttonDivide)
-        clickOn(buttonTwo)
-        verifyEnteredText("84/2")
+        val buttonList = listOf(
+            buttonEight, buttonFour, buttonDivide, buttonTwo
+        )
+        clickButtonsInList(list = buttonList)
     }
 
     fun createSimpleCalcWithSymbols() {
-        clickOn(buttonEight)
-        clickOn(buttonFour)
-        clickOn(buttonDivide)
-        clickOn(buttonDuzhky)
-        clickOn(buttonTwo)
-        clickOn(buttonPlus)
-        clickOn(buttonTwo)
-        clickOn(buttonDuzhky)
-        verifyEnteredText("84/(2+2)")
+        val buttonList = listOf(
+            buttonEight, buttonFour, buttonDivide, buttonDuzhky, buttonTwo,
+            buttonPlus, buttonTwo, buttonDuzhky
+        )
+        clickButtonsInList(list = buttonList)
     }
 
     fun pressEveryButton() {
@@ -91,9 +95,37 @@ class CalculatorRobot : BaseRobot() {
             buttonSix, buttonSeven, buttonEight, buttonNine, buttonZero, buttonDzero
         )
 
-        for (button in buttonList) {
-            clickOn(button)
-            idleFor(500)
+        clickButtonsInList(list = buttonList)
+    }
+
+    fun enterAndVerifySymbols(){
+        for (enterSymbol in basicOperations) {
+            clickOn(enterSymbol.first)
+            verifyEnteredText(enterSymbol.second)
+            clickOn(buttonClear)
+            verifyCalculatorResultIsCleared()
+            idleFor(timeout = 1000)
+        }
+
+        //"(",")","()" symbols
+        clickOn(buttonDuzhky)
+        verifyEnteredText(enteredText = "(")
+        clickOn(buttonDuzhky)
+        verifyEnteredText(enteredText = "()")
+    }
+
+    fun solveValue(){
+        clickOn(buttonSolve)
+    }
+
+    fun clearText(){
+        clickOn(buttonClear)
+    }
+
+    private fun clickButtonsInList(list: List<ViewInteraction>){
+        for (calcButton in list) {
+            clickOn(button = calcButton)
+            idleFor(timeout = defaultTimeoutTime)
         }
     }
 }

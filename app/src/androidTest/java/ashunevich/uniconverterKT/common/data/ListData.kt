@@ -17,3 +17,4 @@ val weightValues = listOf(
 
 val weightArray = getResourceArray(R.array.weight)
 
+

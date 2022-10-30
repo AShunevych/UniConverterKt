@@ -12,20 +12,20 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 
 
-fun withSelectedPage(selection: Int): Matcher<View> {
+fun withSelectedPage(selectedPage: Int): Matcher<View> {
     return object : BoundedMatcher<View, ViewPager2>(ViewPager2::class.java) {
         private var actualSelection = -1
 
         override fun describeTo(description: Description) {
             if (actualSelection != -1) {
-                description.appendText("with $selection page selected")
+                description.appendText("with $selectedPage page selected")
                 description.appendText("\n But page $actualSelection was selected")
             }
         }
 
         override fun matchesSafely(viewPager: ViewPager2): Boolean {
             actualSelection = viewPager.currentItem
-            return selection == actualSelection
+            return selectedPage == actualSelection
         }
     }
 }

@@ -5,6 +5,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import ashunevich.uniconverterKT.R
 import ashunevich.uniconverterKT.espresso.helper.*
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultLoadTime
+import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultTimeoutTime
 
 fun converterRobot(func: ConverterRobot.() -> Unit) = ConverterRobot().apply { func() }
 
@@ -33,22 +34,27 @@ class ConverterRobot : BaseRobot() {
     }
 
     fun accessCalculator() {
-        clickOn(calculatorButton)
+        clickOn(button = calculatorButton)
     }
 
     fun swipeViewPagerLeft() {
-        swipeLeft(viewPagerView)
-        idleFor(500)
+        swipeLeft(viewPager = viewPagerView)
+        idleFor(timeout = defaultTimeoutTime)
     }
 
     fun swipeViewPagerRight() {
-        swipeRight(viewPagerView)
-        idleFor(500)
+        swipeRight(viewPager = viewPagerView)
+        idleFor(timeout = defaultTimeoutTime)
     }
 
-    fun verifyViewPagerIsOnPage(page: Int) = viewPagerView.check(matches(withSelectedPage(page)))
+    fun verifyViewPagerIsOnPage(page: Int) =
+        viewPagerView
+            .check(matches
+                (withSelectedPage(selectedPage = page)))
 
-    fun valueUnitWithText(@IdRes result: String) = valueUnit.haveText(result)
+    fun valueUnitWithText(@IdRes result: String) =
+        valueUnit.haveText(text = result)
 
-    fun resultUnitWithText(@IdRes result: String) = resultUnit.haveText(result)
+    fun resultUnitWithText(@IdRes result: String) =
+        resultUnit.haveText(text = result)
 }

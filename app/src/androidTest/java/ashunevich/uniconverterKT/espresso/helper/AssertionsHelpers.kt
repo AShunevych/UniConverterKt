@@ -20,10 +20,12 @@ fun ViewInteraction.idleUntilGone(timeout: Long) = getViewAssertion(timeout,View
 fun ViewInteraction.haveText(text:String): ViewAssertion = ViewAssertions.matches(ViewMatchers.withText(text))
 
 private fun getViewAssertion(visibility: ViewMatchers.Visibility): ViewAssertion? {
+    // TODO change to idleUntil
     return ViewAssertions.matches(ViewMatchers.withEffectiveVisibility(visibility))
 }
 
 private fun getViewAssertion(timeout:Long,visibility: ViewMatchers.Visibility): ViewAssertion? {
+    // TODO change to idleUntil
     BaristaSleepInteractions.sleep(timeout)
     return ViewAssertions.matches(ViewMatchers.withEffectiveVisibility(visibility))
 }
