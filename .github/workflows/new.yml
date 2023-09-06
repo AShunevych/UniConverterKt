@@ -1,11 +1,6 @@
 on: 
-  workflow_dispatch:
-    inputs:
-     report:
-      description: "some"
-      required: false
-      default: 'false'
-      
+  workflow_dispatch
+  
 jobs: 
    date: 
     runs-on: macos-latest 
@@ -20,7 +15,7 @@ jobs:
 
     - name: check day
       run: |
-       if [[ "${{ env.START_TIME }}" =~ "Thu"  || "${{ inputs.report }}" == "true" }} ]]; then 
+       if [[ "${{ env.START_TIME }}" =~ "Thu" ]]; then 
         echo "it's Thursday" 
        else 
         echo "it's not Thursday" 
