@@ -1,6 +1,11 @@
 on: 
-  workflow_dispatch
- 
+  workflow_dispatch:
+    inputs:
+     report:
+      description: "some"
+      required: false
+      default: 'false'
+      
 jobs: 
    date: 
     runs-on: macos-latest 
@@ -16,7 +21,7 @@ jobs:
     - name: check day
       run: |
        export TIMEZONE_DATE="${{ env.START_TIME }}"
-       if [[ $TIMEZONE_DATE =~ "Wed" ]]; then 
+       if [[ $TIMEZONE_DATE =~ "Thu"  || ${{ inputs.report == 'true' }} ]]; then 
         echo "it's Thursday" 
        else 
         echo "it's not Thursday" 
