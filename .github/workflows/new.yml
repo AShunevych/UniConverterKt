@@ -15,7 +15,8 @@ jobs:
 
     - name: check day
       run: |
-       if [[ $TIMEZONE_DATE =~ "Thu" ]]; then 
+       export TIMEZONE_DATE = ${{ env.START_TIME }}
+       if [[ $TIMEZONE_DATE =~ "Wed" ]]; then 
         echo "it's Thursday" 
        else 
         echo "it's not Thursday" 
