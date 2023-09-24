@@ -17,7 +17,8 @@
             android:parentActivityName="ashunevich.uniconverterKT.ActivityMain"
             android:screenOrientation="portrait"
             android:label="@string/calculator_button"
-            android:theme="@style/AppThemeDefault">
+            android:theme="@style/AppThemeDefault"
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ashunevich.uniconverterKT.ActivityMain" />
@@ -32,7 +33,8 @@
             android:parentActivityName="ashunevich.uniconverterKT.ActivityMain"
             android:screenOrientation="portrait"
             android:label="@string/currency_button"
-            android:theme="@style/AppThemeDefault">
+            android:theme="@style/AppThemeDefault"
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ashunevich.uniconverterKT.ActivityMain" />
@@ -43,7 +45,8 @@
         </activity>
 
         <activity android:name="ashunevich.uniconverterKT.ActivityMain"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
