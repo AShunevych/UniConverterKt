@@ -1,0 +1,22 @@
+on: 
+  workflow_dispatch
+  
+jobs: 
+   date: 
+    runs-on: macos-latest 
+    steps:
+    - name: Retrieve current Date Time in Singapore TimeZone
+      shell: bash
+      run: echo "START_TIME=$(TZ=":America/New_York" date -R|sed 's/.....$//')" >> $GITHUB_ENV
+    
+    # Fetch the date time as Github ENV variable
+    - name: print date
+      run: echo ${{ env.START_TIME }}
+
+    - name: check day
+      run: |
+       if [[ "${{ env.START_TIME }}" =~ "Thu" ]]; then 
+        echo "it's Thursday" 
+       else 
+        echo "it's not Thursday" 
+       fi
