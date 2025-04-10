@@ -50,11 +50,11 @@ jobs:
           exit 0
 
   outputs_releases_branch:
-    needs:  find_releases_branch
-    outputs: 
-      branch_name: ${{ needs.find_releases_branch.outputs.latest_release_branch }}
+    needs: find_releases_branch
     if: ${{ needs.find_releases_branch.outputs.latest_release_branch }} != ''
     runs-on: ubuntu-latest
     steps:
+      - env:
+          OUTPUT1: ${{ needs.find_releases_branch.outputs.latest_release_branch}}
       - name: Checkout repository
-        run: echo 'Latest branch name is - ${{ needs.find_releases_branch.outputs.latest_release_branch }} '
+        run: echo "${{ needs.find_releases_branch.outputs.latest_release_branch }}"
