@@ -10,26 +10,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch all branches
-        run: git fetch --all
+      - name: Fetch all branches and commits
+        run: git fetch --all --prune
 
-      - name: Check for newest "release" branch not older than 3 days
+      - name: Check for newest "releases*" branch not older than 3 days
         id: find_latest_release_branch
         run: |
-          RELEASE_BRANCHES=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/release/*)
+          # Get branches starting with 'releases' sorted by commit date
+          RELEASE_BRANCHES=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/releases*)
 
           if [ -z "$RELEASE_BRANCHES" ]; then
             echo "No branches starting with 'releases' were found."
             exit 1
           fi
 
-          for BRANCH in $RELEASE_BRANCHES; do
-            BRANCH_NAME=$(echo "$BRANCH" | sed 's|origin/||')
-            COMMIT_DATE=$(git log -1 --format="%ct" "origin/$BRANCH_NAME")
+          for REMOTE_BRANCH in $RELEASE_BRANCHES; do
+            BRANCH_NAME=$(echo "$REMOTE_BRANCH" | sed 's|origin/||')
+
+            # Get the latest commit hash on the remote branch
+            COMMIT_HASH=$(git rev-parse "$REMOTE_BRANCH")
+
+            # Get the commit date (UNIX timestamp)
+            COMMIT_DATE=$(git show -s --format=%ct "$COMMIT_HASH")
             NOW=$(date +%s)
             AGE=$(( (NOW - COMMIT_DATE) / 86400 ))
 
-            echo "Branch '$BRANCH_NAME' is $AGE day(s) old."
+            echo "Branch '$BRANCH_NAME' is $AGE day(s) old (commit at $COMMIT_DATE)."
 
             if [ "$AGE" -le 3 ]; then
               echo "Using branch '$BRANCH_NAME' as the latest recent releases branch."
@@ -44,3 +50,4 @@ jobs:
       - name: Print the latest release branch
         if: env.LATEST_RELEASE_BRANCH != ''
         run: echo "Latest recent release branch is ${{ env.LATEST_RELEASE_BRANCH }}"
+
