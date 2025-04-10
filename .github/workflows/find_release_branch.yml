@@ -41,7 +41,7 @@ jobs:
 
             if [ "$AGE" -le 3 ]; then
               echo "Using branch '$BRANCH_NAME' as the latest recent releases branch."
-              echo "LATEST_RELEASE_BRANCH=$BRANCH_NAME" >> $GITHUB_OUTPUT
+              echo "$BRANCH_NAME" >> "$GITHUB_OUTPUT"
               exit 0
             fi
           done
