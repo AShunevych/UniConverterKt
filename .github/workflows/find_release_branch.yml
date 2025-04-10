@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  find-releases-branch:
+  find_releases_branch:
     runs-on: ubuntu-latest
+    outputs: 
+      branch_name: ${{ steps.find-releases-branch.outputs.branch_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,7 +41,7 @@ jobs:
 
             if [ "$AGE" -le 3 ]; then
               echo "Using branch '$BRANCH_NAME' as the latest recent releases branch."
-              echo "LATEST_RELEASE_BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
+              echo "LATEST_RELEASE_BRANCH=$BRANCH_NAME" >> $GITHUB_OUTPUTS
               exit 0
             fi
           done
@@ -47,7 +49,12 @@ jobs:
           echo "No recent release branch found (within 3 days)."
           exit 1
 
-      - name: Print the latest release branch
-        if: env.LATEST_RELEASE_BRANCH != ''
-        run: echo "Latest recent release branch is ${{ env.LATEST_RELEASE_BRANCH }}"
-
+  outputs_releases_branch:
+    needs:  find_releases_branch
+    if: ${{ steps.find_releases_branch.outputs.branch_name }} != ''
+    runs-on: ubuntu-latest
+    outputs: 
+      branch_name: ${{ steps.find_releases_branch.outputs.branch_name }}
+    steps:
+      - name: Checkout repository
+        uses: echo "Latest branch name is - ${{ steps.find_releases_branch.outputs.branch_name }} "
