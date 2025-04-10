@@ -54,7 +54,5 @@ jobs:
     if: ${{ needs.find_releases_branch.outputs.latest_release_branch }} != ''
     runs-on: ubuntu-latest
     steps:
-      - env:
-          OUTPUT1: ${{ needs.find_releases_branch.outputs.latest_release_branch}}
       - name: Checkout repository
-        run: echo "${{ needs.find_releases_branch.outputs.latest_release_branch }}"
+        run: echo "Branch - ${{ needs.find_releases_branch.outputs.latest_release_branch }}"
