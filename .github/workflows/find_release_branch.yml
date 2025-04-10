@@ -50,7 +50,12 @@ jobs:
           
       - name: Form output
         id: latest_branch_name
-        run: echo "branch_name=${LATEST_RELEASE_BRANCH}" >> $GITHUB_OUTPUT
+        run: | 
+          if [ -z "${LATEST_RELEASE_BRANCH}" ]; then
+             echo "branch_name=" >> $GITHUB_OUTPUT
+          else
+             echo "branch_name=${LATEST_RELEASE_BRANCH}" >> $GITHUB_OUTPUT
+          fi
         
   outputs_releases_branch:
     needs: find_releases_branch
