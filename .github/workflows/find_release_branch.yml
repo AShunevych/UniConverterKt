@@ -7,7 +7,7 @@ jobs:
   find_releases_branch:
     runs-on: ubuntu-latest
     outputs: 
-      latest_release_branch: ${{ steps.find-releases-branch.outputs.branch_name }}
+      latest_release_branch: ${{ steps.latest_branch_name.outputs.branch_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -46,16 +46,16 @@ jobs:
           done
 
           echo "No recent release branch found (within 3 days)."
-          exit 0
+          exit 1
           
       - name: Form output
-        id: branch_name
-        run: echo "$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+        id: latest_branch_name
+        run: echo "$BRANCH_NAME" >> $GITHUB_OUTPUT
         
   outputs_releases_branch:
     needs: find_releases_branch
-    if: ${{ needs.find_releases_branch.outputs.branch_name }} != ''
+    if: ${{ needs.find_releases_branch.outputs.latest_branch_name }} != ''
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        run: echo "Branch - ${{ needs.find_releases_branch.outputs.branch_name }}"
+        run: echo "Branch - ${{ needs.find_releases_branch.outputs.latest_branch_name }}"
