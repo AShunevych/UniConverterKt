@@ -13,10 +13,10 @@ jobs:
       - name: Fetch all branches
         run: git fetch --all
 
-      - name: Check for newest "release/*" branch not older than 3 days
+      - name: Check for newest "release" branch not older than 3 days
         id: find_latest_release_branch
         run: |
-          RELEASE_BRANCHES=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/releases*)
+          RELEASE_BRANCHES=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/release/*)
 
           if [ -z "$RELEASE_BRANCHES" ]; then
             echo "No branches starting with 'releases' were found."
