@@ -50,7 +50,7 @@ jobs:
           
       - name: Form output
         id: latest_branch_name
-        run: echo "$BRANCH_NAME" >> $GITHUB_OUTPUT
+        run: echo "$LATEST_RELEASE_BRANCH" >> $GITHUB_OUTPUT
         
   outputs_releases_branch:
     needs: find_releases_branch
