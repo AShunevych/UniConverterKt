@@ -16,7 +16,6 @@ jobs:
         run: git fetch origin 'refs/heads/release/*:refs/remotes/origin/release/*'
 
       - name: Check for newest "releases*" branch not older than 3 days
-        id: find_latest_release_branch
         run: |
           # Get branches starting with 'releases' sorted by commit date
           RELEASE_BRANCHES=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/release/*)
@@ -41,18 +40,22 @@ jobs:
 
             if [ "$AGE" -le 3 ]; then
               echo "Using branch '$BRANCH_NAME' as the latest recent releases branch."
-              echo "LATEST_RELEASE_BRANCH=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+              echo "LATEST_RELEASE_BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
               exit 0
             fi
           done
 
           echo "No recent release branch found (within 3 days)."
           exit 0
-
+          
+      - name: Form output
+        id: branch_name
+        run: echo "$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+        
   outputs_releases_branch:
     needs: find_releases_branch
-    if: ${{ needs.find_releases_branch.outputs.latest_release_branch }} != ''
+    if: ${{ needs.find_releases_branch.outputs.branch_name }} != ''
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        run: echo "Branch - ${{ needs.find_releases_branch.outputs.latest_release_branch }}"
+        run: echo "Branch - ${{ needs.find_releases_branch.outputs.branch_name }}"
