@@ -12,17 +12,16 @@ jobs:
         with:
           fetch-depth: 20
 
-      - name: Fetch base branch safely
-        run: |
-         git fetch --no-tags --depth=1 origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }} 2>&1 | tee fetch.log
-         if grep -q "fatal" fetch.log; then
-            echo "Fetch failed"
-            exit 1
-          fi
       - name: Calcualte diff
         run: |
-          BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }})
-          echo "Merge base: $BASE"
+          git fetch --no-tags --depth=1 origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
+          BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }}) || {
+            echo "::error ::Unable to compute merge base. Please rebase your branch on top of '${{ github.event.pull_request.base.ref }}'."
+            exit 1
+          }
+
+          echo "Merge base found: $BASE"
+          echo "Calculating diff between $BASE and HEAD"
           git diff --name-only $BASE HEAD > changes.txt
    
       - name: Display changes
