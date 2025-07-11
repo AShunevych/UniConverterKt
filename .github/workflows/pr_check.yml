@@ -14,8 +14,7 @@ jobs:
         run: |
           git fetch origin ${{ github.event.pull_request.base.sha }}
           BASE=${{ github.event.pull_request.base.sha }}
-          HEAD=${{ github.event.pull_request.head.sha }})
-          echo "Merge base: $BASE"
+          HEAD=${{ github.event.pull_request.head.sha }}
           git diff --name-only $BASE...$HEAD > changes.txt
 
       - name: Display changes
