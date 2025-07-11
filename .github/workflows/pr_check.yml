@@ -14,7 +14,9 @@ jobs:
 
       - name: Calcualte diff
         run: |
+          echo "Fetching base branch: ${{ github.event.pull_request.base.ref }}"
           git fetch --no-tags --depth=1 origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
+          echo "Finding merge-base with origin/${{ github.event.pull_request.base.ref }}..."
           BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }}) || {
             echo "::error ::Unable to compute merge base. Please rebase your branch on top of '${{ github.event.pull_request.base.ref }}'."
             exit 1
