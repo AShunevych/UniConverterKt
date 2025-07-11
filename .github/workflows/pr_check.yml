@@ -16,14 +16,11 @@ jobs:
             echo "Fetch failed"
             exit 1
           fi
-          cat fetch.log
-      # - name: Fetch master branch
-      #   run: |
-      #     git fetch --no-tags --depth=1 origin +refs/heads/${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }} 2>&1 | tee fetch.log
-      #     BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }})
-      #     echo "Merge base: $BASE"
-      #     git diff --name-only $BASE HEAD > changes.txt
-
-      # - name: Display changes
-      #   run: |
-      #      cat changes.txt
+          BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }})
+          echo "Merge base: $BASE"
+          git diff --name-only $BASE HEAD > changes.txt
+   
+      - name: Display changes
+        run: |
+          echo "--- Changed files ---"
+          cat changes.txt
