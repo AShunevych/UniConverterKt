@@ -14,7 +14,7 @@ App/testbed based on original UniConverter by me to show how different UI tests 
   [Code package](https://github.com/AShunevych/UniConverterKt/tree/master/app/src/androidTest/java/ashunevich/uniconverterKT/kaspresso)
  
 # Info 
-Minimum Sdk Version - 30 (Android 11.0)       
+Minimum Sdk Version - 33 
 Locales - English / Ukrainian
     
 # Third-party resources and libraries :  
