@@ -12,11 +12,11 @@ jobs:
 
       - name: Fetch master branch
         run: |
-          echo "Fetching base branch: ${{ github.event.pull_request.base.ref }}"
-          git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
-          BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }})
+          git fetch origin ${{ github.event.pull_request.base.sha }}
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.event.pull_request.head.sha }})
           echo "Merge base: $BASE"
-          git diff $BASE...HEAD > changes.txt
+          git diff --name-only $BASE...$HEAD > changes.txt
 
       - name: Display changes
         run: |
