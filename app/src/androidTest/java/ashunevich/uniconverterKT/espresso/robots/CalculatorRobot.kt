@@ -7,7 +7,7 @@ import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.default
 import ashunevich.uniconverterKT.espresso.robots.BaseRobot.BaseConstants.defaultTimeoutTime
 
 fun calculatorRobot(func: CalculatorRobot.() -> Unit) = CalculatorRobot().apply { func() }
-
+// Some comment
 @SuppressWarnings
 class CalculatorRobot : BaseRobot() {
     val buttonOne: ViewInteraction = onViewWithId(R.id.but_one)
