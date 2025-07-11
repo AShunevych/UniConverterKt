@@ -16,6 +16,8 @@ jobs:
             echo "Fetch failed"
             exit 1
           fi
+      - name: Calcualte diff
+        run: |
           BASE=$(git merge-base HEAD origin/${{ github.event.pull_request.base.ref }})
           echo "Merge base: $BASE"
           git diff --name-only $BASE HEAD > changes.txt
