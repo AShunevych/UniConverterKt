@@ -33,5 +33,6 @@ jobs:
       - name: Change wrapper
         run: chmod +x ./gradlew
 
-      - name: Find
+      - name: Verify Test methods are present
+        shell: sh 
         run: ./gradlew :app:verifyTestMethods
