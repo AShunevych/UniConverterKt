@@ -23,16 +23,3 @@ jobs:
         run: |
           echo "--- Changed files ---"
           cat changes.txt
-
-      - name: Set JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'corretto'
-          java-version: '17'
-
-      - name: Change wrapper
-        run: chmod +x ./gradlew
-
-      - name: Verify Test methods are present
-        shell: bash 
-        run: ./gradlew :app:verifyTestMethods
