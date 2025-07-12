@@ -34,5 +34,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Find
-        run: |
-          ./gradlew :app:verifyTestMethods
+        run: ./gradlew :app:verifyTestMethods
