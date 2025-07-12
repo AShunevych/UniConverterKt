@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 100
 
-      - name: Calcualte diff
+      - name: Calculate diff
         run: |
           git fetch origin master
           BASE=$(git merge-base HEAD origin/master)
