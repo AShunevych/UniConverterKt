@@ -89,3 +89,47 @@ dependencies {
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
+
+// Always register the task so it's visible to Gradle immediately
+tasks.register("verifyTestMethods") {
+    group = "verification"
+    description = "Verify that test methods listed in testConfig.txt exist in source files"
+
+    doLast {
+        def inputFile = file("testConfig.txt")
+        def srcDirs = ["src/androidTest/java"]
+        def missing = []
+
+        inputFile.eachLine { line ->
+            // Skip empty lines
+            if (!line.contains("=")) return
+            def (key, entries) = line.split("=")
+            if (key.trim() == "app") return
+
+            entries.split(",").each { entry ->
+                def (classNameRaw, methodNameRaw) = entry.split("#")
+                def className = "ashunevich.uniconverterKT.espresso.tests." + classNameRaw.trim()
+                def methodName = methodNameRaw.trim()
+                def relativePath = className.replace('.', '/') + ".kt"
+
+                def found = false
+                srcDirs.any { dir ->
+                    def file = file("$projectDir/$dir/$relativePath")
+                    if (file.exists() && (file.text =~ /fun\s+${methodName}\s*\(/)) {
+                        println "Found test $methodName, in class $classNameRaw"
+                        found = true
+                        return true
+                    }
+                    return false
+                }
+                if (!found) {
+                    missing << "$classNameRaw#$methodName"
+                }
+            }
+        }
+
+        if (!missing.isEmpty()) {
+            throw new GradleException("Missing test definitions:\n" + missing.join("\n"))
+        }
+    }
+}
