@@ -34,5 +34,5 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Verify Test methods are present
-        shell: sh 
+        shell: bash 
         run: ./gradlew :app:verifyTestMethods
