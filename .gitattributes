@@ -1,0 +1,5 @@
+# Ensure Gradle wrapper shell script uses LF (for Linux)
+gradlew text eol=lf
+
+# Ensure Gradle wrapper batch script uses CRLF (for Windows)
+gradlew.bat text eol=crlf

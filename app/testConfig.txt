@@ -1,0 +1,2 @@
+app=com.yourpackage.Annotation
+core=CalculatorTests#testVerifyEnteredValuesAreDisplayedCorrectly,CalculatorTests#testVerifyCalculatorSymbolsDisplay

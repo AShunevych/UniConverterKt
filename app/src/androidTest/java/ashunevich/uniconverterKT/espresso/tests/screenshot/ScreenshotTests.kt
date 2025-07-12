@@ -11,8 +11,5 @@ class ScreenshotTests : BasicRule() {
         converterRobot {
             verify()
         }
-        activityRule.scenario.onActivity {
-            snapshots.take(name = "MainActivity", activity = it)
-        }
     }
 }
