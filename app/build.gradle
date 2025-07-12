@@ -79,7 +79,6 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
 
-// Always register the task so it's visible to Gradle immediately
 tasks.register("verifyTestMethods") {
     group = "verification"
     description = "Verify that test methods listed in testConfig.txt exist in source files"
@@ -90,10 +89,13 @@ tasks.register("verifyTestMethods") {
         def missing = []
 
         inputFile.eachLine { line ->
-            // Skip empty lines
-            if (!line.contains("=")) return
-            def (key, entries) = line.split("=")
-            if (key.trim() == "app") return
+            // Split the line by '=' to separate key and value.
+            def parts = line.split("=")
+            // Skip lines that don't have '=' (empty or wrong format) or where the key is 'app' to skip annotation parsing.
+            // When you split the line by "=", you expect at least two parts parts[0] = the key (like "core", "network", etc.), parts[1] = the value (the comma-separated test entries).
+            if (parts.size() < 2 || parts[0].trim() == "app") return
+            // Extract the value part (list of test entries).
+            def entries = parts[1]
 
             entries.split(",").each { entry ->
                 def (classNameRaw, methodNameRaw) = entry.split("#")
@@ -116,7 +118,6 @@ tasks.register("verifyTestMethods") {
                 }
             }
         }
-
         if (!missing.isEmpty()) {
             throw new GradleException("Missing test definitions:\n" + missing.join("\n"))
         }
