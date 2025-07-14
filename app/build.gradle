@@ -123,3 +123,49 @@ tasks.register("verifyTestMethods") {
         }
     }
 }
+
+// tasks.register("verifyTestMethods") {
+//     group = "verification"
+//     description = "Verify that test methods listed in testConfig.txt exist in source files"
+
+//     doLast {
+//         val inputFile = file("testConfig.txt")
+//         val srcDirs = listOf("src/androidTest/java")
+//         val missing = mutableListOf<String>()
+
+//         inputFile.forEachLine { line ->
+//             // Skip lines without '=' or with key 'app' (we don't check annotations).
+//             val parts = line.split("=")
+//             if (parts.size < 2 || parts[0].trim() == "app") return@forEachLine
+
+//             // Parse test entries after '='
+//             val entries = parts[1]
+//             entries.split(",").forEach { entry ->
+//                 val (classNameRaw, methodNameRaw) = entry.split("#")
+//                 val className = classNameRaw.trim()
+//                 val methodName = methodNameRaw.trim()
+//                 val relativePath = className.replace('.', '/') + ".kt"
+
+//                 var found = false
+
+//                 // Check each source directory for the file and method
+//                 for (dir in srcDirs) {
+//                     val sourceFile = file("$projectDir/$dir/$relativePath")
+//                     if (sourceFile.exists() && sourceFile.readText().contains(Regex("""fun\s+$methodName\s*\("""))) {
+//                         println("Found test $methodName in class $className")
+//                         found = true
+//                         break
+//                     }
+//                 }
+
+//                 if (!found) {
+//                     missing.add("$className#$methodName")
+//                 }
+//             }
+//         }
+
+//         if (missing.isNotEmpty()) {
+//             throw GradleException("Missing test definitions:\n" + missing.joinToString("\n"))
+//         }
+//     }
+// }
