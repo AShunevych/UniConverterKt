@@ -9,6 +9,11 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.TaskAction
 
+data class TestModuleEntry(
+    val module: String,
+    val tests: List<String>
+)
+
 abstract class VerifyTestSet : DefaultTask() {
 
     @get:InputFile
@@ -29,65 +34,69 @@ abstract class VerifyTestSet : DefaultTask() {
     }
 
     @TaskAction
-    fun verify() {
-        val testFile = inputFile.get().asFile
-        val settings = settingsFile.get().asFile
+fun verify() {
+    val jsonFile = inputFile.get().asFile
+    val settings = settingsFile.get().asFile
 
-        val missingTests = mutableListOf<String>()
-        val missingModules = mutableSetOf<String>()
+    val moshi = com.squareup.moshi.Moshi.Builder().build()
+    val type = Types.newParameterizedType(List::class.java, TestModuleEntry::class.java)
+    val adapter = moshi.adapter<List<TestModuleEntry>>(type)
 
-        val definedModules: Set<String> = settings.readLines()
-            .mapNotNull { line ->
-                val match = Regex("""include\(\s*":(\w+)"\s*\)""").find(line)
-                match?.groupValues?.get(1)
-            }.toSet()
+    val modules: List<TestModuleEntry> = adapter.fromJson(jsonFile.readText())
+        ?: throw GradleException("Failed to parse JSON input file: ${jsonFile.path}")
 
-        testFile.forEachLine { line ->
-            val parts = line.split("=")
-            if (parts.size < 2) return@forEachLine
+    val definedModules = settings.readLines()
+        .mapNotNull { line ->
+            Regex("""include\(\s*":(\w+)"\s*\)""").find(line)?.groupValues?.get(1)
+        }.toSet()
 
-            val module = parts[0].removePrefix(":").trim()
-            if (module == "app") return@forEachLine
+    val missingModules = mutableSetOf<String>()
+    val missingTests = mutableListOf<String>()
 
-            if (!definedModules.contains(module)) {
-                missingModules.add(module)
+    for (entry in modules) {
+        val module = entry.module
+        if (module != "app" && !definedModules.contains(module)) {
+            missingModules.add(module)
+        }
+
+        for (testEntry in entry.tests) {
+            val (classNameRaw, methodName) = if (testEntry.contains("#")) {
+                val parts = testEntry.split("#")
+                parts[0].trim() to parts[1].trim()
+            } else {
+                className.get() to testEntry.trim()
             }
 
-            val entries = parts[1]
-            entries.split(",").forEach { entry ->
-                val (classRaw, methodRaw) = entry.split("#")
-                val classNameClean = classRaw.trim()
-                val methodName = methodRaw.trim()
-                val relativePath = classNameClean.replace('.', '/') + ".kt"
+            val relativePath = classNameRaw.replace('.', '/') + ".kt"
 
-                var found = false
-                for (srcDir in srcDirs.get()) {
-                    val sourceFile = project.file("$srcDir/$relativePath")
-                    if (sourceFile.exists() &&
-                        sourceFile.readText().contains(Regex("""fun\s+$methodName\s*\("""))
-                    ) {
-                        logger.lifecycle("Found test $methodName in $classNameClean")
-                        found = true
-                        break
-                    }
-                }
-
-                if (!found) {
-                    missingTests.add("$classNameClean#$methodName")
+            var found = false
+            for (srcDir in srcDirs.get()) {
+                val sourceFile = project.file("$srcDir/$relativePath")
+                if (sourceFile.exists() &&
+                    sourceFile.readText().contains(Regex("""fun\s+$methodName\s*\("""))
+                ) {
+                    logger.lifecycle("Found test $methodName in $classNameRaw")
+                    found = true
+                    break
                 }
             }
-        }
 
-        val errors = mutableListOf<String>()
-        if (missingModules.isNotEmpty()) {
-            errors.add("Missing module definitions:\n" + missingModules.joinToString("\n") { ":$it" })
-        }
-        if (missingTests.isNotEmpty()) {
-            errors.add("Missing test definitions:\n" + missingTests.joinToString("\n"))
-        }
-
-        if (errors.isNotEmpty()) {
-            throw GradleException(errors.joinToString("\n\n"))
+            if (!found) {
+                missingTests.add("$classNameRaw#$methodName")
+            }
         }
     }
+
+    val errors = mutableListOf<String>()
+    if (missingModules.isNotEmpty()) {
+        errors.add("Missing module definitions:\n" + missingModules.joinToString("\n") { ":$it" })
+    }
+    if (missingTests.isNotEmpty()) {
+        errors.add("Missing test definitions:\n" + missingTests.joinToString("\n"))
+    }
+
+    if (errors.isNotEmpty()) {
+        throw GradleException(errors.joinToString("\n\n"))
+    }
+}
 }
