@@ -64,14 +64,9 @@ abstract class VerifyTestSet : DefaultTask() {
             }
 
             for (testEntry in entry.tests) {
-                 val (classNameRaw, methodName) = testEntry
-                    .split("#", limit = 2)
-                    .map(String::trim)
-                    .let { parts ->
-                        val clazz = if (parts.size == 2) "${className.get()}${parts[0]}" else className.get()
-                        val method = if (parts.size == 2) parts[1] else parts[0]
-                        clazz to method
-                    }
+                 val parts = testEntry.split("#", limit = 2).map(String::trim)
+                 val classNameRaw = "${className.get()}${parts[0]}"
+                 val methodName = parts[1] e
 
 
                 val relativePath = classNameRaw.replace('.', '/') + ".kt"
