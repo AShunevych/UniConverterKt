@@ -2,6 +2,7 @@ name: Find Latest Releases Branch
 
 on:
   workflow_dispatch:
+run-name: Release branch finder
 
 jobs:
   find_releases_branch:
